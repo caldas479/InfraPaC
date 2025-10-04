@@ -5,6 +5,7 @@ This project aims to automatically repair Infrastructure as Code (IaC) configura
 ## Overview
 
 InfraPaC is a framework that:
+
 1. Detects policy violations in IaC scripts using Policy as Code engines (OPA/Sentinel)
 2. Automatically generates fixes using LLMs
 3. Validates the repairs to ensure policy compliance
@@ -28,12 +29,14 @@ InfraPaC is a framework that:
 ## Installation
 
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/caldas479/InfraPaC.git
 cd InfraPaC
 ```
 
 2. Create and activate a Python virtual environment:
+
 ```bash
 python -m venv .venv
 source .venv/bin/activate  # Linux/macOS
@@ -42,11 +45,13 @@ source .venv/bin/activate  # Linux/macOS
 ```
 
 3. Install dependencies:
+
 ```bash
 pip install -e .
 ```
 
 4. Install OPA:
+
 ```bash
 curl -L -o opa https://openpolicyagent.org/downloads/v0.57.1/opa_linux_amd64_static
 chmod 755 opa
@@ -54,6 +59,7 @@ sudo mv opa /usr/local/bin
 ```
 
 5. Install and start Ollama (optional, for local LLMs):
+
 ```bash
 # Install Ollama
 curl https://ollama.ai/install.sh | sh
@@ -68,6 +74,7 @@ ollama pull codellama
 Basic example repairing an S3 bucket configuration to enable versioning:
 
 1. Create a policy file (e.g., `s3_versioning.rego`):
+
 ```rego
 package terraform
 
@@ -79,6 +86,7 @@ deny[msg] {
 ```
 
 2. Create a Terraform configuration (e.g., `s3_bucket.tf`):
+
 ```hcl
 resource "aws_s3_bucket" "example" {
     bucket = "my-example-bucket"
@@ -87,11 +95,13 @@ resource "aws_s3_bucket" "example" {
 ```
 
 3. Run the repair tool:
+
 ```bash
-python main.py --policy examples/s3_versioning.rego --iac examples/s3_bucket.tf --verbose
+uv run python main.py --policy examples/s3_versioning.rego --iac examples/s3_bucket.tf --verbose
 ```
 
 The tool will:
+
 - Detect the missing versioning configuration
 - Generate a fix using the LLM
 - Validate the fix against the policy
@@ -100,11 +110,13 @@ The tool will:
 ## Configuration
 
 The framework can be configured via:
+
 - Command line arguments
 - Configuration file (`src/config/default_config.yaml`)
 - Environment variables
 
 Key configuration options:
+
 - LLM provider and settings
 - Policy engine settings
 - Maximum repair iterations
