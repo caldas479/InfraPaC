@@ -1,0 +1,20 @@
+[project]
+name = "infrapac"
+version = "0.1.0"
+description = "Automated Infrastructure as Code Repair via Policy as Code"
+readme = "README.md"
+requires-python = ">=3.10" 
+dependencies = [
+    "black>=25.9.0",
+    "isort>=6.1.0",
+    "langchain>=0.3.27",
+    "langchain-community>=0.3.30",
+    "langchain-openai>=0.3.34",
+    "pydantic>=2.11.9",
+    "pydantic-settings>=2.11.0",
+]
+
+[dependency-groups]
+dev = [
+    "pre-commit>=4.3.0",
+]
