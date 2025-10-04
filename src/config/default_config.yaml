@@ -1,0 +1,47 @@
+# LLM Configuration
+llm:
+  provider: "ollama" # ollama, openai, huggingface, anthropic
+  model: "codellama" # or any other model you have in Ollama
+  temperature: 0.2
+  max_tokens: 2048
+  timeout: 60
+  base_url: "http://localhost:11434" # Default Ollama URL
+
+# Repair Configuration
+repair:
+  max_iterations: 3
+  validation_timeout: 30
+  request_context: false # Whether to ask developer for context
+  context_prompt: "Please provide additional context about this infrastructure:"
+
+# OPA Configuration
+opa:
+  binary_path: "/usr/local/bin/opa"
+  timeout: 30
+
+# Sentinel Configuration
+sentinel:
+  binary_path: "/usr/local/bin/sentinel"
+  timeout: 30
+
+# Dataset Configuration
+dataset:
+  base_path: "data/datasets/spec_bug_fix"
+  cache_enabled: true
+  cache_dir: ".cache/datasets"
+
+# Experiment Configuration
+experiment:
+  output_dir: "experiments/results"
+  metrics:
+    - "fix_rate"
+    - "retry_rate"
+    - "avg_iterations"
+    - "time_to_fix"
+  save_intermediate: true
+
+# Logging Configuration
+logging:
+  level: "INFO"
+  file: "logs/iac_repair.log"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
