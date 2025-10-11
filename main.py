@@ -73,54 +73,66 @@ def main() -> int:
     """Main execution function."""
     # Parse arguments
     args = parse_arguments()
-    
+
     # Setup logging
     log_level = "DEBUG" if args.verbose else "INFO"
     logger = setup_logging(level=log_level)
-    
+
     logger.info("Starting IaC Automated Repair Framework")
-    
+
     try:
         # Load environment variables
         load_environment()
-        
+
         # Load configuration
         config = load_config(args.config)
         logger.info(f"Loaded configuration from {args.config}")
-        
+
         # Override config with CLI arguments
         if args.max_iterations:
             config["repair"]["max_iterations"] = args.max_iterations
-        
+
         # Initialize policy engine
         logger.info(f"Initializing {args.policy_engine.upper()} engine")
         if args.policy_engine == "opa":
             pac_engine = OPAEngine(config=config.get("opa", {}))
         else:
             pac_engine = SentinelEngine(config=config.get("sentinel", {}))
-        
+
         # Load policy and IaC script
         policy_path = Path(args.policy) if args.policy else None
         iac_path = Path(args.iac) if args.iac else None
-        
+
         if not policy_path or not iac_path:
             logger.error("Both --policy and --iac arguments are required")
             return 1
-        
+
         if not policy_path.exists():
             logger.error(f"Policy file not found: {policy_path}")
             return 1
-        
+
         if not iac_path.exists():
             logger.error(f"IaC script not found: {iac_path}")
             return 1
-        
+
         logger.info(f"Loading policy from {policy_path}")
         policy_content = policy_path.read_text()
-        
+
         logger.info(f"Loading IaC script from {iac_path}")
         iac_content = iac_path.read_text()
-        
+
+        # Detect violations
+        logger.info("Detecting policy violations...")
+        violations = pac_engine.evaluate(policy_content, iac_content)
+
+        if not violations:
+            logger.info("✓ No policy violations detected. IaC script is compliant.")
+            return 0
+
+        logger.warning(f"✗ Found {len(violations)} policy violation(s)")
+        for idx, violation in enumerate(violations, 1):
+            logger.warning(f"  {idx}. {violation.get('message', 'Unknown violation')}")
+
         # Initialize repair agent
         logger.info("Initializing repair agent")
         repair_agent = RepairAgent(
@@ -128,19 +140,7 @@ def main() -> int:
             config=config.get("repair", {}),
             llm_config=config.get("llm", {}),
         )
-        
-        # Detect violations
-        logger.info("Detecting policy violations...")
-        violations = pac_engine.evaluate(policy_content, iac_content)
-        
-        if not violations:
-            logger.info("✓ No policy violations detected. IaC script is compliant.")
-            return 0
-        
-        logger.warning(f"✗ Found {len(violations)} policy violation(s)")
-        for idx, violation in enumerate(violations, 1):
-            logger.warning(f"  {idx}. {violation.get('message', 'Unknown violation')}")
-        
+
         # Repair workflow
         logger.info("Starting repair workflow...")
         result = repair_agent.repair(
@@ -148,11 +148,13 @@ def main() -> int:
             iac_script=iac_content,
             violations=violations,
         )
-        
+
         # Output results
         if result["success"]:
-            logger.info(f"✓ Successfully repaired IaC script in {result['iterations']} iteration(s)")
-            
+            logger.info(
+                f"✓ Successfully repaired IaC script in {result['iterations']} iteration(s)"
+            )
+
             # Save repaired script
             if args.output:
                 output_path = Path(args.output)
@@ -163,13 +165,15 @@ def main() -> int:
                 logger.info("-" * 80)
                 print(result["repaired_script"])
                 logger.info("-" * 80)
-            
+
             return 0
         else:
-            logger.error(f"✗ Failed to repair IaC script after {result['iterations']} iteration(s)")
+            logger.error(
+                f"✗ Failed to repair IaC script after {result['iterations']} iteration(s)"
+            )
             logger.error(f"Reason: {result.get('reason', 'Unknown')}")
             return 1
-    
+
     except KeyboardInterrupt:
         logger.warning("Operation cancelled by user")
         return 130
