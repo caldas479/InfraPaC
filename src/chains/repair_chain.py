@@ -1,4 +1,3 @@
-
 # ============================================================================
 
 import logging
@@ -14,22 +13,22 @@ class RepairChain:
     """
     LangChain-based repair chain for IaC scripts.
     """
-    
+
     def __init__(self, llm_config: Dict[str, Any]) -> None:
         """
         Initialize repair chain.
-        
+
         Args:
             llm_config: LLM configuration dictionary
         """
         self.llm_config = llm_config
         self.prompt_builder = PromptBuilder(llm_config)
         self.llm = self._initialize_llm()
-    
+
     def _initialize_llm(self) -> Any:
         """Initialize the LLM based on configuration."""
         provider = self.llm_config.get("provider", "ollama")
-        
+
         if provider == "ollama":
             return ChatOllama(
                 model=self.llm_config.get("model", "codellama"),
@@ -47,7 +46,7 @@ class RepairChain:
         # Add other providers (HuggingFace, Anthropic) as needed
         else:
             raise ValueError(f"Unsupported LLM provider: {provider}")
-    
+
     def repair(
         self,
         policy: str,
@@ -58,14 +57,14 @@ class RepairChain:
     ) -> str:
         """
         Generate a repaired IaC script.
-        
+
         Args:
             policy: Policy code
             iac_script: Current IaC script
             violations: List of violations
             iteration: Current iteration number
             previous_attempt: Previous repair attempt
-        
+
         Returns:
             Repaired IaC script
         """
@@ -77,35 +76,37 @@ class RepairChain:
             iteration=iteration,
             previous_attempt=previous_attempt,
         )
-        
+
         # Log the prompt for debugging
         logger = logging.getLogger(__name__)
         logger.debug(f"Prompt:\n{prompt}")
-        
+
         # Create chain and execute
         response = self.llm.invoke(prompt)
-        
+
         # Log raw response
-        response_text = response.content if hasattr(response, 'content') else str(response)
+        response_text = (
+            response.content if hasattr(response, "content") else str(response)
+        )
         logger.debug(f"Raw response:\n{response_text}")
-        
+
         # Extract Terraform code from response
         repaired_script = self._extract_code(response)
-        
+
         return repaired_script
-    
+
     def _extract_code(self, response: Any) -> str:
         """
         Extract Terraform code from LLM response.
-        
+
         Args:
             response: LLM response (can be string or AIMessage)
-        
+
         Returns:
             Extracted Terraform code
         """
         # Handle AIMessage from ChatOllama
-        if hasattr(response, 'content'):
+        if hasattr(response, "content"):
             response_text = response.content
         else:
             response_text = str(response)
@@ -115,19 +116,18 @@ class RepairChain:
             start_marker = response_text.find("```")
             if start_marker == -1:
                 return response_text.strip()
-            
+
             # Skip the opening ``` and any language identifier
             start = response_text.find("\n", start_marker) + 1
             if start == 0:  # No newline found
-                return response_text[start_marker+3:].strip()
-            
+                return response_text[start_marker + 3 :].strip()
+
             # Find the closing ```
             end = response_text.find("```", start)
             if end == -1:
                 return response_text[start:].strip()
-            
+
             return response_text[start:end].strip()
-        
+
         # Otherwise return the raw response (assume it's just the code)
         return response_text.strip()
-        

@@ -13,10 +13,10 @@ from ..pac_engines.base_engine import BasePaCEngine
 class RepairAgent:
     """
     Agent that orchestrates the IaC repair workflow.
-    
+
     Coordinates between LLM-based repair and policy validation.
     """
-    
+
     def __init__(
         self,
         pac_engine: BasePaCEngine,
@@ -25,7 +25,7 @@ class RepairAgent:
     ) -> None:
         """
         Initialize repair agent.
-        
+
         Args:
             pac_engine: Policy as Code engine
             config: Repair configuration
@@ -36,7 +36,7 @@ class RepairAgent:
         self.max_iterations = config.get("max_iterations", 3)
         self.repair_chain = RepairChain(llm_config)
         self.logger = logging.getLogger(__name__)
-    
+
     def repair(
         self,
         policy: str,
@@ -45,22 +45,22 @@ class RepairAgent:
     ) -> Dict[str, Any]:
         """
         Execute repair workflow.
-        
+
         Args:
             policy: Policy code
             iac_script: Original IaC script
             violations: Initial violations
-        
+
         Returns:
             RepairResult dictionary
         """
         current_script = iac_script
         current_violations = violations
         previous_attempt = None
-        
+
         for iteration in range(1, self.max_iterations + 1):
             self.logger.info(f"Repair iteration {iteration}/{self.max_iterations}")
-            
+
             # Generate repair
             self.logger.debug("Generating repair with LLM...")
             repaired_script = self.repair_chain.repair(
@@ -70,11 +70,11 @@ class RepairAgent:
                 iteration=iteration,
                 previous_attempt=previous_attempt,
             )
-            
+
             # Validate repair
             self.logger.debug("Validating repaired script...")
             new_violations = self.pac_engine.evaluate(policy, repaired_script)
-            
+
             if not new_violations:
                 # Success!
                 self.logger.info(f"✓ Repair successful in {iteration} iteration(s)")
@@ -84,7 +84,7 @@ class RepairAgent:
                     "repaired_script": repaired_script,
                     "remaining_violations": [],
                 }
-            
+
             # Check if we made progress
             if len(new_violations) < len(current_violations):
                 self.logger.info(
@@ -94,12 +94,12 @@ class RepairAgent:
                 self.logger.warning(
                     f"No progress: still {len(new_violations)} violation(s)"
                 )
-            
+
             # Update for next iteration
             current_script = repaired_script
             current_violations = new_violations
             previous_attempt = repaired_script
-        
+
         # Failed to fix all violations
         self.logger.warning(
             f"✗ Failed to fix all violations after {self.max_iterations} iterations"
