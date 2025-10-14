@@ -108,7 +108,7 @@ def main():
     # Validate each entry
     results = []
     for i, entry in enumerate(dataset['entries'], 1):
-        print(f"[{i}/{len(dataset['entries'])}] Validating {entry['id']} ({entry['category']}/{entry['subcategory']})...")
+        print(f"[{i}/{dataset['total_entries']}] Validating {entry['id']} ({entry['category']}/{entry['subcategory']})...")
         
         is_valid, errors = validate_entry(entry, base_path, opa_engine)
         
