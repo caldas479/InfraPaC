@@ -75,27 +75,27 @@ class OPAEngine(BasePaCEngine):
             # Execute OPA eval
             try:
                 logger.debug(f"OPA input data: {input_file.read_text()}")
-                result = subprocess.run(
-                    [
-                        self.binary_path,
-                        "eval",
-                        "-d",
-                        str(policy_file),
-                        "-i",
-                        str(input_file),
-                        "--format",
-                        "json",
-                        "data.terraform.deny",  # Standard deny rule query
-                    ],
-                    capture_output=True,
-                    text=True,
-                    timeout=self.timeout,
-                )
+                cmd = [
+                    self.binary_path,
+                    "eval",
+                    "-d",
+                    str(policy_file),
+                    "-i",
+                    str(input_file),
+                    "--format",
+                    "json",
+                    "data.terraform.deny",
+                ]
+                logger.debug(f"OPA command: {' '.join(cmd)}")
 
+                result = subprocess.run(
+                    cmd, capture_output=True, text=True, timeout=self.timeout
+                )
                 if result.returncode != 0:
                     logger.error(f"OPA evaluation failed: {result.stderr}")
                     return []
 
+                logger.debug(f"OPA stdout: {result.stdout}")
                 output = json.loads(result.stdout)
                 return self._parse_violations(output)
 
