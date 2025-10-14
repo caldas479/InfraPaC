@@ -114,6 +114,52 @@ The tool will:
 - Validate the fix against the policy
 - Output the repaired configuration
 
+## Dataset Management
+
+### Validate Dataset
+
+Validate all entries in the SpecBugFix dataset:
+
+```bash
+uv run python validate_dataset.py
+```
+
+This checks that:
+- All required files exist (policy.rego, buggy.tf, patch.tf)
+- Buggy code triggers violations
+- Policies use OPA v1.9.0+ syntax
+- All files are syntactically valid
+
+### Generate Patches
+
+Generate patches for dataset entries using the repair framework:
+
+```bash
+# Generate patches for all entries
+uv run python generate_patches.py
+
+# Generate patch for a specific entry
+uv run python generate_patches.py --entry-id opa_storage_001
+
+# Generate patches for a specific category (iam, storage, compute, etc.)
+uv run python generate_patches.py --category storage
+
+# Skip entries that already have patches
+uv run python generate_patches.py --skip-existing
+
+# Enable verbose logging
+uv run python generate_patches.py --verbose
+
+# Combine options
+uv run python generate_patches.py --category iam --verbose
+```
+
+The patch generator:
+1. Loads each dataset entry
+2. Uses the repair agent to fix the buggy code
+3. Validates the fix against the policy
+4. Saves the repaired code to `patch.tf`
+
 ## Configuration
 
 The framework can be configured via:

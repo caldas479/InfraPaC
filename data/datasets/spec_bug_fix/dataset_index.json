@@ -1,0 +1,103 @@
+{
+  "dataset_name": "SpecBugFix",
+  "version": "1.0.0",
+  "description": "Dataset for evaluating automated IaC repair using Policy as Code",
+  "total_entries": 11,
+  "categories": {
+    "iam": 2,
+    "networking": 2,
+    "storage": 3,
+    "compute": 2,
+    "database": 2
+  },
+  "entries": [
+    {
+      "id": "opa_iam_001",
+      "category": "iam",
+      "subcategory": "overly_permissive_s3",
+      "violation": "IAM policy grants s3:* permissions",
+      "severity": "high",
+      "path": "opa/iam/overly_permissive_s3"
+    },
+    {
+      "id": "opa_iam_002",
+      "category": "iam",
+      "subcategory": "wildcard_actions",
+      "violation": "IAM policy uses wildcard actions (*) on all resources",
+      "severity": "critical",
+      "path": "opa/iam/wildcard_actions"
+    },
+    {
+      "id": "opa_networking_001",
+      "category": "networking",
+      "subcategory": "open_security_group",
+      "violation": "Security group allows 0.0.0.0/0 access on sensitive port",
+      "severity": "critical",
+      "path": "opa/networking/open_security_group"
+    },
+    {
+      "id": "opa_networking_002",
+      "category": "networking",
+      "subcategory": "public_subnet",
+      "violation": "Non-public subnet assigns public IPs automatically",
+      "severity": "medium",
+      "path": "opa/networking/public_subnet"
+    },
+    {
+      "id": "opa_storage_001",
+      "category": "storage",
+      "subcategory": "s3_encryption",
+      "violation": "S3 bucket missing server-side encryption",
+      "severity": "high",
+      "path": "opa/storage/s3_encryption"
+    },
+    {
+      "id": "opa_storage_002",
+      "category": "storage",
+      "subcategory": "s3_versioning",
+      "violation": "S3 bucket missing versioning configuration",
+      "severity": "medium",
+      "path": "opa/storage/s3_versioning"
+    },
+    {
+      "id": "opa_storage_003",
+      "category": "storage",
+      "subcategory": "s3_public_access",
+      "violation": "S3 bucket has public-read ACL",
+      "severity": "critical",
+      "path": "opa/storage/s3_public_access"
+    },
+    {
+      "id": "opa_compute_001",
+      "category": "compute",
+      "subcategory": "ec2_public_ip",
+      "violation": "EC2 instance has public IP assigned",
+      "severity": "high",
+      "path": "opa/compute/ec2_public_ip"
+    },
+    {
+      "id": "opa_compute_002",
+      "category": "compute",
+      "subcategory": "unencrypted_ebs",
+      "violation": "EBS volume is not encrypted",
+      "severity": "high",
+      "path": "opa/compute/unencrypted_ebs"
+    },
+    {
+      "id": "opa_database_001",
+      "category": "database",
+      "subcategory": "rds_public_access",
+      "violation": "RDS instance is publicly accessible",
+      "severity": "critical",
+      "path": "opa/database/rds_public_access"
+    },
+    {
+      "id": "opa_database_002",
+      "category": "database",
+      "subcategory": "rds_encryption",
+      "violation": "RDS instance storage is not encrypted",
+      "severity": "high",
+      "path": "opa/database/rds_encryption"
+    }
+  ]
+}
