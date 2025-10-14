@@ -52,11 +52,18 @@ pip install -e .
 
 4. Install OPA:
 
+**macOS (Homebrew - Recommended):**
+```bash
+brew install opa
+```
+
+**Linux:**
 ```bash
 curl -L -o opa https://openpolicyagent.org/downloads/v0.57.1/opa_linux_amd64_static
 chmod 755 opa
 sudo mv opa /usr/local/bin
 ```
+
 
 5. Install and start Ollama (optional, for local LLMs):
 
