@@ -16,7 +16,7 @@ repair:
 
 # OPA Configuration
 opa:
-  binary_path: "/usr/local/bin/opa"
+  binary_path: "opa"
   timeout: 30
 
 # Sentinel Configuration
