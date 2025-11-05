@@ -8,7 +8,7 @@ import tempfile
 from pathlib import Path
 from typing import Any, Dict, List
 
-from src.datasets.models import PolicyViolation
+from src.models import PolicyViolation
 
 from .base_engine import BasePaCEngine
 

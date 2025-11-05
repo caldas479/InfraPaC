@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 from typing import Any, Dict, List
 
-from src.datasets.models import PolicyViolation
+from src.models import PolicyViolation
 
 
 class BasePaCEngine(ABC):

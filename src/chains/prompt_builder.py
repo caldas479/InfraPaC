@@ -5,7 +5,7 @@
 import logging
 from typing import Any, Dict, List
 
-from ..datasets.models import PolicyViolation
+from src.models import PolicyViolation
 
 logger = logging.getLogger(__name__)
 
