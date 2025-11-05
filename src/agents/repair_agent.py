@@ -42,7 +42,7 @@ class RepairAgent:
         policy: str,
         iac_script: str,
         violations: List[PolicyViolation],
-    ) -> Dict[str, Any]:
+    ) -> RepairResult:
         """
         Execute repair workflow.
 
@@ -52,7 +52,7 @@ class RepairAgent:
             violations: Initial violations
 
         Returns:
-            RepairResult dictionary
+            RepairResult object with repair script and success status
         """
         current_script = iac_script
         current_violations = violations
@@ -78,12 +78,12 @@ class RepairAgent:
             if not new_violations:
                 # Success!
                 self.logger.info(f"✓ Repair successful in {iteration} iteration(s)")
-                return {
-                    "success": True,
-                    "iterations": iteration,
-                    "repaired_script": repaired_script,
-                    "remaining_violations": [],
-                }
+                return RepairResult(
+                    success=True,
+                    iterations=iteration,
+                    repaired_script=repaired_script,
+                    remaining_violations=[],
+                )
 
             # Check if we made progress
             if len(new_violations) < len(current_violations):
@@ -104,9 +104,10 @@ class RepairAgent:
         self.logger.warning(
             f"✗ Failed to fix all violations after {self.max_iterations} iterations"
         )
-        return {
-            "success": False,
-            "iterations": self.max_iterations,
-            "repaired_script": current_script,
-            "remaining_violations": current_violations,
-        }
+        return RepairResult(
+            success=False,
+            iterations=self.max_iterations,
+            repaired_script=current_script,
+            remaining_violations=current_violations,
+            reason=f"Failed to fix {len(current_violations)} violation(s) after {self.max_iterations} iterations",
+        )

@@ -150,28 +150,28 @@ def main() -> int:
         )
 
         # Output results
-        if result["success"]:
+        if result.success:
             logger.info(
-                f"✓ Successfully repaired IaC script in {result['iterations']} iteration(s)"
+                f"✓ Successfully repaired IaC script in {result.iterations} iteration(s)"
             )
 
             # Save repaired script
             if args.output:
                 output_path = Path(args.output)
-                output_path.write_text(result["repaired_script"])
+                output_path.write_text(result.repaired_script)
                 logger.info(f"Saved repaired script to {output_path}")
             else:
                 logger.info("Repaired script:")
                 logger.info("-" * 80)
-                print(result["repaired_script"])
+                print(result.repaired_script)
                 logger.info("-" * 80)
 
             return 0
         else:
             logger.error(
-                f"✗ Failed to repair IaC script after {result['iterations']} iteration(s)"
+                f"✗ Failed to repair IaC script after {result.iterations} iteration(s)"
             )
-            logger.error(f"Reason: {result.get('reason', 'Unknown')}")
+            logger.error(f"Reason: {result.reason or 'Unknown'}")
             return 1
 
     except KeyboardInterrupt:

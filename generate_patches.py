@@ -44,9 +44,9 @@ def generate_patch(
         violations=opa_engine.evaluate(policy, buggy_tf),
     )
 
-    if result["success"]:
-        repaired_code = result["repaired_script"]
-        iterations = result["iterations"]
+    if result.success:
+        repaired_code = result.repaired_script
+        iterations = result.iterations
 
         print(f"  ✅ Repair successful after {iterations} iteration(s)")
         print(f"  📄 Repaired code ({len(repaired_code)} chars)")
@@ -77,7 +77,7 @@ def generate_patch(
                 print(f"     - {v.message}")
             return None
     else:
-        error = result.get("error", "Unknown error")
+        error = result.reason or "Unknown error"
         print(f"  ❌ Repair failed: {error}")
         return None
 
