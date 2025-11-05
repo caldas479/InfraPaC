@@ -8,6 +8,8 @@ import tempfile
 from pathlib import Path
 from typing import Any, Dict, List
 
+from src.datasets.models import PolicyViolation
+
 from .base_engine import BasePaCEngine
 
 logger = logging.getLogger(__name__)
@@ -47,7 +49,7 @@ class SentinelEngine(BasePaCEngine):
             logger.error(f"Error verifying Sentinel installation: {e}")
             raise
 
-    def evaluate(self, policy: str, iac_script: str) -> List[Dict[str, Any]]:
+    def evaluate(self, policy: str, iac_script: str) -> List[PolicyViolation]:
         """
         Evaluate IaC script against Sentinel policy.
 
@@ -56,7 +58,7 @@ class SentinelEngine(BasePaCEngine):
             iac_script: Terraform script content
 
         Returns:
-            List of violations
+            List of PolicyViolation objects
         """
         with tempfile.TemporaryDirectory() as tmp_dir:
             tmp_path = Path(tmp_dir)
@@ -146,7 +148,7 @@ class SentinelEngine(BasePaCEngine):
 
     def _parse_violations(
         self, sentinel_output: Dict[str, Any]
-    ) -> List[Dict[str, Any]]:
+    ) -> List[PolicyViolation]:
         """
         Parse Sentinel output into violation list.
 
@@ -154,7 +156,7 @@ class SentinelEngine(BasePaCEngine):
             sentinel_output: Raw Sentinel JSON output
 
         Returns:
-            Structured list of violations
+            List of PolicyViolation objects
         """
         violations = []
 
@@ -164,11 +166,15 @@ class SentinelEngine(BasePaCEngine):
             for entry in trace:
                 if entry.get("type") == "error":
                     violations.append(
-                        {
-                            "message": entry.get("message", "Policy violation"),
-                            "severity": "error",
-                            "details": entry,
-                        }
+                        PolicyViolation(
+                            message=entry.get("message", "Policy violation"),
+                            severity="error",
+                            details=entry,
+                        )
                     )
 
-        return violations if violations else [{"message": "Sentinel policy failed"}]
+        return (
+            violations
+            if violations
+            else [PolicyViolation(message="Sentinel policy failed", severity="error")]
+        )

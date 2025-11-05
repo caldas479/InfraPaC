@@ -1,11 +1,12 @@
 # ============================================================================
 
 import logging
-from typing import Any, Dict, Optional
+from typing import Any, Dict, List, Optional
 
 from langchain_ollama import ChatOllama
 from langchain_openai import ChatOpenAI
 
+from ..datasets.models import PolicyViolation
 from .prompt_builder import PromptBuilder
 
 
@@ -51,7 +52,7 @@ class RepairChain:
         self,
         policy: str,
         iac_script: str,
-        violations: list,
+        violations: List[PolicyViolation],
         iteration: int = 1,
         previous_attempt: Optional[str] = None,
     ) -> str:
@@ -61,7 +62,7 @@ class RepairChain:
         Args:
             policy: Policy code
             iac_script: Current IaC script
-            violations: List of violations
+            violations: List of PolicyViolation objects
             iteration: Current iteration number
             previous_attempt: Previous repair attempt
 

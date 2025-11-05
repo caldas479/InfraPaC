@@ -77,7 +77,7 @@ def generate_patch(
             print(f"  ❌ Validation failed - repaired code still has violations")
             violations = opa_engine.evaluate(policy, repaired_code)
             for v in violations:
-                print(f"     - {v.get('message', 'Unknown violation')}")
+                print(f"     - {v.message}")
             return None
     else:
         error = result.get('error', 'Unknown error')

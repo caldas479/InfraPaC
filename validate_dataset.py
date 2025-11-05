@@ -53,7 +53,7 @@ def validate_entry(entry: Dict, base_path: Path, opa_engine: OPAEngine) -> Tuple
         if not violations:
             errors.append("Buggy code does NOT trigger any violations (expected at least one)")
         else:
-            print(f"  ✓ Detected {len(violations)} violation(s): {violations[0].get('message', 'Unknown')}")
+            print(f"  ✓ Detected {len(violations)} violation(s): {violations[0].message}")
     except Exception as e:
         errors.append(f"OPA evaluation failed: {e}")
     

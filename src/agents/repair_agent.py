@@ -6,7 +6,7 @@ import logging
 from typing import Any, Dict, List
 
 from ..chains.repair_chain import RepairChain
-from ..datasets.models import RepairResult
+from ..datasets.models import PolicyViolation, RepairResult
 from ..pac_engines.base_engine import BasePaCEngine
 
 
@@ -41,7 +41,7 @@ class RepairAgent:
         self,
         policy: str,
         iac_script: str,
-        violations: List[Dict[str, Any]],
+        violations: List[PolicyViolation],
     ) -> Dict[str, Any]:
         """
         Execute repair workflow.

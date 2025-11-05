@@ -9,6 +9,8 @@ import tempfile
 from pathlib import Path
 from typing import Any, Dict, List
 
+from src.datasets.models import PolicyViolation
+
 from .base_engine import BasePaCEngine
 
 logger = logging.getLogger(__name__)
@@ -48,7 +50,7 @@ class OPAEngine(BasePaCEngine):
             logger.error(f"Error verifying OPA installation: {e}")
             raise
 
-    def evaluate(self, policy: str, iac_script: str) -> List[Dict[str, Any]]:
+    def evaluate(self, policy: str, iac_script: str) -> List[PolicyViolation]:
         """
         Evaluate IaC script against Rego policy.
 
@@ -57,7 +59,7 @@ class OPAEngine(BasePaCEngine):
             iac_script: Terraform/IaC script content
 
         Returns:
-            List of violations
+            List of PolicyViolation objects
         """
         with tempfile.TemporaryDirectory() as tmp_dir:
             tmp_path = Path(tmp_dir)
@@ -181,7 +183,7 @@ class OPAEngine(BasePaCEngine):
             logger.error(f"Error parsing Terraform HCL: {e}")
             return {}
 
-    def _parse_violations(self, opa_output: Dict[str, Any]) -> List[Dict[str, Any]]:
+    def _parse_violations(self, opa_output: Dict[str, Any]) -> List[PolicyViolation]:
         """
         Parse OPA output into violation list.
 
@@ -189,7 +191,7 @@ class OPAEngine(BasePaCEngine):
             opa_output: Raw OPA JSON output
 
         Returns:
-            Structured list of violations
+            List of PolicyViolation objects
         """
         violations = []
 
@@ -209,23 +211,25 @@ class OPAEngine(BasePaCEngine):
                                 elif isinstance(value, dict):
                                     violations.append(self._format_violation(value))
                                 elif isinstance(value, str):
-                                    violations.append({"message": value})
+                                    violations.append(
+                                        PolicyViolation(message=value, severity="error")
+                                    )
 
         return violations
 
-    def _format_violation(self, violation_data: Any) -> Dict[str, Any]:
-        """Format a single violation into standard structure."""
+    def _format_violation(self, violation_data: Any) -> PolicyViolation:
+        """Format a single violation into PolicyViolation object."""
         if isinstance(violation_data, str):
-            return {"message": violation_data, "severity": "error"}
+            return PolicyViolation(message=violation_data, severity="error")
         elif isinstance(violation_data, dict):
-            return {
-                "message": violation_data.get(
+            return PolicyViolation(
+                message=violation_data.get(
                     "msg", violation_data.get("message", "Unknown violation")
                 ),
-                "severity": violation_data.get("severity", "error"),
-                "line": violation_data.get("line"),
-                "resource": violation_data.get("resource"),
-                "details": violation_data,
-            }
+                severity=violation_data.get("severity", "error"),
+                line=violation_data.get("line"),
+                resource=violation_data.get("resource"),
+                details=violation_data,
+            )
         else:
-            return {"message": str(violation_data), "severity": "error"}
+            return PolicyViolation(message=str(violation_data), severity="error")

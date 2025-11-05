@@ -1,6 +1,8 @@
 from abc import ABC, abstractmethod
 from typing import Any, Dict, List
 
+from src.datasets.models import PolicyViolation
+
 
 class BasePaCEngine(ABC):
     """
@@ -21,7 +23,7 @@ class BasePaCEngine(ABC):
         self.timeout = config.get("timeout", 30)
 
     @abstractmethod
-    def evaluate(self, policy: str, iac_script: str) -> List[Dict[str, Any]]:
+    def evaluate(self, policy: str, iac_script: str) -> List[PolicyViolation]:
         """
         Evaluate IaC script against policy and return violations.
 
@@ -30,14 +32,7 @@ class BasePaCEngine(ABC):
             iac_script: Infrastructure as Code script (e.g., Terraform)
 
         Returns:
-            List of violation dictionaries with structure:
-            {
-                "message": str,
-                "severity": str,
-                "line": int (optional),
-                "resource": str (optional),
-                "details": Dict[str, Any] (optional)
-            }
+            List of PolicyViolation objects
         """
         pass
 

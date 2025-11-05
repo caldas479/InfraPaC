@@ -5,6 +5,8 @@
 import logging
 from typing import Any, Dict, List
 
+from ..datasets.models import PolicyViolation
+
 logger = logging.getLogger(__name__)
 
 
@@ -26,7 +28,7 @@ class PromptBuilder:
         self,
         policy: str,
         iac_script: str,
-        violations: List[Dict[str, Any]],
+        violations: List[PolicyViolation],
         iteration: int = 1,
         previous_attempt: str = None,
     ) -> str:
@@ -36,7 +38,7 @@ class PromptBuilder:
         Args:
             policy: Policy code (Rego/Sentinel)
             iac_script: Current IaC script
-            violations: List of violations
+            violations: List of PolicyViolation objects
             iteration: Current iteration number
             previous_attempt: Previous repair attempt (if any)
 
@@ -65,13 +67,13 @@ class PromptBuilder:
         prompt_parts.append("## Violations Detected")
         prompt_parts.append(f"The current script has {len(violations)} violation(s):")
         for idx, violation in enumerate(violations, 1):
-            msg = violation.get("message", "Unknown violation")
-            severity = violation.get("severity", "error")
+            msg = violation.message
+            severity = violation.severity
             prompt_parts.append(f"{idx}. [{severity.upper()}] {msg}")
-            if "resource" in violation:
-                prompt_parts.append(f"   Resource: {violation['resource']}")
-            if "line" in violation and violation["line"]:
-                prompt_parts.append(f"   Line: {violation['line']}")
+            if violation.resource:
+                prompt_parts.append(f"   Resource: {violation.resource}")
+            if violation.line:
+                prompt_parts.append(f"   Line: {violation.line}")
         prompt_parts.append("")
 
         # Current script

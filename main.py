@@ -131,7 +131,7 @@ def main() -> int:
 
         logger.warning(f"✗ Found {len(violations)} policy violation(s)")
         for idx, violation in enumerate(violations, 1):
-            logger.warning(f"  {idx}. {violation.get('message', 'Unknown violation')}")
+            logger.warning(f"  {idx}. {violation.message}")
 
         # Initialize repair agent
         logger.info("Initializing repair agent")
