@@ -208,12 +208,8 @@ class OPAEngine(BasePaCEngine):
                                 if isinstance(value, list):
                                     for v in value:
                                         violations.append(self._format_violation(v))
-                                elif isinstance(value, dict):
+                                else:
                                     violations.append(self._format_violation(value))
-                                elif isinstance(value, str):
-                                    violations.append(
-                                        PolicyViolation(message=value, severity="error")
-                                    )
 
         return violations
 
