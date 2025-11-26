@@ -159,7 +159,7 @@ def main():
             results.append({"id": entry["id"], "status": "error", "reason": str(e)})
 
     # Results
-    logger.info("\n" + "=" * 70)
+    logger.info("=" * 70)
     logger.info("Results")
     logger.info("=" * 70)
 
@@ -168,26 +168,26 @@ def main():
     errors = [r for r in results if r["status"] == "error"]
     skipped = [r for r in results if r["status"] == "skipped"]
 
-    logger.info(f"\nTotal processed: {len(results)}")
-    logger.info(f"  Successful: {len(successful)}")
-    logger.info(f"  Failed: {len(failed)}")
-    logger.info(f"  Errors: {len(errors)}")
-    logger.info(f"  Skipped: {len(skipped)}")
+    logger.info(f"Total processed: {len(results)}")
+    logger.info(f"Successful: {len(successful)}")
+    logger.info(f"Failed: {len(failed)}")
+    logger.info(f"Errors: {len(errors)}")
+    logger.info(f"Skipped: {len(skipped)}")
 
     if successful:
         success_rate = len(successful) / len(results) * 100
-        logger.info(f"\n  Success rate: {success_rate:.1f}%")
+        logger.info(f"Success rate: {success_rate:.1f}%")
 
     # Show details
     if failed:
-        logger.info("\n  Failed entries:")
+        logger.info("Failed entries:")
         for r in failed:
-            logger.info(f"  - {r['id']}: {r.get('reason', 'Unknown')}")
+            logger.info(f"{r['id']}: {r.get('reason', 'Unknown')}")
 
     if errors:
-        logger.info("\n  Error entries:")
+        logger.info("Error entries:")
         for r in errors:
-            logger.info(f"  - {r['id']}: {r.get('reason', 'Unknown')}")
+            logger.info(f"{r['id']}: {r.get('reason', 'Unknown')}")
 
     # Exit code
     if failed or errors:
