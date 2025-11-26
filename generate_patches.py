@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Generate patches for SpecBugFix dataset entries.
 
@@ -34,10 +33,7 @@ def generate_patch(
     policy = policy_file.read_text()
     buggy_tf = buggy_file.read_text()
 
-    print(f"  📝 Original code ({len(buggy_tf)} chars)")
-
     # Attempt repair
-    print(f"  🔧 Attempting repair...")
     result = repair_agent.repair(
         iac_script=buggy_tf,
         policy=policy,
@@ -46,39 +42,11 @@ def generate_patch(
 
     if result.success:
         repaired_code = result.repaired_script
-        iterations = result.iterations
+        patch_file.write_text(repaired_code)
+        return repaired_code
 
-        print(f"  ✅ Repair successful after {iterations} iteration(s)")
-        print(f"  📄 Repaired code ({len(repaired_code)} chars)")
-
-        # Validate the repaired code
-        print(f"  🔍 Validating repaired code...")
-        is_valid = opa_engine.validate(policy, repaired_code)
-
-        if is_valid:
-            print(f"  ✅ Validation passed - no policy violations")
-
-            # Save to patch.tf
-            patch_file.write_text(repaired_code)
-
-            # Get relative path for display
-            try:
-                relative_path = patch_file.relative_to(Path.cwd())
-            except ValueError:
-                relative_path = patch_file
-
-            print(f"  💾 Saved to {relative_path}")
-
-            return repaired_code
-        else:
-            print(f"  ❌ Validation failed - repaired code still has violations")
-            violations = opa_engine.evaluate(policy, repaired_code)
-            for v in violations:
-                print(f"     - {v.message}")
-            return None
     else:
         error = result.reason or "Unknown error"
-        print(f"  ❌ Repair failed: {error}")
         return None
 
 
@@ -109,17 +77,17 @@ def main():
 
     # Setup logging
     log_level = "DEBUG" if args.verbose else "INFO"
-    setup_logging(level=log_level)
+    logger = setup_logging(level=log_level)
 
-    print("=" * 70)
-    print("SpecBugFix Patch Generator")
-    print("=" * 70)
+    logger.info("=" * 70)
+    logger.info("SpecBugFix Patch Generator")
+    logger.info("=" * 70)
 
     # Load configuration
     config = load_config("src/config/default_config.yaml")
 
     # Initialize engines
-    print("\n🔧 Initializing repair agent and OPA engine...")
+    logger.info("Initializing repair agent and OPA engine...")
     opa_engine = OPAEngine(config["opa"])
     repair_agent = RepairAgent(
         opa_engine, config=config.get("repair", {}), llm_config=config.get("llm", {})
@@ -132,8 +100,8 @@ def main():
     with open(index_file) as f:
         dataset = json.load(f)
 
-    print(f"\n📊 Dataset: {dataset['dataset_name']} v{dataset['version']}")
-    print(f"Total entries: {dataset['total_entries']}\n")
+    logger.info(f"Dataset: {dataset['dataset_name']} v{dataset['version']}")
+    logger.info(f"Total entries: {dataset['total_entries']}")
 
     # Filter entries if needed
     entries = dataset["entries"]
@@ -141,41 +109,32 @@ def main():
     if args.entry_id:
         entries = [e for e in entries if e["id"] == args.entry_id]
         if not entries:
-            print(f"❌ Entry ID '{args.entry_id}' not found in dataset")
+            logger.error(f"Entry ID '{args.entry_id}' not found in dataset")
             sys.exit(1)
-        print(f"🎯 Filtering to entry: {args.entry_id}\n")
+        logger.info(f"Filtering to entry: {args.entry_id}\n")
 
     if args.category:
         entries = [e for e in entries if e["category"] == args.category]
         if not entries:
-            print(f"❌ No entries found for category '{args.category}'")
+            logger.info(f"No entries found for category '{args.category}'")
             sys.exit(1)
-        print(f"🎯 Filtering to category: {args.category} ({len(entries)} entries)\n")
+        logger.info(f"Filtering to category: {args.category} ({len(entries)} entries)")
 
     # Generate patches
     results = []
     for i, entry in enumerate(entries, 1):
-        print(
-            f"\n[{i}/{len(entries)}] Processing {entry['id']} ({entry['category']}/{entry['subcategory']})"
+        logger.info(
+            f"[{i}/{len(entries)}] Processing {entry['id']} ({entry['category']}/{entry['subcategory']})"
         )
-        print(f"  📋 Violation: {entry['violation']}")
+        logger.info(f"Violation: {entry['violation']}")
 
         # Check if patch already exists
         if args.skip_existing:
-            patch_file = base_path / entry["path"] / "patch.tf"
-            if patch_file.exists():
-                content = patch_file.read_text().strip()
-                if content and not content.startswith("# This file will be populated"):
-                    print(f"  ⏭️  Skipping - patch.tf already exists")
-                    results.append(
-                        {
-                            "id": entry["id"],
-                            "status": "skipped",
-                            "reason": "patch exists",
-                        }
-                    )
-                    continue
-
+            patch_path = base_path / entry["path"] / "patch.tf"
+            if patch_path.exists() and patch_path.stat().st_size > 0:
+                logger.info("Patch already exists, skipping...")
+                results.append({"id": entry["id"], "status": "skipped"})
+                continue
         try:
             repaired_code = generate_patch(entry, base_path, repair_agent, opa_engine)
 
@@ -196,45 +155,45 @@ def main():
                     }
                 )
         except Exception as e:
-            print(f"  ❌ Error: {e}")
+            logger.error(f"    Error: {e}")
             results.append({"id": entry["id"], "status": "error", "reason": str(e)})
 
-    # Summary
-    print("\n" + "=" * 70)
-    print("SUMMARY")
-    print("=" * 70)
+    # Results
+    logger.info("\n" + "=" * 70)
+    logger.info("Results")
+    logger.info("=" * 70)
 
     successful = [r for r in results if r["status"] == "success"]
     failed = [r for r in results if r["status"] == "failed"]
     errors = [r for r in results if r["status"] == "error"]
     skipped = [r for r in results if r["status"] == "skipped"]
 
-    print(f"\nTotal processed: {len(results)}")
-    print(f"✅ Successful: {len(successful)}")
-    print(f"❌ Failed: {len(failed)}")
-    print(f"⚠️  Errors: {len(errors)}")
-    print(f"⏭️  Skipped: {len(skipped)}")
+    logger.info(f"\nTotal processed: {len(results)}")
+    logger.info(f"  Successful: {len(successful)}")
+    logger.info(f"  Failed: {len(failed)}")
+    logger.info(f"  Errors: {len(errors)}")
+    logger.info(f"  Skipped: {len(skipped)}")
 
     if successful:
         success_rate = len(successful) / len(results) * 100
-        print(f"\n📈 Success rate: {success_rate:.1f}%")
+        logger.info(f"\n  Success rate: {success_rate:.1f}%")
 
     # Show details
     if failed:
-        print("\n❌ Failed entries:")
+        logger.info("\n  Failed entries:")
         for r in failed:
-            print(f"  - {r['id']}: {r.get('reason', 'Unknown')}")
+            logger.info(f"  - {r['id']}: {r.get('reason', 'Unknown')}")
 
     if errors:
-        print("\n⚠️  Error entries:")
+        logger.info("\n  Error entries:")
         for r in errors:
-            print(f"  - {r['id']}: {r.get('reason', 'Unknown')}")
+            logger.info(f"  - {r['id']}: {r.get('reason', 'Unknown')}")
 
     # Exit code
     if failed or errors:
         sys.exit(1)
     else:
-        print("\n🎉 All patches generated successfully!")
+        print("\n  All patches generated successfully!")
         sys.exit(0)
 
 
