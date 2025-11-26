@@ -58,11 +58,7 @@ def setup_logging(
 
     # Setup root logger
     root_logger = logging.getLogger()
-    root_logger.setLevel(
-        logging.DEBUG
-        if level.upper() == "INFO" and "--verbose" in sys.argv
-        else getattr(logging, level.upper())
-    )
+    root_logger.setLevel(level)
 
     # Clear existing handlers
     root_logger.handlers.clear()

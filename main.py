@@ -162,8 +162,7 @@ def main() -> int:
                 logger.info(f"Saved repaired script to {output_path}")
             else:
                 logger.info("Repaired script:")
-                logger.info("-" * 80)
-                print(result.repaired_script)
+                logger.info(f"{'-' * 80}\n{result.repaired_script}")
                 logger.info("-" * 80)
 
             return 0
