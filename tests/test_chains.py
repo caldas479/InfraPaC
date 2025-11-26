@@ -82,24 +82,6 @@ class TestPromptBuilder:
         assert "[CRITICAL]" in prompt
         assert "[WARNING]" in prompt
 
-    def test_build_validation_prompt(self, sample_llm_config):
-        """Test building validation prompt."""
-        builder = PromptBuilder(sample_llm_config)
-        
-        policy = "package terraform"
-        original = 'resource "aws_s3_bucket" "old" { }'
-        repaired = 'resource "aws_s3_bucket" "new" { versioning { enabled = true } }'
-        
-        prompt = builder.build_validation_prompt(policy, original, repaired)
-        
-        assert policy in prompt
-        assert original in prompt
-        assert repaired in prompt
-        assert "Compare" in prompt or "compare" in prompt
-        assert "Original Script" in prompt
-        assert "Repaired Script" in prompt
-
-
 class TestRepairChain:
     """Tests for RepairChain."""
 

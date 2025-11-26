@@ -1,7 +1,7 @@
 # LLM Configuration
 llm:
   provider: "ollama" # ollama, openai, huggingface, anthropic
-  model: "codellama" # or any other model you have in Ollama
+  model: "codellama" 
   temperature: 0.2
   max_tokens: 2048
   timeout: 60
@@ -11,7 +11,7 @@ llm:
 repair:
   max_iterations: 3
   validation_timeout: 30
-  request_context: false # Whether to ask developer for context
+  request_context: false # Whether to ask developer for context (to be implemented)
   context_prompt: "Please provide additional context about this infrastructure:"
 
 # OPA Configuration
