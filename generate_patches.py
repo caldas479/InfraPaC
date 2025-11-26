@@ -193,7 +193,7 @@ def main():
     if failed or errors:
         sys.exit(1)
     else:
-        print("\n  All patches generated successfully!")
+        logger.info("All patches generated successfully!")
         sys.exit(0)
 
 
