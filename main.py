@@ -18,6 +18,7 @@ from src.pac_engines.opa_engine import OPAEngine
 from src.pac_engines.sentinel_engine import SentinelEngine
 from src.utils.config_loader import load_config
 from src.utils.env_loader import load_environment
+from src.utils.llm_validator import LLMValidationError, validate_llm_config
 from src.utils.logging_config import setup_logging
 
 
@@ -48,6 +49,17 @@ def parse_arguments() -> argparse.Namespace:
         choices=["opa", "sentinel"],
         default="opa",
         help="Policy engine to use",
+    )
+    parser.add_argument(
+        "--llm-provider",
+        type=str,
+        choices=["ollama", "openai"],
+        help="Override LLM provider (ollama, openai)",
+    )
+    parser.add_argument(
+        "--llm-model",
+        type=str,
+        help="Override LLM model (e.g., codellama, gpt-4)",
     )
     parser.add_argument(
         "--max-iterations",
@@ -90,6 +102,25 @@ def main() -> int:
         # Override config with CLI arguments
         if args.max_iterations:
             config["repair"]["max_iterations"] = args.max_iterations
+            logger.info(f"Overriding max iterations: {args.max_iterations}")
+
+        if args.llm_provider:
+            config["llm"]["provider"] = args.llm_provider
+            logger.info(f"Overriding LLM provider: {args.llm_provider}")
+        
+        if args.llm_model:
+            config["llm"]["model"] = args.llm_model
+            logger.info(f"Overriding LLM model: {args.llm_model}")
+
+        # Validate LLM configuration
+        try:
+            provider = config["llm"]["provider"]
+            model = config["llm"]["model"]
+            validate_llm_config(provider, model)
+            logger.info(f"LLM configuration validated: {provider}/{model}")
+        except LLMValidationError as e:
+            logger.error(f"Invalid LLM configuration: {e}")
+            return 1
 
         # Initialize policy engine
         logger.info(f"Initializing {args.policy_engine.upper()} engine")
