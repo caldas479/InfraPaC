@@ -12,7 +12,6 @@ This script orchestrates the end-to-end workflow:
 import argparse
 import sys
 from pathlib import Path
-from typing import Optional
 
 from src.agents.repair_agent import RepairAgent
 from src.pac_engines.opa_engine import OPAEngine

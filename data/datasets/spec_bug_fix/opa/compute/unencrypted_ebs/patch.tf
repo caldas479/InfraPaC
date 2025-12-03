@@ -7,7 +7,7 @@ resource "aws_instance" "database_server" {
     device_name = "/dev/sdf"
     volume_size = 100
     volume_type = "gp3"
-    encrypted   = true
+    encrypted   = true # <-- add this line to ensure the EBS volume is encrypted
   }
 
   tags = {

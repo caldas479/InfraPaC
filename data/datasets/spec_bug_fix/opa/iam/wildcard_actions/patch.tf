@@ -22,7 +22,7 @@ resource "aws_iam_role_policy" "lambda_policy" {
     Statement = [{
       Effect   = "Allow"
       Action   = ["s3:GetObject", "s3:PutObject"]
-      Resource = "arn:aws:s3:::my-bucket/*"
+      Resource = "arn:aws:s3:::mybucket/*"
     }]
   })
 }
