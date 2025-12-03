@@ -1,2 +1,2 @@
 #! /bin/bash
-uv run python main.py --policy examples/s3_versioning.rego --iac examples/s3_bucket.tf --verbose
+find data/datasets/spec_bug_fix/opa -name "patch.tf" -type f -exec truncate -s 0 {} \;
