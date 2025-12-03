@@ -114,21 +114,35 @@ class RepairChain:
 
         # If the response has ```terraform or ```hcl markers, extract content between them
         if "```terraform" in response_text or "```hcl" in response_text:
-            start_marker = response_text.find("```")
-            if start_marker == -1:
-                return response_text.strip()
-
-            # Skip the opening ``` and any language identifier
-            start = response_text.find("\n", start_marker) + 1
-            if start == 0:  # No newline found
-                return response_text[start_marker + 3 :].strip()
-
-            # Find the closing ```
-            end = response_text.find("```", start)
-            if end == -1:
-                return response_text[start:].strip()
-
-            return response_text[start:end].strip()
+            # Find all code blocks
+            code_blocks = []
+            search_pos = 0
+            
+            while True:
+                # Find the next code block
+                start_marker = response_text.find("```", search_pos)
+                if start_marker == -1:
+                    break
+                
+                # Skip the opening ``` and any language identifier
+                start = response_text.find("\n", start_marker)
+                if start == -1:
+                    break
+                start += 1
+                
+                # Find the closing ```
+                end = response_text.find("```", start)
+                if end == -1:
+                    # No closing marker, take the rest
+                    code_blocks.append(response_text[start:].strip())
+                    break
+                
+                code_blocks.append(response_text[start:end].strip())
+                search_pos = end + 3
+            
+            # Return the last code block (most likely to be the corrected version)
+            if code_blocks:
+                return code_blocks[-1]
 
         # Otherwise return the raw response (assume it's just the code)
         return response_text.strip()

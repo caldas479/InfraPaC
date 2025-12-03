@@ -229,3 +229,59 @@ This fixes the issue.'''
             code = chain._extract_code(response)
             
             assert code == "plain string response"
+
+    def test_extract_code_with_multiple_code_blocks(self, sample_llm_config):
+        """Test _extract_code with multiple code blocks - should return the last one."""
+        with patch('src.chains.repair_chain.ChatOllama') as mock_ollama:
+            mock_ollama.return_value = Mock()
+            chain = RepairChain(sample_llm_config)
+            
+            response = Mock()
+            response.content = '''Here is the original code with the issue:
+
+```terraform
+resource "aws_security_group" "web_sg" {
+  name        = "web-server-sg"
+  description = "Security group for web servers"
+  vpc_id      = "vpc-12345678"
+
+  ingress {
+    description = "SSH from anywhere"
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+}
+```
+
+The corrected Terraform script satisfies the policy by restricting the CIDR blocks. 
+The corrected Terraform script is:
+
+```terraform
+resource "aws_security_group" "web_sg" {
+  name        = "web-server-sg"
+  description = "Security group for web servers"
+  vpc_id      = "vpc-12345678"
+
+  ingress {
+    description = "SSH from specific IP"
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["192.0.2.42/32"]
+  }
+}
+```'''
+            
+            code = chain._extract_code(response)
+            
+            # Should extract the LAST code block (the corrected one)
+            assert "192.0.2.42/32" in code
+            assert "SSH from specific IP" in code
+            # Should NOT contain the first code block content
+            assert "SSH from anywhere" not in code
+            assert "0.0.0.0/0" not in code
+            # Should not contain explanatory text
+            assert "The corrected Terraform script" not in code
+            assert "```" not in code
