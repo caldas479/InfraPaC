@@ -170,16 +170,16 @@ def main():
     failed = [r for r in results if r["status"] == "failed"]
     errors = [r for r in results if r["status"] == "error"]
     skipped = [r for r in results if r["status"] == "skipped"]
+    attempted = len(results) - len(skipped)
+    success_rate = (len(successful) / attempted * 100) if attempted > 0 else 0.0
 
     logger.info(f"Total processed: {len(results)}")
+    logger.info(f"Skipped: {len(skipped)}")
+    logger.info(f"Attempted: {attempted}")
     logger.info(f"Successful: {len(successful)}")
     logger.info(f"Failed: {len(failed)}")
     logger.info(f"Errors: {len(errors)}")
-    logger.info(f"Skipped: {len(skipped)}")
-
-    if successful:
-        success_rate = len(successful) / len(results) * 100
-        logger.info(f"Success rate: {success_rate:.1f}%")
+    logger.info(f"Success rate: {success_rate:.1f}%")
 
     # Show details
     if failed:
