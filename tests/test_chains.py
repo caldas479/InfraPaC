@@ -1,7 +1,8 @@
 """Tests for LangChain chains."""
 
+from unittest.mock import MagicMock, Mock, patch
+
 import pytest
-from unittest.mock import Mock, patch, MagicMock
 
 from src.chains.prompt_builder import PromptBuilder
 from src.chains.repair_chain import RepairChain
@@ -16,16 +17,18 @@ class TestPromptBuilder:
         builder = PromptBuilder(sample_llm_config)
         assert builder.config == sample_llm_config
 
-    def test_build_repair_prompt_basic(self, sample_llm_config, sample_policy_violation):
+    def test_build_repair_prompt_basic(
+        self, sample_llm_config, sample_policy_violation
+    ):
         """Test building a basic repair prompt."""
         builder = PromptBuilder(sample_llm_config)
-        
+
         policy = "package terraform\ndeny[msg] { ... }"
         iac_script = 'resource "aws_s3_bucket" "test" { }'
         violations = [sample_policy_violation]
-        
+
         prompt = builder.build_repair_prompt(policy, iac_script, violations)
-        
+
         assert "Infrastructure as Code" in prompt
         assert "Policy" in prompt
         assert policy in prompt
@@ -34,33 +37,37 @@ class TestPromptBuilder:
         assert "Violations Detected" in prompt
         assert "Instructions" in prompt
 
-    def test_build_repair_prompt_with_iteration(self, sample_llm_config, sample_policy_violation):
+    def test_build_repair_prompt_with_iteration(
+        self, sample_llm_config, sample_policy_violation
+    ):
         """Test building repair prompt with iteration number."""
         builder = PromptBuilder(sample_llm_config)
-        
+
         prompt = builder.build_repair_prompt(
             "policy",
             "script",
             [sample_policy_violation],
             iteration=2,
-            previous_attempt="previous code"
+            previous_attempt="previous code",
         )
-        
+
         assert "Iteration 2" in prompt
         assert "previous repair attempt" in prompt.lower()
 
     def test_build_repair_prompt_multiple_violations(self, sample_llm_config):
         """Test building repair prompt with multiple violations."""
         builder = PromptBuilder(sample_llm_config)
-        
+
         violations = [
             PolicyViolation(message="Violation 1", severity="error"),
-            PolicyViolation(message="Violation 2", severity="warning", resource="aws_s3_bucket.test"),
+            PolicyViolation(
+                message="Violation 2", severity="warning", resource="aws_s3_bucket.test"
+            ),
             PolicyViolation(message="Violation 3", severity="error", line=10),
         ]
-        
+
         prompt = builder.build_repair_prompt("policy", "script", violations)
-        
+
         assert "3 violation(s)" in prompt
         assert "Violation 1" in prompt
         assert "Violation 2" in prompt
@@ -71,26 +78,27 @@ class TestPromptBuilder:
     def test_build_repair_prompt_with_severity(self, sample_llm_config):
         """Test that severity is included in prompt."""
         builder = PromptBuilder(sample_llm_config)
-        
+
         violations = [
             PolicyViolation(message="Critical issue", severity="critical"),
             PolicyViolation(message="Warning issue", severity="warning"),
         ]
-        
+
         prompt = builder.build_repair_prompt("policy", "script", violations)
-        
+
         assert "[CRITICAL]" in prompt
         assert "[WARNING]" in prompt
+
 
 class TestRepairChain:
     """Tests for RepairChain."""
 
     def test_initialization_ollama(self, sample_llm_config):
         """Test RepairChain initialization with Ollama."""
-        with patch('src.chains.repair_chain.ChatOllama') as mock_ollama:
+        with patch("src.chains.repair_chain.ChatOllama") as mock_ollama:
             mock_ollama.return_value = Mock()
             chain = RepairChain(sample_llm_config)
-            
+
             assert chain.llm_config == sample_llm_config
             assert chain.prompt_builder is not None
             mock_ollama.assert_called_once()
@@ -103,11 +111,11 @@ class TestRepairChain:
             "temperature": 0.2,
             "max_tokens": 2048,
         }
-        
-        with patch('src.chains.repair_chain.ChatOpenAI') as mock_openai:
+
+        with patch("src.chains.repair_chain.ChatOpenAI") as mock_openai:
             mock_openai.return_value = Mock()
             chain = RepairChain(config)
-            
+
             mock_openai.assert_called_once()
 
     def test_initialization_unsupported_provider(self):
@@ -116,61 +124,61 @@ class TestRepairChain:
             "provider": "unsupported",
             "model": "test",
         }
-        
+
         with pytest.raises(ValueError, match="Unsupported LLM provider"):
             RepairChain(config)
 
     def test_repair_basic(self, sample_llm_config, sample_policy_violation):
         """Test basic repair functionality."""
-        with patch('src.chains.repair_chain.ChatOllama') as mock_ollama:
+        with patch("src.chains.repair_chain.ChatOllama") as mock_ollama:
             # Setup mock LLM
             mock_llm = Mock()
             mock_response = Mock()
             mock_response.content = 'resource "aws_s3_bucket" "test" {\n  versioning {\n    enabled = true\n  }\n}'
             mock_llm.invoke.return_value = mock_response
             mock_ollama.return_value = mock_llm
-            
+
             chain = RepairChain(sample_llm_config)
-            
+
             result = chain.repair(
                 policy="policy",
                 iac_script="script",
-                violations=[sample_policy_violation]
+                violations=[sample_policy_violation],
             )
-            
+
             assert "versioning" in result
             assert "enabled = true" in result
             mock_llm.invoke.assert_called_once()
 
     def test_repair_with_iteration(self, sample_llm_config, sample_policy_violation):
         """Test repair with iteration and previous attempt."""
-        with patch('src.chains.repair_chain.ChatOllama') as mock_ollama:
+        with patch("src.chains.repair_chain.ChatOllama") as mock_ollama:
             mock_llm = Mock()
             mock_response = Mock()
             mock_response.content = "repaired code"
             mock_llm.invoke.return_value = mock_response
             mock_ollama.return_value = mock_llm
-            
+
             chain = RepairChain(sample_llm_config)
-            
+
             result = chain.repair(
                 policy="policy",
                 iac_script="script",
                 violations=[sample_policy_violation],
                 iteration=2,
-                previous_attempt="previous code"
+                previous_attempt="previous code",
             )
-            
+
             assert result == "repaired code"
 
     def test_extract_code_with_terraform_markers(self, sample_llm_config):
         """Test _extract_code with terraform code markers."""
-        with patch('src.chains.repair_chain.ChatOllama') as mock_ollama:
+        with patch("src.chains.repair_chain.ChatOllama") as mock_ollama:
             mock_ollama.return_value = Mock()
             chain = RepairChain(sample_llm_config)
-            
+
             response = Mock()
-            response.content = '''Here is the fixed code:
+            response.content = """Here is the fixed code:
 
 ```terraform
 resource "aws_s3_bucket" "test" {
@@ -181,10 +189,10 @@ resource "aws_s3_bucket" "test" {
 }
 ```
 
-This fixes the issue.'''
-            
+This fixes the issue."""
+
             code = chain._extract_code(response)
-            
+
             assert "resource" in code
             assert "versioning" in code
             assert "Here is the fixed code" not in code
@@ -193,51 +201,51 @@ This fixes the issue.'''
 
     def test_extract_code_with_hcl_markers(self, sample_llm_config):
         """Test _extract_code with hcl code markers."""
-        with patch('src.chains.repair_chain.ChatOllama') as mock_ollama:
+        with patch("src.chains.repair_chain.ChatOllama") as mock_ollama:
             mock_ollama.return_value = Mock()
             chain = RepairChain(sample_llm_config)
-            
+
             response = Mock()
             response.content = '```hcl\nresource "aws_s3_bucket" "test" { }\n```'
-            
+
             code = chain._extract_code(response)
-            
+
             assert 'resource "aws_s3_bucket" "test" { }' in code
             assert "```" not in code
 
     def test_extract_code_without_markers(self, sample_llm_config):
         """Test _extract_code without code markers."""
-        with patch('src.chains.repair_chain.ChatOllama') as mock_ollama:
+        with patch("src.chains.repair_chain.ChatOllama") as mock_ollama:
             mock_ollama.return_value = Mock()
             chain = RepairChain(sample_llm_config)
-            
+
             response = Mock()
             response.content = 'resource "aws_s3_bucket" "test" { }'
-            
+
             code = chain._extract_code(response)
-            
+
             assert code == 'resource "aws_s3_bucket" "test" { }'
 
     def test_extract_code_from_string_response(self, sample_llm_config):
         """Test _extract_code with string response (not AIMessage)."""
-        with patch('src.chains.repair_chain.ChatOllama') as mock_ollama:
+        with patch("src.chains.repair_chain.ChatOllama") as mock_ollama:
             mock_ollama.return_value = Mock()
             chain = RepairChain(sample_llm_config)
-            
+
             response = "plain string response"
-            
+
             code = chain._extract_code(response)
-            
+
             assert code == "plain string response"
 
     def test_extract_code_with_multiple_code_blocks(self, sample_llm_config):
         """Test _extract_code with multiple code blocks - should return the last one."""
-        with patch('src.chains.repair_chain.ChatOllama') as mock_ollama:
+        with patch("src.chains.repair_chain.ChatOllama") as mock_ollama:
             mock_ollama.return_value = Mock()
             chain = RepairChain(sample_llm_config)
-            
+
             response = Mock()
-            response.content = '''Here is the original code with the issue:
+            response.content = """Here is the original code with the issue:
 
 ```terraform
 resource "aws_security_group" "web_sg" {
@@ -255,7 +263,7 @@ resource "aws_security_group" "web_sg" {
 }
 ```
 
-The corrected Terraform script satisfies the policy by restricting the CIDR blocks. 
+The corrected Terraform script satisfies the policy by restricting the CIDR blocks.
 The corrected Terraform script is:
 
 ```terraform
@@ -272,10 +280,10 @@ resource "aws_security_group" "web_sg" {
     cidr_blocks = ["192.0.2.42/32"]
   }
 }
-```'''
-            
+```"""
+
             code = chain._extract_code(response)
-            
+
             # Should extract the LAST code block (the corrected one)
             assert "192.0.2.42/32" in code
             assert "SSH from specific IP" in code

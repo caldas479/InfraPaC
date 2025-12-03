@@ -140,15 +140,15 @@ Example:
 ```python
 class TestNewFeature:
     """Tests for new feature."""
-    
+
     def test_feature_success(self, sample_config):
         """Test successful execution of feature."""
         # Arrange
         feature = NewFeature(sample_config)
-        
+
         # Act
         result = feature.execute()
-        
+
         # Assert
         assert result.success is True
 ```

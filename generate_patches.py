@@ -8,9 +8,9 @@ This script:
 4. Saves the repaired code to patch.tf
 """
 
-from datetime import datetime
 import json
 import sys
+from datetime import datetime
 from pathlib import Path
 from typing import Dict, Optional
 
@@ -78,23 +78,23 @@ def main():
 
     # Load configuration first to get model name
     config = load_config("src/config/default_config.yaml")
-    
+
     # Load dataset index to get dataset name
     base_path = Path("data/datasets/spec_bug_fix")
     index_file = base_path / "dataset_index.json"
-    
+
     with open(index_file) as f:
         dataset = json.load(f)
-    
-    dataset_name = dataset.get('dataset_name', 'spec_bug_fix')
-    model_name = config.get('llm', {}).get('model', 'unknown_model')
+
+    dataset_name = dataset.get("dataset_name", "spec_bug_fix")
+    model_name = config.get("llm", {}).get("model", "unknown_model")
 
     # Create log file path
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     results_dir = Path("results") / dataset_name / model_name
     results_dir.mkdir(parents=True, exist_ok=True)
     log_file = str(results_dir / f"execution_{timestamp}.log")
-    
+
     # Setup logging with dataset and model info for automatic log file creation
     log_level = "DEBUG" if args.verbose else "INFO"
     logger = setup_logging(level=log_level, log_file=log_file)

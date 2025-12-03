@@ -7,6 +7,7 @@ from typing import Dict, List, Optional
 
 class LLMValidationError(Exception):
     """Raised when LLM configuration is invalid."""
+
     pass
 
 
@@ -36,11 +37,11 @@ PROVIDER_MODELS: Dict[str, List[str]] = {
 def validate_llm_config(provider: str, model: str) -> None:
     """
     Validate that the model is compatible with the provider.
-    
+
     Args:
         provider: LLM provider (e.g., 'ollama', 'openai')
         model: Model name (e.g., 'codellama', 'gpt-4')
-        
+
     Raises:
         LLMValidationError: If provider is unknown or model is incompatible
     """
@@ -49,7 +50,7 @@ def validate_llm_config(provider: str, model: str) -> None:
         raise LLMValidationError(
             f"Unknown provider '{provider}'. Supported providers: {supported}"
         )
-    
+
     # Check if model is in the known list for this provider
     # Note: This is a soft check - we allow unknown models with a warning
     if model not in PROVIDER_MODELS[provider]:
@@ -67,10 +68,10 @@ def validate_llm_config(provider: str, model: str) -> None:
 def get_supported_models(provider: str) -> Optional[List[str]]:
     """
     Get list of supported models for a provider.
-    
+
     Args:
         provider: LLM provider name
-        
+
     Returns:
         List of supported model names, or None if provider is unknown
     """

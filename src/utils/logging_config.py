@@ -26,7 +26,7 @@ def setup_logging(
 
     Returns:
         Configured logger instance
-    """        
+    """
     if format_string is None:
         # Color format for console
         console_format = (

@@ -7,6 +7,7 @@ from langchain_ollama import ChatOllama
 from langchain_openai import ChatOpenAI
 
 from src.models import PolicyViolation
+
 from .prompt_builder import PromptBuilder
 
 
@@ -117,29 +118,29 @@ class RepairChain:
             # Find all code blocks
             code_blocks = []
             search_pos = 0
-            
+
             while True:
                 # Find the next code block
                 start_marker = response_text.find("```", search_pos)
                 if start_marker == -1:
                     break
-                
+
                 # Skip the opening ``` and any language identifier
                 start = response_text.find("\n", start_marker)
                 if start == -1:
                     break
                 start += 1
-                
+
                 # Find the closing ```
                 end = response_text.find("```", start)
                 if end == -1:
                     # No closing marker, take the rest
                     code_blocks.append(response_text[start:].strip())
                     break
-                
+
                 code_blocks.append(response_text[start:end].strip())
                 search_pos = end + 3
-            
+
             # Return the last code block (most likely to be the corrected version)
             if code_blocks:
                 return code_blocks[-1]

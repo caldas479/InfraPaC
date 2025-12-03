@@ -1,8 +1,9 @@
 """Pytest configuration and fixtures."""
 
-import pytest
 from pathlib import Path
-from typing import Dict, Any
+from typing import Any, Dict
+
+import pytest
 
 from src.models import PolicyViolation
 
@@ -51,24 +52,24 @@ def sample_policy_violation() -> PolicyViolation:
 @pytest.fixture
 def sample_terraform_script() -> str:
     """Sample Terraform script for testing."""
-    return '''resource "aws_s3_bucket" "test" {
+    return """resource "aws_s3_bucket" "test" {
   bucket = "test-bucket"
   acl    = "private"
 }
-'''
+"""
 
 
 @pytest.fixture
 def sample_rego_policy() -> str:
     """Sample Rego policy for testing."""
-    return '''package terraform
+    return """package terraform
 
 deny contains msg if {
     bucket := input.resource.aws_s3_bucket[_]
     not bucket.versioning.enabled
     msg := sprintf("S3 bucket '%v' must have versioning enabled", [bucket.bucket])
 }
-'''
+"""
 
 
 @pytest.fixture

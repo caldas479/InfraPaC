@@ -107,7 +107,7 @@ def main() -> int:
         if args.llm_provider:
             config["llm"]["provider"] = args.llm_provider
             logger.info(f"Overriding LLM provider: {args.llm_provider}")
-        
+
         if args.llm_model:
             config["llm"]["model"] = args.llm_model
             logger.info(f"Overriding LLM model: {args.llm_model}")

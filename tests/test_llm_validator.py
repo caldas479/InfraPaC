@@ -6,9 +6,9 @@ import pytest
 
 from src.utils.llm_validator import (
     LLMValidationError,
-    validate_llm_config,
     get_supported_models,
     suggest_models,
+    validate_llm_config,
 )
 
 
@@ -44,10 +44,10 @@ def test_get_supported_models():
     openai_models = get_supported_models("openai")
     assert openai_models is not None
     assert "gpt-4" in openai_models
-    
+
     ollama_models = get_supported_models("ollama")
     assert ollama_models is not None
     assert "codellama" in ollama_models
-    
+
     invalid = get_supported_models("invalid")
     assert invalid is None
