@@ -7,7 +7,6 @@ import pytest
 from src.utils.llm_validator import (
     LLMValidationError,
     get_supported_models,
-    suggest_models,
     validate_llm_config,
 )
 

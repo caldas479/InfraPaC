@@ -8,6 +8,7 @@ This script:
 4. Saves the repaired code to patch.tf
 """
 
+import argparse
 import json
 import sys
 from datetime import datetime
@@ -53,8 +54,6 @@ def generate_patch(
 
 def main():
     """Generate patches for all dataset entries."""
-    import argparse
-
     parser = argparse.ArgumentParser(
         description="Generate patches for SpecBugFix dataset"
     )

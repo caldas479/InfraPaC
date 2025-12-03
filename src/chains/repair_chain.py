@@ -6,9 +6,8 @@ from typing import Any, Dict, List, Optional
 from langchain_ollama import ChatOllama
 from langchain_openai import ChatOpenAI
 
+from src.chains.prompt_builder import PromptBuilder
 from src.models import PolicyViolation
-
-from .prompt_builder import PromptBuilder
 
 
 class RepairChain:

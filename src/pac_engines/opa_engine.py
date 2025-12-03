@@ -10,8 +10,7 @@ from pathlib import Path
 from typing import Any, Dict, List
 
 from src.models import PolicyViolation
-
-from .base_engine import BasePaCEngine
+from src.pac_engines.base_engine import BasePaCEngine
 
 logger = logging.getLogger(__name__)
 
