@@ -8,6 +8,7 @@ This script:
 4. Saves the repaired code to patch.tf
 """
 
+from datetime import datetime
 import json
 import sys
 from pathlib import Path
@@ -87,10 +88,16 @@ def main():
     
     dataset_name = dataset.get('dataset_name', 'spec_bug_fix')
     model_name = config.get('llm', {}).get('model', 'unknown_model')
+
+    # Create log file path
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    results_dir = Path("results") / dataset_name / model_name
+    results_dir.mkdir(parents=True, exist_ok=True)
+    log_file = str(results_dir / f"execution_{timestamp}.log")
     
     # Setup logging with dataset and model info for automatic log file creation
     log_level = "DEBUG" if args.verbose else "INFO"
-    logger = setup_logging(level=log_level, dataset_name=dataset_name, model_name=model_name)
+    logger = setup_logging(level=log_level, log_file=log_file)
 
     logger.info("=" * 70)
     logger.info("SpecBugFix Patch Generator")
