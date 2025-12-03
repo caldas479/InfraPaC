@@ -146,6 +146,30 @@ The patch generator:
 3. Validates the fix against the policy
 4. Saves the repaired code to `patch.tf`
 
+### Experiment Logs
+
+All experiment runs are automatically logged to the `results/` directory with the following structure:
+
+```
+results/
+└── dataset-name/
+    └── model-name/
+        ├── execution_YYYYMMDD_HHMMSS.log
+        ├── execution_YYYYMMDD_HHMMSS.log
+        └── ...
+```
+
+For example, when running `generate_patches.py`:
+- Dataset name is extracted from `dataset_index.json` (e.g., "spec_bug_fix")
+- Model name is extracted from the config file (e.g., "codellama", "gpt-4")
+- Logs are saved to: `results/spec_bug_fix/codellama/execution_20251203_143022.log`
+
+This makes it easy to:
+- Track different experiment runs
+- Compare results across models
+- Organize logs by dataset
+- Keep historical records of all executions
+
 ## Configuration
 
 The framework can be configured via:

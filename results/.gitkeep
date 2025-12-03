@@ -1,0 +1,2 @@
+# This directory stores experiment logs organized by dataset and model
+# Structure: results/dataset-name/model-name/execution_TIMESTAMP.log

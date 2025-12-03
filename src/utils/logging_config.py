@@ -4,6 +4,7 @@
 
 import logging
 import sys
+from datetime import datetime
 from pathlib import Path
 from typing import Optional
 
@@ -14,6 +15,8 @@ def setup_logging(
     level: str = "INFO",
     log_file: Optional[str] = None,
     format_string: Optional[str] = None,
+    dataset_name: Optional[str] = None,
+    model_name: Optional[str] = None,
 ) -> logging.Logger:
     """
     Configure logging for the application with colored output.
@@ -22,10 +25,19 @@ def setup_logging(
         level: Logging level (DEBUG, INFO, WARNING, ERROR, CRITICAL)
         log_file: Optional path to log file
         format_string: Optional custom format string
+        dataset_name: Optional dataset name for organizing logs in results/
+        model_name: Optional model name for organizing logs in results/
 
     Returns:
         Configured logger instance
     """
+    # Auto-generate log file path if dataset and model are provided
+    if dataset_name and model_name and not log_file:
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        results_dir = Path("results") / dataset_name / model_name
+        results_dir.mkdir(parents=True, exist_ok=True)
+        log_file = str(results_dir / f"execution_{timestamp}.log")
+        
     if format_string is None:
         # Color format for console
         console_format = (

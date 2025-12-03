@@ -75,16 +75,26 @@ def main():
     parser.add_argument("--verbose", action="store_true", help="Enable verbose logging")
     args = parser.parse_args()
 
-    # Setup logging
+    # Load configuration first to get model name
+    config = load_config("src/config/default_config.yaml")
+    
+    # Load dataset index to get dataset name
+    base_path = Path("data/datasets/spec_bug_fix")
+    index_file = base_path / "dataset_index.json"
+    
+    with open(index_file) as f:
+        dataset = json.load(f)
+    
+    dataset_name = dataset.get('dataset_name', 'spec_bug_fix')
+    model_name = config.get('llm', {}).get('model', 'unknown_model')
+    
+    # Setup logging with dataset and model info for automatic log file creation
     log_level = "DEBUG" if args.verbose else "INFO"
-    logger = setup_logging(level=log_level)
+    logger = setup_logging(level=log_level, dataset_name=dataset_name, model_name=model_name)
 
     logger.info("=" * 70)
     logger.info("SpecBugFix Patch Generator")
     logger.info("=" * 70)
-
-    # Load configuration
-    config = load_config("src/config/default_config.yaml")
 
     # Initialize engines
     logger.info("Initializing repair agent and OPA engine...")
@@ -92,13 +102,6 @@ def main():
     repair_agent = RepairAgent(
         opa_engine, config=config.get("repair", {}), llm_config=config.get("llm", {})
     )
-
-    # Load dataset index
-    base_path = Path("data/datasets/spec_bug_fix")
-    index_file = base_path / "dataset_index.json"
-
-    with open(index_file) as f:
-        dataset = json.load(f)
 
     logger.info(f"Dataset: {dataset['dataset_name']} v{dataset['version']}")
     logger.info(f"Total entries: {dataset['total_entries']}")

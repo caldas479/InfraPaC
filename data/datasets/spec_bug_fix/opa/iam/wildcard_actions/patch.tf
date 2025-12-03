@@ -21,8 +21,22 @@ resource "aws_iam_role_policy" "lambda_policy" {
     Version = "2012-10-17"
     Statement = [{
       Effect   = "Allow"
-      Action   = ["s3:GetObject", "s3:PutObject"]
-      Resource = "arn:aws:s3:::mybucket/*"
+      Action   = [
+        "s3:GetObject",
+        "s3:PutObject",
+        "s3:DeleteObject",
+        "s3:ListBucket",
+        "s3:HeadBucket",
+        "logs:CreateLogGroup",
+        "logs:CreateLogStream",
+        "logs:PutLogEvents"
+      ]
+      Resource = [
+        aws_s3_bucket.lambda_bucket.arn,
+        "${aws_s3_bucket.lambda_bucket.arn}/*",
+        aws_cloudwatch_log_group.lambda_log_group.arn,
+        "${aws_cloudwatch_log_group.lambda_log_group.arn}:*"
+      ]
     }]
   })
 }
