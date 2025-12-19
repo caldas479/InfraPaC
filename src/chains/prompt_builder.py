@@ -17,15 +17,6 @@ class PromptBuilder:
     Builds structured prompts for LLM-based IaC repair.
     """
 
-    def __init__(self, config: Dict[str, Any]) -> None:
-        """
-        Initialize prompt builder.
-
-        Args:
-            config: Configuration dictionary
-        """
-        self.config = config
-
     def build_repair_prompt_template(self) -> ChatPromptTemplate:
         """
         Build a repair prompt template with variables for the LLM.

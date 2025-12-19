@@ -12,14 +12,14 @@ from src.models import PolicyViolation
 class TestPromptBuilder:
     """Tests for PromptBuilder."""
 
-    def test_initialization(self, sample_llm_config):
+    def test_initialization(self):
         """Test PromptBuilder initialization."""
-        builder = PromptBuilder(sample_llm_config)
-        assert builder.config == sample_llm_config
+        builder = PromptBuilder()
+        assert builder is not None
 
-    def test_build_repair_prompt_template(self, sample_llm_config):
+    def test_build_repair_prompt_template(self):
         """Test building a repair prompt template."""
-        builder = PromptBuilder(sample_llm_config)
+        builder = PromptBuilder()
 
         template = builder.build_repair_prompt_template()
 
@@ -34,9 +34,9 @@ class TestPromptBuilder:
         assert "Violations Detected" in prompt_text
         assert "Instructions" in prompt_text
 
-    def test_format_violations_single(self, sample_llm_config, sample_policy_violation):
+    def test_format_violations_single(self, sample_policy_violation):
         """Test formatting a single violation."""
-        builder = PromptBuilder(sample_llm_config)
+        builder = PromptBuilder()
 
         violations_text = builder.format_violations([sample_policy_violation])
 
@@ -44,9 +44,9 @@ class TestPromptBuilder:
         assert sample_policy_violation.message in violations_text
         assert sample_policy_violation.resource in violations_text
 
-    def test_format_violations_multiple(self, sample_llm_config):
+    def test_format_violations_multiple(self):
         """Test formatting multiple violations."""
-        builder = PromptBuilder(sample_llm_config)
+        builder = PromptBuilder()
 
         violations = [
             PolicyViolation(message="Violation 1", severity="error"),
@@ -65,9 +65,9 @@ class TestPromptBuilder:
         assert "Resource: aws_s3_bucket.test" in violations_text
         assert "Line: 10" in violations_text
 
-    def test_format_violations_with_severity(self, sample_llm_config):
+    def test_format_violations_with_severity(self):
         """Test that severity is included in formatted violations."""
-        builder = PromptBuilder(sample_llm_config)
+        builder = PromptBuilder()
 
         violations = [
             PolicyViolation(message="Critical issue", severity="critical"),

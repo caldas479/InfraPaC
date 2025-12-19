@@ -23,7 +23,7 @@ class RepairChain:
             llm_config: LLM configuration dictionary
         """
         self.llm_config = llm_config
-        self.prompt_builder = PromptBuilder(llm_config)
+        self.prompt_builder = PromptBuilder()
         self.llm = self._initialize_llm()
         self.prompt_template = self.prompt_builder.build_repair_prompt_template()
 
