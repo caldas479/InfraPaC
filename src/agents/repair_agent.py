@@ -56,19 +56,16 @@ class RepairAgent:
         """
         current_script = iac_script
         current_violations = violations
-        previous_attempt = None
 
         for iteration in range(1, self.max_iterations + 1):
             self.logger.info(f"Repair iteration {iteration}/{self.max_iterations}")
 
-            # Generate repair
+            # Generate iac repair based on current script and policy violations
             self.logger.debug("Generating repair with LLM...")
             repaired_script = self.repair_chain.repair(
                 policy=policy,
                 iac_script=current_script,
                 violations=current_violations,
-                iteration=iteration,
-                previous_attempt=previous_attempt,
             )
 
             # Validate repair
@@ -98,7 +95,12 @@ class RepairAgent:
             # Update for next iteration
             current_script = repaired_script
             current_violations = new_violations
-            previous_attempt = repaired_script
+
+            # TODO :
+            # Call reflection chain here to update prompt
+            # reflection = self.reflection_chain.reflect(policy, repaired_script, violations)
+            # build new prompt based on the last prompt and new reflection
+            # prompt = self.prompt_builder.evolve_prompt(prompt, reflection)
 
         # Failed to fix all violations
         self.logger.warning(

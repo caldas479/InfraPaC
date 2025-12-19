@@ -25,6 +25,7 @@ class RepairChain:
         self.llm_config = llm_config
         self.prompt_builder = PromptBuilder(llm_config)
         self.llm = self._initialize_llm()
+        self.prompt_template = self.prompt_builder.build_repair_prompt_template()
 
     def _initialize_llm(self) -> Any:
         """Initialize the LLM based on configuration."""
@@ -49,41 +50,36 @@ class RepairChain:
             raise ValueError(f"Unsupported LLM provider: {provider}")
 
     def repair(
-        self,
-        policy: str,
-        iac_script: str,
-        violations: List[PolicyViolation],
-        iteration: int = 1,
-        previous_attempt: Optional[str] = None,
+        self, policy: str, iac_script: str, violations: List[PolicyViolation]
     ) -> str:
         """
-        Generate a repaired IaC script.
+        Generate a repaired IaC script. Creates and executes the repair chain.
 
         Args:
-            policy: Policy code
+            policy: Policy code (Rego/Sentinel)
             iac_script: Current IaC script
             violations: List of PolicyViolation objects
-            iteration: Current iteration number
-            previous_attempt: Previous repair attempt
 
         Returns:
             Repaired IaC script
         """
-        # Build prompt
-        prompt = self.prompt_builder.build_repair_prompt(
-            policy=policy,
-            iac_script=iac_script,
-            violations=violations,
-            iteration=iteration,
-            previous_attempt=previous_attempt,
-        )
+        # Format violations
+        violations_text = self.prompt_builder.format_violations(violations)
 
         # Log the prompt for debugging
         logger = logging.getLogger(__name__)
-        logger.debug(f"Prompt:\n{prompt}")
 
-        # Create chain and execute
-        response = self.llm.invoke(prompt)
+        # Create the repair chain with the template and invoke with variables
+        repair_chain = self.prompt_template | self.llm
+
+        # Invoke the chain with the actual values
+        response = repair_chain.invoke(
+            {
+                "policy": policy.strip(),
+                "violations_text": violations_text,
+                "iac_script": iac_script.strip(),
+            }
+        )
 
         # Log raw response
         response_text = (

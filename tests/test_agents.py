@@ -196,10 +196,8 @@ class TestRepairAgent:
             assert result.success is False
             assert result.iterations == 3
 
-    def test_repair_with_previous_attempt(
-        self, sample_repair_config, sample_llm_config
-    ):
-        """Test that previous attempt is passed to repair chain."""
+    def test_repair_uses_updated_script(self, sample_repair_config, sample_llm_config):
+        """Test that repair uses the updated script in subsequent iterations."""
         mock_engine = Mock()
         mock_engine.evaluate.side_effect = [
             [PolicyViolation(message="Issue", severity="error")],
@@ -223,10 +221,15 @@ class TestRepairAgent:
                 policy="test policy", iac_script="buggy code", violations=violations
             )
 
-            # Check that second call included previous attempt
+            # Check that second call used the updated script from first attempt
             assert mock_chain.repair.call_count == 2
+            first_call = mock_chain.repair.call_args_list[0]
             second_call = mock_chain.repair.call_args_list[1]
-            assert second_call[1]["previous_attempt"] == "attempt 1"
+
+            # First call should use original script
+            assert first_call[1]["iac_script"] == "buggy code"
+            # Second call should use the result from first attempt
+            assert second_call[1]["iac_script"] == "attempt 1"
 
     def test_repair_custom_max_iterations(self, sample_llm_config):
         """Test repair with custom max iterations."""

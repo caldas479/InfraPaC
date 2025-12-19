@@ -1,0 +1,80 @@
+2025-12-19 10:09:54,833 - root - INFO - ======================================================================
+2025-12-19 10:09:54,833 - root - INFO - SpecBugFix Patch Generator
+2025-12-19 10:09:54,833 - root - INFO - ======================================================================
+2025-12-19 10:09:54,833 - root - INFO - Initializing repair agent and OPA engine...
+2025-12-19 10:09:54,903 - src.pac_engines.opa_engine - INFO - OPA found: Version: 1.9.0
+Build Commit:
+Build Timestamp:
+Build Hostname:
+Go Version: go1.25.1
+Platform: darwin/arm64
+Rego Version: v1
+WebAssembly: unavailable
+2025-12-19 10:09:54,935 - root - INFO - Dataset: SpecBugFix v1.0.0
+2025-12-19 10:09:54,935 - root - INFO - Total entries: 11
+2025-12-19 10:09:54,935 - root - INFO - [1/11] Processing opa_iam_001 (iam/overly_permissive_s3)
+2025-12-19 10:09:54,935 - root - INFO - Violation: IAM policy grants s3:* permissions
+2025-12-19 10:09:55,010 - src.agents.repair_agent - INFO - Repair iteration 1/3
+2025-12-19 10:09:56,530 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2025-12-19 10:10:02,256 - src.agents.repair_agent - INFO - ✓ Repair successful in 1 iteration(s)
+2025-12-19 10:10:02,256 - root - INFO - [2/11] Processing opa_iam_002 (iam/wildcard_actions)
+2025-12-19 10:10:02,256 - root - INFO - Violation: IAM policy uses wildcard actions (*) on all resources
+2025-12-19 10:10:02,275 - src.agents.repair_agent - INFO - Repair iteration 1/3
+2025-12-19 10:10:03,616 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2025-12-19 10:10:13,689 - src.agents.repair_agent - INFO - ✓ Repair successful in 1 iteration(s)
+2025-12-19 10:10:13,690 - root - INFO - [3/11] Processing opa_networking_001 (networking/open_security_group)
+2025-12-19 10:10:13,690 - root - INFO - Violation: Security group allows 0.0.0.0/0 access on sensitive port
+2025-12-19 10:10:13,715 - src.agents.repair_agent - INFO - Repair iteration 1/3
+2025-12-19 10:10:15,438 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2025-12-19 10:10:33,657 - src.agents.repair_agent - INFO - ✓ Repair successful in 1 iteration(s)
+2025-12-19 10:10:33,658 - root - INFO - [4/11] Processing opa_networking_002 (networking/public_subnet)
+2025-12-19 10:10:33,658 - root - INFO - Violation: Non-public subnet assigns public IPs automatically
+2025-12-19 10:10:33,682 - src.agents.repair_agent - INFO - Repair iteration 1/3
+2025-12-19 10:10:34,970 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2025-12-19 10:10:41,757 - src.agents.repair_agent - INFO - ✓ Repair successful in 1 iteration(s)
+2025-12-19 10:10:41,758 - root - INFO - [5/11] Processing opa_storage_001 (storage/s3_encryption)
+2025-12-19 10:10:41,758 - root - INFO - Violation: S3 bucket missing server-side encryption
+2025-12-19 10:10:41,777 - src.agents.repair_agent - INFO - Repair iteration 1/3
+2025-12-19 10:10:42,648 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2025-12-19 10:10:49,062 - src.agents.repair_agent - INFO - ✓ Repair successful in 1 iteration(s)
+2025-12-19 10:10:49,063 - root - INFO - [6/11] Processing opa_storage_002 (storage/s3_versioning)
+2025-12-19 10:10:49,063 - root - INFO - Violation: S3 bucket missing versioning configuration
+2025-12-19 10:10:49,083 - src.agents.repair_agent - INFO - Repair iteration 1/3
+2025-12-19 10:10:50,114 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2025-12-19 10:10:54,244 - src.agents.repair_agent - INFO - ✓ Repair successful in 1 iteration(s)
+2025-12-19 10:10:54,245 - root - INFO - [7/11] Processing opa_storage_003 (storage/s3_public_access)
+2025-12-19 10:10:54,245 - root - INFO - Violation: S3 bucket has public-read ACL
+2025-12-19 10:10:54,266 - src.agents.repair_agent - INFO - Repair iteration 1/3
+2025-12-19 10:10:55,383 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2025-12-19 10:11:00,383 - src.agents.repair_agent - INFO - ✓ Repair successful in 1 iteration(s)
+2025-12-19 10:11:00,383 - root - INFO - [8/11] Processing opa_compute_001 (compute/ec2_public_ip)
+2025-12-19 10:11:00,383 - root - INFO - Violation: EC2 instance has public IP assigned
+2025-12-19 10:11:00,398 - src.agents.repair_agent - INFO - Repair iteration 1/3
+2025-12-19 10:11:01,407 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2025-12-19 10:11:04,597 - src.agents.repair_agent - INFO - ✓ Repair successful in 1 iteration(s)
+2025-12-19 10:11:04,598 - root - INFO - [9/11] Processing opa_compute_002 (compute/unencrypted_ebs)
+2025-12-19 10:11:04,598 - root - INFO - Violation: EBS volume is not encrypted
+2025-12-19 10:11:04,617 - src.agents.repair_agent - INFO - Repair iteration 1/3
+2025-12-19 10:11:06,078 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2025-12-19 10:11:11,879 - src.agents.repair_agent - INFO - ✓ Repair successful in 1 iteration(s)
+2025-12-19 10:11:11,879 - root - INFO - [10/11] Processing opa_database_001 (database/rds_public_access)
+2025-12-19 10:11:11,879 - root - INFO - Violation: RDS instance is publicly accessible
+2025-12-19 10:11:11,902 - src.agents.repair_agent - INFO - Repair iteration 1/3
+2025-12-19 10:11:13,095 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2025-12-19 10:11:18,278 - src.agents.repair_agent - INFO - ✓ Repair successful in 1 iteration(s)
+2025-12-19 10:11:18,278 - root - INFO - [11/11] Processing opa_database_002 (database/rds_encryption)
+2025-12-19 10:11:18,279 - root - INFO - Violation: RDS instance storage is not encrypted
+2025-12-19 10:11:18,297 - src.agents.repair_agent - INFO - Repair iteration 1/3
+2025-12-19 10:11:19,496 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2025-12-19 10:11:26,551 - src.agents.repair_agent - INFO - ✓ Repair successful in 1 iteration(s)
+2025-12-19 10:11:26,551 - root - INFO - ======================================================================
+2025-12-19 10:11:26,551 - root - INFO - Results
+2025-12-19 10:11:26,551 - root - INFO - ======================================================================
+2025-12-19 10:11:26,551 - root - INFO - Total processed: 11
+2025-12-19 10:11:26,551 - root - INFO - Skipped: 0
+2025-12-19 10:11:26,552 - root - INFO - Attempted: 11
+2025-12-19 10:11:26,552 - root - INFO - Successful: 11
+2025-12-19 10:11:26,552 - root - INFO - Failed: 0
+2025-12-19 10:11:26,552 - root - INFO - Errors: 0
+2025-12-19 10:11:26,552 - root - INFO - Success rate: 100.0%
+2025-12-19 10:11:26,552 - root - INFO - All patches generated successfully!

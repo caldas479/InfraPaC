@@ -5,6 +5,8 @@
 import logging
 from typing import Any, Dict, List
 
+from langchain_core.prompts import ChatPromptTemplate
+
 from src.models import PolicyViolation
 
 logger = logging.getLogger(__name__)
@@ -24,87 +26,70 @@ class PromptBuilder:
         """
         self.config = config
 
-    def build_repair_prompt(
-        self,
-        policy: str,
-        iac_script: str,
-        violations: List[PolicyViolation],
-        iteration: int = 1,
-        previous_attempt: str = None,
-    ) -> str:
+    def build_repair_prompt_template(self) -> ChatPromptTemplate:
         """
-        Build a repair prompt for the LLM.
-
-        Args:
-            policy: Policy code (Rego/Sentinel)
-            iac_script: Current IaC script
-            violations: List of PolicyViolation objects
-            iteration: Current iteration number
-            previous_attempt: Previous repair attempt (if any)
+        Build a repair prompt template with variables for the LLM.
 
         Returns:
-            Formatted prompt string
+            ChatPromptTemplate with variables: policy, violations_text, iac_script, iteration, previous_attempt
         """
-        prompt_parts = []
+        system_content = """You are an expert Infrastructure as Code (IaC) engineer specializing in Terraform and policy compliance. Your task is to repair Terraform scripts to comply with given policies.
 
-        # System context
-        prompt_parts.append(
-            "You are an expert Infrastructure as Code (IaC) engineer specializing in "
-            "Terraform and policy compliance. Your task is to repair Terraform scripts "
-            "to comply with given policies."
+## Policy
+The following policy must be satisfied:
+{policy}
+
+## Violations Detected
+{violations_text}
+
+## Current Terraform Script
+```terraform
+{iac_script}
+```
+
+Instructions
+Please provide a corrected version of the Terraform script that resolves ALL violations while maintaining the intended infrastructure functionality.
+
+Requirements:
+
+Fix all reported violations
+Preserve the original infrastructure intent
+Use Terraform best practices
+Return ONLY the corrected Terraform code
+Do not include explanations or markdown formatting
+"""
+
+        prompt = ChatPromptTemplate.from_messages(
+            [("system", system_content), ("human", "Repair this Terraform script.")]
         )
-        prompt_parts.append("")
 
-        # Policy section
-        prompt_parts.append("## Policy")
-        prompt_parts.append("The following policy must be satisfied:")
-        prompt_parts.append("```")
-        prompt_parts.append(policy.strip())
-        prompt_parts.append("```")
-        prompt_parts.append("")
+        return prompt
 
-        # Violations section
-        prompt_parts.append("## Violations Detected")
-        prompt_parts.append(f"The current script has {len(violations)} violation(s):")
+    @staticmethod
+    def format_violations(violations: List[PolicyViolation]) -> str:
+        """
+        Format violations list into a string.
+
+        Args:
+            violations: List of PolicyViolation objects
+
+        Returns:
+            Formatted violations text
+        """
+        if not violations:
+            return "No violations detected."
+
+        violations_text = f"The current script has {len(violations)} violation(s):\n"
         for idx, violation in enumerate(violations, 1):
             msg = violation.message
             severity = violation.severity
-            prompt_parts.append(f"{idx}. [{severity.upper()}] {msg}")
+            violations_text += f"{idx}. [{severity.upper()}] {msg}"
             if violation.resource:
-                prompt_parts.append(f"   Resource: {violation.resource}")
+                violations_text += f"\n   Resource: {violation.resource}"
             if violation.line:
-                prompt_parts.append(f"   Line: {violation.line}")
-        prompt_parts.append("")
+                violations_text += f"\n   Line: {violation.line}"
+            violations_text += "\n"
 
-        # Current script
-        prompt_parts.append("## Current Terraform Script")
-        if previous_attempt:
-            prompt_parts.append(f"(Iteration {iteration} - Previous repair attempt)")
-        prompt_parts.append("```terraform")
-        prompt_parts.append(iac_script.strip())
-        prompt_parts.append("```")
-        prompt_parts.append("")
+        return violations_text
 
-        # Instructions
-        prompt_parts.append("## Instructions")
-        prompt_parts.append(
-            "Please provide a corrected version of the Terraform script that resolves "
-            "ALL violations while maintaining the intended infrastructure functionality."
-        )
-        prompt_parts.append("")
-        prompt_parts.append("Requirements:")
-        prompt_parts.append("1. Fix all reported violations")
-        prompt_parts.append("2. Preserve the original infrastructure intent")
-        prompt_parts.append("3. Use Terraform best practices")
-        prompt_parts.append("4. Return ONLY the corrected Terraform code")
-        prompt_parts.append("5. Do not include explanations or markdown formatting")
-        prompt_parts.append("")
-
-        if previous_attempt:
-            prompt_parts.append(
-                "Note: The previous repair attempt still had violations. "
-                "Please ensure this version addresses all issues."
-            )
-            prompt_parts.append("")
-
-        return "\n".join(prompt_parts)
+    # TODO: implement evolve_prompt(prompt, reflection)
