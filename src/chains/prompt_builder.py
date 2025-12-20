@@ -39,15 +39,15 @@ The following policy must be satisfied:
 ```
 
 Instructions
-Please provide a corrected version of the Terraform script that resolves ALL violations while maintaining the intended infrastructure functionality.
+Provide the corrected Terraform script in the `repaired_script` field. The script should resolve ALL violations while maintaining the intended infrastructure functionality.
 
 Requirements:
 
 Fix all reported violations
 Preserve the original infrastructure intent
 Use Terraform best practices
-Return ONLY the corrected Terraform code
-Do not include explanations or markdown formatting
+Provide ONLY valid Terraform code in the repaired_script field
+Do not include explanations or markdown formatting in the code
 """
 
         prompt = ChatPromptTemplate.from_messages(

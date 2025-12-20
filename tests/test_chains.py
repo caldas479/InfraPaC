@@ -6,7 +6,7 @@ import pytest
 
 from src.chains.prompt_builder import PromptBuilder
 from src.chains.repair_chain import RepairChain
-from src.models import PolicyViolation
+from src.models import PolicyViolation, RepairOutput
 
 
 class TestPromptBuilder:
@@ -86,12 +86,17 @@ class TestRepairChain:
     def test_initialization_ollama(self, sample_llm_config):
         """Test RepairChain initialization with Ollama."""
         with patch("src.chains.repair_chain.ChatOllama") as mock_ollama:
-            mock_ollama.return_value = Mock()
+            mock_llm = Mock()
+            mock_structured_llm = Mock()
+            mock_llm.with_structured_output.return_value = mock_structured_llm
+            mock_ollama.return_value = mock_llm
+
             chain = RepairChain(sample_llm_config)
 
             assert chain.llm_config == sample_llm_config
             assert chain.prompt_builder is not None
             mock_ollama.assert_called_once()
+            mock_llm.with_structured_output.assert_called_once_with(RepairOutput)
 
     def test_initialization_openai(self):
         """Test RepairChain initialization with OpenAI."""
@@ -103,10 +108,15 @@ class TestRepairChain:
         }
 
         with patch("src.chains.repair_chain.ChatOpenAI") as mock_openai:
-            mock_openai.return_value = Mock()
+            mock_llm = Mock()
+            mock_structured_llm = Mock()
+            mock_llm.with_structured_output.return_value = mock_structured_llm
+            mock_openai.return_value = mock_llm
+
             chain = RepairChain(config)
 
             mock_openai.assert_called_once()
+            mock_llm.with_structured_output.assert_called_once_with(RepairOutput)
 
     def test_initialization_unsupported_provider(self):
         """Test RepairChain initialization with unsupported provider."""
@@ -119,15 +129,20 @@ class TestRepairChain:
             RepairChain(config)
 
     def test_repair_basic(self, sample_llm_config, sample_policy_violation):
-        """Test basic repair functionality."""
+        """Test basic repair functionality with structured output."""
         with patch("src.chains.repair_chain.ChatOllama") as mock_ollama, patch(
             "src.chains.repair_chain.PromptBuilder"
         ) as mock_builder_class:
-            # Setup mock LLM
+            # Setup mock LLM with structured output
             mock_llm = Mock()
-            mock_response = Mock()
-            mock_response.content = 'resource "aws_s3_bucket" "test" {\n  versioning {\n    enabled = true\n  }\n}'
+            mock_structured_llm = Mock()
+            mock_llm.with_structured_output.return_value = mock_structured_llm
             mock_ollama.return_value = mock_llm
+
+            # Setup mock response as RepairOutput
+            mock_response = RepairOutput(
+                repaired_script='resource "aws_s3_bucket" "test" {\n  versioning {\n    enabled = true\n  }\n}'
+            )
 
             # Setup mock prompt builder
             mock_builder = Mock()
@@ -150,125 +165,52 @@ class TestRepairChain:
             assert "versioning" in result
             assert "enabled = true" in result
 
-    def test_extract_code_with_terraform_markers(self, sample_llm_config):
-        """Test _extract_code with terraform code markers."""
-        with patch("src.chains.repair_chain.ChatOllama") as mock_ollama:
-            mock_ollama.return_value = Mock()
+    def test_repair_structured_output_failure(
+        self, sample_llm_config, sample_policy_violation
+    ):
+        """Test repair with structured output failure."""
+        with patch("src.chains.repair_chain.ChatOllama") as mock_ollama, patch(
+            "src.chains.repair_chain.PromptBuilder"
+        ) as mock_builder_class:
+            # Setup mock LLM with structured output
+            mock_llm = Mock()
+            mock_structured_llm = Mock()
+            mock_llm.with_structured_output.return_value = mock_structured_llm
+            mock_ollama.return_value = mock_llm
+
+            # Setup mock prompt builder
+            mock_builder = Mock()
+            mock_template = Mock()
+            mock_chain = Mock()
+            # Simulate structured output failure
+            mock_chain.invoke.side_effect = Exception(
+                "Structured output parsing failed"
+            )
+            mock_template.__or__ = Mock(return_value=mock_chain)
+            mock_builder.build_repair_prompt_template.return_value = mock_template
+            mock_builder.format_violations.return_value = "Test violation"
+            mock_builder_class.return_value = mock_builder
+
             chain = RepairChain(sample_llm_config)
 
-            response = Mock()
-            response.content = """Here is the fixed code:
+            # Should raise ValueError with helpful error message
+            with pytest.raises(ValueError, match="Failed to parse structured output"):
+                chain.repair(
+                    policy="policy",
+                    iac_script="script",
+                    violations=[sample_policy_violation],
+                )
 
-```terraform
-resource "aws_s3_bucket" "test" {
-  bucket = "test"
-  versioning {
-    enabled = true
-  }
-}
-```
-
-This fixes the issue."""
-
-            code = chain._extract_code(response)
-
-            assert "resource" in code
-            assert "versioning" in code
-            assert "Here is the fixed code" not in code
-            assert "This fixes the issue" not in code
-            assert "```" not in code
-
-    def test_extract_code_with_hcl_markers(self, sample_llm_config):
-        """Test _extract_code with hcl code markers."""
+    def test_initialization_with_structured_output_failure(self, sample_llm_config):
+        """Test initialization when provider doesn't support structured output."""
         with patch("src.chains.repair_chain.ChatOllama") as mock_ollama:
-            mock_ollama.return_value = Mock()
-            chain = RepairChain(sample_llm_config)
+            mock_llm = Mock()
+            # Simulate with_structured_output not supported
+            mock_llm.with_structured_output.side_effect = AttributeError(
+                "Not supported"
+            )
+            mock_ollama.return_value = mock_llm
 
-            response = Mock()
-            response.content = '```hcl\nresource "aws_s3_bucket" "test" { }\n```'
-
-            code = chain._extract_code(response)
-
-            assert 'resource "aws_s3_bucket" "test" { }' in code
-            assert "```" not in code
-
-    def test_extract_code_without_markers(self, sample_llm_config):
-        """Test _extract_code without code markers."""
-        with patch("src.chains.repair_chain.ChatOllama") as mock_ollama:
-            mock_ollama.return_value = Mock()
-            chain = RepairChain(sample_llm_config)
-
-            response = Mock()
-            response.content = 'resource "aws_s3_bucket" "test" { }'
-
-            code = chain._extract_code(response)
-
-            assert code == 'resource "aws_s3_bucket" "test" { }'
-
-    def test_extract_code_from_string_response(self, sample_llm_config):
-        """Test _extract_code with string response (not AIMessage)."""
-        with patch("src.chains.repair_chain.ChatOllama") as mock_ollama:
-            mock_ollama.return_value = Mock()
-            chain = RepairChain(sample_llm_config)
-
-            response = "plain string response"
-
-            code = chain._extract_code(response)
-
-            assert code == "plain string response"
-
-    def test_extract_code_with_multiple_code_blocks(self, sample_llm_config):
-        """Test _extract_code with multiple code blocks - should return the last one."""
-        with patch("src.chains.repair_chain.ChatOllama") as mock_ollama:
-            mock_ollama.return_value = Mock()
-            chain = RepairChain(sample_llm_config)
-
-            response = Mock()
-            response.content = """Here is the original code with the issue:
-
-```terraform
-resource "aws_security_group" "web_sg" {
-  name        = "web-server-sg"
-  description = "Security group for web servers"
-  vpc_id      = "vpc-12345678"
-
-  ingress {
-    description = "SSH from anywhere"
-    from_port   = 22
-    to_port     = 22
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-}
-```
-
-The corrected Terraform script satisfies the policy by restricting the CIDR blocks.
-The corrected Terraform script is:
-
-```terraform
-resource "aws_security_group" "web_sg" {
-  name        = "web-server-sg"
-  description = "Security group for web servers"
-  vpc_id      = "vpc-12345678"
-
-  ingress {
-    description = "SSH from specific IP"
-    from_port   = 22
-    to_port     = 22
-    protocol    = "tcp"
-    cidr_blocks = ["192.0.2.42/32"]
-  }
-}
-```"""
-
-            code = chain._extract_code(response)
-
-            # Should extract the LAST code block (the corrected one)
-            assert "192.0.2.42/32" in code
-            assert "SSH from specific IP" in code
-            # Should NOT contain the first code block content
-            assert "SSH from anywhere" not in code
-            assert "0.0.0.0/0" not in code
-            # Should not contain explanatory text
-            assert "The corrected Terraform script" not in code
-            assert "```" not in code
+            # Should raise ValueError with helpful error message
+            with pytest.raises(ValueError, match="does not support structured output"):
+                RepairChain(sample_llm_config)

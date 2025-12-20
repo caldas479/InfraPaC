@@ -13,42 +13,6 @@ class PolicyViolation(BaseModel):
     details: Optional[dict] = Field(None, description="Additional violation details")
 
 
-class IaCScript(BaseModel):
-    """Model for an Infrastructure as Code script."""
-
-    content: str = Field(..., description="IaC script content")
-    language: str = Field(default="", description="IaC language")
-    path: Optional[str] = Field(None, description="File path")
-
-
-class Policy(BaseModel):
-    """Model for a policy."""
-
-    content: str = Field(..., description="Policy code")
-    engine: str = Field(..., description="Policy engine")
-    path: Optional[str] = Field(None, description="File path")
-
-
-class DatasetEntry(BaseModel):
-    """
-    Model for a Spec-Bug-Fix dataset entry.
-
-    Represents a single example with:
-    - Policy specification
-    - Buggy (violating) IaC script
-    - Fixed (compliant) IaC script
-    """
-
-    id: str = Field(..., description="Unique identifier")
-    policy: Policy = Field(..., description="Policy specification")
-    buggy_script: IaCScript = Field(..., description="Buggy IaC script")
-    fixed_script: IaCScript = Field(..., description="Fixed IaC script")
-    violations: List[PolicyViolation] = Field(
-        default_factory=list, description="Known violations in buggy script"
-    )
-    metadata: Optional[dict] = Field(None, description="Additional metadata")
-
-
 class RepairResult(BaseModel):
     """Model for a repair attempt result."""
 
@@ -62,9 +26,10 @@ class RepairResult(BaseModel):
     metadata: Optional[dict] = Field(None, description="Additional metadata")
 
 
-class LLMResponse(BaseModel):
-    """Model for LLM response."""
+class RepairOutput(BaseModel):
+    """Model for structured LLM repair output."""
 
-    repaired_script: str = Field(..., description="Suggested repaired script")
-    explanation: Optional[str] = Field(None, description="Explanation of changes")
-    confidence: Optional[float] = Field(None, description="Confidence score (0-1)")
+    repaired_script: str = Field(
+        ...,
+        description="The corrected Terraform script that fixes all policy violations",
+    )

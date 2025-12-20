@@ -7,7 +7,7 @@ from langchain_ollama import ChatOllama
 from langchain_openai import ChatOpenAI
 
 from src.chains.prompt_builder import PromptBuilder
-from src.models import PolicyViolation
+from src.models import PolicyViolation, RepairOutput
 
 
 class RepairChain:
@@ -28,18 +28,18 @@ class RepairChain:
         self.prompt_template = self.prompt_builder.build_repair_prompt_template()
 
     def _initialize_llm(self) -> Any:
-        """Initialize the LLM based on configuration."""
+        """Initialize the LLM based on configuration with structured output."""
         provider = self.llm_config.get("provider", "ollama")
 
         if provider == "ollama":
-            return ChatOllama(
+            llm = ChatOllama(
                 model=self.llm_config.get("model", "codellama"),
                 temperature=self.llm_config.get("temperature", 0.2),
                 num_ctx=self.llm_config.get("max_tokens", 2048),
                 base_url=self.llm_config.get("base_url", "http://localhost:11434"),
             )
         elif provider == "openai":
-            return ChatOpenAI(
+            llm = ChatOpenAI(
                 model=self.llm_config.get("model", "gpt-4"),
                 temperature=self.llm_config.get("temperature", 0.2),
                 max_tokens=self.llm_config.get("max_tokens", 2048),
@@ -49,11 +49,20 @@ class RepairChain:
         else:
             raise ValueError(f"Unsupported LLM provider: {provider}")
 
+        # Wrap LLM with structured output
+        try:
+            return llm.with_structured_output(RepairOutput)
+        except Exception as e:
+            raise ValueError(
+                f"Provider '{provider}' does not support structured output. "
+                f"Error: {e}. Please use a provider that supports structured output."
+            )
+
     def repair(
         self, policy: str, iac_script: str, violations: List[PolicyViolation]
     ) -> str:
         """
-        Generate a repaired IaC script. Creates and executes the repair chain.
+        Generate a repaired IaC script using structured output.
 
         Args:
             policy: Policy code (Rego/Sentinel)
@@ -62,6 +71,9 @@ class RepairChain:
 
         Returns:
             Repaired IaC script
+
+        Raises:
+            ValueError: If structured output parsing fails
         """
         # Format violations
         violations_text = self.prompt_builder.format_violations(violations)
@@ -72,73 +84,26 @@ class RepairChain:
         # Create the repair chain with the template and invoke with variables
         repair_chain = self.prompt_template | self.llm
 
-        # Invoke the chain with the actual values
-        response = repair_chain.invoke(
-            {
-                "policy": policy.strip(),
-                "violations_text": violations_text,
-                "iac_script": iac_script.strip(),
-            }
-        )
+        # Invoke the chain with the actual values - returns RepairOutput
+        try:
+            response: RepairOutput = repair_chain.invoke(
+                {
+                    "policy": policy.strip(),
+                    "violations_text": violations_text,
+                    "iac_script": iac_script.strip(),
+                }
+            )
 
-        # Log raw response
-        response_text = (
-            response.content if hasattr(response, "content") else str(response)
-        )
-        logger.debug(f"Raw response:\n{response_text}")
+            # Log the structured response
+            logger.debug(f"Structured response: {response}")
 
-        # Extract Terraform code from response
-        repaired_script = self._extract_code(response)
+            # Access the repaired script directly from structured output
+            return response.repaired_script
 
-        return repaired_script
-
-    def _extract_code(self, response: Any) -> str:
-        """
-        Extract Terraform code from LLM response.
-
-        Args:
-            response: LLM response (can be string or AIMessage)
-
-        Returns:
-            Extracted Terraform code
-        """
-        # Handle AIMessage from ChatOllama
-        if hasattr(response, "content"):
-            response_text = response.content
-        else:
-            response_text = str(response)
-
-        # If the response has ```terraform or ```hcl markers, extract content between them
-        if "```terraform" in response_text or "```hcl" in response_text:
-            # Find all code blocks
-            code_blocks = []
-            search_pos = 0
-
-            while True:
-                # Find the next code block
-                start_marker = response_text.find("```", search_pos)
-                if start_marker == -1:
-                    break
-
-                # Skip the opening ``` and any language identifier
-                start = response_text.find("\n", start_marker)
-                if start == -1:
-                    break
-                start += 1
-
-                # Find the closing ```
-                end = response_text.find("```", start)
-                if end == -1:
-                    # No closing marker, take the rest
-                    code_blocks.append(response_text[start:].strip())
-                    break
-
-                code_blocks.append(response_text[start:end].strip())
-                search_pos = end + 3
-
-            # Return the last code block (most likely to be the corrected version)
-            if code_blocks:
-                return code_blocks[-1]
-
-        # Otherwise return the raw response (assume it's just the code)
-        return response_text.strip()
+        except Exception as e:
+            provider = self.llm_config.get("provider", "unknown")
+            logger.error(f"Structured output parsing failed: {e}")
+            raise ValueError(
+                f"Failed to parse structured output from provider '{provider}'. "
+                f"Error: {e}"
+            )

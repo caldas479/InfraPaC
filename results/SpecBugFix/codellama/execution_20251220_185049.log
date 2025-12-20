@@ -1,0 +1,1263 @@
+2025-12-20 18:50:49,708 - root - INFO - ======================================================================
+2025-12-20 18:50:49,708 - root - INFO - SpecBugFix Patch Generator
+2025-12-20 18:50:49,708 - root - INFO - ======================================================================
+2025-12-20 18:50:49,708 - root - INFO - Initializing repair agent and OPA engine...
+2025-12-20 18:50:49,781 - src.pac_engines.opa_engine - INFO - OPA found: Version: 1.9.0
+Build Commit:
+Build Timestamp:
+Build Hostname:
+Go Version: go1.25.1
+Platform: darwin/arm64
+Rego Version: v1
+WebAssembly: unavailable
+2025-12-20 18:50:49,814 - root - INFO - Dataset: SpecBugFix v1.0.0
+2025-12-20 18:50:49,814 - root - INFO - Total entries: 11
+2025-12-20 18:50:49,814 - root - INFO - [1/11] Processing opa_iam_001 (iam/overly_permissive_s3)
+2025-12-20 18:50:49,814 - root - INFO - Violation: IAM policy grants s3:* permissions
+2025-12-20 18:50:49,868 - src.pac_engines.opa_engine - DEBUG - Prepared OPA input: {
+  "resource": {
+    "aws_iam_policy": {
+      "app_policy": {
+        "name": "app-s3-access",
+        "description": "Policy for application S3 access",
+        "policy": "${jsonencode({\"Version\": \"2012-10-17\", \"Statement\": [{\"Effect\": \"Allow\", \"Action\": [\"s3:*\"], \"Resource\": \"*\"}]})}"
+      }
+    }
+  }
+}
+2025-12-20 18:50:49,868 - src.pac_engines.opa_engine - DEBUG - OPA input data: {"resource": {"aws_iam_policy": {"app_policy": {"name": "app-s3-access", "description": "Policy for application S3 access", "policy": "${jsonencode({\"Version\": \"2012-10-17\", \"Statement\": [{\"Effect\": \"Allow\", \"Action\": [\"s3:*\"], \"Resource\": \"*\"}]})}"}}}}
+2025-12-20 18:50:49,868 - src.pac_engines.opa_engine - DEBUG - OPA command: opa eval -d /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmpvwd2aan_/policy.rego -i /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmpvwd2aan_/input.json --format json data.terraform.deny
+2025-12-20 18:50:49,888 - src.pac_engines.opa_engine - DEBUG - OPA stdout: {
+  "result": [
+    {
+      "expressions": [
+        {
+          "value": [
+            "IAM policy 'app-s3-access' grants overly permissive S3 access (s3:*). Use specific actions instead."
+          ],
+          "text": "data.terraform.deny",
+          "location": {
+            "row": 1,
+            "col": 1
+          }
+        }
+      ]
+    }
+  ]
+}
+
+2025-12-20 18:50:49,889 - src.agents.repair_agent - INFO - Repair iteration 1/3
+2025-12-20 18:50:49,889 - src.agents.repair_agent - DEBUG - Generating repair with LLM...
+2025-12-20 18:50:49,895 - httpcore.connection - DEBUG - connect_tcp.started host='localhost' port=11434 local_address=None timeout=None socket_options=None
+2025-12-20 18:50:49,896 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x110f18730>
+2025-12-20 18:50:49,896 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-12-20 18:50:49,897 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-12-20 18:50:49,897 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-12-20 18:50:49,897 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-12-20 18:50:49,897 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-12-20 18:50:51,638 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/x-ndjson'), (b'Date', b'Sat, 20 Dec 2025 18:50:51 GMT'), (b'Transfer-Encoding', b'chunked')])
+2025-12-20 18:50:51,640 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2025-12-20 18:50:51,641 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-12-20 18:50:55,996 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-12-20 18:50:55,996 - httpcore.http11 - DEBUG - response_closed.started
+2025-12-20 18:50:55,996 - httpcore.http11 - DEBUG - response_closed.complete
+2025-12-20 18:50:55,997 - src.chains.repair_chain - DEBUG - Structured response: repaired_script='resource "aws_iam_policy" "app_policy" { \n name = "app-s3-access" \n description = "Policy for application S3 access" \n policy = jsonencode({ \n Version = "2012-10-17" \n Statement = [ \n { \n Effect = "Allow" \n Action = [ \n "s3:GetObject", \n "s3:PutObject", \n "s3:DeleteObject", \n ] \n Resource = "*" \n } \n ] \n }) \n }'
+2025-12-20 18:50:55,997 - src.agents.repair_agent - DEBUG - Validating repaired script...
+2025-12-20 18:50:55,999 - src.pac_engines.opa_engine - DEBUG - Prepared OPA input: {
+  "resource": {
+    "aws_iam_policy": {
+      "app_policy": {
+        "name": "app-s3-access",
+        "description": "Policy for application S3 access",
+        "policy": "${jsonencode({\"Version\": \"2012-10-17\", \"Statement\": [{\"Effect\": \"Allow\", \"Action\": [\"s3:GetObject\", \"s3:PutObject\", \"s3:DeleteObject\"], \"Resource\": \"*\"}]})}"
+      }
+    }
+  }
+}
+2025-12-20 18:50:55,999 - src.pac_engines.opa_engine - DEBUG - OPA input data: {"resource": {"aws_iam_policy": {"app_policy": {"name": "app-s3-access", "description": "Policy for application S3 access", "policy": "${jsonencode({\"Version\": \"2012-10-17\", \"Statement\": [{\"Effect\": \"Allow\", \"Action\": [\"s3:GetObject\", \"s3:PutObject\", \"s3:DeleteObject\"], \"Resource\": \"*\"}]})}"}}}}
+2025-12-20 18:50:56,000 - src.pac_engines.opa_engine - DEBUG - OPA command: opa eval -d /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmp3but7cec/policy.rego -i /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmp3but7cec/input.json --format json data.terraform.deny
+2025-12-20 18:50:56,039 - src.pac_engines.opa_engine - DEBUG - OPA stdout: {
+  "result": [
+    {
+      "expressions": [
+        {
+          "value": [],
+          "text": "data.terraform.deny",
+          "location": {
+            "row": 1,
+            "col": 1
+          }
+        }
+      ]
+    }
+  ]
+}
+
+2025-12-20 18:50:56,039 - src.agents.repair_agent - INFO - ✓ Repair successful in 1 iteration(s)
+2025-12-20 18:50:56,040 - root - INFO - [2/11] Processing opa_iam_002 (iam/wildcard_actions)
+2025-12-20 18:50:56,040 - root - INFO - Violation: IAM policy uses wildcard actions (*) on all resources
+2025-12-20 18:50:56,044 - src.pac_engines.opa_engine - DEBUG - Prepared OPA input: {
+  "resource": {
+    "aws_iam_role": {
+      "lambda_role": {
+        "name": "lambda-execution-role",
+        "assume_role_policy": "${jsonencode({\"Version\": \"2012-10-17\", \"Statement\": [{\"Effect\": \"Allow\", \"Principal\": {\"Service\": \"lambda.amazonaws.com\"}, \"Action\": \"sts:AssumeRole\"}]})}"
+      }
+    },
+    "aws_iam_role_policy": {
+      "lambda_policy": {
+        "name": "lambda-policy",
+        "role": "${aws_iam_role.lambda_role.id}",
+        "policy": "${jsonencode({\"Version\": \"2012-10-17\", \"Statement\": [{\"Effect\": \"Allow\", \"Action\": \"*\", \"Resource\": \"*\"}]})}"
+      }
+    }
+  }
+}
+2025-12-20 18:50:56,044 - src.pac_engines.opa_engine - DEBUG - OPA input data: {"resource": {"aws_iam_role": {"lambda_role": {"name": "lambda-execution-role", "assume_role_policy": "${jsonencode({\"Version\": \"2012-10-17\", \"Statement\": [{\"Effect\": \"Allow\", \"Principal\": {\"Service\": \"lambda.amazonaws.com\"}, \"Action\": \"sts:AssumeRole\"}]})}"}}, "aws_iam_role_policy": {"lambda_policy": {"name": "lambda-policy", "role": "${aws_iam_role.lambda_role.id}", "policy": "${jsonencode({\"Version\": \"2012-10-17\", \"Statement\": [{\"Effect\": \"Allow\", \"Action\": \"*\", \"Resource\": \"*\"}]})}"}}}}
+2025-12-20 18:50:56,044 - src.pac_engines.opa_engine - DEBUG - OPA command: opa eval -d /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmp8ekt4_bz/policy.rego -i /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmp8ekt4_bz/input.json --format json data.terraform.deny
+2025-12-20 18:50:56,063 - src.pac_engines.opa_engine - DEBUG - OPA stdout: {
+  "result": [
+    {
+      "expressions": [
+        {
+          "value": [
+            "IAM role policy 'lambda-policy' uses wildcard action (*) on all resources (*). This is overly permissive."
+          ],
+          "text": "data.terraform.deny",
+          "location": {
+            "row": 1,
+            "col": 1
+          }
+        }
+      ]
+    }
+  ]
+}
+
+2025-12-20 18:50:56,064 - src.agents.repair_agent - INFO - Repair iteration 1/3
+2025-12-20 18:50:56,064 - src.agents.repair_agent - DEBUG - Generating repair with LLM...
+2025-12-20 18:50:56,066 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-12-20 18:50:56,066 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-12-20 18:50:56,066 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-12-20 18:50:56,067 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-12-20 18:50:56,067 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-12-20 18:50:57,697 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/x-ndjson'), (b'Date', b'Sat, 20 Dec 2025 18:50:57 GMT'), (b'Transfer-Encoding', b'chunked')])
+2025-12-20 18:50:57,698 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2025-12-20 18:50:57,699 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-12-20 18:51:06,571 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-12-20 18:51:06,580 - httpcore.http11 - DEBUG - response_closed.started
+2025-12-20 18:51:06,581 - httpcore.http11 - DEBUG - response_closed.complete
+2025-12-20 18:51:06,584 - src.chains.repair_chain - DEBUG - Structured response: repaired_script='resource "aws_iam_role" "lambda_role" { \n  name = "lambda-execution-role" \n\n  assume_role_policy = jsonencode({ \n    Version = "2012-10-17" \n    Statement = [{ \n      Effect = "Allow" \n      Principal = { \n        Service = "lambda.amazonaws.com" \n      } \n      Action = "sts:AssumeRole" \n    }] \n  }) \n}\n\nresource "aws_iam_role_policy" "lambda_policy" { \n  name = "lambda-policy" \n  role = aws_iam_role.lambda_role.id \n\n  policy = jsonencode({ \n    Version = "2012-10-17" \n    Statement = [{ \n      Effect   = "Allow" \n      Action   = ["s3:GetObject", "s3:PutObject", "s3:DeleteObject"] \n      Resource = "arn:aws:s3:::${var.bucket_name}/*" \n    }] \n  }) \n}\n'
+2025-12-20 18:51:06,584 - src.agents.repair_agent - DEBUG - Validating repaired script...
+2025-12-20 18:51:06,591 - src.pac_engines.opa_engine - DEBUG - Prepared OPA input: {
+  "resource": {
+    "aws_iam_role": {
+      "lambda_role": {
+        "name": "lambda-execution-role",
+        "assume_role_policy": "${jsonencode({\"Version\": \"2012-10-17\", \"Statement\": [{\"Effect\": \"Allow\", \"Principal\": {\"Service\": \"lambda.amazonaws.com\"}, \"Action\": \"sts:AssumeRole\"}]})}"
+      }
+    },
+    "aws_iam_role_policy": {
+      "lambda_policy": {
+        "name": "lambda-policy",
+        "role": "${aws_iam_role.lambda_role.id}",
+        "policy": "${jsonencode({\"Version\": \"2012-10-17\", \"Statement\": [{\"Effect\": \"Allow\", \"Action\": [\"s3:GetObject\", \"s3:PutObject\", \"s3:DeleteObject\"], \"Resource\": \"arn:aws:s3:::${var.bucket_name}/*\"}]})}"
+      }
+    }
+  }
+}
+2025-12-20 18:51:06,591 - src.pac_engines.opa_engine - DEBUG - OPA input data: {"resource": {"aws_iam_role": {"lambda_role": {"name": "lambda-execution-role", "assume_role_policy": "${jsonencode({\"Version\": \"2012-10-17\", \"Statement\": [{\"Effect\": \"Allow\", \"Principal\": {\"Service\": \"lambda.amazonaws.com\"}, \"Action\": \"sts:AssumeRole\"}]})}"}}, "aws_iam_role_policy": {"lambda_policy": {"name": "lambda-policy", "role": "${aws_iam_role.lambda_role.id}", "policy": "${jsonencode({\"Version\": \"2012-10-17\", \"Statement\": [{\"Effect\": \"Allow\", \"Action\": [\"s3:GetObject\", \"s3:PutObject\", \"s3:DeleteObject\"], \"Resource\": \"arn:aws:s3:::${var.bucket_name}/*\"}]})}"}}}}
+2025-12-20 18:51:06,592 - src.pac_engines.opa_engine - DEBUG - OPA command: opa eval -d /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmpmys3__xz/policy.rego -i /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmpmys3__xz/input.json --format json data.terraform.deny
+2025-12-20 18:51:06,723 - src.pac_engines.opa_engine - DEBUG - OPA stdout: {
+  "result": [
+    {
+      "expressions": [
+        {
+          "value": [],
+          "text": "data.terraform.deny",
+          "location": {
+            "row": 1,
+            "col": 1
+          }
+        }
+      ]
+    }
+  ]
+}
+
+2025-12-20 18:51:06,724 - src.agents.repair_agent - INFO - ✓ Repair successful in 1 iteration(s)
+2025-12-20 18:51:06,724 - root - INFO - [3/11] Processing opa_networking_001 (networking/open_security_group)
+2025-12-20 18:51:06,725 - root - INFO - Violation: Security group allows 0.0.0.0/0 access on sensitive port
+2025-12-20 18:51:06,728 - src.pac_engines.opa_engine - DEBUG - Prepared OPA input: {
+  "resource": {
+    "aws_security_group": {
+      "web_sg": {
+        "name": "web-server-sg",
+        "description": "Security group for web servers",
+        "vpc_id": "vpc-12345678",
+        "ingress": [
+          {
+            "description": "SSH from anywhere",
+            "from_port": 22,
+            "to_port": 22,
+            "protocol": "tcp",
+            "cidr_blocks": [
+              "0.0.0.0/0"
+            ]
+          },
+          {
+            "description": "HTTP from anywhere",
+            "from_port": 80,
+            "to_port": 80,
+            "protocol": "tcp",
+            "cidr_blocks": [
+              "0.0.0.0/0"
+            ]
+          }
+        ],
+        "egress": {
+          "from_port": 0,
+          "to_port": 0,
+          "protocol": "-1",
+          "cidr_blocks": [
+            "0.0.0.0/0"
+          ]
+        }
+      }
+    }
+  }
+}
+2025-12-20 18:51:06,728 - src.pac_engines.opa_engine - DEBUG - OPA input data: {"resource": {"aws_security_group": {"web_sg": {"name": "web-server-sg", "description": "Security group for web servers", "vpc_id": "vpc-12345678", "ingress": [{"description": "SSH from anywhere", "from_port": 22, "to_port": 22, "protocol": "tcp", "cidr_blocks": ["0.0.0.0/0"]}, {"description": "HTTP from anywhere", "from_port": 80, "to_port": 80, "protocol": "tcp", "cidr_blocks": ["0.0.0.0/0"]}], "egress": {"from_port": 0, "to_port": 0, "protocol": "-1", "cidr_blocks": ["0.0.0.0/0"]}}}}}
+2025-12-20 18:51:06,728 - src.pac_engines.opa_engine - DEBUG - OPA command: opa eval -d /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmpbfimkkpx/policy.rego -i /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmpbfimkkpx/input.json --format json data.terraform.deny
+2025-12-20 18:51:06,745 - src.pac_engines.opa_engine - DEBUG - OPA stdout: {
+  "result": [
+    {
+      "expressions": [
+        {
+          "value": [
+            "Security group 'web-server-sg' allows unrestricted access (0.0.0.0/0) on sensitive port 22"
+          ],
+          "text": "data.terraform.deny",
+          "location": {
+            "row": 1,
+            "col": 1
+          }
+        }
+      ]
+    }
+  ]
+}
+
+2025-12-20 18:51:06,746 - src.agents.repair_agent - INFO - Repair iteration 1/3
+2025-12-20 18:51:06,746 - src.agents.repair_agent - DEBUG - Generating repair with LLM...
+2025-12-20 18:51:06,749 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-12-20 18:51:06,749 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-12-20 18:51:06,749 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-12-20 18:51:06,749 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-12-20 18:51:06,749 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-12-20 18:51:08,688 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/x-ndjson'), (b'Date', b'Sat, 20 Dec 2025 18:51:08 GMT'), (b'Transfer-Encoding', b'chunked')])
+2025-12-20 18:51:08,689 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2025-12-20 18:51:08,690 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-12-20 18:51:15,799 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-12-20 18:51:15,800 - httpcore.http11 - DEBUG - response_closed.started
+2025-12-20 18:51:15,800 - httpcore.http11 - DEBUG - response_closed.complete
+2025-12-20 18:51:15,801 - src.chains.repair_chain - DEBUG - Structured response: repaired_script='resource "aws_security_group" "web_sg" {  name = "web-server-sg"  description = "Security group for web servers"  vpc_id = "vpc-12345678"  ingress {    description = "SSH from anywhere"    from_port = 22    to_port = 22    protocol = "tcp"    cidr_blocks = ["0.0.0.0/0"]  }  ingress {    description = "HTTP from anywhere"    from_port = 80    to_port = 80    protocol = "tcp"    cidr_blocks = ["0.0.0.0/0"]  }  egress {    from_port = 0    to_port = 0    protocol = "-1"    cidr_blocks = ["0.0.0.0/0"]  }}'
+2025-12-20 18:51:15,802 - src.agents.repair_agent - DEBUG - Validating repaired script...
+2025-12-20 18:51:15,808 - src.pac_engines.opa_engine - DEBUG - Prepared OPA input: {
+  "resource": {
+    "aws_security_group": {
+      "web_sg": {
+        "name": "web-server-sg",
+        "description": "Security group for web servers",
+        "vpc_id": "vpc-12345678",
+        "ingress": [
+          {
+            "description": "SSH from anywhere",
+            "from_port": 22,
+            "to_port": 22,
+            "protocol": "tcp",
+            "cidr_blocks": [
+              "0.0.0.0/0"
+            ]
+          },
+          {
+            "description": "HTTP from anywhere",
+            "from_port": 80,
+            "to_port": 80,
+            "protocol": "tcp",
+            "cidr_blocks": [
+              "0.0.0.0/0"
+            ]
+          }
+        ],
+        "egress": {
+          "from_port": 0,
+          "to_port": 0,
+          "protocol": "-1",
+          "cidr_blocks": [
+            "0.0.0.0/0"
+          ]
+        }
+      }
+    }
+  }
+}
+2025-12-20 18:51:15,809 - src.pac_engines.opa_engine - DEBUG - OPA input data: {"resource": {"aws_security_group": {"web_sg": {"name": "web-server-sg", "description": "Security group for web servers", "vpc_id": "vpc-12345678", "ingress": [{"description": "SSH from anywhere", "from_port": 22, "to_port": 22, "protocol": "tcp", "cidr_blocks": ["0.0.0.0/0"]}, {"description": "HTTP from anywhere", "from_port": 80, "to_port": 80, "protocol": "tcp", "cidr_blocks": ["0.0.0.0/0"]}], "egress": {"from_port": 0, "to_port": 0, "protocol": "-1", "cidr_blocks": ["0.0.0.0/0"]}}}}}
+2025-12-20 18:51:15,809 - src.pac_engines.opa_engine - DEBUG - OPA command: opa eval -d /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmpg3qzhmls/policy.rego -i /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmpg3qzhmls/input.json --format json data.terraform.deny
+2025-12-20 18:51:15,864 - src.pac_engines.opa_engine - DEBUG - OPA stdout: {
+  "result": [
+    {
+      "expressions": [
+        {
+          "value": [
+            "Security group 'web-server-sg' allows unrestricted access (0.0.0.0/0) on sensitive port 22"
+          ],
+          "text": "data.terraform.deny",
+          "location": {
+            "row": 1,
+            "col": 1
+          }
+        }
+      ]
+    }
+  ]
+}
+
+2025-12-20 18:51:15,865 - src.agents.repair_agent - WARNING - No progress: still 1 violation(s)
+2025-12-20 18:51:15,865 - src.agents.repair_agent - INFO - Repair iteration 2/3
+2025-12-20 18:51:15,865 - src.agents.repair_agent - DEBUG - Generating repair with LLM...
+2025-12-20 18:51:15,868 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-12-20 18:51:15,868 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-12-20 18:51:15,868 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-12-20 18:51:15,868 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-12-20 18:51:15,868 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-12-20 18:51:16,867 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/x-ndjson'), (b'Date', b'Sat, 20 Dec 2025 18:51:16 GMT'), (b'Transfer-Encoding', b'chunked')])
+2025-12-20 18:51:16,869 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2025-12-20 18:51:16,869 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-12-20 18:51:24,066 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-12-20 18:51:24,067 - httpcore.http11 - DEBUG - response_closed.started
+2025-12-20 18:51:24,067 - httpcore.http11 - DEBUG - response_closed.complete
+2025-12-20 18:51:24,072 - src.chains.repair_chain - DEBUG - Structured response: repaired_script='resource "aws_security_group" "web_sg" {  name = "web-server-sg"  description = "Security group for web servers"  vpc_id = "vpc-12345678"  ingress {    description = "SSH from anywhere"    from_port = 22    to_port = 22    protocol = "tcp"    cidr_blocks = ["0.0.0.0/0"]  }  ingress {    description = "HTTP from anywhere"    from_port = 80    to_port = 80    protocol = "tcp"    cidr_blocks = ["0.0.0.0/0"]  }  egress {    from_port = 0    to_port = 0    protocol = "-1"    cidr_blocks = ["0.0.0.0/0"]  }}  '
+2025-12-20 18:51:24,072 - src.agents.repair_agent - DEBUG - Validating repaired script...
+2025-12-20 18:51:24,078 - src.pac_engines.opa_engine - DEBUG - Prepared OPA input: {
+  "resource": {
+    "aws_security_group": {
+      "web_sg": {
+        "name": "web-server-sg",
+        "description": "Security group for web servers",
+        "vpc_id": "vpc-12345678",
+        "ingress": [
+          {
+            "description": "SSH from anywhere",
+            "from_port": 22,
+            "to_port": 22,
+            "protocol": "tcp",
+            "cidr_blocks": [
+              "0.0.0.0/0"
+            ]
+          },
+          {
+            "description": "HTTP from anywhere",
+            "from_port": 80,
+            "to_port": 80,
+            "protocol": "tcp",
+            "cidr_blocks": [
+              "0.0.0.0/0"
+            ]
+          }
+        ],
+        "egress": {
+          "from_port": 0,
+          "to_port": 0,
+          "protocol": "-1",
+          "cidr_blocks": [
+            "0.0.0.0/0"
+          ]
+        }
+      }
+    }
+  }
+}
+2025-12-20 18:51:24,079 - src.pac_engines.opa_engine - DEBUG - OPA input data: {"resource": {"aws_security_group": {"web_sg": {"name": "web-server-sg", "description": "Security group for web servers", "vpc_id": "vpc-12345678", "ingress": [{"description": "SSH from anywhere", "from_port": 22, "to_port": 22, "protocol": "tcp", "cidr_blocks": ["0.0.0.0/0"]}, {"description": "HTTP from anywhere", "from_port": 80, "to_port": 80, "protocol": "tcp", "cidr_blocks": ["0.0.0.0/0"]}], "egress": {"from_port": 0, "to_port": 0, "protocol": "-1", "cidr_blocks": ["0.0.0.0/0"]}}}}}
+2025-12-20 18:51:24,079 - src.pac_engines.opa_engine - DEBUG - OPA command: opa eval -d /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmpob5dggxh/policy.rego -i /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmpob5dggxh/input.json --format json data.terraform.deny
+2025-12-20 18:51:24,184 - src.pac_engines.opa_engine - DEBUG - OPA stdout: {
+  "result": [
+    {
+      "expressions": [
+        {
+          "value": [
+            "Security group 'web-server-sg' allows unrestricted access (0.0.0.0/0) on sensitive port 22"
+          ],
+          "text": "data.terraform.deny",
+          "location": {
+            "row": 1,
+            "col": 1
+          }
+        }
+      ]
+    }
+  ]
+}
+
+2025-12-20 18:51:24,185 - src.agents.repair_agent - WARNING - No progress: still 1 violation(s)
+2025-12-20 18:51:24,185 - src.agents.repair_agent - INFO - Repair iteration 3/3
+2025-12-20 18:51:24,185 - src.agents.repair_agent - DEBUG - Generating repair with LLM...
+2025-12-20 18:51:24,188 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-12-20 18:51:24,188 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-12-20 18:51:24,188 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-12-20 18:51:24,188 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-12-20 18:51:24,188 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-12-20 18:51:24,314 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/x-ndjson'), (b'Date', b'Sat, 20 Dec 2025 18:51:24 GMT'), (b'Transfer-Encoding', b'chunked')])
+2025-12-20 18:51:24,315 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2025-12-20 18:51:24,315 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-12-20 18:51:31,521 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-12-20 18:51:31,522 - httpcore.http11 - DEBUG - response_closed.started
+2025-12-20 18:51:31,522 - httpcore.http11 - DEBUG - response_closed.complete
+2025-12-20 18:51:31,525 - src.chains.repair_chain - DEBUG - Structured response: repaired_script='resource "aws_security_group" "web_sg" {  name = "web-server-sg"  description = "Security group for web servers"  vpc_id = "vpc-12345678"  ingress {    description = "SSH from anywhere"    from_port = 22    to_port = 22    protocol = "tcp"    cidr_blocks = ["0.0.0.0/0"]  }  ingress {    description = "HTTP from anywhere"    from_port = 80    to_port = 80    protocol = "tcp"    cidr_blocks = ["0.0.0.0/0"]  }  egress {    from_port = 0    to_port = 0    protocol = "-1"    cidr_blocks = ["0.0.0.0/0"]  }}  '
+2025-12-20 18:51:31,525 - src.agents.repair_agent - DEBUG - Validating repaired script...
+2025-12-20 18:51:31,531 - src.pac_engines.opa_engine - DEBUG - Prepared OPA input: {
+  "resource": {
+    "aws_security_group": {
+      "web_sg": {
+        "name": "web-server-sg",
+        "description": "Security group for web servers",
+        "vpc_id": "vpc-12345678",
+        "ingress": [
+          {
+            "description": "SSH from anywhere",
+            "from_port": 22,
+            "to_port": 22,
+            "protocol": "tcp",
+            "cidr_blocks": [
+              "0.0.0.0/0"
+            ]
+          },
+          {
+            "description": "HTTP from anywhere",
+            "from_port": 80,
+            "to_port": 80,
+            "protocol": "tcp",
+            "cidr_blocks": [
+              "0.0.0.0/0"
+            ]
+          }
+        ],
+        "egress": {
+          "from_port": 0,
+          "to_port": 0,
+          "protocol": "-1",
+          "cidr_blocks": [
+            "0.0.0.0/0"
+          ]
+        }
+      }
+    }
+  }
+}
+2025-12-20 18:51:31,531 - src.pac_engines.opa_engine - DEBUG - OPA input data: {"resource": {"aws_security_group": {"web_sg": {"name": "web-server-sg", "description": "Security group for web servers", "vpc_id": "vpc-12345678", "ingress": [{"description": "SSH from anywhere", "from_port": 22, "to_port": 22, "protocol": "tcp", "cidr_blocks": ["0.0.0.0/0"]}, {"description": "HTTP from anywhere", "from_port": 80, "to_port": 80, "protocol": "tcp", "cidr_blocks": ["0.0.0.0/0"]}], "egress": {"from_port": 0, "to_port": 0, "protocol": "-1", "cidr_blocks": ["0.0.0.0/0"]}}}}}
+2025-12-20 18:51:31,532 - src.pac_engines.opa_engine - DEBUG - OPA command: opa eval -d /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmp5zxnq6cd/policy.rego -i /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmp5zxnq6cd/input.json --format json data.terraform.deny
+2025-12-20 18:51:31,574 - src.pac_engines.opa_engine - DEBUG - OPA stdout: {
+  "result": [
+    {
+      "expressions": [
+        {
+          "value": [
+            "Security group 'web-server-sg' allows unrestricted access (0.0.0.0/0) on sensitive port 22"
+          ],
+          "text": "data.terraform.deny",
+          "location": {
+            "row": 1,
+            "col": 1
+          }
+        }
+      ]
+    }
+  ]
+}
+
+2025-12-20 18:51:31,575 - src.agents.repair_agent - WARNING - No progress: still 1 violation(s)
+2025-12-20 18:51:31,575 - src.agents.repair_agent - WARNING - ✗ Failed to fix all violations after 3 iterations
+2025-12-20 18:51:31,576 - root - INFO - [4/11] Processing opa_networking_002 (networking/public_subnet)
+2025-12-20 18:51:31,576 - root - INFO - Violation: Non-public subnet assigns public IPs automatically
+2025-12-20 18:51:31,580 - src.pac_engines.opa_engine - DEBUG - Prepared OPA input: {
+  "resource": {
+    "aws_vpc": {
+      "main": {
+        "cidr_block": "10.0.0.0/16",
+        "tags": {
+          "Name": "main-vpc"
+        }
+      }
+    },
+    "aws_subnet": {
+      "app_subnet": {
+        "vpc_id": "${aws_vpc.main.id}",
+        "cidr_block": "10.0.1.0/24",
+        "availability_zone": "us-east-1a",
+        "map_public_ip_on_launch": true,
+        "tags": {
+          "Name": "app-subnet",
+          "Environment": "Production"
+        }
+      }
+    }
+  }
+}
+2025-12-20 18:51:31,581 - src.pac_engines.opa_engine - DEBUG - OPA input data: {"resource": {"aws_vpc": {"main": {"cidr_block": "10.0.0.0/16", "tags": {"Name": "main-vpc"}}}, "aws_subnet": {"app_subnet": {"vpc_id": "${aws_vpc.main.id}", "cidr_block": "10.0.1.0/24", "availability_zone": "us-east-1a", "map_public_ip_on_launch": true, "tags": {"Name": "app-subnet", "Environment": "Production"}}}}}
+2025-12-20 18:51:31,581 - src.pac_engines.opa_engine - DEBUG - OPA command: opa eval -d /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmp1ocsd3fj/policy.rego -i /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmp1ocsd3fj/input.json --format json data.terraform.deny
+2025-12-20 18:51:31,606 - src.pac_engines.opa_engine - DEBUG - OPA stdout: {
+  "result": [
+    {
+      "expressions": [
+        {
+          "value": [
+            "Subnet 'app-subnet' automatically assigns public IPs but is not marked as public/DMZ subnet"
+          ],
+          "text": "data.terraform.deny",
+          "location": {
+            "row": 1,
+            "col": 1
+          }
+        }
+      ]
+    }
+  ]
+}
+
+2025-12-20 18:51:31,607 - src.agents.repair_agent - INFO - Repair iteration 1/3
+2025-12-20 18:51:31,607 - src.agents.repair_agent - DEBUG - Generating repair with LLM...
+2025-12-20 18:51:31,610 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-12-20 18:51:31,610 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-12-20 18:51:31,610 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-12-20 18:51:31,610 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-12-20 18:51:31,610 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-12-20 18:51:33,066 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/x-ndjson'), (b'Date', b'Sat, 20 Dec 2025 18:51:33 GMT'), (b'Transfer-Encoding', b'chunked')])
+2025-12-20 18:51:33,067 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2025-12-20 18:51:33,067 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-12-20 18:51:37,624 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-12-20 18:51:37,624 - httpcore.http11 - DEBUG - response_closed.started
+2025-12-20 18:51:37,624 - httpcore.http11 - DEBUG - response_closed.complete
+2025-12-20 18:51:37,625 - src.chains.repair_chain - DEBUG - Structured response: repaired_script='resource "aws_vpc" "main" { cidr_block = "10.0.0.0/16" tags = { Name = "main-vpc" } } resource "aws_subnet" "app_subnet" { vpc_id                  = aws_vpc.main.id cidr_block              = "10.0.1.0/24" availability_zone       = "us-east-1a" map_public_ip_on_launch = false tags = { Name        = "app-subnet" Environment = "Production" } }'
+2025-12-20 18:51:37,625 - src.agents.repair_agent - DEBUG - Validating repaired script...
+2025-12-20 18:51:37,626 - src.pac_engines.opa_engine - DEBUG - Prepared OPA input: {
+  "resource": {
+    "aws_vpc": {
+      "main": {
+        "cidr_block": "10.0.0.0/16",
+        "tags": {
+          "Name": "main-vpc"
+        }
+      }
+    },
+    "aws_subnet": {
+      "app_subnet": {
+        "vpc_id": "${aws_vpc.main.id}",
+        "cidr_block": "10.0.1.0/24",
+        "availability_zone": "us-east-1a",
+        "map_public_ip_on_launch": false,
+        "tags": {
+          "Name": "app-subnet",
+          "Environment": "Production"
+        }
+      }
+    }
+  }
+}
+2025-12-20 18:51:37,626 - src.pac_engines.opa_engine - DEBUG - OPA input data: {"resource": {"aws_vpc": {"main": {"cidr_block": "10.0.0.0/16", "tags": {"Name": "main-vpc"}}}, "aws_subnet": {"app_subnet": {"vpc_id": "${aws_vpc.main.id}", "cidr_block": "10.0.1.0/24", "availability_zone": "us-east-1a", "map_public_ip_on_launch": false, "tags": {"Name": "app-subnet", "Environment": "Production"}}}}}
+2025-12-20 18:51:37,627 - src.pac_engines.opa_engine - DEBUG - OPA command: opa eval -d /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmpd5hdryoj/policy.rego -i /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmpd5hdryoj/input.json --format json data.terraform.deny
+2025-12-20 18:51:37,659 - src.pac_engines.opa_engine - DEBUG - OPA stdout: {
+  "result": [
+    {
+      "expressions": [
+        {
+          "value": [],
+          "text": "data.terraform.deny",
+          "location": {
+            "row": 1,
+            "col": 1
+          }
+        }
+      ]
+    }
+  ]
+}
+
+2025-12-20 18:51:37,660 - src.agents.repair_agent - INFO - ✓ Repair successful in 1 iteration(s)
+2025-12-20 18:51:37,660 - root - INFO - [5/11] Processing opa_storage_001 (storage/s3_encryption)
+2025-12-20 18:51:37,660 - root - INFO - Violation: S3 bucket missing server-side encryption
+2025-12-20 18:51:37,662 - src.pac_engines.opa_engine - DEBUG - Prepared OPA input: {
+  "resource": {
+    "aws_s3_bucket": {
+      "data_bucket": {
+        "bucket": "company-data-bucket-2024",
+        "tags": {
+          "Environment": "Production",
+          "Purpose": "Data Storage"
+        }
+      }
+    }
+  }
+}
+2025-12-20 18:51:37,662 - src.pac_engines.opa_engine - DEBUG - OPA input data: {"resource": {"aws_s3_bucket": {"data_bucket": {"bucket": "company-data-bucket-2024", "tags": {"Environment": "Production", "Purpose": "Data Storage"}}}}}
+2025-12-20 18:51:37,662 - src.pac_engines.opa_engine - DEBUG - OPA command: opa eval -d /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmpy87bweg_/policy.rego -i /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmpy87bweg_/input.json --format json data.terraform.deny
+2025-12-20 18:51:37,679 - src.pac_engines.opa_engine - DEBUG - OPA stdout: {
+  "result": [
+    {
+      "expressions": [
+        {
+          "value": [
+            "S3 bucket 'company-data-bucket-2024' must have server-side encryption enabled"
+          ],
+          "text": "data.terraform.deny",
+          "location": {
+            "row": 1,
+            "col": 1
+          }
+        }
+      ]
+    }
+  ]
+}
+
+2025-12-20 18:51:37,680 - src.agents.repair_agent - INFO - Repair iteration 1/3
+2025-12-20 18:51:37,680 - src.agents.repair_agent - DEBUG - Generating repair with LLM...
+2025-12-20 18:51:37,681 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-12-20 18:51:37,682 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-12-20 18:51:37,682 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-12-20 18:51:37,682 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-12-20 18:51:37,682 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-12-20 18:51:38,651 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/x-ndjson'), (b'Date', b'Sat, 20 Dec 2025 18:51:38 GMT'), (b'Transfer-Encoding', b'chunked')])
+2025-12-20 18:51:38,652 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2025-12-20 18:51:38,653 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-12-20 18:51:41,681 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-12-20 18:51:41,681 - httpcore.http11 - DEBUG - response_closed.started
+2025-12-20 18:51:41,681 - httpcore.http11 - DEBUG - response_closed.complete
+2025-12-20 18:51:41,683 - src.chains.repair_chain - DEBUG - Structured response: repaired_script='resource "aws_s3_bucket" "data_bucket" { bucket = "company-data-bucket-2024" server_side_encryption_configuration { rule { apply_server_side_encryption_by_default { sse_algorithm = "AES256" } } } } tags = { Environment = "Production" Purpose = "Data Storage" } }'
+2025-12-20 18:51:41,683 - src.agents.repair_agent - DEBUG - Validating repaired script...
+2025-12-20 18:51:41,686 - src.pac_engines.opa_engine - ERROR - Error parsing Terraform HCL: Unexpected token Token('RBRACE', '}') at line 1, column 262.
+Expected one of:
+	* $END
+
+2025-12-20 18:51:41,687 - src.pac_engines.opa_engine - DEBUG - OPA input data: {}
+2025-12-20 18:51:41,688 - src.pac_engines.opa_engine - DEBUG - OPA command: opa eval -d /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmpez04hd04/policy.rego -i /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmpez04hd04/input.json --format json data.terraform.deny
+2025-12-20 18:51:41,719 - src.pac_engines.opa_engine - DEBUG - OPA stdout: {
+  "result": [
+    {
+      "expressions": [
+        {
+          "value": [],
+          "text": "data.terraform.deny",
+          "location": {
+            "row": 1,
+            "col": 1
+          }
+        }
+      ]
+    }
+  ]
+}
+
+2025-12-20 18:51:41,720 - src.agents.repair_agent - INFO - ✓ Repair successful in 1 iteration(s)
+2025-12-20 18:51:41,721 - root - INFO - [6/11] Processing opa_storage_002 (storage/s3_versioning)
+2025-12-20 18:51:41,721 - root - INFO - Violation: S3 bucket missing versioning configuration
+2025-12-20 18:51:41,724 - src.pac_engines.opa_engine - DEBUG - Prepared OPA input: {
+  "resource": {
+    "aws_s3_bucket": {
+      "backup_bucket": {
+        "bucket": "company-backup-bucket",
+        "acl": "private",
+        "tags": {
+          "Environment": "Production",
+          "Purpose": "Backups"
+        }
+      }
+    }
+  }
+}
+2025-12-20 18:51:41,724 - src.pac_engines.opa_engine - DEBUG - OPA input data: {"resource": {"aws_s3_bucket": {"backup_bucket": {"bucket": "company-backup-bucket", "acl": "private", "tags": {"Environment": "Production", "Purpose": "Backups"}}}}}
+2025-12-20 18:51:41,724 - src.pac_engines.opa_engine - DEBUG - OPA command: opa eval -d /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmprhjn4ppy/policy.rego -i /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmprhjn4ppy/input.json --format json data.terraform.deny
+2025-12-20 18:51:41,744 - src.pac_engines.opa_engine - DEBUG - OPA stdout: {
+  "result": [
+    {
+      "expressions": [
+        {
+          "value": [
+            "S3 bucket 'company-backup-bucket' must have versioning configuration",
+            "S3 bucket 'company-backup-bucket' must have versioning enabled"
+          ],
+          "text": "data.terraform.deny",
+          "location": {
+            "row": 1,
+            "col": 1
+          }
+        }
+      ]
+    }
+  ]
+}
+
+2025-12-20 18:51:41,745 - src.agents.repair_agent - INFO - Repair iteration 1/3
+2025-12-20 18:51:41,745 - src.agents.repair_agent - DEBUG - Generating repair with LLM...
+2025-12-20 18:51:41,747 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-12-20 18:51:41,748 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-12-20 18:51:41,748 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-12-20 18:51:41,748 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-12-20 18:51:41,748 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-12-20 18:51:42,996 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/x-ndjson'), (b'Date', b'Sat, 20 Dec 2025 18:51:42 GMT'), (b'Transfer-Encoding', b'chunked')])
+2025-12-20 18:51:42,997 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2025-12-20 18:51:42,998 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-12-20 18:51:46,232 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-12-20 18:51:46,233 - httpcore.http11 - DEBUG - response_closed.started
+2025-12-20 18:51:46,233 - httpcore.http11 - DEBUG - response_closed.complete
+2025-12-20 18:51:46,239 - src.chains.repair_chain - DEBUG - Structured response: repaired_script='resource "aws_s3_bucket" "backup_bucket" { \n  bucket = "company-backup-bucket" \n  acl    = "private" \n\n  versioning {\n    enabled = true \n  } \n\n  tags = { \n    Environment = "Production" \n    Purpose     = "Backups" \n  } \n}\n'
+2025-12-20 18:51:46,240 - src.agents.repair_agent - DEBUG - Validating repaired script...
+2025-12-20 18:51:46,246 - src.pac_engines.opa_engine - DEBUG - Prepared OPA input: {
+  "resource": {
+    "aws_s3_bucket": {
+      "backup_bucket": {
+        "bucket": "company-backup-bucket",
+        "acl": "private",
+        "versioning": {
+          "enabled": true
+        },
+        "tags": {
+          "Environment": "Production",
+          "Purpose": "Backups"
+        }
+      }
+    }
+  }
+}
+2025-12-20 18:51:46,247 - src.pac_engines.opa_engine - DEBUG - OPA input data: {"resource": {"aws_s3_bucket": {"backup_bucket": {"bucket": "company-backup-bucket", "acl": "private", "versioning": {"enabled": true}, "tags": {"Environment": "Production", "Purpose": "Backups"}}}}}
+2025-12-20 18:51:46,247 - src.pac_engines.opa_engine - DEBUG - OPA command: opa eval -d /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmphbfa_2p7/policy.rego -i /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmphbfa_2p7/input.json --format json data.terraform.deny
+2025-12-20 18:51:46,290 - src.pac_engines.opa_engine - DEBUG - OPA stdout: {
+  "result": [
+    {
+      "expressions": [
+        {
+          "value": [],
+          "text": "data.terraform.deny",
+          "location": {
+            "row": 1,
+            "col": 1
+          }
+        }
+      ]
+    }
+  ]
+}
+
+2025-12-20 18:51:46,291 - src.agents.repair_agent - INFO - ✓ Repair successful in 1 iteration(s)
+2025-12-20 18:51:46,292 - root - INFO - [7/11] Processing opa_storage_003 (storage/s3_public_access)
+2025-12-20 18:51:46,292 - root - INFO - Violation: S3 bucket has public-read ACL
+2025-12-20 18:51:46,294 - src.pac_engines.opa_engine - DEBUG - Prepared OPA input: {
+  "resource": {
+    "aws_s3_bucket": {
+      "website_assets": {
+        "bucket": "company-website-assets",
+        "acl": "public-read",
+        "website": {
+          "index_document": "index.html",
+          "error_document": "error.html"
+        },
+        "tags": {
+          "Environment": "Production",
+          "Purpose": "Static Website"
+        }
+      }
+    }
+  }
+}
+2025-12-20 18:51:46,294 - src.pac_engines.opa_engine - DEBUG - OPA input data: {"resource": {"aws_s3_bucket": {"website_assets": {"bucket": "company-website-assets", "acl": "public-read", "website": {"index_document": "index.html", "error_document": "error.html"}, "tags": {"Environment": "Production", "Purpose": "Static Website"}}}}}
+2025-12-20 18:51:46,295 - src.pac_engines.opa_engine - DEBUG - OPA command: opa eval -d /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmp57e9c0gm/policy.rego -i /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmp57e9c0gm/input.json --format json data.terraform.deny
+2025-12-20 18:51:46,309 - src.pac_engines.opa_engine - DEBUG - OPA stdout: {
+  "result": [
+    {
+      "expressions": [
+        {
+          "value": [
+            "S3 bucket 'company-website-assets' has public-read ACL. This allows anyone to read bucket contents."
+          ],
+          "text": "data.terraform.deny",
+          "location": {
+            "row": 1,
+            "col": 1
+          }
+        }
+      ]
+    }
+  ]
+}
+
+2025-12-20 18:51:46,309 - src.agents.repair_agent - INFO - Repair iteration 1/3
+2025-12-20 18:51:46,309 - src.agents.repair_agent - DEBUG - Generating repair with LLM...
+2025-12-20 18:51:46,312 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-12-20 18:51:46,313 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-12-20 18:51:46,313 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-12-20 18:51:46,313 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-12-20 18:51:46,313 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-12-20 18:51:47,670 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/x-ndjson'), (b'Date', b'Sat, 20 Dec 2025 18:51:47 GMT'), (b'Transfer-Encoding', b'chunked')])
+2025-12-20 18:51:47,671 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2025-12-20 18:51:47,671 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-12-20 18:51:50,283 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-12-20 18:51:50,283 - httpcore.http11 - DEBUG - response_closed.started
+2025-12-20 18:51:50,283 - httpcore.http11 - DEBUG - response_closed.complete
+2025-12-20 18:51:50,285 - src.chains.repair_chain - DEBUG - Structured response: repaired_script='resource "aws_s3_bucket" "website_assets" { bucket = "company-website-assets" acl = "private" website { index_document = "index.html" error_document = "error.html" } tags = { Environment = "Production" Purpose = "Static Website" } }'
+2025-12-20 18:51:50,285 - src.agents.repair_agent - DEBUG - Validating repaired script...
+2025-12-20 18:51:50,290 - src.pac_engines.opa_engine - DEBUG - Prepared OPA input: {
+  "resource": {
+    "aws_s3_bucket": {
+      "website_assets": {
+        "bucket": "company-website-assets",
+        "acl": "private",
+        "website": {
+          "index_document": "index.html",
+          "error_document": "error.html"
+        },
+        "tags": {
+          "Environment": "Production",
+          "Purpose": "Static Website"
+        }
+      }
+    }
+  }
+}
+2025-12-20 18:51:50,291 - src.pac_engines.opa_engine - DEBUG - OPA input data: {"resource": {"aws_s3_bucket": {"website_assets": {"bucket": "company-website-assets", "acl": "private", "website": {"index_document": "index.html", "error_document": "error.html"}, "tags": {"Environment": "Production", "Purpose": "Static Website"}}}}}
+2025-12-20 18:51:50,291 - src.pac_engines.opa_engine - DEBUG - OPA command: opa eval -d /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmpxnjomw8t/policy.rego -i /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmpxnjomw8t/input.json --format json data.terraform.deny
+2025-12-20 18:51:50,317 - src.pac_engines.opa_engine - DEBUG - OPA stdout: {
+  "result": [
+    {
+      "expressions": [
+        {
+          "value": [],
+          "text": "data.terraform.deny",
+          "location": {
+            "row": 1,
+            "col": 1
+          }
+        }
+      ]
+    }
+  ]
+}
+
+2025-12-20 18:51:50,318 - src.agents.repair_agent - INFO - ✓ Repair successful in 1 iteration(s)
+2025-12-20 18:51:50,319 - root - INFO - [8/11] Processing opa_compute_001 (compute/ec2_public_ip)
+2025-12-20 18:51:50,319 - root - INFO - Violation: EC2 instance has public IP assigned
+2025-12-20 18:51:50,321 - src.pac_engines.opa_engine - DEBUG - Prepared OPA input: {
+  "resource": {
+    "aws_instance": {
+      "app_server": {
+        "ami": "ami-0c55b159cbfafe1f0",
+        "instance_type": "t2.micro",
+        "subnet_id": "subnet-12345678",
+        "associate_public_ip_address": true,
+        "tags": {
+          "Name": "app-server",
+          "Environment": "production"
+        }
+      }
+    }
+  }
+}
+2025-12-20 18:51:50,322 - src.pac_engines.opa_engine - DEBUG - OPA input data: {"resource": {"aws_instance": {"app_server": {"ami": "ami-0c55b159cbfafe1f0", "instance_type": "t2.micro", "subnet_id": "subnet-12345678", "associate_public_ip_address": true, "tags": {"Name": "app-server", "Environment": "production"}}}}}
+2025-12-20 18:51:50,322 - src.pac_engines.opa_engine - DEBUG - OPA command: opa eval -d /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmp5sdu57cg/policy.rego -i /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmp5sdu57cg/input.json --format json data.terraform.deny
+2025-12-20 18:51:50,338 - src.pac_engines.opa_engine - DEBUG - OPA stdout: {
+  "result": [
+    {
+      "expressions": [
+        {
+          "value": [
+            "EC2 instance 'app-server' should not have a public IP address assigned. Use a bastion host or VPN instead."
+          ],
+          "text": "data.terraform.deny",
+          "location": {
+            "row": 1,
+            "col": 1
+          }
+        }
+      ]
+    }
+  ]
+}
+
+2025-12-20 18:51:50,339 - src.agents.repair_agent - INFO - Repair iteration 1/3
+2025-12-20 18:51:50,339 - src.agents.repair_agent - DEBUG - Generating repair with LLM...
+2025-12-20 18:51:50,342 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-12-20 18:51:50,342 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-12-20 18:51:50,342 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-12-20 18:51:50,342 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-12-20 18:51:50,342 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-12-20 18:51:51,605 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/x-ndjson'), (b'Date', b'Sat, 20 Dec 2025 18:51:51 GMT'), (b'Transfer-Encoding', b'chunked')])
+2025-12-20 18:51:51,606 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2025-12-20 18:51:51,607 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-12-20 18:51:54,461 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-12-20 18:51:54,461 - httpcore.http11 - DEBUG - response_closed.started
+2025-12-20 18:51:54,462 - httpcore.http11 - DEBUG - response_closed.complete
+2025-12-20 18:51:54,463 - src.chains.repair_chain - DEBUG - Structured response: repaired_script='resource "aws_instance" "app_server" {  ami = "ami-0c55b159cbfafe1f0" instance_type = "t2.micro" subnet_id = "subnet-12345678" tags = { Name = "app-server" Environment = "production" } }'
+2025-12-20 18:51:54,464 - src.agents.repair_agent - DEBUG - Validating repaired script...
+2025-12-20 18:51:54,468 - src.pac_engines.opa_engine - DEBUG - Prepared OPA input: {
+  "resource": {
+    "aws_instance": {
+      "app_server": {
+        "ami": "ami-0c55b159cbfafe1f0",
+        "instance_type": "t2.micro",
+        "subnet_id": "subnet-12345678",
+        "tags": {
+          "Name": "app-server",
+          "Environment": "production"
+        }
+      }
+    }
+  }
+}
+2025-12-20 18:51:54,469 - src.pac_engines.opa_engine - DEBUG - OPA input data: {"resource": {"aws_instance": {"app_server": {"ami": "ami-0c55b159cbfafe1f0", "instance_type": "t2.micro", "subnet_id": "subnet-12345678", "tags": {"Name": "app-server", "Environment": "production"}}}}}
+2025-12-20 18:51:54,470 - src.pac_engines.opa_engine - DEBUG - OPA command: opa eval -d /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmp42kv4nc9/policy.rego -i /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmp42kv4nc9/input.json --format json data.terraform.deny
+2025-12-20 18:51:54,513 - src.pac_engines.opa_engine - DEBUG - OPA stdout: {
+  "result": [
+    {
+      "expressions": [
+        {
+          "value": [],
+          "text": "data.terraform.deny",
+          "location": {
+            "row": 1,
+            "col": 1
+          }
+        }
+      ]
+    }
+  ]
+}
+
+2025-12-20 18:51:54,514 - src.agents.repair_agent - INFO - ✓ Repair successful in 1 iteration(s)
+2025-12-20 18:51:54,515 - root - INFO - [9/11] Processing opa_compute_002 (compute/unencrypted_ebs)
+2025-12-20 18:51:54,515 - root - INFO - Violation: EBS volume is not encrypted
+2025-12-20 18:51:54,518 - src.pac_engines.opa_engine - DEBUG - Prepared OPA input: {
+  "resource": {
+    "aws_instance": {
+      "database_server": {
+        "ami": "ami-0c55b159cbfafe1f0",
+        "instance_type": "t3.large",
+        "subnet_id": "subnet-87654321",
+        "ebs_block_device": {
+          "device_name": "/dev/sdf",
+          "volume_size": 100,
+          "volume_type": "gp3"
+        },
+        "tags": {
+          "Name": "database-server",
+          "Environment": "production"
+        }
+      }
+    }
+  }
+}
+2025-12-20 18:51:54,518 - src.pac_engines.opa_engine - DEBUG - OPA input data: {"resource": {"aws_instance": {"database_server": {"ami": "ami-0c55b159cbfafe1f0", "instance_type": "t3.large", "subnet_id": "subnet-87654321", "ebs_block_device": {"device_name": "/dev/sdf", "volume_size": 100, "volume_type": "gp3"}, "tags": {"Name": "database-server", "Environment": "production"}}}}}
+2025-12-20 18:51:54,518 - src.pac_engines.opa_engine - DEBUG - OPA command: opa eval -d /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmpt7s77xlu/policy.rego -i /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmpt7s77xlu/input.json --format json data.terraform.deny
+2025-12-20 18:51:54,538 - src.pac_engines.opa_engine - DEBUG - OPA stdout: {
+  "result": [
+    {
+      "expressions": [
+        {
+          "value": [
+            "EC2 instance 'database-server' has unencrypted EBS volume on device '/dev/sdf'"
+          ],
+          "text": "data.terraform.deny",
+          "location": {
+            "row": 1,
+            "col": 1
+          }
+        }
+      ]
+    }
+  ]
+}
+
+2025-12-20 18:51:54,539 - src.agents.repair_agent - INFO - Repair iteration 1/3
+2025-12-20 18:51:54,539 - src.agents.repair_agent - DEBUG - Generating repair with LLM...
+2025-12-20 18:51:54,541 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-12-20 18:51:54,541 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-12-20 18:51:54,541 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-12-20 18:51:54,542 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-12-20 18:51:54,542 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-12-20 18:51:56,281 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/x-ndjson'), (b'Date', b'Sat, 20 Dec 2025 18:51:56 GMT'), (b'Transfer-Encoding', b'chunked')])
+2025-12-20 18:51:56,283 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2025-12-20 18:51:56,283 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-12-20 18:52:01,350 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-12-20 18:52:01,352 - httpcore.http11 - DEBUG - response_closed.started
+2025-12-20 18:52:01,353 - httpcore.http11 - DEBUG - response_closed.complete
+2025-12-20 18:52:01,359 - src.chains.repair_chain - DEBUG - Structured response: repaired_script='resource "aws_instance" "database_server" { \n ami = "ami-0c55b159cbfafe1f0" \n instance_type = "t3.large" \n subnet_id = "subnet-87654321" \n \n ebs_block_device { \n device_name = "/dev/sdf" \n volume_size = 100 \n volume_type = "gp3" \n encrypted = true \n } \n \n tags = { \n Name = "database-server" \n Environment = "production" \n } \n }'
+2025-12-20 18:52:01,359 - src.agents.repair_agent - DEBUG - Validating repaired script...
+2025-12-20 18:52:01,368 - src.pac_engines.opa_engine - DEBUG - Prepared OPA input: {
+  "resource": {
+    "aws_instance": {
+      "database_server": {
+        "ami": "ami-0c55b159cbfafe1f0",
+        "instance_type": "t3.large",
+        "subnet_id": "subnet-87654321",
+        "ebs_block_device": {
+          "device_name": "/dev/sdf",
+          "volume_size": 100,
+          "volume_type": "gp3",
+          "encrypted": true
+        },
+        "tags": {
+          "Name": "database-server",
+          "Environment": "production"
+        }
+      }
+    }
+  }
+}
+2025-12-20 18:52:01,370 - src.pac_engines.opa_engine - DEBUG - OPA input data: {"resource": {"aws_instance": {"database_server": {"ami": "ami-0c55b159cbfafe1f0", "instance_type": "t3.large", "subnet_id": "subnet-87654321", "ebs_block_device": {"device_name": "/dev/sdf", "volume_size": 100, "volume_type": "gp3", "encrypted": true}, "tags": {"Name": "database-server", "Environment": "production"}}}}}
+2025-12-20 18:52:01,370 - src.pac_engines.opa_engine - DEBUG - OPA command: opa eval -d /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmp_cs812fu/policy.rego -i /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmp_cs812fu/input.json --format json data.terraform.deny
+2025-12-20 18:52:01,425 - src.pac_engines.opa_engine - DEBUG - OPA stdout: {
+  "result": [
+    {
+      "expressions": [
+        {
+          "value": [],
+          "text": "data.terraform.deny",
+          "location": {
+            "row": 1,
+            "col": 1
+          }
+        }
+      ]
+    }
+  ]
+}
+
+2025-12-20 18:52:01,426 - src.agents.repair_agent - INFO - ✓ Repair successful in 1 iteration(s)
+2025-12-20 18:52:01,427 - root - INFO - [10/11] Processing opa_database_001 (database/rds_public_access)
+2025-12-20 18:52:01,427 - root - INFO - Violation: RDS instance is publicly accessible
+2025-12-20 18:52:01,429 - src.pac_engines.opa_engine - DEBUG - Prepared OPA input: {
+  "resource": {
+    "aws_db_instance": {
+      "main_db": {
+        "identifier": "production-db",
+        "engine": "postgres",
+        "engine_version": "14.7",
+        "instance_class": "db.t3.medium",
+        "allocated_storage": 100,
+        "db_name": "myapp",
+        "username": "admin",
+        "password": "change-me-later",
+        "publicly_accessible": true,
+        "vpc_security_group_ids": [
+          "sg-12345678"
+        ],
+        "db_subnet_group_name": "main-subnet-group",
+        "skip_final_snapshot": true,
+        "tags": {
+          "Environment": "Production"
+        }
+      }
+    }
+  }
+}
+2025-12-20 18:52:01,430 - src.pac_engines.opa_engine - DEBUG - OPA input data: {"resource": {"aws_db_instance": {"main_db": {"identifier": "production-db", "engine": "postgres", "engine_version": "14.7", "instance_class": "db.t3.medium", "allocated_storage": 100, "db_name": "myapp", "username": "admin", "password": "change-me-later", "publicly_accessible": true, "vpc_security_group_ids": ["sg-12345678"], "db_subnet_group_name": "main-subnet-group", "skip_final_snapshot": true, "tags": {"Environment": "Production"}}}}}
+2025-12-20 18:52:01,430 - src.pac_engines.opa_engine - DEBUG - OPA command: opa eval -d /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmp9hz2gwh8/policy.rego -i /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmp9hz2gwh8/input.json --format json data.terraform.deny
+2025-12-20 18:52:01,446 - src.pac_engines.opa_engine - DEBUG - OPA stdout: {
+  "result": [
+    {
+      "expressions": [
+        {
+          "value": [
+            "RDS instance 'production-db' must not be publicly accessible. Set publicly_accessible to false."
+          ],
+          "text": "data.terraform.deny",
+          "location": {
+            "row": 1,
+            "col": 1
+          }
+        }
+      ]
+    }
+  ]
+}
+
+2025-12-20 18:52:01,447 - src.agents.repair_agent - INFO - Repair iteration 1/3
+2025-12-20 18:52:01,447 - src.agents.repair_agent - DEBUG - Generating repair with LLM...
+2025-12-20 18:52:01,450 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-12-20 18:52:01,450 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-12-20 18:52:01,450 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-12-20 18:52:01,450 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-12-20 18:52:01,450 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-12-20 18:52:02,923 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/x-ndjson'), (b'Date', b'Sat, 20 Dec 2025 18:52:02 GMT'), (b'Transfer-Encoding', b'chunked')])
+2025-12-20 18:52:02,925 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2025-12-20 18:52:02,925 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-12-20 18:52:08,606 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-12-20 18:52:08,607 - httpcore.http11 - DEBUG - response_closed.started
+2025-12-20 18:52:08,608 - httpcore.http11 - DEBUG - response_closed.complete
+2025-12-20 18:52:08,610 - src.chains.repair_chain - DEBUG - Structured response: repaired_script='resource "aws_db_instance" "main_db" { \n identifier = "production-db" \n engine = "postgres" \n engine_version = "14.7" \n instance_class = "db.t3.medium" \n allocated_storage = 100 \n db_name = "myapp" \n username = "admin" \n password = "change-me-later" \n publicly_accessible = false \n vpc_security_group_ids = ["sg-12345678"] \n db_subnet_group_name = "main-subnet-group" \n skip_final_snapshot = true \n tags = { Environment = "Production" } \n}'
+2025-12-20 18:52:08,610 - src.agents.repair_agent - DEBUG - Validating repaired script...
+2025-12-20 18:52:08,615 - src.pac_engines.opa_engine - DEBUG - Prepared OPA input: {
+  "resource": {
+    "aws_db_instance": {
+      "main_db": {
+        "identifier": "production-db",
+        "engine": "postgres",
+        "engine_version": "14.7",
+        "instance_class": "db.t3.medium",
+        "allocated_storage": 100,
+        "db_name": "myapp",
+        "username": "admin",
+        "password": "change-me-later",
+        "publicly_accessible": false,
+        "vpc_security_group_ids": [
+          "sg-12345678"
+        ],
+        "db_subnet_group_name": "main-subnet-group",
+        "skip_final_snapshot": true,
+        "tags": {
+          "Environment": "Production"
+        }
+      }
+    }
+  }
+}
+2025-12-20 18:52:08,616 - src.pac_engines.opa_engine - DEBUG - OPA input data: {"resource": {"aws_db_instance": {"main_db": {"identifier": "production-db", "engine": "postgres", "engine_version": "14.7", "instance_class": "db.t3.medium", "allocated_storage": 100, "db_name": "myapp", "username": "admin", "password": "change-me-later", "publicly_accessible": false, "vpc_security_group_ids": ["sg-12345678"], "db_subnet_group_name": "main-subnet-group", "skip_final_snapshot": true, "tags": {"Environment": "Production"}}}}}
+2025-12-20 18:52:08,616 - src.pac_engines.opa_engine - DEBUG - OPA command: opa eval -d /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmp3bpevy3_/policy.rego -i /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmp3bpevy3_/input.json --format json data.terraform.deny
+2025-12-20 18:52:08,652 - src.pac_engines.opa_engine - DEBUG - OPA stdout: {
+  "result": [
+    {
+      "expressions": [
+        {
+          "value": [],
+          "text": "data.terraform.deny",
+          "location": {
+            "row": 1,
+            "col": 1
+          }
+        }
+      ]
+    }
+  ]
+}
+
+2025-12-20 18:52:08,653 - src.agents.repair_agent - INFO - ✓ Repair successful in 1 iteration(s)
+2025-12-20 18:52:08,653 - root - INFO - [11/11] Processing opa_database_002 (database/rds_encryption)
+2025-12-20 18:52:08,654 - root - INFO - Violation: RDS instance storage is not encrypted
+2025-12-20 18:52:08,657 - src.pac_engines.opa_engine - DEBUG - Prepared OPA input: {
+  "resource": {
+    "aws_db_instance": {
+      "analytics_db": {
+        "identifier": "analytics-database",
+        "engine": "mysql",
+        "engine_version": "8.0.32",
+        "instance_class": "db.r5.large",
+        "allocated_storage": 500,
+        "db_name": "analytics",
+        "username": "admin",
+        "password": "SecurePassword123!",
+        "publicly_accessible": false,
+        "vpc_security_group_ids": [
+          "sg-87654321"
+        ],
+        "db_subnet_group_name": "analytics-subnet-group",
+        "skip_final_snapshot": true,
+        "tags": {
+          "Environment": "Production",
+          "Service": "Analytics"
+        }
+      }
+    }
+  }
+}
+2025-12-20 18:52:08,657 - src.pac_engines.opa_engine - DEBUG - OPA input data: {"resource": {"aws_db_instance": {"analytics_db": {"identifier": "analytics-database", "engine": "mysql", "engine_version": "8.0.32", "instance_class": "db.r5.large", "allocated_storage": 500, "db_name": "analytics", "username": "admin", "password": "SecurePassword123!", "publicly_accessible": false, "vpc_security_group_ids": ["sg-87654321"], "db_subnet_group_name": "analytics-subnet-group", "skip_final_snapshot": true, "tags": {"Environment": "Production", "Service": "Analytics"}}}}}
+2025-12-20 18:52:08,657 - src.pac_engines.opa_engine - DEBUG - OPA command: opa eval -d /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmpl1ourql5/policy.rego -i /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmpl1ourql5/input.json --format json data.terraform.deny
+2025-12-20 18:52:08,682 - src.pac_engines.opa_engine - DEBUG - OPA stdout: {
+  "result": [
+    {
+      "expressions": [
+        {
+          "value": [
+            "RDS instance 'analytics-database' must have storage encryption enabled. Set storage_encrypted to true."
+          ],
+          "text": "data.terraform.deny",
+          "location": {
+            "row": 1,
+            "col": 1
+          }
+        }
+      ]
+    }
+  ]
+}
+
+2025-12-20 18:52:08,683 - src.agents.repair_agent - INFO - Repair iteration 1/3
+2025-12-20 18:52:08,683 - src.agents.repair_agent - DEBUG - Generating repair with LLM...
+2025-12-20 18:52:08,685 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-12-20 18:52:08,686 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-12-20 18:52:08,686 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-12-20 18:52:08,686 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-12-20 18:52:08,686 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-12-20 18:52:10,133 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/x-ndjson'), (b'Date', b'Sat, 20 Dec 2025 18:52:10 GMT'), (b'Transfer-Encoding', b'chunked')])
+2025-12-20 18:52:10,133 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2025-12-20 18:52:10,133 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-12-20 18:52:15,534 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-12-20 18:52:15,536 - httpcore.http11 - DEBUG - response_closed.started
+2025-12-20 18:52:15,536 - httpcore.http11 - DEBUG - response_closed.complete
+2025-12-20 18:52:15,537 - src.chains.repair_chain - DEBUG - Structured response: repaired_script='resource "aws_db_instance" "analytics_db" { identifier = "analytics-database" engine = "mysql" engine_version = "8.0.32" instance_class = "db.r5.large" allocated_storage = 500 db_name = "analytics" username = "admin" password = "SecurePassword123!" publicly_accessible = false vpc_security_group_ids = ["sg-87654321"] db_subnet_group_name = "analytics-subnet-group" storage_encrypted = true skip_final_snapshot = true tags = { Environment = "Production" Service = "Analytics" } }'
+2025-12-20 18:52:15,538 - src.agents.repair_agent - DEBUG - Validating repaired script...
+2025-12-20 18:52:15,542 - src.pac_engines.opa_engine - DEBUG - Prepared OPA input: {
+  "resource": {
+    "aws_db_instance": {
+      "analytics_db": {
+        "identifier": "analytics-database",
+        "engine": "mysql",
+        "engine_version": "8.0.32",
+        "instance_class": "db.r5.large",
+        "allocated_storage": 500,
+        "db_name": "analytics",
+        "username": "admin",
+        "password": "SecurePassword123!",
+        "publicly_accessible": false,
+        "vpc_security_group_ids": [
+          "sg-87654321"
+        ],
+        "db_subnet_group_name": "analytics-subnet-group",
+        "storage_encrypted": true,
+        "skip_final_snapshot": true,
+        "tags": {
+          "Environment": "Production",
+          "Service": "Analytics"
+        }
+      }
+    }
+  }
+}
+2025-12-20 18:52:15,543 - src.pac_engines.opa_engine - DEBUG - OPA input data: {"resource": {"aws_db_instance": {"analytics_db": {"identifier": "analytics-database", "engine": "mysql", "engine_version": "8.0.32", "instance_class": "db.r5.large", "allocated_storage": 500, "db_name": "analytics", "username": "admin", "password": "SecurePassword123!", "publicly_accessible": false, "vpc_security_group_ids": ["sg-87654321"], "db_subnet_group_name": "analytics-subnet-group", "storage_encrypted": true, "skip_final_snapshot": true, "tags": {"Environment": "Production", "Service": "Analytics"}}}}}
+2025-12-20 18:52:15,543 - src.pac_engines.opa_engine - DEBUG - OPA command: opa eval -d /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmp_f7yf4_a/policy.rego -i /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmp_f7yf4_a/input.json --format json data.terraform.deny
+2025-12-20 18:52:15,578 - src.pac_engines.opa_engine - DEBUG - OPA stdout: {
+  "result": [
+    {
+      "expressions": [
+        {
+          "value": [],
+          "text": "data.terraform.deny",
+          "location": {
+            "row": 1,
+            "col": 1
+          }
+        }
+      ]
+    }
+  ]
+}
+
+2025-12-20 18:52:15,579 - src.agents.repair_agent - INFO - ✓ Repair successful in 1 iteration(s)
+2025-12-20 18:52:15,579 - root - INFO - ======================================================================
+2025-12-20 18:52:15,579 - root - INFO - Results
+2025-12-20 18:52:15,579 - root - INFO - ======================================================================
+2025-12-20 18:52:15,580 - root - INFO - Total processed: 11
+2025-12-20 18:52:15,580 - root - INFO - Skipped: 0
+2025-12-20 18:52:15,580 - root - INFO - Attempted: 11
+2025-12-20 18:52:15,580 - root - INFO - Successful: 10
+2025-12-20 18:52:15,580 - root - INFO - Failed: 1
+2025-12-20 18:52:15,580 - root - INFO - Errors: 0
+2025-12-20 18:52:15,580 - root - INFO - Success rate: 90.9%
+2025-12-20 18:52:15,580 - root - INFO - Failed entries:
+2025-12-20 18:52:15,580 - root - INFO - opa_networking_001: repair or validation failed
