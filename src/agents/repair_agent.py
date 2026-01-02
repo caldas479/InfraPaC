@@ -9,6 +9,8 @@ from src.chains.repair_chain import RepairChain
 from src.models import PolicyViolation, RepairResult
 from src.pac_engines.base_engine import BasePaCEngine
 
+logger = logging.getLogger(__name__)
+
 
 class RepairAgent:
     """
@@ -35,7 +37,6 @@ class RepairAgent:
         self.config = config
         self.max_iterations = config.get("max_iterations", 3)
         self.repair_chain = RepairChain(llm_config)
-        self.logger = logging.getLogger(__name__)
 
     def repair(
         self,
@@ -58,10 +59,10 @@ class RepairAgent:
         current_violations = violations
 
         for iteration in range(1, self.max_iterations + 1):
-            self.logger.info(f"Repair iteration {iteration}/{self.max_iterations}")
+            logger.info(f"Repair iteration {iteration}/{self.max_iterations}")
 
             # Generate iac repair based on current script and policy violations
-            self.logger.debug("Generating repair with LLM...")
+            logger.debug("Generating repair with LLM...")
             repaired_script = self.repair_chain.repair(
                 policy=policy,
                 iac_script=current_script,
@@ -69,12 +70,12 @@ class RepairAgent:
             )
 
             # Validate repair
-            self.logger.debug("Validating repaired script...")
+            logger.debug("Validating repaired script...")
             new_violations = self.pac_engine.evaluate(policy, repaired_script)
 
             if not new_violations:
                 # Success!
-                self.logger.info(f"✓ Repair successful in {iteration} iteration(s)")
+                logger.info(f"✓ Repair successful in {iteration} iteration(s)")
                 return RepairResult(
                     success=True,
                     iterations=iteration,
@@ -84,13 +85,11 @@ class RepairAgent:
 
             # Check if we made progress
             if len(new_violations) < len(current_violations):
-                self.logger.info(
+                logger.info(
                     f"Progress: {len(current_violations)} → {len(new_violations)} violations"
                 )
             else:
-                self.logger.warning(
-                    f"No progress: still {len(new_violations)} violation(s)"
-                )
+                logger.warning(f"No progress: still {len(new_violations)} violation(s)")
 
             # Update for next iteration
             current_script = repaired_script
@@ -103,7 +102,7 @@ class RepairAgent:
             # prompt = self.prompt_builder.evolve_prompt(prompt, reflection)
 
         # Failed to fix all violations
-        self.logger.warning(
+        logger.warning(
             f"✗ Failed to fix all violations after {self.max_iterations} iterations"
         )
         return RepairResult(

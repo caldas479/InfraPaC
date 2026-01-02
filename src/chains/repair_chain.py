@@ -9,6 +9,8 @@ from langchain_openai import ChatOpenAI
 from src.chains.prompt_builder import PromptBuilder
 from src.models import PolicyViolation, RepairOutput
 
+logger = logging.getLogger(__name__)
+
 
 class RepairChain:
     """
@@ -77,9 +79,6 @@ class RepairChain:
         """
         # Format violations
         violations_text = self.prompt_builder.format_violations(violations)
-
-        # Log the prompt for debugging
-        logger = logging.getLogger(__name__)
 
         # Create the repair chain with the template and invoke with variables
         repair_chain = self.prompt_template | self.llm
