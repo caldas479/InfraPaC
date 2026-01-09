@@ -1,0 +1,1019 @@
+2026-01-08 23:24:10,895 - root - INFO - ======================================================================
+2026-01-08 23:24:10,895 - root - INFO - KICS Dataset Patch Generator
+2026-01-08 23:24:10,895 - root - INFO - ======================================================================
+2026-01-08 23:24:10,895 - root - INFO - Initializing repair agent and OPA engine...
+2026-01-08 23:24:10,978 - src.pac_engines.opa_engine - INFO - OPA found: Version: 1.9.0
+Build Commit:
+Build Timestamp:
+Build Hostname:
+Go Version: go1.25.1
+Platform: darwin/arm64
+Rego Version: v1
+WebAssembly: unavailable
+2026-01-08 23:24:11,012 - root - INFO - Dataset: spec_bug_fix_kics v1.0.0
+2026-01-08 23:24:11,012 - root - INFO - Total entries: 13
+2026-01-08 23:24:11,012 - root - INFO -
+[1/13] Processing kics_aws_cloudwatch_logs_destination_with_vulnerable_policy_001 (aws)
+2026-01-08 23:24:11,053 - src.pac_engines.opa_engine - DEBUG - Prepared OPA input: {
+  "resource": {
+    "aws_cloudwatch_log_destination_policy": {
+      "test_destination_policy": {
+        "destination_name": "${aws_cloudwatch_log_destination.test_destination.name}",
+        "access_policy": "${data.aws_iam_policy_document.test_destination_policy.json}"
+      }
+    }
+  }
+}
+2026-01-08 23:24:11,053 - src.pac_engines.opa_engine - DEBUG - OPA input data: {"resource": {"aws_cloudwatch_log_destination_policy": {"test_destination_policy": {"destination_name": "${aws_cloudwatch_log_destination.test_destination.name}", "access_policy": "${data.aws_iam_policy_document.test_destination_policy.json}"}}}}
+2026-01-08 23:24:11,053 - src.pac_engines.opa_engine - DEBUG - OPA command: opa eval -d /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmpw0p8u5wa/policy.rego -i /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmpw0p8u5wa/input.json --format json data.terraform.deny
+2026-01-08 23:24:11,068 - src.pac_engines.opa_engine - ERROR - OPA evaluation failed:
+2026-01-08 23:24:11,068 - src.agents.repair_agent - INFO - Repair iteration 1/3
+2026-01-08 23:24:11,068 - src.agents.repair_agent - DEBUG - Generating repair with LLM...
+2026-01-08 23:24:11,074 - httpcore.connection - DEBUG - connect_tcp.started host='localhost' port=11434 local_address=None timeout=None socket_options=None
+2026-01-08 23:24:11,076 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x10b5bd4e0>
+2026-01-08 23:24:11,076 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-01-08 23:24:11,076 - httpcore.http11 - DEBUG - send_request_headers.complete
+2026-01-08 23:24:11,076 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-01-08 23:24:11,076 - httpcore.http11 - DEBUG - send_request_body.complete
+2026-01-08 23:24:11,076 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-01-08 23:24:17,922 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/x-ndjson'), (b'Date', b'Thu, 08 Jan 2026 23:24:17 GMT'), (b'Transfer-Encoding', b'chunked')])
+2026-01-08 23:24:17,926 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-08 23:24:17,927 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-01-08 23:24:28,068 - httpcore.http11 - DEBUG - receive_response_body.complete
+2026-01-08 23:24:28,070 - httpcore.http11 - DEBUG - response_closed.started
+2026-01-08 23:24:28,070 - httpcore.http11 - DEBUG - response_closed.complete
+2026-01-08 23:24:28,076 - src.chains.repair_chain - DEBUG - Structured response: repaired_script='data "aws_iam_policy_document" "test_destination_policy" { statement { effect = "Allow" principals { type = "AWS" identifiers = [ data.aws_caller_identity.current.id ] } actions = [ "logs:CreateLogGroup", "logs:CreateLogStream", "logs:PutLogEvents", "logs:DescribeLogGroups", "logs:DescribeLogStreams", "logs:GetLogEvents", "logs:FilterLogEvents" ] } } resource "aws_cloudwatch_log_destination_policy" "test_destination_policy" { destination_name = aws_cloudwatch_log_destination.test_destination.name access_policy = data.aws_iam_policy_document.test_destination_policy.json }'
+2026-01-08 23:24:28,076 - src.agents.repair_agent - DEBUG - Validating repaired script...
+2026-01-08 23:24:28,080 - src.pac_engines.opa_engine - DEBUG - Prepared OPA input: {
+  "resource": {
+    "aws_cloudwatch_log_destination_policy": {
+      "test_destination_policy": {
+        "destination_name": "${aws_cloudwatch_log_destination.test_destination.name}",
+        "access_policy": "${data.aws_iam_policy_document.test_destination_policy.json}"
+      }
+    }
+  }
+}
+2026-01-08 23:24:28,081 - src.pac_engines.opa_engine - DEBUG - OPA input data: {"resource": {"aws_cloudwatch_log_destination_policy": {"test_destination_policy": {"destination_name": "${aws_cloudwatch_log_destination.test_destination.name}", "access_policy": "${data.aws_iam_policy_document.test_destination_policy.json}"}}}}
+2026-01-08 23:24:28,081 - src.pac_engines.opa_engine - DEBUG - OPA command: opa eval -d /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmp85r5mos_/policy.rego -i /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmp85r5mos_/input.json --format json data.terraform.deny
+2026-01-08 23:24:28,170 - src.pac_engines.opa_engine - ERROR - OPA evaluation failed:
+2026-01-08 23:24:28,171 - src.agents.repair_agent - INFO - ✓ Repair successful in 1 iteration(s)
+2026-01-08 23:24:28,172 - root - INFO - ✓ Successfully generated patch
+2026-01-08 23:24:28,172 - root - INFO -
+[2/13] Processing kics_aws_eks_node_group_remote_access_disabled_001 (aws)
+2026-01-08 23:24:28,175 - src.pac_engines.opa_engine - DEBUG - Prepared OPA input: {
+  "resource": {
+    "aws_eks_node_group": {
+      "positive": {
+        "cluster_name": "${aws_eks_cluster.example.name}",
+        "node_group_name": "example",
+        "node_role_arn": "${aws_iam_role.example.arn}",
+        "subnet_ids": "${aws_subnet.example[*].id}",
+        "scaling_config": {
+          "desired_size": 1,
+          "max_size": 1,
+          "min_size": 1
+        },
+        "remote_access": {
+          "ec2_ssh_key": "my-rsa-key"
+        },
+        "depends_on": [
+          "${aws_iam_role_policy_attachment.example-AmazonEKSWorkerNodePolicy}",
+          "${aws_iam_role_policy_attachment.example-AmazonEKS_CNI_Policy}",
+          "${aws_iam_role_policy_attachment.example-AmazonEC2ContainerRegistryReadOnly}"
+        ]
+      }
+    }
+  }
+}
+2026-01-08 23:24:28,175 - src.pac_engines.opa_engine - DEBUG - OPA input data: {"resource": {"aws_eks_node_group": {"positive": {"cluster_name": "${aws_eks_cluster.example.name}", "node_group_name": "example", "node_role_arn": "${aws_iam_role.example.arn}", "subnet_ids": "${aws_subnet.example[*].id}", "scaling_config": {"desired_size": 1, "max_size": 1, "min_size": 1}, "remote_access": {"ec2_ssh_key": "my-rsa-key"}, "depends_on": ["${aws_iam_role_policy_attachment.example-AmazonEKSWorkerNodePolicy}", "${aws_iam_role_policy_attachment.example-AmazonEKS_CNI_Policy}", "${aws_iam_role_policy_attachment.example-AmazonEC2ContainerRegistryReadOnly}"]}}}}
+2026-01-08 23:24:28,175 - src.pac_engines.opa_engine - DEBUG - OPA command: opa eval -d /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmpr05jgt8p/policy.rego -i /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmpr05jgt8p/input.json --format json data.terraform.deny
+2026-01-08 23:24:28,189 - src.pac_engines.opa_engine - ERROR - OPA evaluation failed:
+2026-01-08 23:24:28,189 - src.agents.repair_agent - INFO - Repair iteration 1/3
+2026-01-08 23:24:28,189 - src.agents.repair_agent - DEBUG - Generating repair with LLM...
+2026-01-08 23:24:28,195 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-01-08 23:24:28,196 - httpcore.http11 - DEBUG - send_request_headers.complete
+2026-01-08 23:24:28,196 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-01-08 23:24:28,196 - httpcore.http11 - DEBUG - send_request_body.complete
+2026-01-08 23:24:28,196 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-01-08 23:24:30,072 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/x-ndjson'), (b'Date', b'Thu, 08 Jan 2026 23:24:30 GMT'), (b'Transfer-Encoding', b'chunked')])
+2026-01-08 23:24:30,073 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-08 23:24:30,074 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-01-08 23:24:46,714 - httpcore.http11 - DEBUG - receive_response_body.complete
+2026-01-08 23:24:46,715 - httpcore.http11 - DEBUG - response_closed.started
+2026-01-08 23:24:46,715 - httpcore.http11 - DEBUG - response_closed.complete
+2026-01-08 23:24:46,718 - src.chains.repair_chain - DEBUG - Structured response: repaired_script='resource "aws_eks_node_group" "positive" { \n cluster_name = aws_eks_cluster.example.name \n node_group_name = "example" \n node_role_arn = aws_iam_role.example.arn \n subnet_ids = aws_subnet.example[*].id \n scaling_config { \n desired_size = 1 \n max_size = 1 \n min_size = 1 \n } \n remote_access { \n ec2_ssh_key = "my-rsa-key" \n source_security_groups_ids = [aws_security_group.example.id] \n } \n # Ensure that IAM Role permissions are created before and deleted after EKS Node Group handling. \n # Otherwise, EKS will not be able to properly delete EC2 Instances and Elastic Network Interfaces. \n depends_on = [ \n aws_iam_role_policy_attachment.example-AmazonEKSWorkerNodePolicy, \n aws_iam_role_policy_attachment.example-AmazonEKS_CNI_Policy, \n aws_iam_role_policy_attachment.example-AmazonEC2ContainerRegistryReadOnly, \n ] \n }'
+2026-01-08 23:24:46,718 - src.agents.repair_agent - DEBUG - Validating repaired script...
+2026-01-08 23:24:46,722 - src.pac_engines.opa_engine - DEBUG - Prepared OPA input: {
+  "resource": {
+    "aws_eks_node_group": {
+      "positive": {
+        "cluster_name": "${aws_eks_cluster.example.name}",
+        "node_group_name": "example",
+        "node_role_arn": "${aws_iam_role.example.arn}",
+        "subnet_ids": "${aws_subnet.example[*].id}",
+        "scaling_config": {
+          "desired_size": 1,
+          "max_size": 1,
+          "min_size": 1
+        },
+        "remote_access": {
+          "ec2_ssh_key": "my-rsa-key",
+          "source_security_groups_ids": [
+            "${aws_security_group.example.id}"
+          ]
+        },
+        "depends_on": [
+          "${aws_iam_role_policy_attachment.example-AmazonEKSWorkerNodePolicy}",
+          "${aws_iam_role_policy_attachment.example-AmazonEKS_CNI_Policy}",
+          "${aws_iam_role_policy_attachment.example-AmazonEC2ContainerRegistryReadOnly}"
+        ]
+      }
+    }
+  }
+}
+2026-01-08 23:24:46,722 - src.pac_engines.opa_engine - DEBUG - OPA input data: {"resource": {"aws_eks_node_group": {"positive": {"cluster_name": "${aws_eks_cluster.example.name}", "node_group_name": "example", "node_role_arn": "${aws_iam_role.example.arn}", "subnet_ids": "${aws_subnet.example[*].id}", "scaling_config": {"desired_size": 1, "max_size": 1, "min_size": 1}, "remote_access": {"ec2_ssh_key": "my-rsa-key", "source_security_groups_ids": ["${aws_security_group.example.id}"]}, "depends_on": ["${aws_iam_role_policy_attachment.example-AmazonEKSWorkerNodePolicy}", "${aws_iam_role_policy_attachment.example-AmazonEKS_CNI_Policy}", "${aws_iam_role_policy_attachment.example-AmazonEC2ContainerRegistryReadOnly}"]}}}}
+2026-01-08 23:24:46,722 - src.pac_engines.opa_engine - DEBUG - OPA command: opa eval -d /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmpz99_kzo9/policy.rego -i /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmpz99_kzo9/input.json --format json data.terraform.deny
+2026-01-08 23:24:46,813 - src.pac_engines.opa_engine - ERROR - OPA evaluation failed:
+2026-01-08 23:24:46,814 - src.agents.repair_agent - INFO - ✓ Repair successful in 1 iteration(s)
+2026-01-08 23:24:46,814 - root - INFO - ✓ Successfully generated patch
+2026-01-08 23:24:46,814 - root - INFO -
+[3/13] Processing kics_aws_sensitive_port_is_exposed_to_small_public_network_001 (aws)
+2026-01-08 23:24:46,820 - src.pac_engines.opa_engine - DEBUG - Prepared OPA input: {
+  "resource": {
+    "aws_security_group": {
+      "positive1": {
+        "name": "allow_tls1",
+        "description": "Allow TLS inbound traffic",
+        "vpc_id": "${aws_vpc.main.id}",
+        "ingress": {
+          "description": "TLS from VPC",
+          "from_port": 2200,
+          "to_port": 2500,
+          "protocol": "-1",
+          "cidr_blocks": [
+            "12.0.0.0/25"
+          ]
+        }
+      },
+      "positive2": {
+        "name": "allow_tls2",
+        "description": "Allow TLS inbound traffic",
+        "vpc_id": "${aws_vpc.main.id}",
+        "ingress": {
+          "description": "TLS from VPC",
+          "from_port": 20,
+          "to_port": 60,
+          "protocol": "tcp",
+          "cidr_blocks": [
+            "1.2.3.4/26"
+          ]
+        }
+      },
+      "positive3": {
+        "name": "allow_tls3",
+        "description": "Allow TLS inbound traffic",
+        "vpc_id": "${aws_vpc.main.id}",
+        "ingress": {
+          "description": "TLS from VPC",
+          "from_port": 5000,
+          "to_port": 6000,
+          "protocol": "-1",
+          "cidr_blocks": [
+            "2.12.22.33/27"
+          ]
+        }
+      },
+      "positive4": {
+        "name": "allow_tls4",
+        "description": "Allow TLS inbound traffic",
+        "vpc_id": "${aws_vpc.main.id}",
+        "ingress": {
+          "description": "TLS from VPC",
+          "from_port": 20,
+          "to_port": 22,
+          "protocol": "tcp",
+          "cidr_blocks": [
+            "10.92.168.0/28"
+          ]
+        }
+      },
+      "positive5": {
+        "name": "allow_tls5",
+        "description": "Allow TLS inbound traffic",
+        "vpc_id": "${aws_vpc.main.id}",
+        "ingress": {
+          "description": "TLS from VPC",
+          "from_port": 445,
+          "to_port": 500,
+          "protocol": "udp",
+          "cidr_blocks": [
+            "1.1.1.1/29",
+            "0.0.0.0/0",
+            "2.2.3.4/12"
+          ]
+        }
+      },
+      "positive6": {
+        "name": "allow_tls6",
+        "description": "Allow TLS inbound traffic",
+        "vpc_id": "${aws_vpc.main.id}",
+        "ingress": {
+          "description": "TLS from VPC",
+          "from_port": 135,
+          "to_port": 170,
+          "protocol": "udp",
+          "cidr_blocks": [
+            "10.68.0.0",
+            "0.0.0.0/28"
+          ]
+        }
+      },
+      "positive7": {
+        "name": "allow_tls7",
+        "description": "Allow TLS inbound traffic",
+        "vpc_id": "${aws_vpc.main.id}",
+        "ingress": {
+          "description": "TLS from VPC",
+          "from_port": 2383,
+          "to_port": 2383,
+          "protocol": "udp",
+          "cidr_blocks": [
+            "/0",
+            "1.2.3.4/27"
+          ]
+        }
+      },
+      "positive8": {
+        "name": "allow_tls8",
+        "description": "Allow TLS inbound traffic",
+        "vpc_id": "${aws_vpc.main.id}",
+        "ingress": {
+          "description": "TLS from VPC",
+          "from_port": 0,
+          "to_port": 0,
+          "protocol": "-1",
+          "cidr_blocks": [
+            "10.68.0.0/26"
+          ]
+        }
+      }
+    }
+  }
+}
+2026-01-08 23:24:46,820 - src.pac_engines.opa_engine - DEBUG - OPA input data: {"resource": {"aws_security_group": {"positive1": {"name": "allow_tls1", "description": "Allow TLS inbound traffic", "vpc_id": "${aws_vpc.main.id}", "ingress": {"description": "TLS from VPC", "from_port": 2200, "to_port": 2500, "protocol": "-1", "cidr_blocks": ["12.0.0.0/25"]}}, "positive2": {"name": "allow_tls2", "description": "Allow TLS inbound traffic", "vpc_id": "${aws_vpc.main.id}", "ingress": {"description": "TLS from VPC", "from_port": 20, "to_port": 60, "protocol": "tcp", "cidr_blocks": ["1.2.3.4/26"]}}, "positive3": {"name": "allow_tls3", "description": "Allow TLS inbound traffic", "vpc_id": "${aws_vpc.main.id}", "ingress": {"description": "TLS from VPC", "from_port": 5000, "to_port": 6000, "protocol": "-1", "cidr_blocks": ["2.12.22.33/27"]}}, "positive4": {"name": "allow_tls4", "description": "Allow TLS inbound traffic", "vpc_id": "${aws_vpc.main.id}", "ingress": {"description": "TLS from VPC", "from_port": 20, "to_port": 22, "protocol": "tcp", "cidr_blocks": ["10.92.168.0/28"]}}, "positive5": {"name": "allow_tls5", "description": "Allow TLS inbound traffic", "vpc_id": "${aws_vpc.main.id}", "ingress": {"description": "TLS from VPC", "from_port": 445, "to_port": 500, "protocol": "udp", "cidr_blocks": ["1.1.1.1/29", "0.0.0.0/0", "2.2.3.4/12"]}}, "positive6": {"name": "allow_tls6", "description": "Allow TLS inbound traffic", "vpc_id": "${aws_vpc.main.id}", "ingress": {"description": "TLS from VPC", "from_port": 135, "to_port": 170, "protocol": "udp", "cidr_blocks": ["10.68.0.0", "0.0.0.0/28"]}}, "positive7": {"name": "allow_tls7", "description": "Allow TLS inbound traffic", "vpc_id": "${aws_vpc.main.id}", "ingress": {"description": "TLS from VPC", "from_port": 2383, "to_port": 2383, "protocol": "udp", "cidr_blocks": ["/0", "1.2.3.4/27"]}}, "positive8": {"name": "allow_tls8", "description": "Allow TLS inbound traffic", "vpc_id": "${aws_vpc.main.id}", "ingress": {"description": "TLS from VPC", "from_port": 0, "to_port": 0, "protocol": "-1", "cidr_blocks": ["10.68.0.0/26"]}}}}}
+2026-01-08 23:24:46,821 - src.pac_engines.opa_engine - DEBUG - OPA command: opa eval -d /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmpo4vg72aq/policy.rego -i /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmpo4vg72aq/input.json --format json data.terraform.deny
+2026-01-08 23:24:46,852 - src.pac_engines.opa_engine - ERROR - OPA evaluation failed:
+2026-01-08 23:24:46,853 - src.agents.repair_agent - INFO - Repair iteration 1/3
+2026-01-08 23:24:46,853 - src.agents.repair_agent - DEBUG - Generating repair with LLM...
+2026-01-08 23:24:46,855 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-01-08 23:24:46,856 - httpcore.http11 - DEBUG - send_request_headers.complete
+2026-01-08 23:24:46,856 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-01-08 23:24:46,856 - httpcore.http11 - DEBUG - send_request_body.complete
+2026-01-08 23:24:46,856 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-01-08 23:24:51,449 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/x-ndjson'), (b'Date', b'Thu, 08 Jan 2026 23:24:51 GMT'), (b'Transfer-Encoding', b'chunked')])
+2026-01-08 23:24:51,450 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-08 23:24:51,451 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-01-08 23:25:44,813 - httpcore.http11 - DEBUG - receive_response_body.complete
+2026-01-08 23:25:44,815 - httpcore.http11 - DEBUG - response_closed.started
+2026-01-08 23:25:44,815 - httpcore.http11 - DEBUG - response_closed.complete
+2026-01-08 23:25:44,820 - src.chains.repair_chain - DEBUG - Structured response: repaired_script='resource "aws_security_group" "positive1" { \n  name        = "allow_tls1" \n  description = "Allow TLS inbound traffic" \n  vpc_id      = aws_vpc.main.id \n\n  ingress { \n    description = "TLS from VPC" \n    from_port   = 2200 \n    to_port     = 2500 \n    protocol    = "tcp" \n    cidr_blocks = ["12.0.0.0/25"] \n  } \n} \n\nresource "aws_security_group" "positive2" { \n  name        = "allow_tls2" \n  description = "Allow TLS inbound traffic" \n  vpc_id      = aws_vpc.main.id \n\n  ingress { \n    description = "TLS from VPC" \n    from_port   = 20 \n    to_port     = 60 \n    protocol    = "tcp" \n    cidr_blocks = ["10.92.168.0/28"] \n  } \n} \n\nresource "aws_security_group" "positive3" { \n  name        = "allow_tls3" \n  description = "Allow TLS inbound traffic" \n  vpc_id      = aws_vpc.main.id \n\n  ingress { \n    description = "TLS from VPC" \n    from_port   = 445 \n    to_port     = 500 \n    protocol    = "udp" \n    cidr_blocks = ["1.1.1.1/29","0.0.0.0/0",  "2.2.3.4/12"] \n  } \n} \n\nresource "aws_security_group" "positive4" { \n  name        = "allow_tls4" \n  description = "Allow TLS inbound traffic" \n  vpc_id      = aws_vpc.main.id \n\n  ingress { \n    description = "TLS from VPC" \n    from_port   = 135 \n    to_port     = 170 \n    protocol    = "udp" \n    cidr_blocks = ["10.68.0.0", "0.0.0.0/28"] \n  } \n} \n\nresource "aws_security_group" "positive5" { \n  name        = "allow_tls5" \n  description = "Allow TLS inbound traffic" \n  vpc_id      = aws_vpc.main.id \n\n  ingress { \n    description = "TLS from VPC" \n    from_port   = 2383 \n    to_port     = 2383 \n    protocol    = "udp" \n    cidr_blocks = ["/0", "1.2.3.4/27"] \n  } \n} \n\nresource "aws_security_group" "positive6" { \n  name        = "allow_tls6" \n  description = "Allow TLS inbound traffic" \n  vpc_id      = aws_vpc.main.id \n\n  ingress { \n    description = "TLS from VPC" \n    from_port   = 0 \n    to_port     = 0 \n    protocol    = "-1" \n    cidr_blocks = ["10.68.0.0/26"] \n  } \n}'
+2026-01-08 23:25:44,820 - src.agents.repair_agent - DEBUG - Validating repaired script...
+2026-01-08 23:25:44,839 - src.pac_engines.opa_engine - DEBUG - Prepared OPA input: {
+  "resource": {
+    "aws_security_group": {
+      "positive1": {
+        "name": "allow_tls1",
+        "description": "Allow TLS inbound traffic",
+        "vpc_id": "${aws_vpc.main.id}",
+        "ingress": {
+          "description": "TLS from VPC",
+          "from_port": 2200,
+          "to_port": 2500,
+          "protocol": "tcp",
+          "cidr_blocks": [
+            "12.0.0.0/25"
+          ]
+        }
+      },
+      "positive2": {
+        "name": "allow_tls2",
+        "description": "Allow TLS inbound traffic",
+        "vpc_id": "${aws_vpc.main.id}",
+        "ingress": {
+          "description": "TLS from VPC",
+          "from_port": 20,
+          "to_port": 60,
+          "protocol": "tcp",
+          "cidr_blocks": [
+            "10.92.168.0/28"
+          ]
+        }
+      },
+      "positive3": {
+        "name": "allow_tls3",
+        "description": "Allow TLS inbound traffic",
+        "vpc_id": "${aws_vpc.main.id}",
+        "ingress": {
+          "description": "TLS from VPC",
+          "from_port": 445,
+          "to_port": 500,
+          "protocol": "udp",
+          "cidr_blocks": [
+            "1.1.1.1/29",
+            "0.0.0.0/0",
+            "2.2.3.4/12"
+          ]
+        }
+      },
+      "positive4": {
+        "name": "allow_tls4",
+        "description": "Allow TLS inbound traffic",
+        "vpc_id": "${aws_vpc.main.id}",
+        "ingress": {
+          "description": "TLS from VPC",
+          "from_port": 135,
+          "to_port": 170,
+          "protocol": "udp",
+          "cidr_blocks": [
+            "10.68.0.0",
+            "0.0.0.0/28"
+          ]
+        }
+      },
+      "positive5": {
+        "name": "allow_tls5",
+        "description": "Allow TLS inbound traffic",
+        "vpc_id": "${aws_vpc.main.id}",
+        "ingress": {
+          "description": "TLS from VPC",
+          "from_port": 2383,
+          "to_port": 2383,
+          "protocol": "udp",
+          "cidr_blocks": [
+            "/0",
+            "1.2.3.4/27"
+          ]
+        }
+      },
+      "positive6": {
+        "name": "allow_tls6",
+        "description": "Allow TLS inbound traffic",
+        "vpc_id": "${aws_vpc.main.id}",
+        "ingress": {
+          "description": "TLS from VPC",
+          "from_port": 0,
+          "to_port": 0,
+          "protocol": "-1",
+          "cidr_blocks": [
+            "10.68.0.0/26"
+          ]
+        }
+      }
+    }
+  }
+}
+2026-01-08 23:25:44,840 - src.pac_engines.opa_engine - DEBUG - OPA input data: {"resource": {"aws_security_group": {"positive1": {"name": "allow_tls1", "description": "Allow TLS inbound traffic", "vpc_id": "${aws_vpc.main.id}", "ingress": {"description": "TLS from VPC", "from_port": 2200, "to_port": 2500, "protocol": "tcp", "cidr_blocks": ["12.0.0.0/25"]}}, "positive2": {"name": "allow_tls2", "description": "Allow TLS inbound traffic", "vpc_id": "${aws_vpc.main.id}", "ingress": {"description": "TLS from VPC", "from_port": 20, "to_port": 60, "protocol": "tcp", "cidr_blocks": ["10.92.168.0/28"]}}, "positive3": {"name": "allow_tls3", "description": "Allow TLS inbound traffic", "vpc_id": "${aws_vpc.main.id}", "ingress": {"description": "TLS from VPC", "from_port": 445, "to_port": 500, "protocol": "udp", "cidr_blocks": ["1.1.1.1/29", "0.0.0.0/0", "2.2.3.4/12"]}}, "positive4": {"name": "allow_tls4", "description": "Allow TLS inbound traffic", "vpc_id": "${aws_vpc.main.id}", "ingress": {"description": "TLS from VPC", "from_port": 135, "to_port": 170, "protocol": "udp", "cidr_blocks": ["10.68.0.0", "0.0.0.0/28"]}}, "positive5": {"name": "allow_tls5", "description": "Allow TLS inbound traffic", "vpc_id": "${aws_vpc.main.id}", "ingress": {"description": "TLS from VPC", "from_port": 2383, "to_port": 2383, "protocol": "udp", "cidr_blocks": ["/0", "1.2.3.4/27"]}}, "positive6": {"name": "allow_tls6", "description": "Allow TLS inbound traffic", "vpc_id": "${aws_vpc.main.id}", "ingress": {"description": "TLS from VPC", "from_port": 0, "to_port": 0, "protocol": "-1", "cidr_blocks": ["10.68.0.0/26"]}}}}}
+2026-01-08 23:25:44,840 - src.pac_engines.opa_engine - DEBUG - OPA command: opa eval -d /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmp4435hdbx/policy.rego -i /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmp4435hdbx/input.json --format json data.terraform.deny
+2026-01-08 23:25:44,934 - src.pac_engines.opa_engine - ERROR - OPA evaluation failed:
+2026-01-08 23:25:44,935 - src.agents.repair_agent - INFO - ✓ Repair successful in 1 iteration(s)
+2026-01-08 23:25:44,935 - root - INFO - ✓ Successfully generated patch
+2026-01-08 23:25:44,935 - root - INFO -
+[4/13] Processing kics_aws_role_with_privilege_escalation_by_actions_iam_AttachGroupPolicy_001 (aws)
+2026-01-08 23:25:44,938 - src.pac_engines.opa_engine - DEBUG - Prepared OPA input: {
+  "resource": {
+    "aws_iam_role": {
+      "cosmic": {
+        "name": "cosmic"
+      }
+    },
+    "aws_iam_role_policy": {
+      "test_inline_policy": {
+        "name": "test_inline_policy",
+        "role": "${aws_iam_role.cosmic.name}",
+        "policy": "${jsonencode({\"Version\": \"2012-10-17\", \"Statement\": [{\"Action\": [\"iam:AttachGroupPolicy\"], \"Effect\": \"Allow\", \"Resource\": \"*\"}]})}"
+      }
+    }
+  }
+}
+2026-01-08 23:25:44,939 - src.pac_engines.opa_engine - DEBUG - OPA input data: {"resource": {"aws_iam_role": {"cosmic": {"name": "cosmic"}}, "aws_iam_role_policy": {"test_inline_policy": {"name": "test_inline_policy", "role": "${aws_iam_role.cosmic.name}", "policy": "${jsonencode({\"Version\": \"2012-10-17\", \"Statement\": [{\"Action\": [\"iam:AttachGroupPolicy\"], \"Effect\": \"Allow\", \"Resource\": \"*\"}]})}"}}}}
+2026-01-08 23:25:44,939 - src.pac_engines.opa_engine - DEBUG - OPA command: opa eval -d /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmp3l1vy9vv/policy.rego -i /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmp3l1vy9vv/input.json --format json data.terraform.deny
+2026-01-08 23:25:44,956 - src.pac_engines.opa_engine - ERROR - OPA evaluation failed:
+2026-01-08 23:25:44,957 - src.agents.repair_agent - INFO - Repair iteration 1/3
+2026-01-08 23:25:44,957 - src.agents.repair_agent - DEBUG - Generating repair with LLM...
+2026-01-08 23:25:44,960 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-01-08 23:25:44,960 - httpcore.http11 - DEBUG - send_request_headers.complete
+2026-01-08 23:25:44,960 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-01-08 23:25:44,960 - httpcore.http11 - DEBUG - send_request_body.complete
+2026-01-08 23:25:44,960 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-01-08 23:25:46,761 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/x-ndjson'), (b'Date', b'Thu, 08 Jan 2026 23:25:46 GMT'), (b'Transfer-Encoding', b'chunked')])
+2026-01-08 23:25:46,762 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-08 23:25:46,762 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-01-08 23:26:04,555 - httpcore.http11 - DEBUG - receive_response_body.complete
+2026-01-08 23:26:04,557 - httpcore.http11 - DEBUG - response_closed.started
+2026-01-08 23:26:04,557 - httpcore.http11 - DEBUG - response_closed.complete
+2026-01-08 23:26:04,560 - src.chains.repair_chain - DEBUG - Structured response: repaired_script='resource "aws_iam_role" "cosmic" { \n  name = "cosmic" \n} \n\nresource "aws_iam_role_policy" "test_inline_policy" { \n  name = "test_inline_policy" \n  role = aws_iam_role.cosmic.name \n\n  policy = jsonencode({ \n    Version = "2012-10-17" \n    Statement = [ \n      { \n        Action = [ \n          "iam:AttachGroupPolicy", \n        ] \n        Effect   = "Allow" \n        Resource = "*" \n      }, \n    ] \n  }) \n} \n\nresource "aws_iam_role_policy" "test_inline_policy2" { \n  name = "test_inline_policy2" \n  role = aws_iam_role.cosmic.name \n\n  policy = jsonencode({ \n    Version = "2012-10-17" \n    Statement = [ \n      { \n        Action = [ \n          "iam:AttachGroupPolicy", \n        ] \n        Effect   = "Allow" \n        Resource = "*" \n      }, \n    ] \n  }) \n} \n'
+2026-01-08 23:26:04,561 - src.agents.repair_agent - DEBUG - Validating repaired script...
+2026-01-08 23:26:04,621 - src.pac_engines.opa_engine - DEBUG - Prepared OPA input: {
+  "resource": {
+    "aws_iam_role": {
+      "cosmic": {
+        "name": "cosmic"
+      }
+    },
+    "aws_iam_role_policy": {
+      "test_inline_policy": {
+        "name": "test_inline_policy",
+        "role": "${aws_iam_role.cosmic.name}",
+        "policy": "${jsonencode({\"Version\": \"2012-10-17\", \"Statement\": [{\"Action\": [\"iam:AttachGroupPolicy\"], \"Effect\": \"Allow\", \"Resource\": \"*\"}]})}"
+      },
+      "test_inline_policy2": {
+        "name": "test_inline_policy2",
+        "role": "${aws_iam_role.cosmic.name}",
+        "policy": "${jsonencode({\"Version\": \"2012-10-17\", \"Statement\": [{\"Action\": [\"iam:AttachGroupPolicy\"], \"Effect\": \"Allow\", \"Resource\": \"*\"}]})}"
+      }
+    }
+  }
+}
+2026-01-08 23:26:04,622 - src.pac_engines.opa_engine - DEBUG - OPA input data: {"resource": {"aws_iam_role": {"cosmic": {"name": "cosmic"}}, "aws_iam_role_policy": {"test_inline_policy": {"name": "test_inline_policy", "role": "${aws_iam_role.cosmic.name}", "policy": "${jsonencode({\"Version\": \"2012-10-17\", \"Statement\": [{\"Action\": [\"iam:AttachGroupPolicy\"], \"Effect\": \"Allow\", \"Resource\": \"*\"}]})}"}, "test_inline_policy2": {"name": "test_inline_policy2", "role": "${aws_iam_role.cosmic.name}", "policy": "${jsonencode({\"Version\": \"2012-10-17\", \"Statement\": [{\"Action\": [\"iam:AttachGroupPolicy\"], \"Effect\": \"Allow\", \"Resource\": \"*\"}]})}"}}}}
+2026-01-08 23:26:04,622 - src.pac_engines.opa_engine - DEBUG - OPA command: opa eval -d /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmpzxzu5nmf/policy.rego -i /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmpzxzu5nmf/input.json --format json data.terraform.deny
+2026-01-08 23:26:04,712 - src.pac_engines.opa_engine - ERROR - OPA evaluation failed:
+2026-01-08 23:26:04,713 - src.agents.repair_agent - INFO - ✓ Repair successful in 1 iteration(s)
+2026-01-08 23:26:04,713 - root - INFO - ✓ Successfully generated patch
+2026-01-08 23:26:04,713 - root - INFO -
+[5/13] Processing kics_aws_s3_bucket_with_all_permissions_001 (aws)
+2026-01-08 23:26:04,715 - src.pac_engines.opa_engine - DEBUG - Prepared OPA input: {
+  "resource": {
+    "aws_s3_bucket": {
+      "positive1": {
+        "bucket": "S3B_181355",
+        "acl": "private",
+        "policy": "\t{\n\t  \"Id\": \"id113\",\n\t  \"Version\": \"2012-10-17\",\n\t  \"Statement\": [\n\t\t{\n\t\t  \"Action\": [\n\t\t\t\"s3:*\"\n\t\t  ],\n\t\t  \"Effect\": \"Allow\",\n\t\t  \"Resource\": \"arn:aws:s3:::S3B_181355/*\",\n\t\t  \"Principal\": \"*\"\n\t\t}\n\t  ]\n\t}"
+      }
+    }
+  }
+}
+2026-01-08 23:26:04,715 - src.pac_engines.opa_engine - DEBUG - OPA input data: {"resource": {"aws_s3_bucket": {"positive1": {"bucket": "S3B_181355", "acl": "private", "policy": "\t{\n\t  \"Id\": \"id113\",\n\t  \"Version\": \"2012-10-17\",\n\t  \"Statement\": [\n\t\t{\n\t\t  \"Action\": [\n\t\t\t\"s3:*\"\n\t\t  ],\n\t\t  \"Effect\": \"Allow\",\n\t\t  \"Resource\": \"arn:aws:s3:::S3B_181355/*\",\n\t\t  \"Principal\": \"*\"\n\t\t}\n\t  ]\n\t}"}}}}
+2026-01-08 23:26:04,715 - src.pac_engines.opa_engine - DEBUG - OPA command: opa eval -d /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmpontdeum0/policy.rego -i /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmpontdeum0/input.json --format json data.terraform.deny
+2026-01-08 23:26:04,737 - src.pac_engines.opa_engine - ERROR - OPA evaluation failed:
+2026-01-08 23:26:04,737 - src.agents.repair_agent - INFO - Repair iteration 1/3
+2026-01-08 23:26:04,737 - src.agents.repair_agent - DEBUG - Generating repair with LLM...
+2026-01-08 23:26:04,739 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-01-08 23:26:04,739 - httpcore.http11 - DEBUG - send_request_headers.complete
+2026-01-08 23:26:04,739 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-01-08 23:26:04,739 - httpcore.http11 - DEBUG - send_request_body.complete
+2026-01-08 23:26:04,740 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-01-08 23:26:07,202 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/x-ndjson'), (b'Date', b'Thu, 08 Jan 2026 23:26:07 GMT'), (b'Transfer-Encoding', b'chunked')])
+2026-01-08 23:26:07,203 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-08 23:26:07,204 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-01-08 23:26:15,837 - httpcore.http11 - DEBUG - receive_response_body.complete
+2026-01-08 23:26:15,839 - httpcore.http11 - DEBUG - response_closed.started
+2026-01-08 23:26:15,839 - httpcore.http11 - DEBUG - response_closed.complete
+2026-01-08 23:26:15,849 - src.chains.repair_chain - DEBUG - Structured response: repaired_script='resource "aws_s3_bucket" "positive1" { bucket = "S3B_181355" acl    = "private" policy = <<EOF { "Id": "id113", "Version": "2012-10-17", "Statement": [ { "Action": [ "s3:GetObject", "s3:PutObject", "s3:DeleteObject" ], "Effect": "Allow", "Resource": "arn:aws:s3:::S3B_181355/*", "Principal": "*" } ] } EOF }'
+2026-01-08 23:26:15,850 - src.agents.repair_agent - DEBUG - Validating repaired script...
+2026-01-08 23:26:15,854 - src.pac_engines.opa_engine - ERROR - Error parsing Terraform HCL: Unexpected token Token('STRING_CHARS', '<<EOF { ') at line 1, column 90.
+Expected one of:
+	* FOR
+	* LSQB
+	* NAME
+	* LBRACE
+	* DECIMAL
+	* /<<(?P<heredoc>[a-zA-Z][a-zA-Z0-9._-]+)\n?(?:.|\n)*?\n\s*(?P=heredoc)\n/
+	* DBLQUOTE
+	* IF
+	* /<<-(?P<heredoc_trim>[a-zA-Z][a-zA-Z0-9._-]+)\n?(?:.|\n)*?\n\s*(?P=heredoc_trim)\n/
+	* BANG
+	* FOR_EACH
+	* MINUS
+	* IN
+	* LPAR
+	* NEGATIVE_DECIMAL
+Previous tokens: [Token('EQ', ' =')]
+
+2026-01-08 23:26:15,854 - src.pac_engines.opa_engine - DEBUG - OPA input data: {}
+2026-01-08 23:26:15,855 - src.pac_engines.opa_engine - DEBUG - OPA command: opa eval -d /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmpdinbvxya/policy.rego -i /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmpdinbvxya/input.json --format json data.terraform.deny
+2026-01-08 23:26:15,946 - src.pac_engines.opa_engine - ERROR - OPA evaluation failed:
+2026-01-08 23:26:15,947 - src.agents.repair_agent - INFO - ✓ Repair successful in 1 iteration(s)
+2026-01-08 23:26:15,947 - root - INFO - ✓ Successfully generated patch
+2026-01-08 23:26:15,947 - root - INFO -
+[6/13] Processing kics_aws_s3_bucket_with_all_permissions_002 (aws)
+2026-01-08 23:26:15,949 - src.pac_engines.opa_engine - DEBUG - Prepared OPA input: {
+  "resource": {}
+}
+2026-01-08 23:26:15,949 - src.pac_engines.opa_engine - DEBUG - OPA input data: {"resource": {}}
+2026-01-08 23:26:15,949 - src.pac_engines.opa_engine - DEBUG - OPA command: opa eval -d /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmpnm_exjx_/policy.rego -i /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmpnm_exjx_/input.json --format json data.terraform.deny
+2026-01-08 23:26:15,961 - src.pac_engines.opa_engine - ERROR - OPA evaluation failed:
+2026-01-08 23:26:15,962 - src.agents.repair_agent - INFO - Repair iteration 1/3
+2026-01-08 23:26:15,962 - src.agents.repair_agent - DEBUG - Generating repair with LLM...
+2026-01-08 23:26:15,966 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-01-08 23:26:15,967 - httpcore.http11 - DEBUG - send_request_headers.complete
+2026-01-08 23:26:15,967 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-01-08 23:26:15,967 - httpcore.http11 - DEBUG - send_request_body.complete
+2026-01-08 23:26:15,967 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-01-08 23:26:16,974 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/x-ndjson'), (b'Date', b'Thu, 08 Jan 2026 23:26:16 GMT'), (b'Transfer-Encoding', b'chunked')])
+2026-01-08 23:26:16,975 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-08 23:26:16,975 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-01-08 23:26:27,058 - httpcore.http11 - DEBUG - receive_response_body.complete
+2026-01-08 23:26:27,062 - httpcore.http11 - DEBUG - response_closed.started
+2026-01-08 23:26:27,062 - httpcore.http11 - DEBUG - response_closed.complete
+2026-01-08 23:26:27,070 - src.chains.repair_chain - DEBUG - Structured response: repaired_script='module "s3_bucket" { source = "terraform-aws-modules/s3-bucket/aws" version = "3.7.0" bucket = "my-s3-bucket" acl = "private" versioning = { enabled = true } policy = <<EOF { "Id": "id113", "Version": "2012-10-17", "Statement": [ { "Action": [ "s3:GetObject", "s3:PutObject", "s3:DeleteObject" ], "Effect": "Allow", "Resource": "arn:aws:s3:::S3B_181355/*", "Principal": "*" } ] } EOF }'
+2026-01-08 23:26:27,071 - src.agents.repair_agent - DEBUG - Validating repaired script...
+2026-01-08 23:26:27,078 - src.pac_engines.opa_engine - ERROR - Error parsing Terraform HCL: Unexpected token Token('STRING_CHARS', '<<EOF { ') at line 1, column 168.
+Expected one of:
+	* FOR
+	* LSQB
+	* NAME
+	* LBRACE
+	* DECIMAL
+	* /<<(?P<heredoc>[a-zA-Z][a-zA-Z0-9._-]+)\n?(?:.|\n)*?\n\s*(?P=heredoc)\n/
+	* DBLQUOTE
+	* IF
+	* /<<-(?P<heredoc_trim>[a-zA-Z][a-zA-Z0-9._-]+)\n?(?:.|\n)*?\n\s*(?P=heredoc_trim)\n/
+	* BANG
+	* FOR_EACH
+	* MINUS
+	* IN
+	* LPAR
+	* NEGATIVE_DECIMAL
+Previous tokens: [Token('EQ', ' =')]
+
+2026-01-08 23:26:27,080 - src.pac_engines.opa_engine - DEBUG - OPA input data: {}
+2026-01-08 23:26:27,080 - src.pac_engines.opa_engine - DEBUG - OPA command: opa eval -d /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmpdm8p83so/policy.rego -i /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmpdm8p83so/input.json --format json data.terraform.deny
+2026-01-08 23:26:27,193 - src.pac_engines.opa_engine - ERROR - OPA evaluation failed:
+2026-01-08 23:26:27,194 - src.agents.repair_agent - INFO - ✓ Repair successful in 1 iteration(s)
+2026-01-08 23:26:27,194 - root - INFO - ✓ Successfully generated patch
+2026-01-08 23:26:27,194 - root - INFO -
+[7/13] Processing kics_aws_cloudwatch_security_group_changes_alarm_missing_001 (aws)
+2026-01-08 23:26:27,197 - src.pac_engines.opa_engine - DEBUG - Prepared OPA input: {
+  "resource": {
+    "aws_cloudwatch_log_metric_filter": {
+      "CIS_Security_Group_Changes_Metric_Filter": {
+        "name": "CIS-SecurityGroupChanges",
+        "pattern": "{ ($.eventName = AuthorizeSecurityGroupIngress) || ($.eventName = AuthorizeSecurityGroupEgress) || ($.eventName = RevokeSecurityGroupIngress) || ($.eventName = RevokeSecurityGroupEgress) || ($.eventName = CreateSecurityGroup) || ($.eventName = DeleteSecurityGroup)}",
+        "log_group_name": "${aws_cloudwatch_log_group.CIS_CloudWatch_LogsGroup.name}",
+        "metric_transformation": {
+          "name": "CIS-SecurityGroupChanges",
+          "namespace": "CIS_Metric_Alarm_Namespace",
+          "value": "1"
+        }
+      }
+    },
+    "aws_cloudwatch_metric_alarm": {
+      "CIS_Security_Group_Changes_CW_Alarm": {
+        "alarm_name": "CIS-3.10-SecurityGroupChanges",
+        "comparison_operator": "GreaterThanOrEqualToThreshold",
+        "evaluation_periods": "1",
+        "metric_name": "XXXX NOT YOUR FILTER XXXX",
+        "namespace": "CIS_Metric_Alarm_Namespace",
+        "period": "300",
+        "statistic": "Sum",
+        "threshold": "1",
+        "alarm_description": "Monitoring changes to security group will help ensure that resources and services are not unintentionally exposed.",
+        "alarm_actions": [
+          "${aws_sns_topic.CIS_Alerts_SNS_Topic.arn}"
+        ],
+        "insufficient_data_actions": []
+      }
+    }
+  }
+}
+2026-01-08 23:26:27,197 - src.pac_engines.opa_engine - DEBUG - OPA input data: {"resource": {"aws_cloudwatch_log_metric_filter": {"CIS_Security_Group_Changes_Metric_Filter": {"name": "CIS-SecurityGroupChanges", "pattern": "{ ($.eventName = AuthorizeSecurityGroupIngress) || ($.eventName = AuthorizeSecurityGroupEgress) || ($.eventName = RevokeSecurityGroupIngress) || ($.eventName = RevokeSecurityGroupEgress) || ($.eventName = CreateSecurityGroup) || ($.eventName = DeleteSecurityGroup)}", "log_group_name": "${aws_cloudwatch_log_group.CIS_CloudWatch_LogsGroup.name}", "metric_transformation": {"name": "CIS-SecurityGroupChanges", "namespace": "CIS_Metric_Alarm_Namespace", "value": "1"}}}, "aws_cloudwatch_metric_alarm": {"CIS_Security_Group_Changes_CW_Alarm": {"alarm_name": "CIS-3.10-SecurityGroupChanges", "comparison_operator": "GreaterThanOrEqualToThreshold", "evaluation_periods": "1", "metric_name": "XXXX NOT YOUR FILTER XXXX", "namespace": "CIS_Metric_Alarm_Namespace", "period": "300", "statistic": "Sum", "threshold": "1", "alarm_description": "Monitoring changes to security group will help ensure that resources and services are not unintentionally exposed.", "alarm_actions": ["${aws_sns_topic.CIS_Alerts_SNS_Topic.arn}"], "insufficient_data_actions": []}}}}
+2026-01-08 23:26:27,197 - src.pac_engines.opa_engine - DEBUG - OPA command: opa eval -d /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmpo8a6ff_e/policy.rego -i /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmpo8a6ff_e/input.json --format json data.terraform.deny
+2026-01-08 23:26:27,210 - src.pac_engines.opa_engine - ERROR - OPA evaluation failed:
+2026-01-08 23:26:27,210 - src.agents.repair_agent - INFO - Repair iteration 1/3
+2026-01-08 23:26:27,210 - src.agents.repair_agent - DEBUG - Generating repair with LLM...
+2026-01-08 23:26:27,213 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-01-08 23:26:27,213 - httpcore.http11 - DEBUG - send_request_headers.complete
+2026-01-08 23:26:27,213 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-01-08 23:26:27,213 - httpcore.http11 - DEBUG - send_request_body.complete
+2026-01-08 23:26:27,214 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-01-08 23:26:31,035 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/x-ndjson'), (b'Date', b'Thu, 08 Jan 2026 23:26:31 GMT'), (b'Transfer-Encoding', b'chunked')])
+2026-01-08 23:26:31,039 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-08 23:26:31,039 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-01-08 23:26:55,917 - httpcore.http11 - DEBUG - receive_response_body.complete
+2026-01-08 23:26:55,928 - httpcore.http11 - DEBUG - response_closed.started
+2026-01-08 23:26:55,928 - httpcore.http11 - DEBUG - response_closed.complete
+2026-01-08 23:26:55,932 - src.chains.repair_chain - DEBUG - Structured response: repaired_script='resource "aws_cloudwatch_log_metric_filter" "CIS_Security_Group_Changes_Metric_Filter" { \nname = "CIS-SecurityGroupChanges"\npatter = "{ ($.eventName = AuthorizeSecurityGroupIngress) || ($.eventName = AuthorizeSecurityGroupEgress) || ($.eventName = RevokeSecurityGroupIngress) || ($.eventName = RevokeSecurityGroupEgress) || ($.eventName = CreateSecurityGroup) || ($.eventName = DeleteSecurityGroup)}"\nlog_group_name = aws_cloudwatch_log_group.CIS_CloudWatch_LogsGroup.name\n\nmetric_transformation {\nname = "CIS-SecurityGroupChanges"\nnamespace = "CIS_Metric_Alarm_Namespace"\nvalue = "1"\n}\n}\nresource "aws_cloudwatch_metric_alarm" "CIS_Security_Group_Changes_CW_Alarm" {\nalarm_name = "CIS-3.10-SecurityGroupChanges"\ncomparison_operator = "GreaterThanOrEqualToThreshold"\nevaluation_periods = "1"\nmetric_name = aws_cloudwatch_log_metric_filter.CIS_Security_Group_Changes_Metric_Filter.name\nnamespace = "CIS_Metric_Alarm_Namespace"\nperiod = "300"\nstatistic = "Sum"\nthreshold = "1"\nalarm_description = "Monitoring changes to security group will help ensure that resources and services are not unintentionally exposed."\nalarm_actions = [aws_sns_topic.CIS_Alerts_SNS_Topic.arn]\ninsufficient_data_actions = []\n}'
+2026-01-08 23:26:55,932 - src.agents.repair_agent - DEBUG - Validating repaired script...
+2026-01-08 23:26:55,938 - src.pac_engines.opa_engine - DEBUG - Prepared OPA input: {
+  "resource": {
+    "aws_cloudwatch_log_metric_filter": {
+      "CIS_Security_Group_Changes_Metric_Filter": {
+        "name": "CIS-SecurityGroupChanges",
+        "patter": "{ ($.eventName = AuthorizeSecurityGroupIngress) || ($.eventName = AuthorizeSecurityGroupEgress) || ($.eventName = RevokeSecurityGroupIngress) || ($.eventName = RevokeSecurityGroupEgress) || ($.eventName = CreateSecurityGroup) || ($.eventName = DeleteSecurityGroup)}",
+        "log_group_name": "${aws_cloudwatch_log_group.CIS_CloudWatch_LogsGroup.name}",
+        "metric_transformation": {
+          "name": "CIS-SecurityGroupChanges",
+          "namespace": "CIS_Metric_Alarm_Namespace",
+          "value": "1"
+        }
+      }
+    },
+    "aws_cloudwatch_metric_alarm": {
+      "CIS_Security_Group_Changes_CW_Alarm": {
+        "alarm_name": "CIS-3.10-SecurityGroupChanges",
+        "comparison_operator": "GreaterThanOrEqualToThreshold",
+        "evaluation_periods": "1",
+        "metric_name": "${aws_cloudwatch_log_metric_filter.CIS_Security_Group_Changes_Metric_Filter.name}",
+        "namespace": "CIS_Metric_Alarm_Namespace",
+        "period": "300",
+        "statistic": "Sum",
+        "threshold": "1",
+        "alarm_description": "Monitoring changes to security group will help ensure that resources and services are not unintentionally exposed.",
+        "alarm_actions": [
+          "${aws_sns_topic.CIS_Alerts_SNS_Topic.arn}"
+        ],
+        "insufficient_data_actions": []
+      }
+    }
+  }
+}
+2026-01-08 23:26:55,939 - src.pac_engines.opa_engine - DEBUG - OPA input data: {"resource": {"aws_cloudwatch_log_metric_filter": {"CIS_Security_Group_Changes_Metric_Filter": {"name": "CIS-SecurityGroupChanges", "patter": "{ ($.eventName = AuthorizeSecurityGroupIngress) || ($.eventName = AuthorizeSecurityGroupEgress) || ($.eventName = RevokeSecurityGroupIngress) || ($.eventName = RevokeSecurityGroupEgress) || ($.eventName = CreateSecurityGroup) || ($.eventName = DeleteSecurityGroup)}", "log_group_name": "${aws_cloudwatch_log_group.CIS_CloudWatch_LogsGroup.name}", "metric_transformation": {"name": "CIS-SecurityGroupChanges", "namespace": "CIS_Metric_Alarm_Namespace", "value": "1"}}}, "aws_cloudwatch_metric_alarm": {"CIS_Security_Group_Changes_CW_Alarm": {"alarm_name": "CIS-3.10-SecurityGroupChanges", "comparison_operator": "GreaterThanOrEqualToThreshold", "evaluation_periods": "1", "metric_name": "${aws_cloudwatch_log_metric_filter.CIS_Security_Group_Changes_Metric_Filter.name}", "namespace": "CIS_Metric_Alarm_Namespace", "period": "300", "statistic": "Sum", "threshold": "1", "alarm_description": "Monitoring changes to security group will help ensure that resources and services are not unintentionally exposed.", "alarm_actions": ["${aws_sns_topic.CIS_Alerts_SNS_Topic.arn}"], "insufficient_data_actions": []}}}}
+2026-01-08 23:26:55,939 - src.pac_engines.opa_engine - DEBUG - OPA command: opa eval -d /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmpkp2ogvct/policy.rego -i /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmpkp2ogvct/input.json --format json data.terraform.deny
+2026-01-08 23:26:56,031 - src.pac_engines.opa_engine - ERROR - OPA evaluation failed:
+2026-01-08 23:26:56,031 - src.agents.repair_agent - INFO - ✓ Repair successful in 1 iteration(s)
+2026-01-08 23:26:56,032 - root - INFO - ✓ Successfully generated patch
+2026-01-08 23:26:56,032 - root - INFO -
+[8/13] Processing kics_aws_cloudwatch_security_group_changes_alarm_missing_002 (aws)
+2026-01-08 23:26:56,034 - src.pac_engines.opa_engine - DEBUG - Prepared OPA input: {
+  "resource": {
+    "aws_cloudwatch_log_metric_filter": {
+      "cis_unauthorized_api_calls_metric_filter": {
+        "name": "CIS-UnauthorizedAPICalls",
+        "pattern": "{ ($.errorCode = \"*UnauthorizedOperation\") || ($.errorCode = \"AccessDenied*\") }",
+        "log_group_name": "${aws_cloudwatch_log_group.CIS_CloudWatch_LogsGroup.name}",
+        "metric_transformation": {
+          "name": "CIS-UnauthorizedAPICalls",
+          "namespace": "CIS_Metric_Alarm_Namespace",
+          "value": "1"
+        }
+      }
+    },
+    "aws_cloudwatch_metric_alarm": {
+      "cis_unauthorized_api_calls_cw_alarm": {
+        "alarm_name": "CIS-3.1-UnauthorizedAPICalls",
+        "comparison_operator": "GreaterThanOrEqualToThreshold",
+        "evaluation_periods": "1",
+        "metric_name": "${aws_cloudwatch_log_metric_filter.cis_unauthorized_api_calls_metric_filter.id}",
+        "namespace": "CIS_Metric_Alarm_Namespace",
+        "period": "300",
+        "statistic": "Sum",
+        "threshold": "1",
+        "alarm_description": "Monitoring unauthorized API calls will help reveal application errors and may reduce time to detect malicious activity.",
+        "alarm_actions": [
+          "${aws_sns_topic.cis_alerts_sns_topic.arn}"
+        ],
+        "insufficient_data_actions": []
+      }
+    }
+  }
+}
+2026-01-08 23:26:56,034 - src.pac_engines.opa_engine - DEBUG - OPA input data: {"resource": {"aws_cloudwatch_log_metric_filter": {"cis_unauthorized_api_calls_metric_filter": {"name": "CIS-UnauthorizedAPICalls", "pattern": "{ ($.errorCode = \"*UnauthorizedOperation\") || ($.errorCode = \"AccessDenied*\") }", "log_group_name": "${aws_cloudwatch_log_group.CIS_CloudWatch_LogsGroup.name}", "metric_transformation": {"name": "CIS-UnauthorizedAPICalls", "namespace": "CIS_Metric_Alarm_Namespace", "value": "1"}}}, "aws_cloudwatch_metric_alarm": {"cis_unauthorized_api_calls_cw_alarm": {"alarm_name": "CIS-3.1-UnauthorizedAPICalls", "comparison_operator": "GreaterThanOrEqualToThreshold", "evaluation_periods": "1", "metric_name": "${aws_cloudwatch_log_metric_filter.cis_unauthorized_api_calls_metric_filter.id}", "namespace": "CIS_Metric_Alarm_Namespace", "period": "300", "statistic": "Sum", "threshold": "1", "alarm_description": "Monitoring unauthorized API calls will help reveal application errors and may reduce time to detect malicious activity.", "alarm_actions": ["${aws_sns_topic.cis_alerts_sns_topic.arn}"], "insufficient_data_actions": []}}}}
+2026-01-08 23:26:56,034 - src.pac_engines.opa_engine - DEBUG - OPA command: opa eval -d /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmpqzmhddrv/policy.rego -i /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmpqzmhddrv/input.json --format json data.terraform.deny
+2026-01-08 23:26:56,052 - src.pac_engines.opa_engine - ERROR - OPA evaluation failed:
+2026-01-08 23:26:56,053 - src.agents.repair_agent - INFO - Repair iteration 1/3
+2026-01-08 23:26:56,053 - src.agents.repair_agent - DEBUG - Generating repair with LLM...
+2026-01-08 23:26:56,055 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-01-08 23:26:56,055 - httpcore.http11 - DEBUG - send_request_headers.complete
+2026-01-08 23:26:56,055 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-01-08 23:26:56,055 - httpcore.http11 - DEBUG - send_request_body.complete
+2026-01-08 23:26:56,055 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-01-08 23:26:57,512 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/x-ndjson'), (b'Date', b'Thu, 08 Jan 2026 23:26:57 GMT'), (b'Transfer-Encoding', b'chunked')])
+2026-01-08 23:26:57,514 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-08 23:26:57,514 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-01-08 23:27:21,308 - httpcore.http11 - DEBUG - receive_response_body.complete
+2026-01-08 23:27:21,310 - httpcore.http11 - DEBUG - response_closed.started
+2026-01-08 23:27:21,310 - httpcore.http11 - DEBUG - response_closed.complete
+2026-01-08 23:27:21,314 - src.chains.repair_chain - DEBUG - Structured response: repaired_script='resource "aws_cloudwatch_log_metric_filter" "cis_unauthorized_api_calls_metric_filter" { \n name = "CIS-UnauthorizedAPICalls" \n pattern = "{ ($.errorCode = "*UnauthorizedOperation") || ($.errorCode = "AccessDenied*") }" \n log_group_name = aws_cloudwatch_log_group.CIS_CloudWatch_LogsGroup.name \n metric_transformation { \n name = "CIS-UnauthorizedAPICalls" \n namespace = "CIS_Metric_Alarm_Namespace" \n value = "1" \n } \n} \n\nresource "aws_cloudwatch_metric_alarm" "cis_unauthorized_api_calls_cw_alarm" { \n alarm_name = "CIS-3.1-UnauthorizedAPICalls" \n comparison_operator = "GreaterThanOrEqualToThreshold" \n evaluation_periods = "1" \n metric_name = aws_cloudwatch_log_metric_filter.cis_unauthorized_api_calls_metric_filter.id \n namespace = "CIS_Metric_Alarm_Namespace" \n period = "300" \n statistic = "Sum" \n threshold = "1" \n alarm_description = "Monitoring unauthorized API calls will help reveal application errors and may reduce time to detect malicious activity." \n alarm_actions = [aws_sns_topic.cis_alerts_sns_topic.arn] \n insufficient_data_actions = [] \n}'
+2026-01-08 23:27:21,314 - src.agents.repair_agent - DEBUG - Validating repaired script...
+2026-01-08 23:27:21,321 - src.pac_engines.opa_engine - ERROR - Error parsing Terraform HCL: Unexpected token Token('DBLQUOTE', '"') at line 3, column 53.
+Expected one of:
+	* NL_OR_COMMENT
+	* FOR
+	* NAME
+	* QMARK
+	* IF
+	* RBRACE
+	* FOR_EACH
+	* BINARY_OP
+	* IN
+
+2026-01-08 23:27:21,322 - src.pac_engines.opa_engine - DEBUG - OPA input data: {}
+2026-01-08 23:27:21,323 - src.pac_engines.opa_engine - DEBUG - OPA command: opa eval -d /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmpffbub51t/policy.rego -i /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmpffbub51t/input.json --format json data.terraform.deny
+2026-01-08 23:27:21,423 - src.pac_engines.opa_engine - ERROR - OPA evaluation failed:
+2026-01-08 23:27:21,424 - src.agents.repair_agent - INFO - ✓ Repair successful in 1 iteration(s)
+2026-01-08 23:27:21,424 - root - INFO - ✓ Successfully generated patch
+2026-01-08 23:27:21,424 - root - INFO -
+[9/13] Processing kics_aws_group_with_privilege_escalation_by_actions_iam_CreateAccessKey_001 (aws)
+2026-01-08 23:27:21,427 - src.pac_engines.opa_engine - DEBUG - Prepared OPA input: {
+  "resource": {
+    "aws_iam_group": {
+      "cosmic": {
+        "name": "cosmic"
+      }
+    },
+    "aws_iam_group_policy": {
+      "test_inline_policy": {
+        "name": "test_inline_policy",
+        "group": "${aws_iam_group.cosmic.name}",
+        "policy": "${jsonencode({\"Version\": \"2012-10-17\", \"Statement\": [{\"Action\": [\"iam:CreateAccessKey\"], \"Effect\": \"Allow\", \"Resource\": \"*\"}]})}"
+      }
+    }
+  }
+}
+2026-01-08 23:27:21,427 - src.pac_engines.opa_engine - DEBUG - OPA input data: {"resource": {"aws_iam_group": {"cosmic": {"name": "cosmic"}}, "aws_iam_group_policy": {"test_inline_policy": {"name": "test_inline_policy", "group": "${aws_iam_group.cosmic.name}", "policy": "${jsonencode({\"Version\": \"2012-10-17\", \"Statement\": [{\"Action\": [\"iam:CreateAccessKey\"], \"Effect\": \"Allow\", \"Resource\": \"*\"}]})}"}}}}
+2026-01-08 23:27:21,427 - src.pac_engines.opa_engine - DEBUG - OPA command: opa eval -d /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmpmvl99myh/policy.rego -i /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmpmvl99myh/input.json --format json data.terraform.deny
+2026-01-08 23:27:21,445 - src.pac_engines.opa_engine - ERROR - OPA evaluation failed:
+2026-01-08 23:27:21,446 - src.agents.repair_agent - INFO - Repair iteration 1/3
+2026-01-08 23:27:21,446 - src.agents.repair_agent - DEBUG - Generating repair with LLM...
+2026-01-08 23:27:21,448 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-01-08 23:27:21,449 - httpcore.http11 - DEBUG - send_request_headers.complete
+2026-01-08 23:27:21,449 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-01-08 23:27:21,449 - httpcore.http11 - DEBUG - send_request_body.complete
+2026-01-08 23:27:21,449 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-01-08 23:27:23,070 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/x-ndjson'), (b'Date', b'Thu, 08 Jan 2026 23:27:23 GMT'), (b'Transfer-Encoding', b'chunked')])
+2026-01-08 23:27:23,072 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-08 23:27:23,074 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-01-08 23:27:40,986 - httpcore.http11 - DEBUG - receive_response_body.complete
+2026-01-08 23:27:40,988 - httpcore.http11 - DEBUG - response_closed.started
+2026-01-08 23:27:40,988 - httpcore.http11 - DEBUG - response_closed.complete
+2026-01-08 23:27:40,996 - src.chains.repair_chain - DEBUG - Structured response: repaired_script='resource "aws_iam_group" "cosmic" { \n  name = "cosmic" \n} \n\nresource "aws_iam_group_policy" "test_inline_policy" { \n  name = "test_inline_policy" \n  group = aws_iam_group.cosmic.name \n\n  policy = jsonencode({ \n    Version = "2012-10-17" \n    Statement = [ \n      { \n        Action = [ \n          "iam:CreateAccessKey", \n        ] \n        Effect   = "Allow" \n        Resource = "*" \n      }, \n    ] \n  }) \n} \n\nresource "aws_iam_group_policy" "test_inline_policy2" { \n  name = "test_inline_policy2" \n  group = aws_iam_group.cosmic.name \n\n  policy = jsonencode({ \n    Version = "2012-10-17" \n    Statement = [ \n      { \n        Action = [ \n          "iam:CreateAccessKey", \n        ] \n        Effect   = "Deny" \n        Resource = "*" \n      }, \n    ] \n  }) \n} \n'
+2026-01-08 23:27:40,996 - src.agents.repair_agent - DEBUG - Validating repaired script...
+2026-01-08 23:27:41,005 - src.pac_engines.opa_engine - DEBUG - Prepared OPA input: {
+  "resource": {
+    "aws_iam_group": {
+      "cosmic": {
+        "name": "cosmic"
+      }
+    },
+    "aws_iam_group_policy": {
+      "test_inline_policy": {
+        "name": "test_inline_policy",
+        "group": "${aws_iam_group.cosmic.name}",
+        "policy": "${jsonencode({\"Version\": \"2012-10-17\", \"Statement\": [{\"Action\": [\"iam:CreateAccessKey\"], \"Effect\": \"Allow\", \"Resource\": \"*\"}]})}"
+      },
+      "test_inline_policy2": {
+        "name": "test_inline_policy2",
+        "group": "${aws_iam_group.cosmic.name}",
+        "policy": "${jsonencode({\"Version\": \"2012-10-17\", \"Statement\": [{\"Action\": [\"iam:CreateAccessKey\"], \"Effect\": \"Deny\", \"Resource\": \"*\"}]})}"
+      }
+    }
+  }
+}
+2026-01-08 23:27:41,006 - src.pac_engines.opa_engine - DEBUG - OPA input data: {"resource": {"aws_iam_group": {"cosmic": {"name": "cosmic"}}, "aws_iam_group_policy": {"test_inline_policy": {"name": "test_inline_policy", "group": "${aws_iam_group.cosmic.name}", "policy": "${jsonencode({\"Version\": \"2012-10-17\", \"Statement\": [{\"Action\": [\"iam:CreateAccessKey\"], \"Effect\": \"Allow\", \"Resource\": \"*\"}]})}"}, "test_inline_policy2": {"name": "test_inline_policy2", "group": "${aws_iam_group.cosmic.name}", "policy": "${jsonencode({\"Version\": \"2012-10-17\", \"Statement\": [{\"Action\": [\"iam:CreateAccessKey\"], \"Effect\": \"Deny\", \"Resource\": \"*\"}]})}"}}}}
+2026-01-08 23:27:41,006 - src.pac_engines.opa_engine - DEBUG - OPA command: opa eval -d /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmpxm9ah8hf/policy.rego -i /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmpxm9ah8hf/input.json --format json data.terraform.deny
+2026-01-08 23:27:41,099 - src.pac_engines.opa_engine - ERROR - OPA evaluation failed:
+2026-01-08 23:27:41,100 - src.agents.repair_agent - INFO - ✓ Repair successful in 1 iteration(s)
+2026-01-08 23:27:41,100 - root - INFO - ✓ Successfully generated patch
+2026-01-08 23:27:41,100 - root - INFO -
+[10/13] Processing kics_aws_ecs_task_definition_network_mode_not_recommended_001 (aws)
+2026-01-08 23:27:41,102 - src.pac_engines.opa_engine - DEBUG - Prepared OPA input: {
+  "resource": {
+    "aws_ecs_task_definition": {
+      "positive1": {
+        "family": "service",
+        "network_mode": "none",
+        "volume": {
+          "name": "service-storage",
+          "host_path": "/ecs/service-storage"
+        },
+        "placement_constraints": {
+          "type": "memberOf",
+          "expression": "attribute:ecs.availability-zone in [us-west-2a, us-west-2b]"
+        }
+      }
+    }
+  }
+}
+2026-01-08 23:27:41,102 - src.pac_engines.opa_engine - DEBUG - OPA input data: {"resource": {"aws_ecs_task_definition": {"positive1": {"family": "service", "network_mode": "none", "volume": {"name": "service-storage", "host_path": "/ecs/service-storage"}, "placement_constraints": {"type": "memberOf", "expression": "attribute:ecs.availability-zone in [us-west-2a, us-west-2b]"}}}}}
+2026-01-08 23:27:41,102 - src.pac_engines.opa_engine - DEBUG - OPA command: opa eval -d /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmpq5e5e8be/policy.rego -i /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmpq5e5e8be/input.json --format json data.terraform.deny
+2026-01-08 23:27:41,116 - src.pac_engines.opa_engine - ERROR - OPA evaluation failed:
+2026-01-08 23:27:41,117 - src.agents.repair_agent - INFO - Repair iteration 1/3
+2026-01-08 23:27:41,117 - src.agents.repair_agent - DEBUG - Generating repair with LLM...
+2026-01-08 23:27:41,120 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-01-08 23:27:41,121 - httpcore.http11 - DEBUG - send_request_headers.complete
+2026-01-08 23:27:41,121 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-01-08 23:27:41,121 - httpcore.http11 - DEBUG - send_request_body.complete
+2026-01-08 23:27:41,121 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-01-08 23:27:42,751 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/x-ndjson'), (b'Date', b'Thu, 08 Jan 2026 23:27:42 GMT'), (b'Transfer-Encoding', b'chunked')])
+2026-01-08 23:27:42,752 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-08 23:27:42,752 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-01-08 23:27:50,047 - httpcore.http11 - DEBUG - receive_response_body.complete
+2026-01-08 23:27:50,050 - httpcore.http11 - DEBUG - response_closed.started
+2026-01-08 23:27:50,050 - httpcore.http11 - DEBUG - response_closed.complete
+2026-01-08 23:27:50,055 - src.chains.repair_chain - DEBUG - Structured response: repaired_script='resource "aws_ecs_task_definition" "positive1" { \n family = "service" \n network_mode = "awsvpc" \n volume {\n name = "service-storage" \n host_path = "/ecs/service-storage" \n } \n placement_constraints {\n type = "memberOf" \n expression = "attribute:ecs.availability-zone in [us-west-2a, us-west-2b]" \n } \n}'
+2026-01-08 23:27:50,056 - src.agents.repair_agent - DEBUG - Validating repaired script...
+2026-01-08 23:27:50,061 - src.pac_engines.opa_engine - DEBUG - Prepared OPA input: {
+  "resource": {
+    "aws_ecs_task_definition": {
+      "positive1": {
+        "family": "service",
+        "network_mode": "awsvpc",
+        "volume": {
+          "name": "service-storage",
+          "host_path": "/ecs/service-storage"
+        },
+        "placement_constraints": {
+          "type": "memberOf",
+          "expression": "attribute:ecs.availability-zone in [us-west-2a, us-west-2b]"
+        }
+      }
+    }
+  }
+}
+2026-01-08 23:27:50,061 - src.pac_engines.opa_engine - DEBUG - OPA input data: {"resource": {"aws_ecs_task_definition": {"positive1": {"family": "service", "network_mode": "awsvpc", "volume": {"name": "service-storage", "host_path": "/ecs/service-storage"}, "placement_constraints": {"type": "memberOf", "expression": "attribute:ecs.availability-zone in [us-west-2a, us-west-2b]"}}}}}
+2026-01-08 23:27:50,062 - src.pac_engines.opa_engine - DEBUG - OPA command: opa eval -d /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmp3w4er5pe/policy.rego -i /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmp3w4er5pe/input.json --format json data.terraform.deny
+2026-01-08 23:27:50,165 - src.pac_engines.opa_engine - ERROR - OPA evaluation failed:
+2026-01-08 23:27:50,165 - src.agents.repair_agent - INFO - ✓ Repair successful in 1 iteration(s)
+2026-01-08 23:27:50,166 - root - INFO - ✓ Successfully generated patch
+2026-01-08 23:27:50,166 - root - INFO -
+[11/13] Processing kics_aws_athena_database_not_encrypted_001 (aws)
+2026-01-08 23:27:50,168 - src.pac_engines.opa_engine - DEBUG - Prepared OPA input: {
+  "resource": {
+    "aws_s3_bucket": {
+      "hoge": {
+        "bucket": "hoge"
+      }
+    },
+    "aws_athena_database": {
+      "hoge": {
+        "name": "database_name",
+        "bucket": "${aws_s3_bucket.hoge.bucket}"
+      }
+    }
+  }
+}
+2026-01-08 23:27:50,168 - src.pac_engines.opa_engine - DEBUG - OPA input data: {"resource": {"aws_s3_bucket": {"hoge": {"bucket": "hoge"}}, "aws_athena_database": {"hoge": {"name": "database_name", "bucket": "${aws_s3_bucket.hoge.bucket}"}}}}
+2026-01-08 23:27:50,168 - src.pac_engines.opa_engine - DEBUG - OPA command: opa eval -d /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmp6jcsb63t/policy.rego -i /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmp6jcsb63t/input.json --format json data.terraform.deny
+2026-01-08 23:27:50,181 - src.pac_engines.opa_engine - ERROR - OPA evaluation failed:
+2026-01-08 23:27:50,182 - src.agents.repair_agent - INFO - Repair iteration 1/3
+2026-01-08 23:27:50,182 - src.agents.repair_agent - DEBUG - Generating repair with LLM...
+2026-01-08 23:27:50,185 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-01-08 23:27:50,185 - httpcore.http11 - DEBUG - send_request_headers.complete
+2026-01-08 23:27:50,185 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-01-08 23:27:50,185 - httpcore.http11 - DEBUG - send_request_body.complete
+2026-01-08 23:27:50,185 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-01-08 23:27:51,384 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/x-ndjson'), (b'Date', b'Thu, 08 Jan 2026 23:27:51 GMT'), (b'Transfer-Encoding', b'chunked')])
+2026-01-08 23:27:51,385 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-08 23:27:51,385 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-01-08 23:27:56,598 - httpcore.http11 - DEBUG - receive_response_body.complete
+2026-01-08 23:27:56,601 - httpcore.http11 - DEBUG - response_closed.started
+2026-01-08 23:27:56,602 - httpcore.http11 - DEBUG - response_closed.complete
+2026-01-08 23:27:56,608 - src.chains.repair_chain - DEBUG - Structured response: repaired_script='resource "aws_s3_bucket" "hoge" { bucket = "hoge" } resource "aws_athena_database" "hoge" { name   = "database_name" bucket = aws_s3_bucket.hoge.bucket encryption_configuration { kms_key_arn = aws_kms_key.hoge.arn } }'
+2026-01-08 23:27:56,608 - src.agents.repair_agent - DEBUG - Validating repaired script...
+2026-01-08 23:27:56,620 - src.pac_engines.opa_engine - DEBUG - Prepared OPA input: {
+  "resource": {
+    "aws_s3_bucket": {
+      "hoge": {
+        "bucket": "hoge"
+      }
+    },
+    "aws_athena_database": {
+      "hoge": {
+        "name": "database_name",
+        "bucket": "${aws_s3_bucket.hoge.bucket}",
+        "encryption_configuration": {
+          "kms_key_arn": "${aws_kms_key.hoge.arn}"
+        }
+      }
+    }
+  }
+}
+2026-01-08 23:27:56,621 - src.pac_engines.opa_engine - DEBUG - OPA input data: {"resource": {"aws_s3_bucket": {"hoge": {"bucket": "hoge"}}, "aws_athena_database": {"hoge": {"name": "database_name", "bucket": "${aws_s3_bucket.hoge.bucket}", "encryption_configuration": {"kms_key_arn": "${aws_kms_key.hoge.arn}"}}}}}
+2026-01-08 23:27:56,621 - src.pac_engines.opa_engine - DEBUG - OPA command: opa eval -d /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmpumlh_fmz/policy.rego -i /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmpumlh_fmz/input.json --format json data.terraform.deny
+2026-01-08 23:27:56,672 - src.pac_engines.opa_engine - ERROR - OPA evaluation failed:
+2026-01-08 23:27:56,673 - src.agents.repair_agent - INFO - ✓ Repair successful in 1 iteration(s)
+2026-01-08 23:27:56,673 - root - INFO - ✓ Successfully generated patch
+2026-01-08 23:27:56,673 - root - INFO -
+[12/13] Processing kics_aws_public_and_private_ec2_share_role_001 (aws)
+2026-01-08 23:27:56,680 - src.pac_engines.opa_engine - DEBUG - Prepared OPA input: {
+  "resource": {
+    "aws_iam_role": {
+      "test_role": {
+        "name": "test_role",
+        "assume_role_policy": "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Action\": \"sts:AssumeRole\",\n      \"Principal\": {\n        \"Service\": \"ec2.amazonaws.com\"\n      },\n      \"Effect\": \"Allow\",\n      \"Sid\": \"\"\n    }\n  ]\n}"
+      }
+    },
+    "aws_iam_instance_profile": {
+      "test_profile": {
+        "name": "test_profile",
+        "role": "aws_iam_role.test_role.name"
+      }
+    },
+    "aws_iam_role_policy": {
+      "test_policy": {
+        "name": "test_policy",
+        "role": "aws_iam_role.test_role.id",
+        "policy": "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Action\": [\n        \"s3:*\"\n      ],\n      \"Effect\": \"Allow\",\n      \"Resource\": \"*\"\n    }\n  ]\n}"
+      }
+    },
+    "aws_instance": {
+      "pub_ins": {
+        "ami": "data.aws_ami.ubuntu.id",
+        "instance_type": "t2.micro",
+        "subnet_id": "${module.vpc.public_subnets[0]}",
+        "iam_instance_profile": "${aws_iam_instance_profile.test_profile.name}"
+      },
+      "priv_ins": {
+        "ami": "data.aws_ami.ubuntu.id",
+        "instance_type": "t2.micro",
+        "subnet_id": "${module.vpc.private_subnets[0]}",
+        "iam_instance_profile": "${aws_iam_instance_profile.test_profile.name}"
+      }
+    }
+  }
+}
+2026-01-08 23:27:56,680 - src.pac_engines.opa_engine - DEBUG - OPA input data: {"resource": {"aws_iam_role": {"test_role": {"name": "test_role", "assume_role_policy": "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Action\": \"sts:AssumeRole\",\n      \"Principal\": {\n        \"Service\": \"ec2.amazonaws.com\"\n      },\n      \"Effect\": \"Allow\",\n      \"Sid\": \"\"\n    }\n  ]\n}"}}, "aws_iam_instance_profile": {"test_profile": {"name": "test_profile", "role": "aws_iam_role.test_role.name"}}, "aws_iam_role_policy": {"test_policy": {"name": "test_policy", "role": "aws_iam_role.test_role.id", "policy": "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Action\": [\n        \"s3:*\"\n      ],\n      \"Effect\": \"Allow\",\n      \"Resource\": \"*\"\n    }\n  ]\n}"}}, "aws_instance": {"pub_ins": {"ami": "data.aws_ami.ubuntu.id", "instance_type": "t2.micro", "subnet_id": "${module.vpc.public_subnets[0]}", "iam_instance_profile": "${aws_iam_instance_profile.test_profile.name}"}, "priv_ins": {"ami": "data.aws_ami.ubuntu.id", "instance_type": "t2.micro", "subnet_id": "${module.vpc.private_subnets[0]}", "iam_instance_profile": "${aws_iam_instance_profile.test_profile.name}"}}}}
+2026-01-08 23:27:56,680 - src.pac_engines.opa_engine - DEBUG - OPA command: opa eval -d /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmpge5628ic/policy.rego -i /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmpge5628ic/input.json --format json data.terraform.deny
+2026-01-08 23:27:56,694 - src.pac_engines.opa_engine - ERROR - OPA evaluation failed:
+2026-01-08 23:27:56,695 - src.agents.repair_agent - INFO - Repair iteration 1/3
+2026-01-08 23:27:56,695 - src.agents.repair_agent - DEBUG - Generating repair with LLM...
+2026-01-08 23:27:56,697 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-01-08 23:27:56,697 - httpcore.http11 - DEBUG - send_request_headers.complete
+2026-01-08 23:27:56,697 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-01-08 23:27:56,697 - httpcore.http11 - DEBUG - send_request_body.complete
+2026-01-08 23:27:56,697 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-01-08 23:28:01,761 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/x-ndjson'), (b'Date', b'Thu, 08 Jan 2026 23:28:01 GMT'), (b'Transfer-Encoding', b'chunked')])
+2026-01-08 23:28:01,765 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-08 23:28:01,766 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-01-08 23:28:45,113 - httpcore.http11 - DEBUG - receive_response_body.complete
+2026-01-08 23:28:45,114 - httpcore.http11 - DEBUG - response_closed.started
+2026-01-08 23:28:45,115 - httpcore.http11 - DEBUG - response_closed.complete
+2026-01-08 23:28:45,119 - src.chains.repair_chain - DEBUG - Structured response: repaired_script='provider "aws" { region = "us-east-1" } local s test_description = "two EC2s, one public, one private" local t test_name = "Ec2RoleShare" module vpc { source = "terraform-aws-modules/vpc/aws" version = "3.7.0" cidr = "10.0.0.0/16" manage_default_security_group = true default_security_group_ingress = [ { from_port = 22 to_port = 22 protocol = "tcp" description = "ssh" cidr_blocks = "0.0.0.0/0" } ] default_security_group_egress = [] public_subnets = [ "10.0.101.0/24", "10.0.102.0/24", "10.0.103.0/24" ] private_subnets = [ "10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24" ] enable_nat_gateway = true enable_vpn_gateway = true } data aws_ami ubuntu { most_recent = true filter { name = "name" values = [ "ubuntu/images/hvm-ssd/ubuntu-xenial-16.04-amd64-server-" ] } filter { name = "virtualization-type" values = [ "hvm" ] } owners = [ "099720109477" ] # Canonical } resource aws_iam_role test_role { name = "test_role" assume_role_policy = <<EOF { Version = "2012-10-17" Statement = [ { Action = "sts:AssumeRole" Principal = { Service = "ec2.amazonaws.com" } Effect = "Allow" Sid = "" } ] } EOF } resource aws_iam_instance_profile test_profile { name = "test_profile" role = aws_iam_role.test_role.name } resource aws_iam_role_policy test_policy { name = "test_policy" role = aws_iam_role.test_role.id policy = <<EOF { Version = "2012-10-17" Statement = [ { Action = [ "s3:" ] Effect = "Allow" Resource = "*" } ] } EOF } resource aws_instance pub_ins { ami = data.aws_ami.ubuntu.id instance_type = "t2.micro" subnet_id = module.vpc.public_subnets[0] iam_instance_profile = aws_iam_instance_profile.test_profile.name } resource aws_instance priv_ins { ami = data.aws_ami.ubuntu.id instance_type = "t2.micro" subnet_id = module.vpc.private_subnets[0] iam_instance_profile = aws_iam_instance_profile.test_profile.name }'
+2026-01-08 23:28:45,120 - src.agents.repair_agent - DEBUG - Validating repaired script...
+2026-01-08 23:28:45,130 - src.pac_engines.opa_engine - ERROR - Error parsing Terraform HCL: Unexpected token Token('EQ', ' =') at line 1, column 65.
+Expected one of:
+	* NL_OR_COMMENT
+	* FOR
+	* NAME
+	* LBRACE
+	* DBLQUOTE
+	* IF
+	* FOR_EACH
+	* IN
+
+2026-01-08 23:28:45,131 - src.pac_engines.opa_engine - DEBUG - OPA input data: {}
+2026-01-08 23:28:45,132 - src.pac_engines.opa_engine - DEBUG - OPA command: opa eval -d /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmpknmz3soo/policy.rego -i /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmpknmz3soo/input.json --format json data.terraform.deny
+2026-01-08 23:28:45,232 - src.pac_engines.opa_engine - ERROR - OPA evaluation failed:
+2026-01-08 23:28:45,232 - src.agents.repair_agent - INFO - ✓ Repair successful in 1 iteration(s)
+2026-01-08 23:28:45,233 - root - INFO - ✓ Successfully generated patch
+2026-01-08 23:28:45,233 - root - INFO -
+[13/13] Processing kics_aws_public_and_private_ec2_share_role_002 (aws)
+2026-01-08 23:28:45,238 - src.pac_engines.opa_engine - DEBUG - Prepared OPA input: {
+  "resource": {
+    "aws_iam_instance_profile": {
+      "test_profile1": {
+        "name": "test_profile",
+        "role": "aws_iam_role.test_role1.name"
+      }
+    }
+  }
+}
+2026-01-08 23:28:45,238 - src.pac_engines.opa_engine - DEBUG - OPA input data: {"resource": {"aws_iam_instance_profile": {"test_profile1": {"name": "test_profile", "role": "aws_iam_role.test_role1.name"}}}}
+2026-01-08 23:28:45,238 - src.pac_engines.opa_engine - DEBUG - OPA command: opa eval -d /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmpch3i4rx9/policy.rego -i /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmpch3i4rx9/input.json --format json data.terraform.deny
+2026-01-08 23:28:45,250 - src.pac_engines.opa_engine - ERROR - OPA evaluation failed:
+2026-01-08 23:28:45,250 - src.agents.repair_agent - INFO - Repair iteration 1/3
+2026-01-08 23:28:45,250 - src.agents.repair_agent - DEBUG - Generating repair with LLM...
+2026-01-08 23:28:45,252 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-01-08 23:28:45,253 - httpcore.http11 - DEBUG - send_request_headers.complete
+2026-01-08 23:28:45,253 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-01-08 23:28:45,253 - httpcore.http11 - DEBUG - send_request_body.complete
+2026-01-08 23:28:45,253 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-01-08 23:28:50,000 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/x-ndjson'), (b'Date', b'Thu, 08 Jan 2026 23:28:49 GMT'), (b'Transfer-Encoding', b'chunked')])
+2026-01-08 23:28:50,000 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-08 23:28:50,000 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-01-08 23:29:28,330 - httpcore.http11 - DEBUG - receive_response_body.complete
+2026-01-08 23:29:28,332 - httpcore.http11 - DEBUG - response_closed.started
+2026-01-08 23:29:28,333 - httpcore.http11 - DEBUG - response_closed.complete
+2026-01-08 23:29:28,340 - src.chains.repair_chain - DEBUG - Structured response: repaired_script='module "vpc" { source = "terraform-aws-modules/vpc/aws" name = "Ec2RoleShareRule1" azs = ["us-east-1a", "us-east-1b", "us-east-1c"] private_subnets = ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24"] public_subnets = ["10.0.101.0/24", "10.0.102.0/24", "10.0.103.0/24"] enable_nat_gateway = true enable_vpn_gateway = true cidr = "10.0.0.0/16" manage_default_security_group = true default_security_group_ingress = [ { from_port = 22 to_port = 22 protocol = "tcp" description = "ssh" cidr_blocks = "0.0.0.0/0" } ] default_security_group_egress = [] version = "3.7.0" } module "ec2_public_instance" { source = "terraform-aws-modules/ec2-instance/aws" version = "~> 3.0" name = "single-instance" ami = "ami-ebd02392" instance_type = "t2.micro" key_name = "user1" monitoring = true vpc_security_group_ids = ["sg-12345678"] subnet_id = module.vpc.public_subnets[0] iam_instance_profile = aws_iam_instance_profile.test_profile1.name tags = { Terraform = "true" Environment = "dev" } } module "ec2_private_instance" { source = "terraform-aws-modules/ec2-instance/aws" version = "~> 3.0" name = "single-instance" ami = "ami-ebd02392" instance_type = "t2.micro" key_name = "user1" monitoring = true vpc_security_group_ids = ["sg-12345678"] subnet_id = module.vpc.private_subnets[0] iam_instance_profile = aws_iam_instance_profile.test_profile1.name tags = { Terraform = "true" Environment = "dev" } } resource "aws_iam_instance_profile" "test_profile1" { name = "test_profile" role = "aws_iam_role.test_role1.name" }'
+2026-01-08 23:29:28,341 - src.agents.repair_agent - DEBUG - Validating repaired script...
+2026-01-08 23:29:28,351 - src.pac_engines.opa_engine - DEBUG - Prepared OPA input: {
+  "resource": {
+    "aws_iam_instance_profile": {
+      "test_profile1": {
+        "name": "test_profile",
+        "role": "aws_iam_role.test_role1.name"
+      }
+    }
+  }
+}
+2026-01-08 23:29:28,351 - src.pac_engines.opa_engine - DEBUG - OPA input data: {"resource": {"aws_iam_instance_profile": {"test_profile1": {"name": "test_profile", "role": "aws_iam_role.test_role1.name"}}}}
+2026-01-08 23:29:28,351 - src.pac_engines.opa_engine - DEBUG - OPA command: opa eval -d /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmps_oo6mwe/policy.rego -i /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmps_oo6mwe/input.json --format json data.terraform.deny
+2026-01-08 23:29:28,458 - src.pac_engines.opa_engine - ERROR - OPA evaluation failed:
+2026-01-08 23:29:28,459 - src.agents.repair_agent - INFO - ✓ Repair successful in 1 iteration(s)
+2026-01-08 23:29:28,460 - root - INFO - ✓ Successfully generated patch
+2026-01-08 23:29:28,460 - root - INFO -
+======================================================================
+2026-01-08 23:29:28,460 - root - INFO - RESULTS SUMMARY
+2026-01-08 23:29:28,460 - root - INFO - ======================================================================
+2026-01-08 23:29:28,460 - root - INFO - Total processed: 13
+2026-01-08 23:29:28,460 - root - INFO - Skipped: 0
+2026-01-08 23:29:28,460 - root - INFO - Attempted: 13
+2026-01-08 23:29:28,460 - root - INFO - Successful: 13
+2026-01-08 23:29:28,460 - root - INFO - Failed: 0
+2026-01-08 23:29:28,460 - root - INFO - Errors: 0
+2026-01-08 23:29:28,460 - root - INFO - Success rate: 100.0%
+2026-01-08 23:29:28,460 - root - INFO -
+Log file saved to: results/spec_bug_fix_kics/codellama/execution_20260108_232410.log
+2026-01-08 23:29:28,460 - root - INFO - ======================================================================
+2026-01-08 23:29:28,460 - root - INFO - Patch generation complete!

@@ -1,0 +1,74 @@
+{
+  "dataset_name": "spec_bug_fix_kics",
+  "version": "1.0.0",
+  "source": "Checkmarx/kics",
+  "description": "Dataset imported from Checkmarx KICS OPA policies and test cases",
+  "total_entries": 13,
+  "entries": [
+    {
+      "entry_id": "kics_aws_cloudwatch_logs_destination_with_vulnerable_policy_001",
+      "category": "aws",
+      "path": "aws/kics_aws_cloudwatch_logs_destination_with_vulnerable_policy_001"
+    },
+    {
+      "entry_id": "kics_aws_eks_node_group_remote_access_disabled_001",
+      "category": "aws",
+      "path": "aws/kics_aws_eks_node_group_remote_access_disabled_001"
+    },
+    {
+      "entry_id": "kics_aws_sensitive_port_is_exposed_to_small_public_network_001",
+      "category": "aws",
+      "path": "aws/kics_aws_sensitive_port_is_exposed_to_small_public_network_001"
+    },
+    {
+      "entry_id": "kics_aws_role_with_privilege_escalation_by_actions_iam_AttachGroupPolicy_001",
+      "category": "aws",
+      "path": "aws/kics_aws_role_with_privilege_escalation_by_actions_iam_AttachGroupPolicy_001"
+    },
+    {
+      "entry_id": "kics_aws_s3_bucket_with_all_permissions_001",
+      "category": "aws",
+      "path": "aws/kics_aws_s3_bucket_with_all_permissions_001"
+    },
+    {
+      "entry_id": "kics_aws_s3_bucket_with_all_permissions_002",
+      "category": "aws",
+      "path": "aws/kics_aws_s3_bucket_with_all_permissions_002"
+    },
+    {
+      "entry_id": "kics_aws_cloudwatch_security_group_changes_alarm_missing_001",
+      "category": "aws",
+      "path": "aws/kics_aws_cloudwatch_security_group_changes_alarm_missing_001"
+    },
+    {
+      "entry_id": "kics_aws_cloudwatch_security_group_changes_alarm_missing_002",
+      "category": "aws",
+      "path": "aws/kics_aws_cloudwatch_security_group_changes_alarm_missing_002"
+    },
+    {
+      "entry_id": "kics_aws_group_with_privilege_escalation_by_actions_iam_CreateAccessKey_001",
+      "category": "aws",
+      "path": "aws/kics_aws_group_with_privilege_escalation_by_actions_iam_CreateAccessKey_001"
+    },
+    {
+      "entry_id": "kics_aws_ecs_task_definition_network_mode_not_recommended_001",
+      "category": "aws",
+      "path": "aws/kics_aws_ecs_task_definition_network_mode_not_recommended_001"
+    },
+    {
+      "entry_id": "kics_aws_athena_database_not_encrypted_001",
+      "category": "aws",
+      "path": "aws/kics_aws_athena_database_not_encrypted_001"
+    },
+    {
+      "entry_id": "kics_aws_public_and_private_ec2_share_role_001",
+      "category": "aws",
+      "path": "aws/kics_aws_public_and_private_ec2_share_role_001"
+    },
+    {
+      "entry_id": "kics_aws_public_and_private_ec2_share_role_002",
+      "category": "aws",
+      "path": "aws/kics_aws_public_and_private_ec2_share_role_002"
+    }
+  ]
+}

@@ -47,7 +47,9 @@ Fix all reported violations
 Preserve the original infrastructure intent
 Use Terraform best practices
 Provide ONLY valid Terraform code in the repaired_script field
-Do not include explanations or markdown formatting in the code
+DO NOT include markdown code fences (```terraform) or explanations
+IMPORTANT: Use proper Terraform formatting with newlines (\\n) between lines - do not return code as a single line
+Maintain proper indentation and structure as standard Terraform files
 """
 
         prompt = ChatPromptTemplate.from_messages(

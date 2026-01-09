@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_eks_node_group_remote_access_disabled_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "eks_node_group_remote_access_disabled",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "ba40ace1-a047-483c-8a8d-bc2d3a67a82d",
+  "query_name": "EKS node group remote access disabled"
+}

@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_ecs_task_definition_network_mode_not_recommended_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "ecs_task_definition_network_mode_not_recommended",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "9f4a9409-9c60-4671-be96-9716dbf63db1",
+  "query_name": "ECS Task Definition Network Mode Not Recommended"
+}
