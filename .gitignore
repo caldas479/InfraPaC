@@ -208,4 +208,4 @@ __marimo__/
 .DS_Store
 
 # External repositories (cloned for reference)
-data/external-repos/kics
+data/external-repos
