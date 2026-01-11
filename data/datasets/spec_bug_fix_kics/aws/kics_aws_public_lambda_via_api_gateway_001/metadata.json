@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_public_lambda_via_api_gateway_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "public_lambda_via_api_gateway",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "3ef8696c-e4ae-4872-92c7-520bb44dfe77",
+  "query_name": "Public Lambda via API Gateway"
+}

@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_policy_without_principal_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "policy_without_principal",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "bbe3dd3d-fea9-4b68-a785-cfabe2bbbc54",
+  "query_name": "Policy Without Principal"
+}

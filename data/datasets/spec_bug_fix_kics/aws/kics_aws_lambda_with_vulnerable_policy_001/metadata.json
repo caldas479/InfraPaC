@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_lambda_with_vulnerable_policy_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "lambda_with_vulnerable_policy",
+  "description": "",
+  "severity": "HIGH",
+  "query_id": "ad9dabc7-7839-4bae-a957-aa9120013f39",
+  "query_name": "Lambda With Vulnerable Policy"
+}

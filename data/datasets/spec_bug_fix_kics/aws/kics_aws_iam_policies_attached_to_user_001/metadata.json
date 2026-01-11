@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_iam_policies_attached_to_user_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "iam_policies_attached_to_user",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "b4378389-a9aa-44ee-91e7-ef183f11079e",
+  "query_name": "IAM Policies Attached To User"
+}

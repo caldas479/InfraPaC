@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_efs_with_vulnerable_policy_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "efs_with_vulnerable_policy",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "fae52418-bb8b-4ac2-b287-0b9082d6a3fd",
+  "query_name": "EFS With Vulnerable Policy"
+}

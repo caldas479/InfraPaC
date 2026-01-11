@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_azure_encryption_on_managed_disk_disabled_001",
+  "category": "azure",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "encryption_on_managed_disk_disabled",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "a99130ab-4c0e-43aa-97f8-78d4fcb30024",
+  "query_name": "Encryption On Managed Disk Disabled"
+}

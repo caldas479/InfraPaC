@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_ec2_not_ebs_optimized_002",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "ec2_not_ebs_optimized",
+  "description": "",
+  "severity": "INFO",
+  "query_id": "60224630-175a-472a-9e23-133827040766",
+  "query_name": "EC2 Not EBS Optimized"
+}

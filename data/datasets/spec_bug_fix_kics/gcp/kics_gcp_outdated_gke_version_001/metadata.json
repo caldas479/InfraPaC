@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_gcp_outdated_gke_version_001",
+  "category": "gcp",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "outdated_gke_version",
+  "description": "",
+  "severity": "LOW",
+  "query_id": "128df7ec-f185-48bc-8913-ce756a3ccb85",
+  "query_name": "Outdated GKE Version"
+}

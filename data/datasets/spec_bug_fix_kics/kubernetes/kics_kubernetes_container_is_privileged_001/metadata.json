@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_kubernetes_container_is_privileged_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "container_is_privileged",
+  "description": "",
+  "severity": "HIGH",
+  "query_id": "87065ef8-de9b-40d8-9753-f4a4303e27a4",
+  "query_name": "Container Is Privileged"
+}

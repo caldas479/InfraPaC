@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_security_groups_not_used_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "security_groups_not_used",
+  "description": "",
+  "severity": "INFO",
+  "query_id": "4849211b-ac39-479e-ae78-5694d506cb24",
+  "query_name": "Security Group Not Used"
+}

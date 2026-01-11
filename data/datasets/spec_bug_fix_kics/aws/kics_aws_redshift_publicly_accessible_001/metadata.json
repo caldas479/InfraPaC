@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_redshift_publicly_accessible_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "redshift_publicly_accessible",
+  "description": "",
+  "severity": "HIGH",
+  "query_id": "af173fde-95ea-4584-b904-bb3923ac4bda",
+  "query_name": "Redshift Publicly Accessible"
+}

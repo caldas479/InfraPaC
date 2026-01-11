@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_kubernetes_root_containers_admitted_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "root_containers_admitted",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "4c415497-7410-4559-90e8-f2c8ac64ee38",
+  "query_name": "Root Containers Admitted"
+}

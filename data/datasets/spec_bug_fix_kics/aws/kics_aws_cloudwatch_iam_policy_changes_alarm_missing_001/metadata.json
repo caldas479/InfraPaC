@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_cloudwatch_iam_policy_changes_alarm_missing_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "cloudwatch_iam_policy_changes_alarm_missing",
+  "description": "",
+  "severity": "LOW",
+  "query_id": "eaaba502-2f94-411a-a3c2-83d63cc1776d",
+  "query_name": "CloudWatch IAM Policy Changes Alarm Missing"
+}

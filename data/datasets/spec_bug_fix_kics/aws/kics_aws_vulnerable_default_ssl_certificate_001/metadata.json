@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_vulnerable_default_ssl_certificate_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "vulnerable_default_ssl_certificate",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "3a1e94df-6847-4c0e-a3b6-6c6af4e128ef",
+  "query_name": "Vulnerable Default SSL Certificate"
+}

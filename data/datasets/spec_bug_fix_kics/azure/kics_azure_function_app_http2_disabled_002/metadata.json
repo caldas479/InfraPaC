@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_azure_function_app_http2_disabled_002",
+  "category": "azure",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "function_app_http2_disabled",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "ace823d1-4432-4dee-945b-cdf11a5a6bd0",
+  "query_name": "Function App HTTP2 Disabled"
+}

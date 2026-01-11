@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_route53_record_undefined_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "route53_record_undefined",
+  "description": "",
+  "severity": "HIGH",
+  "query_id": "25db74bf-fa3b-44da-934e-8c3e005c0453",
+  "query_name": "Route53 Record Undefined"
+}

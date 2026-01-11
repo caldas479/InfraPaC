@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_network_acl_with_unrestricted_access_to_rdp_002",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "network_acl_with_unrestricted_access_to_rdp",
+  "description": "",
+  "severity": "HIGH",
+  "query_id": "a20be318-cac7-457b-911d-04cc6e812c25",
+  "query_name": "Network ACL With Unrestricted Access To RDP"
+}

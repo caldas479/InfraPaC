@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_rds_db_instance_publicly_accessible_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "rds_db_instance_publicly_accessible",
+  "description": "",
+  "severity": "CRITICAL",
+  "query_id": "35113e6f-2c6b-414d-beec-7a9482d3b2d1",
+  "query_name": "RDS DB Instance Publicly Accessible"
+}

@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_stack_without_template_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "stack_without_template",
+  "description": "",
+  "severity": "LOW",
+  "query_id": "91bea7b8-0c31-4863-adc9-93f6177266c4",
+  "query_name": "Stack Without Template"
+}

@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_vpc_peering_route_table_with_unrestricted_cidr_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "vpc_peering_route_table_with_unrestricted_cidr",
+  "description": "",
+  "severity": "HIGH",
+  "query_id": "b3a41501-f712-4c4f-81e5-db9a7dc0e34e",
+  "query_name": "VPC Peering Route Table with Unrestricted CIDR"
+}

@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_azure_ssl_enforce_is_disabled_001",
+  "category": "azure",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "ssl_enforce_is_disabled",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "0437633b-daa6-4bbc-8526-c0d2443b946e",
+  "query_name": "SSL Enforce Disabled"
+}

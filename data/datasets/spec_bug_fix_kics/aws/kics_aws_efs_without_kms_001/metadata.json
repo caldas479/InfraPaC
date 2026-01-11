@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_efs_without_kms_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "efs_without_kms",
+  "description": "",
+  "severity": "LOW",
+  "query_id": "25d251f3-f348-4f95-845c-1090e41a615c",
+  "query_name": "EFS Without KMS"
+}

@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_sqs_queue_exposed_002",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "sqs_queue_exposed",
+  "description": "",
+  "severity": "HIGH",
+  "query_id": "abb06e5f-ef9a-4a99-98c6-376d396bfcdf",
+  "query_name": "SQS Queue Exposed"
+}

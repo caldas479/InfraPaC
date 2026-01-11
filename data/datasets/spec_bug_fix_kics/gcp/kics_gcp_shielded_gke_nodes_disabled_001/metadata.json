@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_gcp_shielded_gke_nodes_disabled_001",
+  "category": "gcp",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "shielded_gke_nodes_disabled",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "579a0727-9c29-4d58-8195-fc5802a8bdb4",
+  "query_name": "Shielded GKE Nodes Disabled"
+}

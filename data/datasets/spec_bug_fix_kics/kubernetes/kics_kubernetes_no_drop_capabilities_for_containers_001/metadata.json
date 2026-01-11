@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_kubernetes_no_drop_capabilities_for_containers_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "no_drop_capabilities_for_containers",
+  "description": "",
+  "severity": "LOW",
+  "query_id": "21cef75f-289f-470e-8038-c7cee0664164",
+  "query_name": "No Drop Capabilities for Containers"
+}

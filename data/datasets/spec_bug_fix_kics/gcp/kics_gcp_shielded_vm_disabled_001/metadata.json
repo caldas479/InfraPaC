@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_gcp_shielded_vm_disabled_001",
+  "category": "gcp",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "shielded_vm_disabled",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "1b44e234-3d73-41a8-9954-0b154135280e",
+  "query_name": "Shielded VM Disabled"
+}

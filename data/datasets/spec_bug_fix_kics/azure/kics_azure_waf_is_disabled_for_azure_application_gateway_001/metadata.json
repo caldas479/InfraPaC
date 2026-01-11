@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_azure_waf_is_disabled_for_azure_application_gateway_001",
+  "category": "azure",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "waf_is_disabled_for_azure_application_gateway",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "2e48d91c-50e4-45c8-9312-27b625868a72",
+  "query_name": "WAF Is Disabled For Azure Application Gateway"
+}

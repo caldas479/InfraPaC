@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_user_with_privilege_escalation_by_actions_iam_CreateAccessKey_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "user_with_privilege_escalation_by_actions_iam_CreateAccessKey",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "113208f2-a886-4526-9ecc-f3218600e12c",
+  "query_name": "User With Privilege Escalation By Actions 'iam:CreateAccessKey'"
+}

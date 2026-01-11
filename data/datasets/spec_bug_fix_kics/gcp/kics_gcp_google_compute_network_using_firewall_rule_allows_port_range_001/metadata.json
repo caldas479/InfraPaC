@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_gcp_google_compute_network_using_firewall_rule_allows_port_range_001",
+  "category": "gcp",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "google_compute_network_using_firewall_rule_allows_port_range",
+  "description": "",
+  "severity": "LOW",
+  "query_id": "e6f61c37-106b-449f-a5bb-81bfcaceb8b4",
+  "query_name": "Google Compute Network Using Firewall Rule that Allows Port Range"
+}

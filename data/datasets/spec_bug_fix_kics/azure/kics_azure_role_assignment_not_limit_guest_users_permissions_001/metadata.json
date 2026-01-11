@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_azure_role_assignment_not_limit_guest_users_permissions_001",
+  "category": "azure",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "role_assignment_not_limit_guest_users_permissions",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "8e75e431-449f-49e9-b56a-c8f1378025cf",
+  "query_name": "Role Assignment Not Limit Guest User Permissions"
+}

@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_kubernetes_privilege_escalation_allowed_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "privilege_escalation_allowed",
+  "description": "",
+  "severity": "HIGH",
+  "query_id": "c878abb4-cca5-4724-92b9-289be68bd47c",
+  "query_name": "Privilege Escalation Allowed"
+}

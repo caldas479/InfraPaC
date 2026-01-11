@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_kubernetes_cluster_allows_unsafe_sysctls_002",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "cluster_allows_unsafe_sysctls",
+  "description": "",
+  "severity": "HIGH",
+  "query_id": "a9174d31-d526-4ad9-ace4-ce7ddbf52e03",
+  "query_name": "Cluster Allows Unsafe Sysctls"
+}

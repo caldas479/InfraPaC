@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_unknown_port_exposed_to_internet_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "unknown_port_exposed_to_internet",
+  "description": "",
+  "severity": "HIGH",
+  "query_id": "590d878b-abdc-428f-895a-e2b68a0e1998",
+  "query_name": "Unknown Port Exposed To Internet"
+}

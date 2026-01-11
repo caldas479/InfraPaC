@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_group_with_privilege_escalation_by_actions_iam_PassRole_and_cloudformation_CreateStack_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "group_with_privilege_escalation_by_actions_iam_PassRole_and_cloudformation_CreateStack",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "9b0ffadc-a61f-4c2a-b1e6-68fab60f6267",
+  "query_name": "Group With Privilege Escalation By Actions 'cloudformation:CreateStack' And 'iam:PassRole'"
+}

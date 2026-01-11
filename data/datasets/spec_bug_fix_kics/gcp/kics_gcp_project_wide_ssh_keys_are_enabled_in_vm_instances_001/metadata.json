@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_gcp_project_wide_ssh_keys_are_enabled_in_vm_instances_001",
+  "category": "gcp",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "project_wide_ssh_keys_are_enabled_in_vm_instances",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "3e4d5ce6-3280-4027-8010-c26eeea1ec01",
+  "query_name": "Project-wide SSH Keys Are Enabled In VM Instances"
+}

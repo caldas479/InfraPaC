@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_hardcoded_aws_access_key_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "hardcoded_aws_access_key",
+  "description": "",
+  "severity": "HIGH",
+  "query_id": "d7b9d850-3e06-4a75-852f-c46c2e92240b",
+  "query_name": "Hardcoded AWS Access Key"
+}

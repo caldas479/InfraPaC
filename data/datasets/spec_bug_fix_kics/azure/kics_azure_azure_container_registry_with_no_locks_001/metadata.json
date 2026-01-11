@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_azure_azure_container_registry_with_no_locks_001",
+  "category": "azure",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "azure_container_registry_with_no_locks",
+  "description": "",
+  "severity": "HIGH",
+  "query_id": "a187ac47-8163-42ce-8a63-c115236be6fb",
+  "query_name": "Azure Container Registry With No Locks"
+}

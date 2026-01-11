@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_ec2_instance_has_public_ip_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "ec2_instance_has_public_ip",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "5a2486aa-facf-477d-a5c1-b010789459ce",
+  "query_name": "EC2 Instance Has Public IP"
+}

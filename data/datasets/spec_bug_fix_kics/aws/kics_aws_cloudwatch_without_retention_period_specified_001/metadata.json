@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_cloudwatch_without_retention_period_specified_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "cloudwatch_without_retention_period_specified",
+  "description": "",
+  "severity": "INFO",
+  "query_id": "ef0b316a-211e-42f1-888e-64efe172b755",
+  "query_name": "CloudWatch Without Retention Period Specified"
+}

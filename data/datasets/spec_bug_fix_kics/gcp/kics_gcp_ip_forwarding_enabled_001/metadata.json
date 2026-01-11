@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_gcp_ip_forwarding_enabled_001",
+  "category": "gcp",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "ip_forwarding_enabled",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "f34c0c25-47b4-41eb-9c79-249b4dd47b89",
+  "query_name": "IP Forwarding Enabled"
+}

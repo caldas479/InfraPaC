@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_s3_bucket_policy_accepts_http_requests_002",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "s3_bucket_policy_accepts_http_requests",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "4bc4dd4c-7d8d-405e-a0fb-57fa4c31b4d9",
+  "query_name": "S3 Bucket Policy Accepts HTTP Requests"
+}

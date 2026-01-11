@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_aws_password_policy_with_unchangeable_passwords_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "aws_password_policy_with_unchangeable_passwords",
+  "description": "",
+  "severity": "LOW",
+  "query_id": "9ef7d25d-9764-4224-9968-fa321c56ef76",
+  "query_name": "AWS Password Policy With Unchangeable Passwords"
+}

@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_s3_bucket_with_unsecured_cors_rule_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "s3_bucket_with_unsecured_cors_rule",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "98a8f708-121b-455b-ae2f-da3fb59d17e1",
+  "query_name": "S3 Bucket with Unsecured CORS Rule"
+}

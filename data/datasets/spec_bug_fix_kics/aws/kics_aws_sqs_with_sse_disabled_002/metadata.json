@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_sqs_with_sse_disabled_002",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "sqs_with_sse_disabled",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "6e8849c1-3aa7-40e3-9063-b85ee300f29f",
+  "query_name": "SQS With SSE Disabled"
+}

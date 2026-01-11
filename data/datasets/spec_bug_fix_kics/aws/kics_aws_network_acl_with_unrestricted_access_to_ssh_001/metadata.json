@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_network_acl_with_unrestricted_access_to_ssh_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "network_acl_with_unrestricted_access_to_ssh",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "3af7f2fd-06e6-4dab-b996-2912bea19ba4",
+  "query_name": "Network ACL With Unrestricted Access To SSH"
+}

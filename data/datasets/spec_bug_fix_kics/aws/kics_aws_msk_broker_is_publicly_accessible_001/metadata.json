@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_msk_broker_is_publicly_accessible_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "msk_broker_is_publicly_accessible",
+  "description": "",
+  "severity": "HIGH",
+  "query_id": "54378d69-dd7c-4b08-a43e-80d563396857",
+  "query_name": "MSK Broker Is Publicly Accessible"
+}

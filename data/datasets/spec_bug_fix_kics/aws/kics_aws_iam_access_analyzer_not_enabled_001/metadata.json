@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_iam_access_analyzer_not_enabled_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "iam_access_analyzer_not_enabled",
+  "description": "",
+  "severity": "LOW",
+  "query_id": "e592a0c5-5bdb-414c-9066-5dba7cdea370",
+  "query_name": "IAM Access Analyzer Not Enabled"
+}

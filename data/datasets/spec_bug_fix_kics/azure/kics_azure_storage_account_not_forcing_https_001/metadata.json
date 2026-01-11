@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_azure_storage_account_not_forcing_https_001",
+  "category": "azure",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "storage_account_not_forcing_https",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "12944ec4-1fa0-47be-8b17-42a034f937c2",
+  "query_name": "Storage Account Not Forcing HTTPS"
+}

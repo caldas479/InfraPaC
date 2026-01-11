@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_azure_azure_app_service_client_certificate_disabled_002",
+  "category": "azure",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "azure_app_service_client_certificate_disabled",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "a81573f9-3691-4d83-88a0-7d4af63e17a3",
+  "query_name": "Azure App Service Client Certificate Disabled"
+}

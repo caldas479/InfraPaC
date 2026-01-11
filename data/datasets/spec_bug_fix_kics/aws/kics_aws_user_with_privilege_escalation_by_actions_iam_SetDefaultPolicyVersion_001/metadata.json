@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_user_with_privilege_escalation_by_actions_iam_SetDefaultPolicyVersion_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "user_with_privilege_escalation_by_actions_iam_SetDefaultPolicyVersion",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "43a41523-386a-4cb1-becb-42af6b414433",
+  "query_name": "User With Privilege Escalation By Actions 'iam:SetDefaultPolicyVersion'"
+}

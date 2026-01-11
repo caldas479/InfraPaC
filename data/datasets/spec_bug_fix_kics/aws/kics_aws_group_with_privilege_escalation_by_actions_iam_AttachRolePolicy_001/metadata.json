@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_group_with_privilege_escalation_by_actions_iam_AttachRolePolicy_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "group_with_privilege_escalation_by_actions_iam_AttachRolePolicy",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "3dd96caa-0b5f-4a85-b929-acfac4646cc2",
+  "query_name": "Group With Privilege Escalation By Actions 'iam:AttachRolePolicy'"
+}

@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_azure_sql_database_audit_disabled_001",
+  "category": "azure",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "sql_database_audit_disabled",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "83a229ba-483e-47c6-8db7-dc96969bce5a",
+  "query_name": "SQL Database Audit Disabled"
+}

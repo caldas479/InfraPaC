@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_azure_storage_table_allows_all_acl_permissions_001",
+  "category": "azure",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "storage_table_allows_all_acl_permissions",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "3ac3e75c-6374-4a32-8ba0-6ed69bda404e",
+  "query_name": "Storage Table Allows All ACL Permissions"
+}

@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_unscanned_ecr_image_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "unscanned_ecr_image",
+  "description": "",
+  "severity": "LOW",
+  "query_id": "9630336b-3fed-4096-8173-b9afdfe346a7",
+  "query_name": "Unscanned ECR Image"
+}

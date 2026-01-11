@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_rds_associated_with_public_subnet_002",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "rds_associated_with_public_subnet",
+  "description": "",
+  "severity": "CRITICAL",
+  "query_id": "2f737336-b18a-4602-8ea0-b200312e1ac1",
+  "query_name": "RDS Associated with Public Subnet"
+}

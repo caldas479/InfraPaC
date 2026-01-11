@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_kubernetes_container_runs_unmasked_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "container_runs_unmasked",
+  "description": "",
+  "severity": "HIGH",
+  "query_id": "0ad60203-c050-4115-83b6-b94bde92541d",
+  "query_name": "Container Runs Unmasked"
+}

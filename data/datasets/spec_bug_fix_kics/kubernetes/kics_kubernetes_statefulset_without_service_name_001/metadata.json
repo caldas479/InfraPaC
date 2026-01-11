@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_kubernetes_statefulset_without_service_name_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "statefulset_without_service_name",
+  "description": "",
+  "severity": "LOW",
+  "query_id": "420e6360-47bb-46f6-9072-b20ed22c842d",
+  "query_name": "StatefulSet Without Service Name"
+}

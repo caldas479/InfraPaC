@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_s3_bucket_public_acl_overridden_by_public_access_block_002",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "s3_bucket_public_acl_overridden_by_public_access_block",
+  "description": "",
+  "severity": "HIGH",
+  "query_id": "bf878b1a-7418-4de3-b13c-3a86cf894920",
+  "query_name": "S3 Bucket Public ACL Overridden By Public Access Block"
+}

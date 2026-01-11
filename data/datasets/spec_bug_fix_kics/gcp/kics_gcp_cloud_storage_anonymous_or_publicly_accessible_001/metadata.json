@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_gcp_cloud_storage_anonymous_or_publicly_accessible_001",
+  "category": "gcp",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "cloud_storage_anonymous_or_publicly_accessible",
+  "description": "",
+  "severity": "CRITICAL",
+  "query_id": "a6cd52a1-3056-4910-96a5-894de9f3f3b3",
+  "query_name": "Cloud Storage Anonymous or Publicly Accessible"
+}

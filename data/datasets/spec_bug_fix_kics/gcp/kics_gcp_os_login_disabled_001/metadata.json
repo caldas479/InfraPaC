@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_gcp_os_login_disabled_001",
+  "category": "gcp",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "os_login_disabled",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "32ecd6eb-0711-421f-9627-1a28d9eff217",
+  "query_name": "OSLogin Disabled"
+}

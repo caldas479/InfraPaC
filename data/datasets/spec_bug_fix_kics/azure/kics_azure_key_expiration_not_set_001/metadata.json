@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_azure_key_expiration_not_set_001",
+  "category": "azure",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "key_expiration_not_set",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "4d080822-5ee2-49a4-8984-68f3d4c890fc",
+  "query_name": "Key Expiration Not Set"
+}

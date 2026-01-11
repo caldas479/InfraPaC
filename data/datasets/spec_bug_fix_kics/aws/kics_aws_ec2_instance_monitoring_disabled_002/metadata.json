@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_ec2_instance_monitoring_disabled_002",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "ec2_instance_monitoring_disabled",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "23b70e32-032e-4fa6-ba5c-82f56b9980e6",
+  "query_name": "EC2 Instance Monitoring Disabled"
+}

@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_azure_security_center_pricing_tier_is_not_standard_001",
+  "category": "azure",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "security_center_pricing_tier_is_not_standard",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "819d50fd-1cdf-45c3-9936-be408aaad93e",
+  "query_name": "Security Center Pricing Tier Is Not Standard"
+}

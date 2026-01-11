@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_stack_retention_disabled_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "stack_retention_disabled",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "6e0e2f68-3fd9-4cd8-a5e4-e2213ef0df97",
+  "query_name": "Stack Retention Disabled"
+}

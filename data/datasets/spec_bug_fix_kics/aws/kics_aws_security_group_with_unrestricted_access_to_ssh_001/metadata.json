@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_security_group_with_unrestricted_access_to_ssh_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "security_group_with_unrestricted_access_to_ssh",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "65905cec-d691-4320-b320-2000436cb696",
+  "query_name": "Security Group With Unrestricted Access To SSH"
+}

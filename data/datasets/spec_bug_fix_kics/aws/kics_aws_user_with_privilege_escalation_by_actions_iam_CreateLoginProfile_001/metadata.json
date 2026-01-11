@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_user_with_privilege_escalation_by_actions_iam_CreateLoginProfile_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "user_with_privilege_escalation_by_actions_iam_CreateLoginProfile",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "0fd7d920-4711-46bd-aff2-d307d82cd8b7",
+  "query_name": "User With Privilege Escalation By Actions 'iam:CreateLoginProfile'"
+}

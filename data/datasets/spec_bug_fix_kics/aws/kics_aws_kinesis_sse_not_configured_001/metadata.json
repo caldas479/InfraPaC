@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_kinesis_sse_not_configured_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "kinesis_sse_not_configured",
+  "description": "",
+  "severity": "HIGH",
+  "query_id": "5c6dd5e7-1fe0-4cae-8f81-4c122717cef3",
+  "query_name": "Kinesis SSE Not Configured"
+}

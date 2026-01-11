@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_eks_cluster_has_public_access_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "eks_cluster_has_public_access",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "42f4b905-3736-4213-bfe9-c0660518cda8",
+  "query_name": "EKS Cluster Has Public Access"
+}

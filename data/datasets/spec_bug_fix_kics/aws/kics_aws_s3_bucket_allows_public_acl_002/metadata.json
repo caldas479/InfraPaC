@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_s3_bucket_allows_public_acl_002",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "s3_bucket_allows_public_acl",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "d0cc8694-fcad-43ff-ac86-32331d7e867f",
+  "query_name": "S3 Bucket Allows Public ACL"
+}

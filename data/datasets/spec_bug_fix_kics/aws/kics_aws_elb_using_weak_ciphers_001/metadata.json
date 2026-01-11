@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_elb_using_weak_ciphers_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "elb_using_weak_ciphers",
+  "description": "",
+  "severity": "HIGH",
+  "query_id": "4a800e14-c94a-442d-9067-5a2e9f6c0a4c",
+  "query_name": "ELB Using Weak Ciphers"
+}

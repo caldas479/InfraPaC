@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_efs_not_encrypted_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "efs_not_encrypted",
+  "description": "",
+  "severity": "HIGH",
+  "query_id": "48207659-729f-4b5c-9402-f884257d794f",
+  "query_name": "EFS Not Encrypted"
+}

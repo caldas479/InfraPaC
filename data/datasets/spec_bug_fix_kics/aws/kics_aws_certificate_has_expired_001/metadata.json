@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_certificate_has_expired_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "certificate_has_expired",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "c3831315-5ae6-4fa8-b458-3d4d5ab7a3f6",
+  "query_name": "Certificate Has Expired"
+}

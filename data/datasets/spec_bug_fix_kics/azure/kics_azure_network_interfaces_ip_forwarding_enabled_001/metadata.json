@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_azure_network_interfaces_ip_forwarding_enabled_001",
+  "category": "azure",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "network_interfaces_ip_forwarding_enabled",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "4216ebac-d74c-4423-b437-35025cb88af5",
+  "query_name": "Network Interfaces IP Forwarding Enabled"
+}

@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_kms_key_with_full_permissions_002",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "kms_key_with_full_permissions",
+  "description": "",
+  "severity": "HIGH",
+  "query_id": "7ebc9038-0bde-479a-acc4-6ed7b6758899",
+  "query_name": "KMS Key With Vulnerable Policy"
+}

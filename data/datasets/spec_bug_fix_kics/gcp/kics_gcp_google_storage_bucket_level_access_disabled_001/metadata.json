@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_gcp_google_storage_bucket_level_access_disabled_001",
+  "category": "gcp",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "google_storage_bucket_level_access_disabled",
+  "description": "",
+  "severity": "HIGH",
+  "query_id": "bb0db090-5509-4853-a827-75ced0b3caa0",
+  "query_name": "Google Storage Bucket Level Access Disabled"
+}

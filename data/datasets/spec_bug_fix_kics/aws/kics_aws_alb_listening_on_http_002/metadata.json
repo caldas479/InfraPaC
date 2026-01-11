@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_alb_listening_on_http_002",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "alb_listening_on_http",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "de7f5e83-da88-4046-871f-ea18504b1d43",
+  "query_name": "ALB Listening on HTTP"
+}

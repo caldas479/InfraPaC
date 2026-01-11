@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_azure_function_app_ftps_enforce_disabled_002",
+  "category": "azure",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "function_app_ftps_enforce_disabled",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "9dab0179-433d-4dff-af8f-0091025691df",
+  "query_name": "Function App FTPS Enforce Disabled"
+}

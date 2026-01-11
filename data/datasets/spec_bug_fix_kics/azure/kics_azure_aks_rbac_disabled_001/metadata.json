@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_azure_aks_rbac_disabled_001",
+  "category": "azure",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "aks_rbac_disabled",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "86f92117-eed8-4614-9c6c-b26da20ff37f",
+  "query_name": "AKS RBAC Disabled"
+}

@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_gcp_disk_encryption_disabled_002",
+  "category": "gcp",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "disk_encryption_disabled",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "b1d51728-7270-4991-ac2f-fc26e2695b38",
+  "query_name": "Disk Encryption Disabled"
+}

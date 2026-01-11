@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_sagemaker_notebook_instance_without_kms_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "sagemaker_notebook_instance_without_kms",
+  "description": "",
+  "severity": "HIGH",
+  "query_id": "f3674e0c-f6be-43fa-b71c-bf346d1aed99",
+  "query_name": "Sagemaker Notebook Instance Without KMS"
+}

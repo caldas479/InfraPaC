@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_kubernetes_tiller_is_deployed_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "tiller_is_deployed",
+  "description": "",
+  "severity": "HIGH",
+  "query_id": "ca2fba76-c1a7-4afd-be67-5249f861cb0e",
+  "query_name": "Tiller (Helm v2) Is Deployed"
+}

@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_dynamodb_table_not_encrypted_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "dynamodb_table_not_encrypted",
+  "description": "",
+  "severity": "HIGH",
+  "query_id": "ce089fd4-1406-47bd-8aad-c259772bb294",
+  "query_name": "DynamoDB Table Not Encrypted"
+}

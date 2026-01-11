@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_azure_default_azure_storage_account_network_access_is_too_permissive_001",
+  "category": "azure",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "default_azure_storage_account_network_access_is_too_permissive",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "a5613650-32ec-4975-a305-31af783153ea",
+  "query_name": "Default Azure Storage Account Network Access Is Too Permissive"
+}

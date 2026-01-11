@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_ecs_task_definition_volume_not_encrypted_002",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "ecs_task_definition_volume_not_encrypted",
+  "description": "",
+  "severity": "HIGH",
+  "query_id": "4d46ff3b-7160-41d1-a310-71d6d370b08f",
+  "query_name": "ECS Task Definition Volume Not Encrypted"
+}

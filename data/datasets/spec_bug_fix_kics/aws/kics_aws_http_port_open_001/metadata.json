@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_http_port_open_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "http_port_open",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "ffac8a12-322e-42c1-b9b9-81ff85c39ef7",
+  "query_name": "HTTP Port Open To Internet"
+}

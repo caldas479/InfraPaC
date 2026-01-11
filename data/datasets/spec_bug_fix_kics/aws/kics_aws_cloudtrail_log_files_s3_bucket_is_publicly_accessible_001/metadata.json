@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_cloudtrail_log_files_s3_bucket_is_publicly_accessible_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "cloudtrail_log_files_s3_bucket_is_publicly_accessible",
+  "description": "",
+  "severity": "HIGH",
+  "query_id": "bd0088a5-c133-4b20-b129-ec9968b16ef3",
+  "query_name": "CloudTrail Log Files S3 Bucket is Publicly Accessible"
+}

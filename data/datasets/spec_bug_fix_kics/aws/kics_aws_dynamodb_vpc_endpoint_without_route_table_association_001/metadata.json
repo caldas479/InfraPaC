@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_dynamodb_vpc_endpoint_without_route_table_association_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "dynamodb_vpc_endpoint_without_route_table_association",
+  "description": "",
+  "severity": "LOW",
+  "query_id": "0bc534c5-13d1-4353-a7fe-b8665d5c1d7d",
+  "query_name": "Dynamodb VPC Endpoint Without Route Table Association"
+}

@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_api_gateway_method_settings_cache_not_encrypted_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "api_gateway_method_settings_cache_not_encrypted",
+  "description": "",
+  "severity": "HIGH",
+  "query_id": "b7c9a40c-23e4-4a2d-8d39-a3352f10f288",
+  "query_name": "API Gateway Method Settings Cache Not Encrypted"
+}

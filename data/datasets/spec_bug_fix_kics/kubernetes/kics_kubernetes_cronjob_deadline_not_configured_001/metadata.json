@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_kubernetes_cronjob_deadline_not_configured_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "cronjob_deadline_not_configured",
+  "description": "",
+  "severity": "LOW",
+  "query_id": "58876b44-a690-4e9f-9214-7735fa0dd15d",
+  "query_name": "CronJob Deadline Not Configured"
+}

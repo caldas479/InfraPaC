@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_elb_using_insecure_protocols_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "elb_using_insecure_protocols",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "126c1788-23c2-4a10-906c-ef179f4f96ec",
+  "query_name": "ELB Using Insecure Protocols"
+}

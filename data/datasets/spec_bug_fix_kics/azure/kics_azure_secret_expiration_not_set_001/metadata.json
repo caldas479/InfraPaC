@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_azure_secret_expiration_not_set_001",
+  "category": "azure",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "secret_expiration_not_set",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "dfa20ffa-f476-428f-a490-424b41e91c7f",
+  "query_name": "Secret Expiration Not Set"
+}

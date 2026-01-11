@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_missing_cluster_log_types_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "missing_cluster_log_types",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "66f130d9-b81d-4e8e-9b08-da74b9c891df",
+  "query_name": "Missing Cluster Log Types"
+}

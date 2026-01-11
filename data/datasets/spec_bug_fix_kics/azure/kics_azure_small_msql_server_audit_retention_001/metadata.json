@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_azure_small_msql_server_audit_retention_001",
+  "category": "azure",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "small_msql_server_audit_retention",
+  "description": "",
+  "severity": "LOW",
+  "query_id": "59acb56b-2b10-4c2c-ba38-f2223c3f5cfc",
+  "query_name": "Small MSSQL Server Audit Retention"
+}

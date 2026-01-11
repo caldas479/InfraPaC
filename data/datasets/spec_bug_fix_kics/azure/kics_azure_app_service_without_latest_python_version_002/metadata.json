@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_azure_app_service_without_latest_python_version_002",
+  "category": "azure",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "app_service_without_latest_python_version",
+  "description": "",
+  "severity": "LOW",
+  "query_id": "cc4aaa9d-1070-461a-b519-04e00f42db8a",
+  "query_name": "App Service Without Latest Python Version"
+}

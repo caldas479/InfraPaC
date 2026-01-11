@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_ecr_image_tag_not_immutable_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "ecr_image_tag_not_immutable",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "d1846b12-20c5-4d45-8798-fc35b79268eb",
+  "query_name": "ECR Image Tag Not Immutable"
+}

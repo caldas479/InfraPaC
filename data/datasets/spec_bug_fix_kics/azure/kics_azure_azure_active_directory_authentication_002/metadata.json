@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_azure_azure_active_directory_authentication_002",
+  "category": "azure",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "azure_active_directory_authentication",
+  "description": "",
+  "severity": "LOW",
+  "query_id": "a21c8da9-41bf-40cf-941d-330cf0d11fc7",
+  "query_name": "Azure Active Directory Authentication"
+}

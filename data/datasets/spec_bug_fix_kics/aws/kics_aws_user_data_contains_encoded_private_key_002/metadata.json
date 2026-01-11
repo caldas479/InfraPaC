@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_user_data_contains_encoded_private_key_002",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "user_data_contains_encoded_private_key",
+  "description": "",
+  "severity": "HIGH",
+  "query_id": "443488f5-c734-460b-a36d-5b3f330174dc",
+  "query_name": "User Data Contains Encoded Private Key"
+}

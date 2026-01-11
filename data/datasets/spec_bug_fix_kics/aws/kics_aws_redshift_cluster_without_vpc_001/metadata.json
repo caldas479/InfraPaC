@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_redshift_cluster_without_vpc_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "redshift_cluster_without_vpc",
+  "description": "",
+  "severity": "LOW",
+  "query_id": "0a494a6a-ebe2-48a0-9d77-cf9d5125e1b3",
+  "query_name": "Redshift Cluster Without VPC"
+}

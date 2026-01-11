@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_launch_configuration_is_not_encrypted_002",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "launch_configuration_is_not_encrypted",
+  "description": "",
+  "severity": "HIGH",
+  "query_id": "4de9de27-254e-424f-bd70-4c1e95790838",
+  "query_name": "Launch Configuration Is Not Encrypted"
+}

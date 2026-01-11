@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_group_with_privilege_escalation_by_actions_glue_UpdateDevEndpoint_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "group_with_privilege_escalation_by_actions_glue_UpdateDevEndpoint",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "8f3c16b3-354d-45db-8ad5-5066778a9485",
+  "query_name": "Group With Privilege Escalation By Actions 'glue:UpdateDevEndpoint'"
+}

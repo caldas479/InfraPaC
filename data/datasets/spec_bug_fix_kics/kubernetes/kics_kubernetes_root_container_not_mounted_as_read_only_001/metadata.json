@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_kubernetes_root_container_not_mounted_as_read_only_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "root_container_not_mounted_as_read_only",
+  "description": "",
+  "severity": "LOW",
+  "query_id": "d532566b-8d9d-4f3b-80bd-361fe802f9c2",
+  "query_name": "Root Container Not Mounted As Read-only"
+}

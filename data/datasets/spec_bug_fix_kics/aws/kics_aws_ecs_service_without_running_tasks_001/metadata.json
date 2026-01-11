@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_ecs_service_without_running_tasks_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "ecs_service_without_running_tasks",
+  "description": "",
+  "severity": "LOW",
+  "query_id": "91f16d09-689e-4926-aca7-155157f634ed",
+  "query_name": "ECS Service Without Running Tasks"
+}

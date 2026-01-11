@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_azure_cosmos_db_account_without_tags_001",
+  "category": "azure",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "cosmos_db_account_without_tags",
+  "description": "",
+  "severity": "LOW",
+  "query_id": "56dad03e-e94f-4dd6-93a4-c253a03ff7a0",
+  "query_name": "Cosmos DB Account Without Tags"
+}

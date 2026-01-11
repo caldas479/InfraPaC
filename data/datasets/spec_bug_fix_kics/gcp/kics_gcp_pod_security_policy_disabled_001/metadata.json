@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_gcp_pod_security_policy_disabled_001",
+  "category": "gcp",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "pod_security_policy_disabled",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "9192e0f9-eca5-4056-9282-ae2a736a4088",
+  "query_name": "Pod Security Policy Disabled"
+}

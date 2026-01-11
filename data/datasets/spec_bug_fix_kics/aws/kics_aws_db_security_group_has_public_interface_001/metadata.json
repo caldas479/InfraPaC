@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_db_security_group_has_public_interface_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "db_security_group_has_public_interface",
+  "description": "",
+  "severity": "HIGH",
+  "query_id": "f0d8781f-99bf-4958-9917-d39283b168a0",
+  "query_name": "DB Security Group Has Public Interface"
+}

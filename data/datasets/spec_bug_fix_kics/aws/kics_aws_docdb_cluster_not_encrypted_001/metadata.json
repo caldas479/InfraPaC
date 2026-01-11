@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_docdb_cluster_not_encrypted_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "docdb_cluster_not_encrypted",
+  "description": "",
+  "severity": "HIGH",
+  "query_id": "bc1f9009-84a0-490f-ae09-3e0ea6d74ad6",
+  "query_name": "DOCDB Cluster Not Encrypted"
+}

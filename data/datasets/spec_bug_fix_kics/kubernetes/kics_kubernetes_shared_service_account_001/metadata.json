@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_kubernetes_shared_service_account_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "shared_service_account",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "f74b9c43-161a-4799-bc95-0b0ec81801b9",
+  "query_name": "Shared Service Account"
+}

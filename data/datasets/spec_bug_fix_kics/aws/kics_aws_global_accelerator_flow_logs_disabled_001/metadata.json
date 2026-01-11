@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_global_accelerator_flow_logs_disabled_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "global_accelerator_flow_logs_disabled",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "96e8183b-e985-457b-90cd-61c0503a3369",
+  "query_name": "Global Accelerator Flow Logs Disabled"
+}

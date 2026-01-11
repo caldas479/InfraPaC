@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_gcp_cloud_storage_bucket_versioning_disabled_001",
+  "category": "gcp",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "cloud_storage_bucket_versioning_disabled",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "e7e961ac-d17e-4413-84bc-8a1fbe242944",
+  "query_name": "Cloud Storage Bucket Versioning Disabled"
+}

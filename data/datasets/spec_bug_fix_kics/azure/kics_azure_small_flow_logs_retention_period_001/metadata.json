@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_azure_small_flow_logs_retention_period_001",
+  "category": "azure",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "small_flow_logs_retention_period",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "7750fcca-dd03-4d38-b663-4b70289bcfd4",
+  "query_name": "Small Flow Logs Retention Period"
+}

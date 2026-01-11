@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_elasticache_redis_cluster_without_backup_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "elasticache_redis_cluster_without_backup",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "8fdb08a0-a868-4fdf-9c27-ccab0237f1ab",
+  "query_name": "ElastiCache Redis Cluster Without Backup"
+}

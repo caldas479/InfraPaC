@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_elasticsearch_encryption_with_kms_is_disabled_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "elasticsearch_encryption_with_kms_is_disabled",
+  "description": "",
+  "severity": "HIGH",
+  "query_id": "7af2f4a3-00d9-47f3-8d15-ca0888f4e5b2",
+  "query_name": "ElasticSearch Encryption With KMS Disabled"
+}

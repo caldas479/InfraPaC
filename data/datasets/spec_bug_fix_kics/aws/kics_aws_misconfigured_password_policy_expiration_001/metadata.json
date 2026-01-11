@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_misconfigured_password_policy_expiration_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "misconfigured_password_policy_expiration",
+  "description": "",
+  "severity": "LOW",
+  "query_id": "ce60d060-efb8-4bfd-9cf7-ff8945d00d90",
+  "query_name": "Misconfigured Password Policy Expiration"
+}

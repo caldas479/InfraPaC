@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_rds_cluster_with_backup_disabled_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "rds_cluster_with_backup_disabled",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "e542bd46-58c4-4e0f-a52a-1fb4f9548e02",
+  "query_name": "RDS Cluster With Backup Disabled"
+}

@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_ec2_instance_using_default_vpc_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "ec2_instance_using_default_vpc",
+  "description": "",
+  "severity": "LOW",
+  "query_id": "7e4a6e76-568d-43ef-8c4e-36dea481bff1",
+  "query_name": "EC2 Instance Using Default VPC"
+}

@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_s3_bucket_with_public_policy_002",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "s3_bucket_with_public_policy",
+  "description": "",
+  "severity": "HIGH",
+  "query_id": "1a4bc881-9f69-4d44-8c9a-d37d08f54c50",
+  "query_name": "S3 Bucket Allows Public Policy"
+}

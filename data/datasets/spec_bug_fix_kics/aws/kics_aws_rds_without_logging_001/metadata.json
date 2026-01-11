@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_rds_without_logging_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "rds_without_logging",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "8d7f7b8c-6c7c-40f8-baa6-62006c6c7b56",
+  "query_name": "RDS Without Logging"
+}

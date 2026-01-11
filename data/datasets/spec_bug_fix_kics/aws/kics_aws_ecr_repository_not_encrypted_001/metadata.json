@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_ecr_repository_not_encrypted_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "ecr_repository_not_encrypted",
+  "description": "",
+  "severity": "LOW",
+  "query_id": "0e32d561-4b5a-4664-a6e3-a3fa85649157",
+  "query_name": "ECR Repository Not Encrypted With CMK"
+}

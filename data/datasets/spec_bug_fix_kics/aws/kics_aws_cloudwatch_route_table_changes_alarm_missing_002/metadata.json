@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_cloudwatch_route_table_changes_alarm_missing_002",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "cloudwatch_route_table_changes_alarm_missing",
+  "description": "",
+  "severity": "LOW",
+  "query_id": "2285e608-ddbc-47f3-ba54-ce7121e31216",
+  "query_name": "CloudWatch Route Table Changes Alarm Missing"
+}

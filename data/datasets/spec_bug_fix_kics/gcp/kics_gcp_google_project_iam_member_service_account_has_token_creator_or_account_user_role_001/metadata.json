@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_gcp_google_project_iam_member_service_account_has_token_creator_or_account_user_role_001",
+  "category": "gcp",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "google_project_iam_member_service_account_has_token_creator_or_account_user_role",
+  "description": "",
+  "severity": "HIGH",
+  "query_id": "c68b4e6d-4e01-4ca1-b256-1e18e875785c",
+  "query_name": "Google Project IAM Member Service Account has Token Creator or Account User Role"
+}

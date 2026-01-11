@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_no_stack_policy_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "no_stack_policy",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "2f01fb2d-828a-499d-b98e-b83747305052",
+  "query_name": "No Stack Policy"
+}

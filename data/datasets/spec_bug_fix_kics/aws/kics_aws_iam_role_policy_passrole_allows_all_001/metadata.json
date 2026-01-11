@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_iam_role_policy_passrole_allows_all_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "iam_role_policy_passrole_allows_all",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "e39bee8c-fe54-4a3f-824d-e5e2d1cca40a",
+  "query_name": "IAM Role Policy passRole Allows All"
+}

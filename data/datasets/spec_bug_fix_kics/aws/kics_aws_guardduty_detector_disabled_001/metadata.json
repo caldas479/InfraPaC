@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_guardduty_detector_disabled_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "guardduty_detector_disabled",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "704dadd3-54fc-48ac-b6a0-02f170011473",
+  "query_name": "GuardDuty Detector Disabled"
+}

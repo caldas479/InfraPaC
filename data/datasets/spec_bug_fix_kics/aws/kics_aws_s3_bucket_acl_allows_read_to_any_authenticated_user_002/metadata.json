@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_s3_bucket_acl_allows_read_to_any_authenticated_user_002",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "s3_bucket_acl_allows_read_to_any_authenticated_user",
+  "description": "",
+  "severity": "HIGH",
+  "query_id": "57b9893d-33b1-4419-bcea-a717ea87e139",
+  "query_name": "S3 Bucket ACL Allows Read to Any Authenticated User"
+}

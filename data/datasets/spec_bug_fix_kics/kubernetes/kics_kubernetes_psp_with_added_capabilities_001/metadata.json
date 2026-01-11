@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_kubernetes_psp_with_added_capabilities_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "psp_with_added_capabilities",
+  "description": "",
+  "severity": "HIGH",
+  "query_id": "48388bd2-7201-4dcc-b56d-e8a9efa58fad",
+  "query_name": "PSP With Added Capabilities"
+}

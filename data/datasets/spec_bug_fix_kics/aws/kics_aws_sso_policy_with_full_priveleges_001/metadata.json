@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_sso_policy_with_full_priveleges_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "sso_policy_with_full_priveleges",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "132a8c31-9837-4203-9fd1-15ca210c7b73",
+  "query_name": "SSO Policy with full privileges"
+}

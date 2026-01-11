@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_cloudtrail_multi_region_disabled_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "cloudtrail_multi_region_disabled",
+  "description": "",
+  "severity": "LOW",
+  "query_id": "8173d5eb-96b5-4aa6-a71b-ecfa153c123d",
+  "query_name": "CloudTrail Multi Region Disabled"
+}

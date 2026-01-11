@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_gcp_stackdriver_logging_disabled_001",
+  "category": "gcp",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "stackdriver_logging_disabled",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "4c7ebcb2-eae2-461e-bc83-456ee2d4f694",
+  "query_name": "Stackdriver Logging Disabled"
+}

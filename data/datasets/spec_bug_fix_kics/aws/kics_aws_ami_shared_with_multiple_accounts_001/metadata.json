@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_ami_shared_with_multiple_accounts_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "ami_shared_with_multiple_accounts",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "ba4e0031-3e9d-4d7d-b0d6-bd8f003f8698",
+  "query_name": "AMI Shared With Multiple Accounts"
+}

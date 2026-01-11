@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_docdb_logging_disabled_002",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "docdb_logging_disabled",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "56f6a008-1b14-4af4-b9b2-ab7cf7e27641",
+  "query_name": "DocDB Logging Is Disabled"
+}

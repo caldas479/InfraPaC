@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_cloudwatch_log_group_not_encrypted_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "cloudwatch_log_group_not_encrypted",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "0afbcfe9-d341-4b92-a64c-7e6de0543879",
+  "query_name": "CloudWatch Log Group Without KMS"
+}

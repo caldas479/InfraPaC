@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_amazon_dms_replication_instance_is_publicly_accessible_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "amazon_dms_replication_instance_is_publicly_accessible",
+  "description": "",
+  "severity": "CRITICAL",
+  "query_id": "030d3b18-1821-45b4-9e08-50efbe7becbb",
+  "query_name": "Amazon DMS Replication Instance Is Publicly Accessible"
+}

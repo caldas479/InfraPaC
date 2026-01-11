@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_kubernetes_deployment_without_pod_disruption_budget_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "deployment_without_pod_disruption_budget",
+  "description": "",
+  "severity": "LOW",
+  "query_id": "a05331ee-1653-45cb-91e6-13637a76e4f0",
+  "query_name": "Deployment Without PodDisruptionBudget"
+}

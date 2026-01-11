@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_gcp_stackdriver_monitoring_disabled_001",
+  "category": "gcp",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "stackdriver_monitoring_disabled",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "30e8dfd2-3591-4d19-8d11-79e93106c93d",
+  "query_name": "Stackdriver Monitoring Disabled"
+}

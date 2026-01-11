@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_gcp_google_compute_subnetwork_with_private_google_access_disabled_002",
+  "category": "gcp",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "google_compute_subnetwork_with_private_google_access_disabled",
+  "description": "",
+  "severity": "LOW",
+  "query_id": "ee7b93c1-b3f8-4a3b-9588-146d481814f5",
+  "query_name": "Google Compute Subnetwork with Private Google Access Disabled"
+}

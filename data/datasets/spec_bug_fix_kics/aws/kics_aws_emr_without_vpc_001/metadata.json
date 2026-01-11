@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_emr_without_vpc_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "emr_without_vpc",
+  "description": "",
+  "severity": "LOW",
+  "query_id": "2b3c8a6d-9856-43e6-ab1d-d651094f03b4",
+  "query_name": "EMR Without VPC"
+}

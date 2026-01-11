@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_role_with_privilege_escalation_by_actions_iam_PutGroupPolicy_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "role_with_privilege_escalation_by_actions_iam_PutGroupPolicy",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "d6047119-a0b2-4b59-a4f2-127a36fb685b",
+  "query_name": "Role With Privilege Escalation By Actions 'iam:PutGroupPolicy'"
+}

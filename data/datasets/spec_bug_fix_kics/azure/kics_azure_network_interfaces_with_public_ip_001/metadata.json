@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_azure_network_interfaces_with_public_ip_001",
+  "category": "azure",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "network_interfaces_with_public_ip",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "c1573577-e494-4417-8854-7e119368dc8b",
+  "query_name": "Network Interfaces With Public IP"
+}

@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_azure_function_app_managed_identity_disabled_001",
+  "category": "azure",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "function_app_managed_identity_disabled",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "c87749b3-ff10-41f5-9df2-c421e8151759",
+  "query_name": "Function App Managed Identity Disabled"
+}

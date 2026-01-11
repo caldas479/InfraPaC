@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_gcp_private_cluster_disabled_001",
+  "category": "gcp",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "private_cluster_disabled",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "6ccb85d7-0420-4907-9380-50313f80946b",
+  "query_name": "Private Cluster Disabled"
+}

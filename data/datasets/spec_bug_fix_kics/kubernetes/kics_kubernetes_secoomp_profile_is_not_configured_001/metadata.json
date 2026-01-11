@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_kubernetes_secoomp_profile_is_not_configured_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "secoomp_profile_is_not_configured",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "455f2e0c-686d-4fcb-8b5f-3f953f12c43c",
+  "query_name": "Seccomp Profile Is Not Configured"
+}

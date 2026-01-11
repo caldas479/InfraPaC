@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_ecr_repository_without_policy_002",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "ecr_repository_without_policy",
+  "description": "",
+  "severity": "LOW",
+  "query_id": "69e7c320-b65d-41bb-be02-d63ecc0bcc9d",
+  "query_name": "ECR Repository Without Policy"
+}

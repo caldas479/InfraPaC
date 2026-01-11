@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_kubernetes_non_kube_system_pod_with_host_mount_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "non_kube_system_pod_with_host_mount",
+  "description": "",
+  "severity": "HIGH",
+  "query_id": "86a947ea-f577-4efb-a8b0-5fc00257d521",
+  "query_name": "Non Kube System Pod With Host Mount"
+}

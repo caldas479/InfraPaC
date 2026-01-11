@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_azure_mssql_server_public_network_access_enabled_001",
+  "category": "azure",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "mssql_server_public_network_access_enabled",
+  "description": "",
+  "severity": "HIGH",
+  "query_id": "ade36cf4-329f-4830-a83d-9db72c800507",
+  "query_name": "MSSQL Server Public Network Access Enabled"
+}

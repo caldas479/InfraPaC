@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_kubernetes_ingress_controller_exposes_workload_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "ingress_controller_exposes_workload",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "e2c83c1f-84d7-4467-966c-ed41fd015bb9",
+  "query_name": "Ingress Controller Exposes Workload"
+}

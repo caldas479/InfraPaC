@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_gcp_gke_using_default_service_account_001",
+  "category": "gcp",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "gke_using_default_service_account",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "1c8eef02-17b1-4a3e-b01d-dcc3292d2c38",
+  "query_name": "GKE Using Default Service Account"
+}

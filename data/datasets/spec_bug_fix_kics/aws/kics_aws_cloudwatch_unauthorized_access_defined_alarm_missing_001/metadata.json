@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_cloudwatch_unauthorized_access_defined_alarm_missing_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "cloudwatch_unauthorized_access_defined_alarm_missing",
+  "description": "",
+  "severity": "CRITICAL",
+  "query_id": "4c18a45b-4ab1-4790-9f83-399ac695f1e5",
+  "query_name": "CloudWatch Unauthorized Access Alarm Missing"
+}

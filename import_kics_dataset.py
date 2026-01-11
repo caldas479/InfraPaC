@@ -168,7 +168,13 @@ def main():
     dataset_path.mkdir(parents=True, exist_ok=True)
 
     # Import queries by provider
-    providers = ["aws"]  # Start with AWS, can add more later
+    providers = [
+        "aws",
+        "gcp",
+        "azure",
+        "kubernetes",
+        "github",
+    ]  # Start with AWS, can add more later
     all_entries = []
 
     for provider in providers:
@@ -178,7 +184,7 @@ def main():
 
         query_dirs = find_kics_queries(kics_path, provider)
 
-        for query_dir in query_dirs[:10]:  # Start with first 10 queries for testing
+        for query_dir in query_dirs:
             entry_ids = import_query_to_dataset(
                 query_dir,
                 dataset_path,

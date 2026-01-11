@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_secrets_manager_with_vulnerable_policy_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "secrets_manager_with_vulnerable_policy",
+  "description": "",
+  "severity": "HIGH",
+  "query_id": "fa00ce45-386d-4718-8392-fb485e1f3c5b",
+  "query_name": "Secrets Manager With Vulnerable Policy"
+}

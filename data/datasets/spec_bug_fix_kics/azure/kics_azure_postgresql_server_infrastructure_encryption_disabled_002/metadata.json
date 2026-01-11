@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_azure_postgresql_server_infrastructure_encryption_disabled_002",
+  "category": "azure",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "postgresql_server_infrastructure_encryption_disabled",
+  "description": "",
+  "severity": "LOW",
+  "query_id": "6425c98b-ca4e-41fe-896a-c78772c131f8",
+  "query_name": "PostgreSQL Server Infrastructure Encryption Disabled"
+}

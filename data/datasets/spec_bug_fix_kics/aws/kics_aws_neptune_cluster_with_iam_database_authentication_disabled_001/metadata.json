@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_neptune_cluster_with_iam_database_authentication_disabled_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "neptune_cluster_with_iam_database_authentication_disabled",
+  "description": "",
+  "severity": "HIGH",
+  "query_id": "c91d7ea0-d4d1-403b-8fe1-c9961ac082c5",
+  "query_name": "Neptune Cluster With IAM Database Authentication Disabled"
+}

@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_kubernetes_statefulset_without_pod_disruption_budget_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "statefulset_without_pod_disruption_budget",
+  "description": "",
+  "severity": "LOW",
+  "query_id": "7249e3b0-9231-4af3-bc5f-5daf4988ecbf",
+  "query_name": "StatefulSet Without PodDisruptionBudget"
+}

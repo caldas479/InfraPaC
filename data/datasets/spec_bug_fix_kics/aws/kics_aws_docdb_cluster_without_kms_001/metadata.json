@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_docdb_cluster_without_kms_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "docdb_cluster_without_kms",
+  "description": "",
+  "severity": "HIGH",
+  "query_id": "4766d3ea-241c-4ee6-93ff-c380c996bd1a",
+  "query_name": "DOCDB Cluster Without KMS"
+}

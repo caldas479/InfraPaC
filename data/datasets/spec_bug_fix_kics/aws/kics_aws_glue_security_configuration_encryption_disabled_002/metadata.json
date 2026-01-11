@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_glue_security_configuration_encryption_disabled_002",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "glue_security_configuration_encryption_disabled",
+  "description": "",
+  "severity": "HIGH",
+  "query_id": "ad5b4e97-2850-4adf-be17-1d293e0b85ee",
+  "query_name": "Glue Security Configuration Encryption Disabled"
+}

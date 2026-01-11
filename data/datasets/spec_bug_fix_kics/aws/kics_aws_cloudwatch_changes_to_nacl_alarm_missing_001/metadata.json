@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_cloudwatch_changes_to_nacl_alarm_missing_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "cloudwatch_changes_to_nacl_alarm_missing",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "0a8e8dc5-b6fc-44fc-b5a1-969ec950f9b0",
+  "query_name": "CloudWatch Changes To NACL Alarm Missing"
+}

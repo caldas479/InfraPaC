@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_api_gateway_endpoint_config_is_not_private_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "api_gateway_endpoint_config_is_not_private",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "6b2739db-9c49-4db7-b980-7816e0c248c1",
+  "query_name": "API Gateway Endpoint Config is Not Private"
+}

@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_user_with_privilege_escalation_by_actions_iam_AddUserToGroup_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "user_with_privilege_escalation_by_actions_iam_AddUserToGroup",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "bf9d42c7-c2f9-4dfe-942c-c8cc8249a081",
+  "query_name": "User With Privilege Escalation By Actions 'iam:AddUserToGroup'"
+}

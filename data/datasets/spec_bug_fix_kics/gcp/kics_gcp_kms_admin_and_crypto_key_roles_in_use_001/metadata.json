@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_gcp_kms_admin_and_crypto_key_roles_in_use_001",
+  "category": "gcp",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "kms_admin_and_crypto_key_roles_in_use",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "92e4464a-4139-4d57-8742-b5acc0347680",
+  "query_name": "KMS Admin and CryptoKey Roles In Use"
+}

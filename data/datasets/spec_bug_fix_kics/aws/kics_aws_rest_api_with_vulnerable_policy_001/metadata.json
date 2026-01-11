@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_rest_api_with_vulnerable_policy_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "rest_api_with_vulnerable_policy",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "b161c11b-a59b-4431-9a29-4e19f63e6b27",
+  "query_name": "REST API With Vulnerable Policy"
+}

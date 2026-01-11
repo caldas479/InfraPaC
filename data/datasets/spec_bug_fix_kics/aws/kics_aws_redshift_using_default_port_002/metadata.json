@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_redshift_using_default_port_002",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "redshift_using_default_port",
+  "description": "",
+  "severity": "LOW",
+  "query_id": "41abc6cc-dde1-4217-83d3-fb5f0cc09d8f",
+  "query_name": "Redshift Using Default Port"
+}

@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_cmk_is_unusable_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "cmk_is_unusable",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "7350fa23-dcf7-4938-916d-6a60b0c73b50",
+  "query_name": "CMK Is Unusable"
+}

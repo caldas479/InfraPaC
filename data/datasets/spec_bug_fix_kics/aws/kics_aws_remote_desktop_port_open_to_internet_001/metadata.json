@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_remote_desktop_port_open_to_internet_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "remote_desktop_port_open_to_internet",
+  "description": "",
+  "severity": "HIGH",
+  "query_id": "151187cb-0efc-481c-babd-ad24e3c9bc22",
+  "query_name": "Remote Desktop Port Open To Internet"
+}

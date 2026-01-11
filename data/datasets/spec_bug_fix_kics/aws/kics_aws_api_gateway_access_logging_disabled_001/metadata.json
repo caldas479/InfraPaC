@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_api_gateway_access_logging_disabled_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "api_gateway_access_logging_disabled",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "1b6799eb-4a7a-4b04-9001-8cceb9999326",
+  "query_name": "API Gateway Access Logging Disabled"
+}

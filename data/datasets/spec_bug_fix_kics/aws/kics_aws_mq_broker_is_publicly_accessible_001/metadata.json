@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_mq_broker_is_publicly_accessible_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "mq_broker_is_publicly_accessible",
+  "description": "",
+  "severity": "HIGH",
+  "query_id": "4eb5f791-c861-4afd-9f94-f2a6a3fe49cb",
+  "query_name": "MQ Broker Is Publicly Accessible"
+}

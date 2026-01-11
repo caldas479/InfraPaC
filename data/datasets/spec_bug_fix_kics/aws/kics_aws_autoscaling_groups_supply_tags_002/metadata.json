@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_autoscaling_groups_supply_tags_002",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "autoscaling_groups_supply_tags",
+  "description": "",
+  "severity": "LOW",
+  "query_id": "ba48df05-eaa1-4d64-905e-4a4b051e7587",
+  "query_name": "Autoscaling Groups Supply Tags"
+}

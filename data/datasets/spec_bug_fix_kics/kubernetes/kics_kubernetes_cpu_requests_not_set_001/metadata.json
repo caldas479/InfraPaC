@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_kubernetes_cpu_requests_not_set_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "cpu_requests_not_set",
+  "description": "",
+  "severity": "LOW",
+  "query_id": "577ac19c-6a77-46d7-9f14-e049cdd15ec2",
+  "query_name": "CPU Requests Not Set"
+}

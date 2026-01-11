@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_api_gateway_with_invalid_compression_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "api_gateway_with_invalid_compression",
+  "description": "",
+  "severity": "LOW",
+  "query_id": "ed35928e-195c-4405-a252-98ccb664ab7b",
+  "query_name": "API Gateway With Invalid Compression"
+}

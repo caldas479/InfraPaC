@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_iam_policy_grants_full_permissions_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "iam_policy_grants_full_permissions",
+  "description": "",
+  "severity": "HIGH",
+  "query_id": "575a2155-6af1-4026-b1af-d5bc8fe2a904",
+  "query_name": "IAM Policy Grants Full Permissions"
+}

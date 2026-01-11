@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_password_without_reuse_prevention_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "password_without_reuse_prevention",
+  "description": "",
+  "severity": "LOW",
+  "query_id": "89806cdc-9c2e-4bd1-a0dc-53f339bcfb2a",
+  "query_name": "Password Without Reuse Prevention"
+}

@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_kubernetes_workload_host_port_not_specified_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "workload_host_port_not_specified",
+  "description": "",
+  "severity": "LOW",
+  "query_id": "4e74cf4f-ff65-4c1a-885c-67ab608206ce",
+  "query_name": "Workload Host Port Not Specified"
+}

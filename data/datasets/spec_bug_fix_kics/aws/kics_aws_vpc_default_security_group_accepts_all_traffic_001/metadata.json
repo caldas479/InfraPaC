@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_vpc_default_security_group_accepts_all_traffic_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "vpc_default_security_group_accepts_all_traffic",
+  "description": "",
+  "severity": "HIGH",
+  "query_id": "9a4ef195-74b9-4c58-b8ed-2b2fe4353a75",
+  "query_name": "VPC Default Security Group Accepts All Traffic"
+}

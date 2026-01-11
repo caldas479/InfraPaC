@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_shield_advanced_not_in_use_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "shield_advanced_not_in_use",
+  "description": "",
+  "severity": "LOW",
+  "query_id": "084c6686-2a70-4710-91b1-000393e54c12",
+  "query_name": "Shield Advanced Not In Use"
+}

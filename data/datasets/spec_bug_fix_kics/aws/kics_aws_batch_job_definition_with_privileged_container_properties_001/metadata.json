@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_batch_job_definition_with_privileged_container_properties_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "batch_job_definition_with_privileged_container_properties",
+  "description": "",
+  "severity": "HIGH",
+  "query_id": "66cd88ac-9ddf-424a-b77e-e55e17630bee",
+  "query_name": "Batch Job Definition With Privileged Container Properties"
+}

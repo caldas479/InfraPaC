@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_kubernetes_incorrect_volume_claim_access_mode_read_write_once_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "incorrect_volume_claim_access_mode_read_write_once",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "26b047a9-0329-48fd-8fb7-05bbe5ba80ee",
+  "query_name": "Incorrect Volume Claim Access Mode ReadWriteOnce"
+}

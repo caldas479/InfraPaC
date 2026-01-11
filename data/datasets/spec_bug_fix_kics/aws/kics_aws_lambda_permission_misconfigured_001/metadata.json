@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_lambda_permission_misconfigured_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "lambda_permission_misconfigured",
+  "description": "",
+  "severity": "LOW",
+  "query_id": "75ec6890-83af-4bf1-9f16-e83726df0bd0",
+  "query_name": "Lambda Permission Misconfigured"
+}

@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_kubernetes_service_with_external_load_balancer_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "service_with_external_load_balancer",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "2a52567c-abb8-4651-a038-52fa27c77aed",
+  "query_name": "Service With External Load Balancer"
+}

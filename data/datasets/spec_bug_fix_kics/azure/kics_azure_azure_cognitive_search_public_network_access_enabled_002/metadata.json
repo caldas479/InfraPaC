@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_azure_azure_cognitive_search_public_network_access_enabled_002",
+  "category": "azure",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "azure_cognitive_search_public_network_access_enabled",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "4a9e0f00-0765-4f72-a0d4-d31110b78279",
+  "query_name": "Azure Cognitive Search Public Network Access Enabled"
+}

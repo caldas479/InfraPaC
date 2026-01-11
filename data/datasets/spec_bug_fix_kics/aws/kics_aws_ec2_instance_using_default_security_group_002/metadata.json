@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_ec2_instance_using_default_security_group_002",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "ec2_instance_using_default_security_group",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "f1adc521-f79a-4d71-b55b-a68294687432",
+  "query_name": "EC2 Instance Using Default Security Group"
+}

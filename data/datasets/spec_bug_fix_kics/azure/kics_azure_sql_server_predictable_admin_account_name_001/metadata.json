@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_azure_sql_server_predictable_admin_account_name_001",
+  "category": "azure",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "sql_server_predictable_admin_account_name",
+  "description": "",
+  "severity": "LOW",
+  "query_id": "2ab6de9a-0136-415c-be92-79d2e4fd750f",
+  "query_name": "SQL Server Predictable Admin Account Name"
+}

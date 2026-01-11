@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_vpc_flowlogs_disabled_002",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "vpc_flowlogs_disabled",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "f83121ea-03da-434f-9277-9cd247ab3047",
+  "query_name": "VPC FlowLogs Disabled"
+}

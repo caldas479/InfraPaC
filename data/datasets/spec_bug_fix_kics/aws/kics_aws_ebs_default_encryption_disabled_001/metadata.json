@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_ebs_default_encryption_disabled_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "ebs_default_encryption_disabled",
+  "description": "",
+  "severity": "HIGH",
+  "query_id": "3d3f6270-546b-443c-adb4-bb6fb2187ca6",
+  "query_name": "EBS Default Encryption Disabled"
+}

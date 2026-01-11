@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_group_with_privilege_escalation_by_actions_iam_CreatePolicyVersion_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "group_with_privilege_escalation_by_actions_iam_CreatePolicyVersion",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "ec49cbfd-fae4-45f3-81b1-860526d66e3f",
+  "query_name": "Group With Privilege Escalation By Actions 'iam:CreatePolicyVersion'"
+}

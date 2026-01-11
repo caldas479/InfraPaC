@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_kubernetes_missing_app_armor_config_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "missing_app_armor_config",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "bd6bd46c-57db-4887-956d-d372f21291b6",
+  "query_name": "Missing App Armor Config"
+}

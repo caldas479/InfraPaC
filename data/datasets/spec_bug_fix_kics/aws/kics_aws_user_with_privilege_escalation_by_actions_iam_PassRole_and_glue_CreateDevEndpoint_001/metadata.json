@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_user_with_privilege_escalation_by_actions_iam_PassRole_and_glue_CreateDevEndpoint_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "user_with_privilege_escalation_by_actions_iam_PassRole_and_glue_CreateDevEndpoint",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "94fbe150-27e3-4eba-9ca6-af32865e4503",
+  "query_name": "User With Privilege Escalation By Actions 'glue:CreateDevEndpoint' And 'iam:PassRole'"
+}

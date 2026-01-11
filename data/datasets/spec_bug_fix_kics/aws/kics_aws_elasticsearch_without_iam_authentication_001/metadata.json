@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_elasticsearch_without_iam_authentication_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "elasticsearch_without_iam_authentication",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "e7530c3c-b7cf-4149-8db9-d037a0b5268e",
+  "query_name": "Elasticsearch Without IAM Authentication"
+}

@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_ca_certificate_identifier_is_outdated_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "ca_certificate_identifier_is_outdated",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "9f40c07e-699e-4410-8856-3ba0f2e3a2dd",
+  "query_name": "CA Certificate Identifier Is Outdated"
+}

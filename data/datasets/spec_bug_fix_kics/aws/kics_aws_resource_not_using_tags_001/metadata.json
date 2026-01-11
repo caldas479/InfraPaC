@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_resource_not_using_tags_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "resource_not_using_tags",
+  "description": "",
+  "severity": "INFO",
+  "query_id": "e38a8e0a-b88b-4902-b3fe-b0fcb17d5c10",
+  "query_name": "Resource Not Using Tags"
+}

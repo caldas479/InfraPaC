@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_cloudtrail_not_integrated_with_cloudwatch_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "cloudtrail_not_integrated_with_cloudwatch",
+  "description": "",
+  "severity": "LOW",
+  "query_id": "17b30f8f-8dfb-4597-adf6-57600b6cf25e",
+  "query_name": "CloudTrail Not Integrated With CloudWatch"
+}

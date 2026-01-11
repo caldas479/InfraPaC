@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_sso_permission_with_inadequate_user_session_duration_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "sso_permission_with_inadequate_user_session_duration",
+  "description": "",
+  "severity": "LOW",
+  "query_id": "ce9dfce0-5fc8-433b-944a-3b16153111a8",
+  "query_name": "SSO Permission With Inadequate User Session Duration"
+}
