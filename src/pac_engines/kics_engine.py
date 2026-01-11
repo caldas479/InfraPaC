@@ -19,7 +19,33 @@ class KICSEngine(BasePaCEngine):
     """
     KICS (Keeping Infrastructure as Code Secure) engine implementation.
 
-    Executes KICS queries against Terraform/IaC scripts using custom query paths.
+    Executes KICS queries against Terraform/IaC scripts using custom query paths
+    and automatically locates KICS helper libraries for policy evaluation.
+
+    KICS is an open-source security scanner for Infrastructure as Code that
+    supports multiple platforms including Terraform, CloudFormation, Kubernetes,
+    Docker, and more. This engine integrates KICS into the InfraPaC repair
+    framework to detect and fix security violations in Terraform configurations.
+
+    The engine:
+    - Creates temporary directories for queries, IaC files, and results
+    - Generates required metadata.json for KICS query recognition
+    - Automatically finds KICS libraries from multiple common paths
+    - Executes KICS scan with proper exit code handling
+    - Parses JSON output into PolicyViolation objects
+
+    Example:
+        >>> config = {"binary_path": "kics", "timeout": 60}
+        >>> engine = KICSEngine(config)
+        >>> policy = Path("policy.rego").read_text()
+        >>> iac = Path("main.tf").read_text()
+        >>> violations = engine.evaluate(policy, iac)
+        >>> is_compliant = engine.validate(policy, iac)
+
+    Note:
+        KICS must be installed and accessible via the binary_path specified
+        in the configuration. Install with: brew install kics (macOS) or
+        download from https://github.com/Checkmarx/kics
     """
 
     def __init__(self, config: Dict[str, Any]) -> None:
@@ -33,7 +59,16 @@ class KICSEngine(BasePaCEngine):
         self._verify_installation()
 
     def _verify_installation(self) -> None:
-        """Verify that KICS is installed and accessible."""
+        """
+        Verify that KICS is installed and accessible.
+
+        Runs 'kics version' to check if the binary is available and executable.
+        Logs the version information on success or raises an exception on failure.
+
+        Raises:
+            FileNotFoundError: If KICS binary is not found at the configured path
+            Exception: If KICS verification fails for other reasons
+        """
         try:
             result = subprocess.run(
                 [self.binary_path, "version"],
@@ -56,12 +91,35 @@ class KICSEngine(BasePaCEngine):
         """
         Evaluate IaC script against KICS query.
 
+        This method performs the following steps:
+        1. Creates temporary directories for queries, IaC files, and results
+        2. Writes the Rego policy to query.rego
+        3. Generates metadata.json required by KICS for query recognition
+        4. Writes the IaC script to main.tf
+        5. Locates KICS helper libraries and includes them in the scan
+        6. Executes KICS scan with JSON output format
+        7. Parses the JSON results into PolicyViolation objects
+
+        KICS uses exit codes to indicate findings:
+        - 0: No issues found
+        - 20: INFO severity violations
+        - 30: LOW severity violations
+        - 40: MEDIUM severity violations
+        - 50: HIGH severity violations
+        - 60: CRITICAL severity violations
+
         Args:
             policy: KICS query (Rego policy) content
             iac_script: Terraform/IaC script content
 
         Returns:
-            List of PolicyViolation objects
+            List of PolicyViolation objects containing detailed information
+            about each violation found. Returns empty list if scan fails or
+            no violations are detected.
+
+        Note:
+            The method uses temporary directories that are automatically
+            cleaned up after the scan completes.
         """
         with tempfile.TemporaryDirectory() as tmp_dir:
             tmp_path = Path(tmp_dir)
@@ -170,8 +228,15 @@ class KICSEngine(BasePaCEngine):
         """
         Find KICS libraries path from common locations.
 
+        KICS queries often use helper functions from library files (common.rego,
+        terraform.rego, etc.). This method searches for libraries in:
+        1. data/external-repos/kics/assets/libraries (project-local KICS repo)
+        2. /opt/homebrew/opt/kics/share/kics/assets/libraries (Homebrew install)
+        3. /usr/local/share/kics/assets/libraries (Manual install)
+
         Returns:
-            Path to KICS libraries directory, or None if not found
+            Path to KICS libraries directory, or None if not found. If None,
+            queries using library functions may fail to execute properly.
         """
         potential_paths = [
             Path("data/external-repos/kics/assets/libraries"),
