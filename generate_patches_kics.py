@@ -16,13 +16,13 @@ from pathlib import Path
 from typing import Dict, Optional
 
 from src.agents.repair_agent import RepairAgent
-from src.pac_engines.opa_engine import OPAEngine
+from src.pac_engines.kics_engine import KICSEngine
 from src.utils.config_loader import load_config
 from src.utils.logging_config import setup_logging
 
 
 def generate_patch(
-    entry: Dict, base_path: Path, repair_agent: RepairAgent, opa_engine: OPAEngine
+    entry: Dict, base_path: Path, repair_agent: RepairAgent, kics_engine: KICSEngine
 ) -> Optional[str]:
     """Generate patch for a single dataset entry."""
     entry_path = base_path / entry["path"]
@@ -39,7 +39,7 @@ def generate_patch(
     result = repair_agent.repair(
         iac_script=buggy_tf,
         policy=policy,
-        violations=opa_engine.evaluate(policy, buggy_tf),
+        violations=kics_engine.evaluate(policy, buggy_tf),
     )
 
     if result.success:
@@ -108,10 +108,10 @@ def main():
     logger.info("=" * 70)
 
     # Initialize engines
-    logger.info("Initializing repair agent and OPA engine...")
-    opa_engine = OPAEngine(config["opa"])
+    logger.info("Initializing repair agent and KICS engine...")
+    kics_engine = KICSEngine(config["kics"])
     repair_agent = RepairAgent(
-        opa_engine, config=config.get("repair", {}), llm_config=config.get("llm", {})
+        kics_engine, config=config.get("repair", {}), llm_config=config.get("llm", {})
     )
 
     logger.info(f"Dataset: {dataset['dataset_name']} v{dataset['version']}")
@@ -149,7 +149,7 @@ def main():
                 results.append({"entry_id": entry["entry_id"], "status": "skipped"})
                 continue
         try:
-            repaired_code = generate_patch(entry, base_path, repair_agent, opa_engine)
+            repaired_code = generate_patch(entry, base_path, repair_agent, kics_engine)
 
             if repaired_code:
                 logger.info("✓ Successfully generated patch")

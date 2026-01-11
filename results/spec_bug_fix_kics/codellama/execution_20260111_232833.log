@@ -1,0 +1,297 @@
+2026-01-11 23:28:33,569 - root - INFO - ======================================================================
+2026-01-11 23:28:33,569 - root - INFO - KICS Dataset Patch Generator
+2026-01-11 23:28:33,569 - root - INFO - ======================================================================
+2026-01-11 23:28:33,569 - root - INFO - Initializing repair agent and KICS engine...
+2026-01-11 23:28:33,800 - src.pac_engines.kics_engine - INFO - KICS found: Keeping Infrastructure as Code Secure 2.1.19
+2026-01-11 23:28:33,830 - root - INFO - Dataset: spec_bug_fix_kics v1.0.0
+2026-01-11 23:28:33,830 - root - INFO - Total entries: 708
+2026-01-11 23:28:33,830 - root - INFO - Filtering to category: github (2 entries)
+2026-01-11 23:28:33,830 - root - INFO -
+[1/2] Processing kics_github_github_organization_webhook_with_ssl_disabled_001 (github)
+2026-01-11 23:28:33,832 - src.pac_engines.kics_engine - DEBUG - Found KICS libraries at data/external-repos/kics/assets/libraries
+2026-01-11 23:28:33,832 - src.pac_engines.kics_engine - DEBUG - Using KICS libraries from data/external-repos/kics/assets/libraries
+2026-01-11 23:28:33,832 - src.pac_engines.kics_engine - DEBUG - KICS command: kics scan -p /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmpnx4719gw/iac -q /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmpnx4719gw/queries -o /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmpnx4719gw/results --report-formats json --output-name results --no-progress -b data/external-repos/kics/assets/libraries
+2026-01-11 23:28:33,925 - src.pac_engines.kics_engine - DEBUG - KICS stdout: [38;2;34;187;51m
+
+
+   MLLLLLM             MLLLLLLLLL   LLLLLLL             KLLLLLLLLLLLLLLLL       LLLLLLLLLLLLLLLLLLLLLLL
+   MMMMMMM           MMMMMMMMMML    MMMMMMMK       LMMMMMMMMMMMMMMMMMMMML   KLMMMMMMMMMMMMMMMMMMMMMMMMM
+   MMMMMMM         MMMMMMMMML       MMMMMMMK     LMMMMMMMMMMMMMMMMMMMMMML  LMMMMMMMMMMMMMMMMMMMMMMMMMMM
+   MMMMMMM      MMMMMMMMMML         MMMMMMMK   LMMMMMMMMMMMMMMMMMMMMMMMML LMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+   MMMMMMM    LMMMMMMMMML           MMMMMMMK  LMMMMMMMMMLLMLLLLLLLLLLLLLL LMMMMMMMLLLLLLLLLLLLLLLLLLLLM
+   MMMMMMM  MMMMMMMMMLM             MMMMMMMK LMMMMMMMM                    LMMMMMML
+   MMMMMMMLMMMMMMMML                MMMMMMMK MMMMMMML                     LMMMMMMMMLLLLLLLLLLLLLMLL
+   MMMMMMMMMMMMMMMM                 MMMMMMMK MMMMMML                       LMMMMMMMMMMMMMMMMMMMMMMMMML
+   MMMMMMMMMMMMMMMMMM               MMMMMMMK MMMMMMM                         LMMMMMMMMMMMMMMMMMMMMMMMML
+   MMMMMMM KLMMMMMMMMML             MMMMMMMK LMMMMMMM                                          MMMMMMMML
+   MMMMMMM    LMMMMMMMMMM           MMMMMMMK LMMMMMMMMLL                                        MMMMMMML
+   MMMMMMM      LMMMMMMMMMLL        MMMMMMMK  LMMMMMMMMMMMMMMMMMMMMMMMMML LLLLLLLLLLLLLLLLLLLLMMMMMMMMMM
+   MMMMMMM        MMMMMMMMMMML      MMMMMMMK   MMMMMMMMMMMMMMMMMMMMMMMMML LMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+   MMMMMMM          LLMMMMMMMMML    MMMMMMMK     LLMMMMMMMMMMMMMMMMMMMMML LMMMMMMMMMMMMMMMMMMMMMMMMMML
+   MMMMMMM             MMMMMMMMMML  MMMMMMMK         KLMMMMMMMMMMMMMMMMML LMMMMMMMMMMMMMMMMMMMMMMMLK
+
+
+
+[0m
+Scanning with Keeping Infrastructure as Code Secure 2.1.19
+
+
+
+
+
+[38;2;255;114;19mCustom Policy Query[0m, Severity: [38;2;255;114;19mMEDIUM[0m, Results: 1
+[1mDescription:[0m Custom policy evaluation
+[1mPlatform:[0m Terraform
+	[38;2;255;114;19m[1]:[0m ../../../../var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmpnx4719gw/iac/main.tf:[38;2;34;187;51m7[0m
+
+		006:     content_type = "form"
+[38;2;240;173;78m		007:     insecure_ssl = true
+[0m		008:   }
+
+
+
+Results Summary:
+[38;2;255;0;0mCRITICAL[0m: 0
+[38;2;187;33;36mHIGH[0m: 0
+[38;2;255;114;19mMEDIUM[0m: 1
+[38;2;237;213;126mLOW[0m: 0
+[38;2;91;192;222mINFO[0m: 0
+TOTAL: 1
+
+[38;2;255;227;19m
+Are you using a custom query? If so, feel free to contribute to KICS!
+Check out how to do it: https://github.com/Checkmarx/kics/blob/master/docs/CONTRIBUTING.md
+[0m
+
+2026-01-11 23:28:33,926 - src.pac_engines.kics_engine - DEBUG - KICS stderr:
+2026-01-11 23:28:33,926 - src.pac_engines.kics_engine - DEBUG - KICS output keys: dict_keys(['kics_version', 'files_scanned', 'lines_scanned', 'files_parsed', 'lines_parsed', 'lines_ignored', 'files_failed_to_scan', 'queries_total', 'queries_failed_to_execute', 'queries_failed_to_compute_similarity_id', 'scan_id', 'severity_counters', 'total_counter', 'total_bom_resources', 'start', 'end', 'paths', 'queries'])
+2026-01-11 23:28:33,926 - src.pac_engines.kics_engine - DEBUG - KICS queries found: 1
+2026-01-11 23:28:33,926 - src.pac_engines.kics_engine - DEBUG - Number of query results: 1
+2026-01-11 23:28:33,926 - src.pac_engines.kics_engine - INFO - Parsed 1 violations from KICS output
+2026-01-11 23:28:33,927 - src.agents.repair_agent - INFO - Repair iteration 1/3
+2026-01-11 23:28:33,927 - src.agents.repair_agent - DEBUG - Generating repair with LLM...
+2026-01-11 23:28:33,932 - httpcore.connection - DEBUG - connect_tcp.started host='localhost' port=11434 local_address=None timeout=None socket_options=None
+2026-01-11 23:28:33,934 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x10d45bb50>
+2026-01-11 23:28:33,934 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-01-11 23:28:33,935 - httpcore.http11 - DEBUG - send_request_headers.complete
+2026-01-11 23:28:33,935 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-01-11 23:28:33,935 - httpcore.http11 - DEBUG - send_request_body.complete
+2026-01-11 23:28:33,935 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-01-11 23:28:36,198 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/x-ndjson'), (b'Date', b'Sun, 11 Jan 2026 23:28:36 GMT'), (b'Transfer-Encoding', b'chunked')])
+2026-01-11 23:28:36,200 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-11 23:28:36,200 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-01-11 23:28:42,497 - httpcore.http11 - DEBUG - receive_response_body.complete
+2026-01-11 23:28:42,498 - httpcore.http11 - DEBUG - response_closed.started
+2026-01-11 23:28:42,498 - httpcore.http11 - DEBUG - response_closed.complete
+2026-01-11 23:28:42,500 - src.chains.repair_chain - DEBUG - Structured response: repaired_script='resource "github_organization_webhook" "positive1" { \n\tname = "web" \n\n\tconfiguration { \n\t\turl = "https://google.de/" \n\t\ttype = "form" \n\t\tinsecure_ssl = false \n\t} \n\n\tactive = false \n\n\tevents = ["issues"] \n}'
+2026-01-11 23:28:42,500 - src.agents.repair_agent - DEBUG - Validating repaired script...
+2026-01-11 23:28:42,503 - src.pac_engines.kics_engine - DEBUG - Found KICS libraries at data/external-repos/kics/assets/libraries
+2026-01-11 23:28:42,503 - src.pac_engines.kics_engine - DEBUG - Using KICS libraries from data/external-repos/kics/assets/libraries
+2026-01-11 23:28:42,503 - src.pac_engines.kics_engine - DEBUG - KICS command: kics scan -p /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmp221sqrm7/iac -q /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmp221sqrm7/queries -o /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmp221sqrm7/results --report-formats json --output-name results --no-progress -b data/external-repos/kics/assets/libraries
+2026-01-11 23:28:42,594 - src.pac_engines.kics_engine - DEBUG - KICS stdout: [38;2;34;187;51m
+
+
+   MLLLLLM             MLLLLLLLLL   LLLLLLL             KLLLLLLLLLLLLLLLL       LLLLLLLLLLLLLLLLLLLLLLL
+   MMMMMMM           MMMMMMMMMML    MMMMMMMK       LMMMMMMMMMMMMMMMMMMMML   KLMMMMMMMMMMMMMMMMMMMMMMMMM
+   MMMMMMM         MMMMMMMMML       MMMMMMMK     LMMMMMMMMMMMMMMMMMMMMMML  LMMMMMMMMMMMMMMMMMMMMMMMMMMM
+   MMMMMMM      MMMMMMMMMML         MMMMMMMK   LMMMMMMMMMMMMMMMMMMMMMMMML LMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+   MMMMMMM    LMMMMMMMMML           MMMMMMMK  LMMMMMMMMMLLMLLLLLLLLLLLLLL LMMMMMMMLLLLLLLLLLLLLLLLLLLLM
+   MMMMMMM  MMMMMMMMMLM             MMMMMMMK LMMMMMMMM                    LMMMMMML
+   MMMMMMMLMMMMMMMML                MMMMMMMK MMMMMMML                     LMMMMMMMMLLLLLLLLLLLLLMLL
+   MMMMMMMMMMMMMMMM                 MMMMMMMK MMMMMML                       LMMMMMMMMMMMMMMMMMMMMMMMMML
+   MMMMMMMMMMMMMMMMMM               MMMMMMMK MMMMMMM                         LMMMMMMMMMMMMMMMMMMMMMMMML
+   MMMMMMM KLMMMMMMMMML             MMMMMMMK LMMMMMMM                                          MMMMMMMML
+   MMMMMMM    LMMMMMMMMMM           MMMMMMMK LMMMMMMMMLL                                        MMMMMMML
+   MMMMMMM      LMMMMMMMMMLL        MMMMMMMK  LMMMMMMMMMMMMMMMMMMMMMMMMML LLLLLLLLLLLLLLLLLLLLMMMMMMMMMM
+   MMMMMMM        MMMMMMMMMMML      MMMMMMMK   MMMMMMMMMMMMMMMMMMMMMMMMML LMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+   MMMMMMM          LLMMMMMMMMML    MMMMMMMK     LLMMMMMMMMMMMMMMMMMMMMML LMMMMMMMMMMMMMMMMMMMMMMMMMML
+   MMMMMMM             MMMMMMMMMML  MMMMMMMK         KLMMMMMMMMMMMMMMMMML LMMMMMMMMMMMMMMMMMMMMMMMLK
+
+
+
+[0m
+Scanning with Keeping Infrastructure as Code Secure 2.1.19
+
+
+
+
+
+
+Results Summary:
+[38;2;255;0;0mCRITICAL[0m: 0
+[38;2;187;33;36mHIGH[0m: 0
+[38;2;255;114;19mMEDIUM[0m: 0
+[38;2;237;213;126mLOW[0m: 0
+[38;2;91;192;222mINFO[0m: 0
+TOTAL: 0
+
+[38;2;255;227;19m
+Are you using a custom query? If so, feel free to contribute to KICS!
+Check out how to do it: https://github.com/Checkmarx/kics/blob/master/docs/CONTRIBUTING.md
+[0m
+
+2026-01-11 23:28:42,594 - src.pac_engines.kics_engine - DEBUG - KICS stderr:
+2026-01-11 23:28:42,594 - src.pac_engines.kics_engine - DEBUG - KICS output keys: dict_keys(['kics_version', 'files_scanned', 'lines_scanned', 'files_parsed', 'lines_parsed', 'lines_ignored', 'files_failed_to_scan', 'queries_total', 'queries_failed_to_execute', 'queries_failed_to_compute_similarity_id', 'scan_id', 'severity_counters', 'total_counter', 'total_bom_resources', 'start', 'end', 'paths', 'queries'])
+2026-01-11 23:28:42,594 - src.pac_engines.kics_engine - DEBUG - KICS queries found: 1
+2026-01-11 23:28:42,594 - src.pac_engines.kics_engine - DEBUG - Number of query results: 0
+2026-01-11 23:28:42,594 - src.pac_engines.kics_engine - INFO - Parsed 0 violations from KICS output
+2026-01-11 23:28:42,595 - src.agents.repair_agent - INFO - ✓ Repair successful in 1 iteration(s)
+2026-01-11 23:28:42,596 - root - INFO - ✓ Successfully generated patch
+2026-01-11 23:28:42,596 - root - INFO -
+[2/2] Processing kics_github_github_repository_set_to_public_001 (github)
+2026-01-11 23:28:42,597 - src.pac_engines.kics_engine - DEBUG - Found KICS libraries at data/external-repos/kics/assets/libraries
+2026-01-11 23:28:42,597 - src.pac_engines.kics_engine - DEBUG - Using KICS libraries from data/external-repos/kics/assets/libraries
+2026-01-11 23:28:42,597 - src.pac_engines.kics_engine - DEBUG - KICS command: kics scan -p /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmprnx84qf1/iac -q /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmprnx84qf1/queries -o /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmprnx84qf1/results --report-formats json --output-name results --no-progress -b data/external-repos/kics/assets/libraries
+2026-01-11 23:28:42,660 - src.pac_engines.kics_engine - DEBUG - KICS stdout: [38;2;34;187;51m
+
+
+   MLLLLLM             MLLLLLLLLL   LLLLLLL             KLLLLLLLLLLLLLLLL       LLLLLLLLLLLLLLLLLLLLLLL
+   MMMMMMM           MMMMMMMMMML    MMMMMMMK       LMMMMMMMMMMMMMMMMMMMML   KLMMMMMMMMMMMMMMMMMMMMMMMMM
+   MMMMMMM         MMMMMMMMML       MMMMMMMK     LMMMMMMMMMMMMMMMMMMMMMML  LMMMMMMMMMMMMMMMMMMMMMMMMMMM
+   MMMMMMM      MMMMMMMMMML         MMMMMMMK   LMMMMMMMMMMMMMMMMMMMMMMMML LMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+   MMMMMMM    LMMMMMMMMML           MMMMMMMK  LMMMMMMMMMLLMLLLLLLLLLLLLLL LMMMMMMMLLLLLLLLLLLLLLLLLLLLM
+   MMMMMMM  MMMMMMMMMLM             MMMMMMMK LMMMMMMMM                    LMMMMMML
+   MMMMMMMLMMMMMMMML                MMMMMMMK MMMMMMML                     LMMMMMMMMLLLLLLLLLLLLLMLL
+   MMMMMMMMMMMMMMMM                 MMMMMMMK MMMMMML                       LMMMMMMMMMMMMMMMMMMMMMMMMML
+   MMMMMMMMMMMMMMMMMM               MMMMMMMK MMMMMMM                         LMMMMMMMMMMMMMMMMMMMMMMMML
+   MMMMMMM KLMMMMMMMMML             MMMMMMMK LMMMMMMM                                          MMMMMMMML
+   MMMMMMM    LMMMMMMMMMM           MMMMMMMK LMMMMMMMMLL                                        MMMMMMML
+   MMMMMMM      LMMMMMMMMMLL        MMMMMMMK  LMMMMMMMMMMMMMMMMMMMMMMMMML LLLLLLLLLLLLLLLLLLLLMMMMMMMMMM
+   MMMMMMM        MMMMMMMMMMML      MMMMMMMK   MMMMMMMMMMMMMMMMMMMMMMMMML LMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+   MMMMMMM          LLMMMMMMMMML    MMMMMMMK     LLMMMMMMMMMMMMMMMMMMMMML LMMMMMMMMMMMMMMMMMMMMMMMMMML
+   MMMMMMM             MMMMMMMMMML  MMMMMMMK         KLMMMMMMMMMMMMMMMMML LMMMMMMMMMMMMMMMMMMMMMMMLK
+
+
+
+[0m
+Scanning with Keeping Infrastructure as Code Secure 2.1.19
+
+
+
+
+
+[38;2;255;114;19mCustom Policy Query[0m, Severity: [38;2;255;114;19mMEDIUM[0m, Results: 3
+[1mDescription:[0m Custom policy evaluation
+[1mPlatform:[0m Terraform
+	[38;2;255;114;19m[1]:[0m ../../../../var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmprnx84qf1/iac/main.tf:[38;2;34;187;51m15[0m
+
+		014:
+[38;2;240;173;78m		015:   private = false
+[0m		016:
+
+
+	[38;2;255;114;19m[2]:[0m ../../../../var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmprnx84qf1/iac/main.tf:[38;2;34;187;51m28[0m
+
+		027:   private = true
+[38;2;240;173;78m		028:   visibility = "public"
+[0m		029:
+
+
+	[38;2;255;114;19m[3]:[0m ../../../../var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmprnx84qf1/iac/main.tf:[38;2;34;187;51m1[0m
+
+[38;2;240;173;78m		001: resource "github_repository" "positive1" {
+[0m		002:   name        = "example"
+		003:   description = "My awesome codebase"
+
+
+
+Results Summary:
+[38;2;255;0;0mCRITICAL[0m: 0
+[38;2;187;33;36mHIGH[0m: 0
+[38;2;255;114;19mMEDIUM[0m: 3
+[38;2;237;213;126mLOW[0m: 0
+[38;2;91;192;222mINFO[0m: 0
+TOTAL: 3
+
+[38;2;255;227;19m
+Are you using a custom query? If so, feel free to contribute to KICS!
+Check out how to do it: https://github.com/Checkmarx/kics/blob/master/docs/CONTRIBUTING.md
+[0m
+
+2026-01-11 23:28:42,660 - src.pac_engines.kics_engine - DEBUG - KICS stderr:
+2026-01-11 23:28:42,661 - src.pac_engines.kics_engine - DEBUG - KICS output keys: dict_keys(['kics_version', 'files_scanned', 'lines_scanned', 'files_parsed', 'lines_parsed', 'lines_ignored', 'files_failed_to_scan', 'queries_total', 'queries_failed_to_execute', 'queries_failed_to_compute_similarity_id', 'scan_id', 'severity_counters', 'total_counter', 'total_bom_resources', 'start', 'end', 'paths', 'queries'])
+2026-01-11 23:28:42,661 - src.pac_engines.kics_engine - DEBUG - KICS queries found: 1
+2026-01-11 23:28:42,661 - src.pac_engines.kics_engine - DEBUG - Number of query results: 1
+2026-01-11 23:28:42,661 - src.pac_engines.kics_engine - INFO - Parsed 3 violations from KICS output
+2026-01-11 23:28:42,662 - src.agents.repair_agent - INFO - Repair iteration 1/3
+2026-01-11 23:28:42,662 - src.agents.repair_agent - DEBUG - Generating repair with LLM...
+2026-01-11 23:28:42,663 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-01-11 23:28:42,664 - httpcore.http11 - DEBUG - send_request_headers.complete
+2026-01-11 23:28:42,664 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-01-11 23:28:42,664 - httpcore.http11 - DEBUG - send_request_body.complete
+2026-01-11 23:28:42,664 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-01-11 23:28:45,728 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/x-ndjson'), (b'Date', b'Sun, 11 Jan 2026 23:28:45 GMT'), (b'Transfer-Encoding', b'chunked')])
+2026-01-11 23:28:45,729 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-01-11 23:28:45,730 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-01-11 23:28:59,117 - httpcore.http11 - DEBUG - receive_response_body.complete
+2026-01-11 23:28:59,118 - httpcore.http11 - DEBUG - response_closed.started
+2026-01-11 23:28:59,118 - httpcore.http11 - DEBUG - response_closed.complete
+2026-01-11 23:28:59,122 - src.chains.repair_chain - DEBUG - Structured response: repaired_script='resource "github_repository" "example1" {\n  name        = "example"\n  description = "My awesome codebase"\n\n  private = true\n\n  template {\n    owner = "github"\n    repository = "terraform-module-template"\n  }\n}\n\nresource "github_repository" "example2" {\n  name        = "example"\n  description = "My awesome codebase"\n\n  visibility = "private"\n\n  template {\n    owner = "github"\n    repository = "terraform-module-template"\n  }\n}\n\nresource "github_repository" "example3" {\n  name        = "example"\n  description = "My awesome codebase"\n\n  private = true\n  visibility = "private"\n\n  template {\n    owner = "github"\n    repository = "terraform-module-template"\n  }\n}\n'
+2026-01-11 23:28:59,122 - src.agents.repair_agent - DEBUG - Validating repaired script...
+2026-01-11 23:28:59,124 - src.pac_engines.kics_engine - DEBUG - Found KICS libraries at data/external-repos/kics/assets/libraries
+2026-01-11 23:28:59,124 - src.pac_engines.kics_engine - DEBUG - Using KICS libraries from data/external-repos/kics/assets/libraries
+2026-01-11 23:28:59,124 - src.pac_engines.kics_engine - DEBUG - KICS command: kics scan -p /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmpy211yhhf/iac -q /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmpy211yhhf/queries -o /var/folders/8b/dz3zsszx24112p97gntlxsn80000gn/T/tmpy211yhhf/results --report-formats json --output-name results --no-progress -b data/external-repos/kics/assets/libraries
+2026-01-11 23:28:59,402 - src.pac_engines.kics_engine - DEBUG - KICS stdout: [38;2;34;187;51m
+
+
+   MLLLLLM             MLLLLLLLLL   LLLLLLL             KLLLLLLLLLLLLLLLL       LLLLLLLLLLLLLLLLLLLLLLL
+   MMMMMMM           MMMMMMMMMML    MMMMMMMK       LMMMMMMMMMMMMMMMMMMMML   KLMMMMMMMMMMMMMMMMMMMMMMMMM
+   MMMMMMM         MMMMMMMMML       MMMMMMMK     LMMMMMMMMMMMMMMMMMMMMMML  LMMMMMMMMMMMMMMMMMMMMMMMMMMM
+   MMMMMMM      MMMMMMMMMML         MMMMMMMK   LMMMMMMMMMMMMMMMMMMMMMMMML LMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+   MMMMMMM    LMMMMMMMMML           MMMMMMMK  LMMMMMMMMMLLMLLLLLLLLLLLLLL LMMMMMMMLLLLLLLLLLLLLLLLLLLLM
+   MMMMMMM  MMMMMMMMMLM             MMMMMMMK LMMMMMMMM                    LMMMMMML
+   MMMMMMMLMMMMMMMML                MMMMMMMK MMMMMMML                     LMMMMMMMMLLLLLLLLLLLLLMLL
+   MMMMMMMMMMMMMMMM                 MMMMMMMK MMMMMML                       LMMMMMMMMMMMMMMMMMMMMMMMMML
+   MMMMMMMMMMMMMMMMMM               MMMMMMMK MMMMMMM                         LMMMMMMMMMMMMMMMMMMMMMMMML
+   MMMMMMM KLMMMMMMMMML             MMMMMMMK LMMMMMMM                                          MMMMMMMML
+   MMMMMMM    LMMMMMMMMMM           MMMMMMMK LMMMMMMMMLL                                        MMMMMMML
+   MMMMMMM      LMMMMMMMMMLL        MMMMMMMK  LMMMMMMMMMMMMMMMMMMMMMMMMML LLLLLLLLLLLLLLLLLLLLMMMMMMMMMM
+   MMMMMMM        MMMMMMMMMMML      MMMMMMMK   MMMMMMMMMMMMMMMMMMMMMMMMML LMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+   MMMMMMM          LLMMMMMMMMML    MMMMMMMK     LLMMMMMMMMMMMMMMMMMMMMML LMMMMMMMMMMMMMMMMMMMMMMMMMML
+   MMMMMMM             MMMMMMMMMML  MMMMMMMK         KLMMMMMMMMMMMMMMMMML LMMMMMMMMMMMMMMMMMMMMMMMLK
+
+
+
+[0m
+Scanning with Keeping Infrastructure as Code Secure 2.1.19
+
+
+
+
+
+
+Results Summary:
+[38;2;255;0;0mCRITICAL[0m: 0
+[38;2;187;33;36mHIGH[0m: 0
+[38;2;255;114;19mMEDIUM[0m: 0
+[38;2;237;213;126mLOW[0m: 0
+[38;2;91;192;222mINFO[0m: 0
+TOTAL: 0
+
+[38;2;255;227;19m
+Are you using a custom query? If so, feel free to contribute to KICS!
+Check out how to do it: https://github.com/Checkmarx/kics/blob/master/docs/CONTRIBUTING.md
+[0m
+
+2026-01-11 23:28:59,402 - src.pac_engines.kics_engine - DEBUG - KICS stderr:
+2026-01-11 23:28:59,403 - src.pac_engines.kics_engine - DEBUG - KICS output keys: dict_keys(['kics_version', 'files_scanned', 'lines_scanned', 'files_parsed', 'lines_parsed', 'lines_ignored', 'files_failed_to_scan', 'queries_total', 'queries_failed_to_execute', 'queries_failed_to_compute_similarity_id', 'scan_id', 'severity_counters', 'total_counter', 'total_bom_resources', 'start', 'end', 'paths', 'queries'])
+2026-01-11 23:28:59,403 - src.pac_engines.kics_engine - DEBUG - KICS queries found: 1
+2026-01-11 23:28:59,403 - src.pac_engines.kics_engine - DEBUG - Number of query results: 0
+2026-01-11 23:28:59,403 - src.pac_engines.kics_engine - INFO - Parsed 0 violations from KICS output
+2026-01-11 23:28:59,403 - src.agents.repair_agent - INFO - ✓ Repair successful in 1 iteration(s)
+2026-01-11 23:28:59,404 - root - INFO - ✓ Successfully generated patch
+2026-01-11 23:28:59,404 - root - INFO -
+======================================================================
+2026-01-11 23:28:59,404 - root - INFO - RESULTS SUMMARY
+2026-01-11 23:28:59,404 - root - INFO - ======================================================================
+2026-01-11 23:28:59,404 - root - INFO - Total processed: 2
+2026-01-11 23:28:59,404 - root - INFO - Skipped: 0
+2026-01-11 23:28:59,404 - root - INFO - Attempted: 2
+2026-01-11 23:28:59,404 - root - INFO - Successful: 2
+2026-01-11 23:28:59,404 - root - INFO - Failed: 0
+2026-01-11 23:28:59,404 - root - INFO - Errors: 0
+2026-01-11 23:28:59,404 - root - INFO - Success rate: 100.0%
+2026-01-11 23:28:59,404 - root - INFO -
+Log file saved to: results/spec_bug_fix_kics/codellama/execution_20260111_232833.log
+2026-01-11 23:28:59,404 - root - INFO - ======================================================================
+2026-01-11 23:28:59,404 - root - INFO - Patch generation complete!
