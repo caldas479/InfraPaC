@@ -10,15 +10,21 @@ This script:
 
 import argparse
 import json
+import logging
 import sys
+import threading
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, Optional
+from typing import Dict, List, Optional
 
 from src.agents.repair_agent import RepairAgent
 from src.pac_engines.kics_engine import KICSEngine
 from src.utils.config_loader import load_config
 from src.utils.logging_config import setup_logging
+
+# Thread-safe counter for progress tracking
+progress_lock = threading.Lock()
 
 
 def generate_patch(
@@ -52,6 +58,74 @@ def generate_patch(
         return None
 
 
+def process_entry_wrapper(
+    entry: Dict,
+    entry_num: int,
+    total_entries: int,
+    base_path: Path,
+    skip_existing: bool,
+    config: Dict,
+) -> Dict:
+    """
+    Wrapper function for processing a single entry (thread-safe).
+
+    Returns a result dictionary with status information.
+    """
+    logger = logging.getLogger(__name__)
+
+    with progress_lock:
+        logger.info(
+            f"\n[{entry_num}/{total_entries}] Processing {entry['entry_id']} ({entry['category']})"
+        )
+
+    try:
+        # Check if patch already exists
+        if skip_existing:
+            patch_path = base_path / entry["path"] / "patch.tf"
+            if patch_path.exists() and patch_path.stat().st_size > 0:
+                with progress_lock:
+                    logger.info(
+                        f"[{entry_num}/{total_entries}] Patch already exists, skipping..."
+                    )
+                return {"entry_id": entry["entry_id"], "status": "skipped"}
+
+        # Create new engine instances per thread (not thread-safe to share)
+        kics_engine = KICSEngine(config["kics"])
+        repair_agent = RepairAgent(
+            kics_engine,
+            config=config.get("repair", {}),
+            llm_config=config.get("llm", {}),
+        )
+
+        repaired_code = generate_patch(entry, base_path, repair_agent, kics_engine)
+
+        if repaired_code:
+            with progress_lock:
+                logger.info(
+                    f"[{entry_num}/{total_entries}] ✓ Successfully generated patch"
+                )
+            return {
+                "entry_id": entry["entry_id"],
+                "status": "success",
+                "code_length": len(repaired_code),
+            }
+        else:
+            with progress_lock:
+                logger.warning(
+                    f"[{entry_num}/{total_entries}] ✗ Failed to generate patch"
+                )
+            return {
+                "entry_id": entry["entry_id"],
+                "status": "failed",
+                "reason": "repair or validation failed",
+            }
+
+    except Exception as e:
+        with progress_lock:
+            logger.error(f"[{entry_num}/{total_entries}] ✗ Error: {e}")
+        return {"entry_id": entry["entry_id"], "status": "error", "reason": str(e)}
+
+
 def main():
     """Generate patches for kics dataset entries."""
     parser = argparse.ArgumentParser(
@@ -71,6 +145,12 @@ def main():
         "--skip-existing",
         action="store_true",
         help="Skip entries that already have non-empty patch.tf files",
+    )
+    parser.add_argument(
+        "--workers",
+        type=int,
+        default=1,
+        help="Number of parallel workers (default: 1 for sequential processing)",
     )
     parser.add_argument("--verbose", action="store_true", help="Enable verbose logging")
     args = parser.parse_args()
@@ -107,15 +187,9 @@ def main():
     logger.info("KICS Dataset Patch Generator")
     logger.info("=" * 70)
 
-    # Initialize engines
-    logger.info("Initializing repair agent and KICS engine...")
-    kics_engine = KICSEngine(config["kics"])
-    repair_agent = RepairAgent(
-        kics_engine, config=config.get("repair", {}), llm_config=config.get("llm", {})
-    )
-
     logger.info(f"Dataset: {dataset['dataset_name']} v{dataset['version']}")
     logger.info(f"Total entries: {dataset['total_entries']}")
+    logger.info(f"Workers: {args.workers}")
 
     # Filter entries if needed
     entries = dataset["entries"]
@@ -134,46 +208,94 @@ def main():
             sys.exit(1)
         logger.info(f"Filtering to category: {args.category} ({len(entries)} entries)")
 
-    # Generate patches
+    # Generate patches (parallel or sequential based on workers)
     results = []
-    for i, entry in enumerate(entries, 1):
-        logger.info(
-            f"\n[{i}/{len(entries)}] Processing {entry['entry_id']} ({entry['category']})"
+
+    if args.workers == 1:
+        # Sequential processing (original behavior)
+        logger.info("Running in sequential mode")
+        kics_engine = KICSEngine(config["kics"])
+        repair_agent = RepairAgent(
+            kics_engine,
+            config=config.get("repair", {}),
+            llm_config=config.get("llm", {}),
         )
 
-        # Check if patch already exists
-        if args.skip_existing:
-            patch_path = base_path / entry["path"] / "patch.tf"
-            if patch_path.exists() and patch_path.stat().st_size > 0:
-                logger.info("Patch already exists, skipping...")
-                results.append({"entry_id": entry["entry_id"], "status": "skipped"})
-                continue
-        try:
-            repaired_code = generate_patch(entry, base_path, repair_agent, kics_engine)
-
-            if repaired_code:
-                logger.info("✓ Successfully generated patch")
-                results.append(
-                    {
-                        "entry_id": entry["entry_id"],
-                        "status": "success",
-                        "code_length": len(repaired_code),
-                    }
-                )
-            else:
-                logger.warning("✗ Failed to generate patch")
-                results.append(
-                    {
-                        "entry_id": entry["entry_id"],
-                        "status": "failed",
-                        "reason": "repair or validation failed",
-                    }
-                )
-        except Exception as e:
-            logger.error(f"✗ Error: {e}")
-            results.append(
-                {"entry_id": entry["entry_id"], "status": "error", "reason": str(e)}
+        for i, entry in enumerate(entries, 1):
+            logger.info(
+                f"\n[{i}/{len(entries)}] Processing {entry['entry_id']} ({entry['category']})"
             )
+
+            # Check if patch already exists
+            if args.skip_existing:
+                patch_path = base_path / entry["path"] / "patch.tf"
+                if patch_path.exists() and patch_path.stat().st_size > 0:
+                    logger.info("Patch already exists, skipping...")
+                    results.append({"entry_id": entry["entry_id"], "status": "skipped"})
+                    continue
+            try:
+                repaired_code = generate_patch(
+                    entry, base_path, repair_agent, kics_engine
+                )
+
+                if repaired_code:
+                    logger.info("✓ Successfully generated patch")
+                    results.append(
+                        {
+                            "entry_id": entry["entry_id"],
+                            "status": "success",
+                            "code_length": len(repaired_code),
+                        }
+                    )
+                else:
+                    logger.warning("✗ Failed to generate patch")
+                    results.append(
+                        {
+                            "entry_id": entry["entry_id"],
+                            "status": "failed",
+                            "reason": "repair or validation failed",
+                        }
+                    )
+            except Exception as e:
+                logger.error(f"✗ Error: {e}")
+                results.append(
+                    {"entry_id": entry["entry_id"], "status": "error", "reason": str(e)}
+                )
+    else:
+        # Parallel processing with ThreadPoolExecutor
+        logger.info(f"Running in parallel mode with {args.workers} workers")
+        logger.info("Note: Log messages may be interleaved from different workers\n")
+
+        with ThreadPoolExecutor(max_workers=args.workers) as executor:
+            # Submit all tasks
+            future_to_entry = {}
+            for i, entry in enumerate(entries, 1):
+                future = executor.submit(
+                    process_entry_wrapper,
+                    entry,
+                    i,
+                    len(entries),
+                    base_path,
+                    args.skip_existing,
+                    config,
+                )
+                future_to_entry[future] = (i, entry)
+
+            # Collect results as they complete
+            for future in as_completed(future_to_entry):
+                i, entry = future_to_entry[future]
+                try:
+                    result = future.result()
+                    results.append(result)
+                except Exception as e:
+                    logger.error(f"[{i}/{len(entries)}] Unexpected error: {e}")
+                    results.append(
+                        {
+                            "entry_id": entry["entry_id"],
+                            "status": "error",
+                            "reason": str(e),
+                        }
+                    )
 
     # Results summary
     logger.info("\n" + "=" * 70)

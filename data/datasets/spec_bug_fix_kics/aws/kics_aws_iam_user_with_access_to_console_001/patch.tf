@@ -1,0 +1,9 @@
+resource "aws_iam_user" "example" {
+	name = "example"
+	path = "/"
+	force_destroy = true
+}
+
+resource "aws_iam_user_login_profile" "example_login" {
+	pgp_key = "keybase:some_person_that_exists"
+}

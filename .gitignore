@@ -209,3 +209,6 @@ __marimo__/
 
 # External repositories (cloned for reference)
 data/external-repos
+
+# Execution logs (too large for version control)
+results/**/execution_*.log

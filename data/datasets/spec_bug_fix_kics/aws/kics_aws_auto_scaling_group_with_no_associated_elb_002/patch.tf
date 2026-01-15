@@ -1,0 +1,20 @@
+resource "aws_autoscaling_group" "positive2" {
+	availability_zones = ["us-east-1a"]
+	desired_capacity   = 1
+	max_size           = 1
+	min_size           = 1
+
+	launch_template {
+		id      = aws_launch_template.foobar.id
+		version = "$Latest"
+	}
+
+	load_balancers = [aws_elb.bar.name]
+}
+
+resource "aws_elb" "bar" {
+	availability_zones = ["us-east-1a"]
+	desired_capacity   = 1
+	max_size           = 1
+	min_size           = 1
+}
