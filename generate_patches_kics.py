@@ -37,15 +37,26 @@ def generate_patch(
     policy_file = entry_path / "policy.rego"
     buggy_file = entry_path / "buggy.tf"
     patch_file = entry_path / "patch.tf"
+    metadata_file = entry_path / "metadata.json"
 
     policy = policy_file.read_text()
     buggy_tf = buggy_file.read_text()
+
+    # Load metadata if it exists
+    metadata = None
+    if metadata_file.exists():
+        try:
+            metadata = json.loads(metadata_file.read_text())
+        except json.JSONDecodeError as e:
+            logging.getLogger(__name__).warning(
+                f"Failed to parse metadata.json for {entry['entry_id']}: {e}"
+            )
 
     # Attempt repair
     result = repair_agent.repair(
         iac_script=buggy_tf,
         policy=policy,
-        violations=kics_engine.evaluate(policy, buggy_tf),
+        violations=kics_engine.evaluate(policy, buggy_tf, metadata),
     )
 
     if result.success:

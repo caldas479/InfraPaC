@@ -7,7 +7,7 @@ import logging
 import subprocess
 import tempfile
 from pathlib import Path
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Optional
 
 from src.models import PolicyViolation
 from src.pac_engines.base_engine import BasePaCEngine
@@ -57,6 +57,7 @@ class KICSEngine(BasePaCEngine):
         """
         super().__init__(config)
         self._verify_installation()
+        self._cached_metadata: Optional[Dict[str, Any]] = None
 
     def _verify_installation(self) -> None:
         """
@@ -87,7 +88,9 @@ class KICSEngine(BasePaCEngine):
             logger.error(f"Error verifying KICS installation: {e}")
             raise
 
-    def evaluate(self, policy: str, iac_script: str) -> List[PolicyViolation]:
+    def evaluate(
+        self, policy: str, iac_script: str, metadata: Optional[Dict[str, Any]] = None
+    ) -> List[PolicyViolation]:
         """
         Evaluate IaC script against KICS query.
 
@@ -111,6 +114,8 @@ class KICSEngine(BasePaCEngine):
         Args:
             policy: KICS query (Rego policy) content
             iac_script: Terraform/IaC script content
+            metadata: Optional metadata dict with keys: query_id, query_name,
+                     severity, description. If not provided, uses defaults.
 
         Returns:
             List of PolicyViolation objects containing detailed information
@@ -138,16 +143,49 @@ class KICSEngine(BasePaCEngine):
 
             # Write metadata.json (required by KICS to recognize the query)
             metadata_file = queries_dir / "metadata.json"
-            metadata = {
-                "id": "custom-query",
-                "queryName": "Custom Policy Query",
-                "severity": "MEDIUM",
-                "category": "Security",
-                "descriptionText": "Custom policy evaluation",
-                "platform": "Terraform",
-                "descriptionID": "custom",
-            }
-            metadata_file.write_text(json.dumps(metadata, indent=2))
+
+            # Use provided metadata, cached metadata, or fallback to defaults
+            if metadata:
+                # Cache metadata for subsequent calls
+                self._cached_metadata = metadata
+                kics_metadata = {
+                    "id": metadata.get("query_id", "custom-query"),
+                    "queryName": metadata.get("query_name", "Custom Policy Query"),
+                    "severity": metadata.get("severity", "MEDIUM").upper(),
+                    "category": metadata.get("category", "Security"),
+                    "descriptionText": metadata.get(
+                        "description", "Custom policy evaluation"
+                    ),
+                    "platform": "Terraform",
+                    "descriptionID": metadata.get("query_id", "custom"),
+                }
+            elif self._cached_metadata:
+                # Reuse cached metadata from previous call
+                kics_metadata = {
+                    "id": self._cached_metadata.get("query_id", "custom-query"),
+                    "queryName": self._cached_metadata.get(
+                        "query_name", "Custom Policy Query"
+                    ),
+                    "severity": self._cached_metadata.get("severity", "MEDIUM").upper(),
+                    "category": self._cached_metadata.get("category", "Security"),
+                    "descriptionText": self._cached_metadata.get(
+                        "description", "Custom policy evaluation"
+                    ),
+                    "platform": "Terraform",
+                    "descriptionID": self._cached_metadata.get("query_id", "custom"),
+                }
+            else:
+                kics_metadata = {
+                    "id": "custom-query",
+                    "queryName": "Custom Policy Query",
+                    "severity": "MEDIUM",
+                    "category": "Security",
+                    "descriptionText": "Custom policy evaluation",
+                    "platform": "Terraform",
+                    "descriptionID": "custom",
+                }
+
+            metadata_file.write_text(json.dumps(kics_metadata, indent=2))
 
             # Write IaC file
             iac_file = iac_dir / "main.tf"
@@ -224,7 +262,7 @@ class KICSEngine(BasePaCEngine):
                 logger.error(f"Error during KICS scan: {e}")
                 return []
 
-    def _find_libraries_path(self) -> Path:
+    def _find_libraries_path(self) -> Optional[Path]:
         """
         Find KICS libraries path from common locations.
 
@@ -254,18 +292,21 @@ class KICSEngine(BasePaCEngine):
         )
         return None
 
-    def validate(self, policy: str, iac_script: str) -> bool:
+    def validate(
+        self, policy: str, iac_script: str, metadata: Optional[Dict[str, Any]] = None
+    ) -> bool:
         """
         Validate if IaC script complies with policy.
 
         Args:
             policy: KICS query (Rego policy) content
             iac_script: Terraform/IaC script content
+            metadata: Optional metadata dict with query information
 
         Returns:
             True if no violations found, False otherwise
         """
-        violations = self.evaluate(policy, iac_script)
+        violations = self.evaluate(policy, iac_script, metadata)
         return len(violations) == 0
 
     def _parse_violations(self, kics_output: Dict[str, Any]) -> List[PolicyViolation]:

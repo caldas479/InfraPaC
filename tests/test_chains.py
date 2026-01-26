@@ -130,9 +130,10 @@ class TestRepairChain:
 
     def test_repair_basic(self, sample_llm_config, sample_policy_violation):
         """Test basic repair functionality with structured output."""
-        with patch("src.chains.repair_chain.ChatOllama") as mock_ollama, patch(
-            "src.chains.repair_chain.PromptBuilder"
-        ) as mock_builder_class:
+        with (
+            patch("src.chains.repair_chain.ChatOllama") as mock_ollama,
+            patch("src.chains.repair_chain.PromptBuilder") as mock_builder_class,
+        ):
             # Setup mock LLM with structured output
             mock_llm = Mock()
             mock_structured_llm = Mock()
@@ -169,9 +170,10 @@ class TestRepairChain:
         self, sample_llm_config, sample_policy_violation
     ):
         """Test repair with structured output failure."""
-        with patch("src.chains.repair_chain.ChatOllama") as mock_ollama, patch(
-            "src.chains.repair_chain.PromptBuilder"
-        ) as mock_builder_class:
+        with (
+            patch("src.chains.repair_chain.ChatOllama") as mock_ollama,
+            patch("src.chains.repair_chain.PromptBuilder") as mock_builder_class,
+        ):
             # Setup mock LLM with structured output
             mock_llm = Mock()
             mock_structured_llm = Mock()
