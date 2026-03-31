@@ -2,7 +2,7 @@ resource "aws_iam_role" "positive1" {
 	name = "iam_for_lambda"
 
 	assume_role_policy = <<EOF
-	{
+{
 		"Version": "2012-10-17",
 		"Statement": [
 			{
@@ -14,8 +14,8 @@ resource "aws_iam_role" "positive1" {
 				"Sid": ""
 			}
 		]
-	}
-	EOF
+}
+EOF
 }
 
 resource "aws_lambda_function" "positive2" {
@@ -24,14 +24,13 @@ resource "aws_lambda_function" "positive2" {
 	role = aws_iam_role.iam_for_lambda.arn
 	handler = "exports.test"
 
-	source_code_hash = filebase64sha256("lambda_function_payload.zip")
+source_code_hash = filebase64sha256("lambda_function_payload.zip")
 	runtime = "nodejs12.x"
 
 environment {
 	variables = {
-		foo = "AKIASXANV9XVIJ1YCIJ5"
+		foo = "AKIAIOSFODNN7EXAMAAA"
 	}
-}
 }
 
 resource "aws_lambda_function" "positive3" {
@@ -40,12 +39,11 @@ resource "aws_lambda_function" "positive3" {
 	role = aws_iam_role.iam_for_lambda.arn
 	handler = "exports.test"
 
-	source_code_hash = filebase64sha256("lambda_function_payload.zip")
+source_code_hash = filebase64sha256("lambda_function_payload.zip")
 	runtime = "nodejs12.x"
 
 environment {
 	variables = {
 		foo = "AKIASXANV9XVIJ1YCIJ5"
 	}
-}
 }

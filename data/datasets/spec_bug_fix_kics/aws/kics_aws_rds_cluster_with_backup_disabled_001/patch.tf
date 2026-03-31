@@ -6,5 +6,5 @@ resource "aws_rds_cluster" "postgresql" {
   master_username         = "foo"
   master_password         = "bar"
   preferred_backup_window = "07:00-09:00"
-  backup_retention_period = 35 # added to satisfy the policy
+  backup_retention_period = 14 # This is the default value for RDS clusters, so it's not necessary to specify it explicitly.
 }

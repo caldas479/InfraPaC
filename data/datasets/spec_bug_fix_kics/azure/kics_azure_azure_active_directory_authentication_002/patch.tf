@@ -8,15 +8,15 @@ resource "azurerm_service_fabric_cluster" "positive2" {
   vm_image             = "Windows"
   management_endpoint  = "https://example:80"
 
+  azure_active_directory {
+    tenant_id = "your-tenant-id-here"
+  }
+
   node_type {
     name                 = "first"
     instance_count       = 3
     is_primary           = true
     client_endpoint_port = 2020
     http_endpoint_port   = 80
-  }
-
-  azure_active_directory {
-    tenant_id = "your-tenant-id"
   }
 }

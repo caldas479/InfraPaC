@@ -1,27 +1,27 @@
 resource "aws_ecr_repository" "foo" {
-  name                 = "bar"
-  image_tag_mutability = "IMMUTABLE"
+	name = "bar"
+	image_tag_mutability = "IMMUTABLE"
 
-  image_scanning_configuration {
-    scan_on_push = true
-  }
+	image_scanning_configuration {
+		scan_on_push = true
+	}
 
-  encryption_configuration {
-    encryption_type = "KMS"
-    kms_key = "arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012"
-  }
+	encryption_configuration {
+		encryption_type = "KMS"
+		kms_key = "arn:aws:kms:us-west-2:123456789012:key/abcd-efgh-ijkl-mnop"
+	}
 }
 
 resource "aws_ecr_repository" "fooX" {
-  name                 = "barX"
-  image_tag_mutability = "IMMUTABLE"
+	name = "barX"
+	image_tag_mutability = "IMMUTABLE"
 
-  image_scanning_configuration {
-    scan_on_push = true
-  }
+	image_scanning_configuration {
+		scan_on_push = true
+	}
 
-  encryption_configuration {
-    encryption_type = "KMS"
-    kms_key = "arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012"
-  }
+	encryption_configuration {
+		encryption_type = "KMS"
+		kms_key = "arn:aws:kms:us-west-2:123456789012:key/abcd-efgh-ijkl-mnop"
+	}
 }

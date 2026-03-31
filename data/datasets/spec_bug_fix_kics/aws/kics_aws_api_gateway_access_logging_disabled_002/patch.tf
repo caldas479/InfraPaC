@@ -1,1 +1,1 @@
-This is a repaired Terraform script.
+resource "aws_api_gateway_stage" "postive1" {\n  stage_name    = "dev"\n  rest_api_id   = "id"\n\n  access_log_settings {\n    destination_arn = "dest"\n  }\n\n  method_settings {\n    logging_level   = "INFO"\n  }\n}\n\nresource "aws_apigatewayv2_stage" "postive2" {\n  stage_name    = "dev"\n  rest_api_id   = "id"\n\n  access_log_settings {\n    destination_arn = "dest"\n  }\n\n  default_route_settings {\n    logging_level   = "INFO"\n  }\n}\n

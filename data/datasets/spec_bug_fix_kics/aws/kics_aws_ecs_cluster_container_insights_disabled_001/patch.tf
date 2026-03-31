@@ -1,8 +1,8 @@
-resource "aws_ecs_cluster" "white-hart" {
+resource "aws_ecs_cluster" "foo" {
 	name = "white-hart"
 
 	setting {
-		name  = "containerInsights"
+		name = "containerInsights"
 		value = "enabled"
 	}
 }

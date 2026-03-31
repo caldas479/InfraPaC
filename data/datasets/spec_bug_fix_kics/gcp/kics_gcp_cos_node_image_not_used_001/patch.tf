@@ -12,6 +12,6 @@ resource "google_container_node_pool" "positive2" {
 	cluster = google_container_cluster.primary.name
 
 	node_config {
-		image_type = "COS_WINDOWS_LTSC"
+		image_type = "COS"
 	}
 }

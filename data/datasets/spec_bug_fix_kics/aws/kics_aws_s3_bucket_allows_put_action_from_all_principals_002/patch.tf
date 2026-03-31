@@ -9,7 +9,7 @@ resource "aws_s3_bucket_policy" "positive2" {
     {
       "Sid": "IPAllow",
       "Effect": "Deny",
-      "Principal": "*",
+      "Principal": { "AWS": "*" },
       "Action": "s3:PutObject",
       "Resource": "arn:aws:s3:::my_tf_test_bucket/*",
       "Condition": {

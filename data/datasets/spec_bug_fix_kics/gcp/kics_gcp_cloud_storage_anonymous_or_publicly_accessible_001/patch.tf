@@ -1,17 +1,15 @@
 resource "google_storage_bucket_iam_binding" "positive1" {
-  bucket = google_storage_bucket.default.name
-  role = "roles/storage.admin"
-  members = ["user:jane@example.com"]
+ bucket = google_storage_bucket.default.name
+ role = "roles/storage.admin"
+ members = ["user:jane@example.com"]
 }
-
 resource "google_storage_bucket_iam_binding" "positive2" {
-  bucket = google_storage_bucket.default.name
-  role = "roles/storage.admin"
-  members = ["user:jane@example.com"]
+ bucket = google_storage_bucket.default.name
+ role = "roles/storage.admin"
+ members = ["user:jane@example.com"]
 }
-
 resource "google_storage_bucket_iam_binding" "positive3" {
-  bucket = google_storage_bucket.default.name
-  role = "roles/storage.admin"
-  members = ["user:jane@example.com"]
+ bucket = google_storage_bucket.default.name
+ role = "roles/storage.admin"
+ members = ["user:jane@example.com"]
 }

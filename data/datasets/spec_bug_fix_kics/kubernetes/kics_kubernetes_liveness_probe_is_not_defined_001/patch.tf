@@ -13,24 +13,24 @@ resource "kubernetes_pod" "test" {
 			port {
 				container_port = 8080
 			}
-			livenessProbe {
+		livenessProbe {
+				initialDelaySeconds = 30
+				periodSeconds = 10
 				exec {
-					command = ["cat", "/tmp/healthy"]
+					command = ["curl", "-f", "http://localhost:8080/"]
 				}
-				initialDelaySeconds = 5
-				durationSeconds = 2
+			}
+		dns_config {
+			nameservers = ["1.1.1.1", "8.8.8.8", "9.9.9.9"]
+			searches    = ["example.com"]
+			option {
+				name  = "ndots"
+				value = 1
+			}
+			option {
+				name = "use-vc"
 			}
 		}
-	dns_config {
-		nameservers = ["1.1.1.1", "8.8.8.8", "9.9.9.9"]
-		searches    = ["example.com"]
-		option {
-			name  = "ndots"
-			value = 1
-		}
-		option {
-			name = "use-vc"
-		}
-	}
 dns_policy = "None"
+	}
 }

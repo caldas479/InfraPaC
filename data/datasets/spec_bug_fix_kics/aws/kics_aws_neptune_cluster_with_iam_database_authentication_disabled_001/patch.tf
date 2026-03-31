@@ -8,7 +8,6 @@ resource "aws_neptune_cluster" "positive1" {
  storage_encrypted = true
  iam_database_authentication_enabled = true
  }
-
  resource "aws_neptune_cluster" "positive2" {
  cluster_identifier = "neptune-cluster-demo"
  engine = "neptune"

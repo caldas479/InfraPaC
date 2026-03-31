@@ -29,12 +29,12 @@ resource "kubernetes_pod" "positive1" {
 			}
 
 			initial_delay_seconds = 3
-			period_seconds = 3
+			period_seconds        = 3
 		}
 
 	dns_config {
 		nameservers = ["1.1.1.1", "8.8.8.8", "9.9.9.9"]
-		searches = ["example.com"]
+		searches    = ["example.com"]
 
 	option {
 		name  = "ndots"

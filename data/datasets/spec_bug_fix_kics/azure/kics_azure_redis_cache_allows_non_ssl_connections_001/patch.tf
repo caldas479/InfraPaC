@@ -8,5 +8,6 @@ resource "azurerm_redis_cache" "positive1" {
   enable_non_ssl_port = false
   minimum_tls_version = "1.2"
 
-  redis_configuration {}
+  redis_configuration {
+  }
 }

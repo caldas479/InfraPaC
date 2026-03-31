@@ -16,7 +16,7 @@ resource "aws_mq_broker" "positive1" {
 		password = "MindTheGap"
 	}}
 
-	encryption_options {
+	encryption_options {{
 		enabled = true
-	}
+	}}
 }

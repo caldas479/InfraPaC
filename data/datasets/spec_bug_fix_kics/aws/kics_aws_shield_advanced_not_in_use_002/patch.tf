@@ -1,12 +1,12 @@
-resource "aws_route53_zone" "positive2" {
-  name = "example.com"
+resource "aws_route53_zone" "example" {
+	name = "example.com"
 }
 
-resource "aws_shield_protection" "positive2" {
-  name         = "example"
-  resource_arn = aws_route53_zone.positive2.arn
+resource "aws_shield_protection" "example" {
+	name = "example"
+	resource_arn = aws_route53_zone.example.arn
 
-  tags = {
-    Environment = "Dev"
-  }
+	tags = {
+		Environment = "Dev"
+	}
 }

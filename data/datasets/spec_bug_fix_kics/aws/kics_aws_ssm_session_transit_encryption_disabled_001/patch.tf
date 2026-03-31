@@ -7,6 +7,8 @@ resource "aws_ssm_document" "positive1" {
     "schemaVersion": "1.2",
     "description": "Check ip configuration of a Linux instance.",
     "inputs": {
-      "kmsKeyId": "${var.kms_key_id}"
+      "kmsKeyId": "${aws_kms_key.test_key.id}"
     }
   }
+DOC
+}

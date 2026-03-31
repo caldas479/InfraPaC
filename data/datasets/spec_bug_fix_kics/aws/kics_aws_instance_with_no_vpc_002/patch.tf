@@ -17,4 +17,4 @@ module "ec2_instance" {
 
  vpc_security_group_ids = ["sg-0123456789abcdef0"]
 
- }
+}

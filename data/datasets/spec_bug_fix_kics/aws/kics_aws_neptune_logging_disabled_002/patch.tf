@@ -7,4 +7,4 @@ resource "aws_neptune_cluster" "postive2" {
  iam_database_authentication_enabled = true
  apply_immediately = true
  enable_cloudwatch_logs_exports = ["audit"]
- }
+}

@@ -14,6 +14,12 @@ resource "aws_iam_group_policy" "test_inline_policy" {
       ]
       Effect   = "Deny"
       Resource = "*"
-    },]
+    }, {
+      Action = [
+        "iam:CreateAccessKey",
+      ]
+      Effect   = "Allow"
+      Resource = "arn:aws:iam::123456789012:user/test-user"
+    }]
   })
 }

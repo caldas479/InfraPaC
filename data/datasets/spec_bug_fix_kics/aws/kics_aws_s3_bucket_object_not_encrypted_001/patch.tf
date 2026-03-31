@@ -9,11 +9,11 @@ resource "aws_s3_bucket" "examplebucket" {
  object_lock_configuration {
  object_lock_enabled = "Enabled"
  }
-}
+ }
 
-resource "aws_s3_bucket_object" "examplebucket_object" {
-  key                    = "someobject"
-  bucket                 = aws_s3_bucket.examplebucket.id
-  source                 = "index.html"
-  server_side_encryption = "AES256"
-}
+ resource "aws_s3_bucket_object" "examplebucket_object" {
+ key                    = "someobject"
+ bucket                 = aws_s3_bucket.examplebucket.id
+ source                 = "index.html"
+ server_side_encryption = "AES256"
+ }

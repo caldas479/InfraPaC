@@ -5,7 +5,7 @@ resource "google_container_cluster" "positive1" {
 
  ip_allocation_policy {
  cluster_ipv4_cidr_block = "10.2.0.0/16"
- services_ipv4_cidr_block = "10.3.0.0/24"
+ services_ipv4_cidr_block = "172.16.0.0/20"
  }
 
  networking_mode = "VPC_NATIVE"
@@ -23,7 +23,7 @@ resource "google_container_cluster" "positive1" {
 
  ip_allocation_policy {
  cluster_ipv4_cidr_block = "10.2.0.0/16"
- services_ipv4_cidr_block = "10.3.0.0/24"
+ services_ipv4_cidr_block = "172.16.0.0/20"
  }
 
  networking_mode = "VPC_NATIVE"
@@ -41,7 +41,7 @@ resource "google_container_cluster" "positive1" {
 
  ip_allocation_policy {
  cluster_ipv4_cidr_block = "10.2.0.0/16"
- services_ipv4_cidr_block = "10.3.0.0/24"
+ services_ipv4_cidr_block = "172.16.0.0/20"
  }
 
  networking_mode = "VPC_NATIVE"

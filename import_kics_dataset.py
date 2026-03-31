@@ -104,9 +104,15 @@ def import_query_to_dataset(
         # Copy buggy file
         shutil.copy(positive_file, entry_path / "buggy.tf")
 
-        # If there's a corresponding negative file, use it as reference
-        if idx <= len(negative_files):
-            negative_file = negative_files[idx - 1]
+        # If there's a corresponding negative file, use it as reference.
+        # Fall back to the first negative file if there's no exact positional match
+        # (e.g. query has more positive tests than negative tests).
+        if negative_files:
+            negative_file = (
+                negative_files[idx - 1]
+                if idx <= len(negative_files)
+                else negative_files[0]
+            )
             shutil.copy(negative_file, entry_path / "fixed.tf")
 
         # Create metadata file

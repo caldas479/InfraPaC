@@ -1,8 +1,8 @@
 resource "aws_batch_job_definition" "positive1" {
-  name = "tf_test_batch_job_definition"
-  type = "container"
+	name = "tf_test_batch_job_definition"
+	type = "container"
 
-  container_properties = <<CONTAINER_PROPERTIES
+	container_properties = <<CONTAINER_PROPERTIES
 {
     "command": ["ls", "-la"],
     "image": "busybox",
@@ -17,13 +17,15 @@ resource "aws_batch_job_definition" "positive1" {
         "name": "tmp"
       }
     ],
-    "environment": [{"name": "VARNAME", "value": "VARVAL"}],
+    "environment": [
+        {"name": "VARNAME", "value": "VARVAL"}
+    ],
     "mountPoints": [
-      {
-        "sourceVolume": "tmp",
-        "containerPath": "/tmp",
-        "readOnly": false
-      }
+        {
+          "sourceVolume": "tmp",
+          "containerPath": "/tmp",
+          "readOnly": false
+        }
     ],
     "ulimits": [
       {

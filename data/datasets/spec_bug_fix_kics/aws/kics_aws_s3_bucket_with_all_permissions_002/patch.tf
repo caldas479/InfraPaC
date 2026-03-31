@@ -14,13 +14,16 @@ module "s3_bucket" {
   "Id": "id113",
   "Version": "2012-10-17",
   "Statement": [
-    {
-      "Action": ["s3:GetObject", "s3:PutObject"],
-      "Effect": "Allow",
-      "Resource": "arn:aws:s3:::S3B_181355/*",
-      "Principal": "*"
-    }
+   {
+    "Action": [
+     "s3:GetObject",
+     "s3:PutObject"
+    ],
+    "Effect": "Allow",
+    "Resource": "arn:aws:s3:::S3B_181355/*",
+    "Principal": "*"
+   }
   ]
-}
-EOF
+ }
+ EOF
 }

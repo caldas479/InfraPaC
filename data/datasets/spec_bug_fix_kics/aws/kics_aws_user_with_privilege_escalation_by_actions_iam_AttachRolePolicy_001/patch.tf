@@ -10,9 +10,7 @@ resource "aws_iam_policy" "test_inline_policy" {
     Version = "2012-10-17"
     Statement = [
       {
-        Action = [
-          "iam:AttachRolePolicy",
-        ]
+        Action = ["iam:AttachRolePolicy", ]
         Effect   = "Allow"
         Resource = "*"
       },

@@ -9,4 +9,4 @@ resource "aws_msk_cluster" "example" {
  in_cluster = true
  }
  }
-}
+ }

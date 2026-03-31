@@ -7,8 +7,9 @@ resource "google_compute_disk" "positive3" {
  environment = "dev"
  }
  physical_block_size_bytes = 4096
+
  disk_encryption_key {
- raw_key = "my-disk-encryption-key"
+ raw_key = "<REPLACE_WITH_YOUR_RAW_KEY>"
  sha256 = "A"
  }
-}
+ }

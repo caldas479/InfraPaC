@@ -32,6 +32,6 @@ resource "azurerm_frontdoor" "positive" {
  frontend_endpoint {
  name = "exampleFrontendEndpoint1"
  host_name = "example-FrontDoor.azurefd.net"
- web_application_firewall_policy_link_id = "<YOUR_POLICY_ID>"
+ web_application_firewall_policy_link_id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-rg/providers/Microsoft.Network/frontdoorWebApplicationFirewallPolicies/exampleWafPolicy"
  }
 }

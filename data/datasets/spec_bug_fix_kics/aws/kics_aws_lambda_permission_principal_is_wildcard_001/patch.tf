@@ -1,1 +1,8 @@
-resource "aws_lambda_permission" "positive1" {\n  statement_id = "AllowExecutionFromCloudWatch"\n  action = "lambda:InvokeFunction"\n  function_name = aws_lambda_function.test_lambda.function_name\n  principal = "arn:aws:events:eu-west-1:111122223333:rule/RunDaily"\n  source_arn = "arn:aws:events:eu-west-1:111122223333:rule/RunDaily"\n  qualifier = aws_lambda_alias.test_alias.name\n}
+resource "aws_lambda_permission" "positive1" {
+ statement_id = "AllowExecutionFromCloudWatch"
+ action = "lambda:InvokeFunction"
+ function_name = aws_lambda_function.test_lambda.function_name
+ principal = "arn:aws:iam::111122223333:root"
+ source_arn = "arn:aws:events:eu-west-1:111122223333:rule/RunDaily"
+ qualifier = aws_lambda_alias.test_alias.name
+}

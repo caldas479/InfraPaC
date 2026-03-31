@@ -1,1 +1,27 @@
-This is a repaired version of the Terraform script. Please provide the original script so I can assist you better.
+provider "aws" {
+  region = "us-east-1"
+}
+
+training {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 3.0"
+    }
+  }
+}
+
+resource "aws_s3_bucket" "positive2" {
+  bucket = "my-tf-test-bucket"
+  acl    = "private"
+
+  tags = {
+    Name        = "My bucket"
+    Environment = "Dev"
+  }
+
+  versioning {
+    enabled = true
+    mfa_delete = true
+  }
+}

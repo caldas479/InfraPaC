@@ -8,11 +8,13 @@ resource "aws_iam_policy" "test_inline_policy" {
 
 	policy = jsonencode({
 		Version = "2012-10-17"
-		Statement = [{
-			Action = ["iam:PutUserPolicy", ]
-			Effect   = "Allow"
-			Resource = "*"
-		}, ]
+		Statement = [
+			{
+				Action = ["iam:PutUserPolicy", ]
+				Effect   = "Allow"
+				Resource = "*"
+			},
+		]
 	})
 }
 

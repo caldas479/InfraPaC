@@ -6,7 +6,7 @@ resource "aws_api_gateway_rest_api" "example" {
  version = "1.0"
  }
  paths = {
- "/path1" = {
+ /path1 = {
  get = {
  x-amazon-apigateway-integration = {
  httpMethod           = "GET"

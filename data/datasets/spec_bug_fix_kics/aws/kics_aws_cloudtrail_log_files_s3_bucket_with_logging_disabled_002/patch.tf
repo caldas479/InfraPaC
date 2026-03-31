@@ -31,48 +31,21 @@ module "foo" {
 						 "s3:x-amz-acl": "bucket-owner-full-control"
 					 }
 				 }
-			 },
-			 {
-				 "Sid": "AWSCloudTrailLogging",
-				 "Effect": "Allow",
-				 "Principal": {
-					 "Service": "cloudtrail.amazonaws.com"
-				 },
-				 "Action": "s3:PutObject",
-				 "Resource": "arn:aws:s3:::tf-test-trail/prefix/AWSLogs/${data.aws_caller_identity.current.account_id}/*",
-				 "Condition": {
-					 "StringEquals": {
-						 "s3:x-amz-acl": "bucket-owner-full-control"
-					 }
-				 }
-			 },
+			 }
 		 ]
 	 }
 
-	 versioning_inputs = [{
-		 enabled = true
-		 mfa_delete = null
-	 },
-	 {
-		 enabled = false
-		 mfa_delete = null
-	 }
-]
-}
+	 versioning_inputs = [
+		 {
+			 enabled = true
+			 mfa_delete = null
+		 },
+	 ]
+ }
 
-resource "aws_cloudtrail" "foobar" {
+ resource "aws_cloudtrail" "foobar" {
 	 name                          = "tf-trail-foobar"
 	 s3_bucket_name                = aws_s3_bucket.foo.id
 	 s3_key_prefix                 = "prefix"
 	 include_global_service_events = false
-}
-
-resource "aws_s3_bucket" "foo" {
-	 bucket        = "foo"
-	 force_destroy = true
-
-	 logging {
-		 target_bucket = aws_s3_bucket.foo.id
-		 target_prefix = "log/"
-	 }
-}
+ }

@@ -2,24 +2,24 @@ resource "aws_wafregional_ipset" "ipset" {
   name = "tfIPSet"
 
   ip_set_descriptor {
-    type = "IPV4"
+    type  = "IPV4"
     value = "192.0.7.0/24"
   }
 }
 
 resource "aws_wafregional_rule" "foo" {
-  name = "tfWAFRule"
+  name        = "tfWAFRule"
   metric_name = "tfWAFRule"
 
   predicate {
     data_id = aws_wafregional_ipset.ipset.id
     negated = false
-    type = "IPMatch"
+    type    = "IPMatch"
   }
 }
 
 resource "aws_wafregional_web_acl" "foo" {
-  name = "foo"
+  name        = "foo"
   metric_name = "foo"
 
   default_action {
@@ -32,7 +32,7 @@ resource "aws_wafregional_web_acl" "foo" {
     }
 
     priority = 1
-    rule_id = aws_wafregional_rule.foo.id
+    rule_id  = aws_wafregional_rule.foo.id
   }
 }
 

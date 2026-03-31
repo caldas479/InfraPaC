@@ -28,7 +28,7 @@ resource "kubernetes_pod" "test1" {
 				}
 
 				initial_delay_seconds = 3
-				period_seconds = 3
+				period_seconds        = 3
 			}
 		}
 	service_account_name = "default"

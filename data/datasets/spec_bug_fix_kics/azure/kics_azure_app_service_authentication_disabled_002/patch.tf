@@ -4,18 +4,18 @@ resource "azurerm_app_service" "positive2" {
 	resource_group_name = azurerm_resource_group.example.name
 	app_service_plan_id = azurerm_app_service_plan.example.id
 	site_config {
-	dotnet_framework_version = "v4.0"
-	scm_type = "LocalGit"
-	}
-	auth_settings = {
-	enabled = true
+		dotnet_framework_version = "v4.0"
+		scm_type = "LocalGit"
 	}
 	app_settings = {
-	  "SOME_KEY" = "some-value"
+		"SOME_KEY" = "some-value"
+	}
+	auth_settings = {
+		enabled = true
 	}
 	connection_string {
-	  name  = "Database"
-	  type  = "SQLServer"
-	  value = "Server=some-server.mydomain.com;Integrated Security=SSPI"
+		name = "Database"
+		type = "SQLServer"
+		value = "Server=some-server.mydomain.com;Integrated Security=SSPI"
 	}
 }

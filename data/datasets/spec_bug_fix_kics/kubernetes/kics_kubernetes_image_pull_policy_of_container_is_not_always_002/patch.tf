@@ -23,16 +23,6 @@ spec {
 			image = "nginx:1.7.8"
 			name = "example"
 			image_pull_policy = "Always"
-			resources {
-				limits = {
-					cpu = "0.5"
-					memory = "512Mi"
-				}
-				requests = {
-					cpu = "250m"
-					memory = "50Mi"
-				}
-			}
 		}
 	}
 }

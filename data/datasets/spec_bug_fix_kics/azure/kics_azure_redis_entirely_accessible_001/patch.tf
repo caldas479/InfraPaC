@@ -19,6 +19,6 @@ resource "azurerm_redis_firewall_rule" "positive2" {
   name                = "someIPrange"
   redis_cache_name    = azurerm_redis_cache.example.name
   resource_group_name = azurerm_resource_group.example.name
-  start_ip            = "10.0.0.0"
-  end_ip              = "10.0.0.255"
+  start_ip            = "10.0.0.1"
+  end_ip              = "10.0.0.254"
 }

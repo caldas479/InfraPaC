@@ -3,9 +3,9 @@ module "s3_bucket" {
 	 version = "3.7.0"
 
 	 bucket = "my-s3-bucket"
-	 acl    = "private"
+	 acl = "private"
 
-	 versioning = {
+	 versioning {
 		enabled = true
 	 }
 
@@ -17,23 +17,25 @@ module "s3_bucket" {
 				{
 					"Sid": "First",
 					"Effect": "Allow",
-					"Principal": { "AWS": "*" },
-					"Action": [ "sqs:SendMessage", "sqs:ReceiveMessage" ],
+					"Principal": {"AWS": "*"},
+					"Action": "sqs:*",
 					"Resource": "${aws_sqs_queue.q.arn}",
 					"Condition": {
-						"ArnEquals": { "aws:SourceArn": "${aws_sns_topic.example.arn}" }
+						"ArnEquals": {
+							"aws:SourceArn": "${aws_sns_topic.example.arn}"
+						}
 					}
 				}
 			]
 		}
-	 POLICY
+	POLICY
 
 	 server_side_encryption_configuration {
 		rule {
 			apply_server_side_encryption_by_default {
 				kms_master_key_id = aws_kms_key.mykey.arn
-				sse_algorithm     = "aws:kms"
+				sse_algorithm = "aws:kms"
 			}
 		}
-	 }
- }
+	}
+}

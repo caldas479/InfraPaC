@@ -15,28 +15,12 @@ resource "aws_iam_role" "positive2" {
 				"Sid": "",
 				"Condition": {
 					"Bool": {
-						"aws:MultiFactorAuthPresent": "true"
-					}
-				}
-			},
-			{
-				"Action": "sts:AssumeRole",
-				"Principal": {
-					"AWS": "arn:aws:iam::987654321145:root"
-				},
-				"Effect": "Allow",
-				"Resource": "*",
-				"Sid": "",
-				"Condition": {
-					"Bool": {
-						"aws:MultiFactorAuthPresent": "true"
+						"aws:MultiFactorAuthPresent": "false"
 					}
 				}
 			}
 		]
-	}
-}
-EOF
+	}EOF
 
 	tags = {
 		"tag-key": "tag-value"

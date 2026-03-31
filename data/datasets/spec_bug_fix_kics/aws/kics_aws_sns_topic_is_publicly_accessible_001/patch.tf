@@ -5,7 +5,9 @@ resource "aws_sns_topic" "positive1" {
 "Statement": [
 {
 "Action": "*",
-"Principal": { "AWS": ["arn:aws:iam::123456789012:root"] },
+"Principal": {
+  "AWS": "arn:aws:iam::${var.account_id}:root"
+},
 "Effect": "Allow",
 "Sid": ""
 }

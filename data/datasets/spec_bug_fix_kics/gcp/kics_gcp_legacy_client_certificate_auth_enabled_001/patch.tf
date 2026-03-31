@@ -5,7 +5,7 @@ resource "google_container_cluster" "positive1" {
 
 	master_auth {
 		client_certificate_config {
-			renew_usages = ["signing", "voting"]
+			issue_client_certificate = false
 		}
 	}
 
@@ -22,7 +22,6 @@ resource "google_container_cluster" "positive2" {
 
 	master_auth {
 		client_certificate_config {
-			renew_usages = ["signing", "voting"]
 			issue_client_certificate = false
 		}
 	}

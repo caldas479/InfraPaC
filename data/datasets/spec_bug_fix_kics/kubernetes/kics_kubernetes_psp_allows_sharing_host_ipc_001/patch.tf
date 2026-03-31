@@ -4,7 +4,16 @@ resource "kubernetes_pod_security_policy" "example2" {
 	}
 	spec {
 		host_ipc = false
-		volumes = ["configMap", "emptyDir", "projected", "secret", "downwardAPI", "persistentVolumeClaim"]
+		privileged = false
+		allow_privilege_escalation = false
+		volumes = [
+			"configMap",
+			"emptyDir",
+			"projected",
+			"secret",
+			"downwardAPI",
+			"persistentVolumeClaim",
+		]
 		run_as_user {
 			rule = "MustRunAsNonRoot"
 		}
@@ -18,7 +27,7 @@ resource "kubernetes_pod_security_policy" "example2" {
 				max = 65535
 			}
 		}
-		fs_group {
+		f_group {
 			rule = "MustRunAs"
 			range {
 				min = 1

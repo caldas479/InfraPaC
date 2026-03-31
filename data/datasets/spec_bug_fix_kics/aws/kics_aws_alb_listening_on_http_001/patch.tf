@@ -1,1 +1,20 @@
-resource "aws_lb_listener" "listener5" {\n  load_balancer_arn = aws_lb.test3.arn\n  port = 80\n  default_action {\n    type = "redirect"\n\n    redirect {\n      port        = "80"\n      protocol    = "HTTPS"\n      status_code = "HTTP_301"\n    }\n  }\n}\n\nresource "aws_lb" "test3" {\n  name = "test123"\n  load_balancer_type = "application"\n  subnets = [aws_subnet.subnet1.id, aws_subnet.subnet2.id]\n  internal = true\n}\n
+resource "aws_lb_listener" "listener5" {
+  load_balancer_arn = aws_lb.test3.arn
+  port = 80
+  default_action {
+    type = "redirect"
+
+    redirect {
+      port        = "80"
+      protocol    = "HTTPS"
+      status_code = "HTTP_301"
+    }
+  }
+}
+
+resource "aws_lb" "test3" {
+  name = "test123"
+  load_balancer_type = "application"
+  subnets = [aws_subnet.subnet1.id, aws_subnet.subnet2.id]
+  internal = true
+}

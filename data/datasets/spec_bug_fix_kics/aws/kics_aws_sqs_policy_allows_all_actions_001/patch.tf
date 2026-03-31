@@ -1,11 +1,11 @@
 resource "aws_sqs_queue" "positive1" {
- name = "examplequeue"
+	name = "examplequeue"
 }
 
 resource "aws_sqs_queue_policy" "positive2" {
- queue_url = aws_sqs_queue.q.id
+	queue_url = aws_sqs_queue.q.id
 
- policy = <<POLICY
+	policy = <<POLICY
 {
   "Version": "2012-10-17",
   "Id": "sqspolicy",
@@ -17,9 +17,7 @@ resource "aws_sqs_queue_policy" "positive2" {
       "Action": ["sqs:SendMessage", "sqs:ReceiveMessage"],
       "Resource": "${aws_sqs_queue.q.arn}",
       "Condition": {
-        "ArnEquals": {
-          "aws:SourceArn": "${aws_sns_topic.example.arn}"
-        }
+        "ArnEquals": { "aws:SourceArn": "${aws_sns_topic.example.arn}" }
       }
     }
   ]

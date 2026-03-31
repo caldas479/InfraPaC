@@ -3,23 +3,22 @@ resource "aws_iam_role" "positive1" {
 
 	assume_role_policy = <<EOF
 {
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Action": ["ec2:Describe*"],
-      "Principal": {
-        "Service": "ec2.amazonaws.com"
-      },
-      "Effect": "Allow",
-      "Resource": "*",
-      "Sid": ""
-    }
-  ]
-}
+		"Version": "2012-10-17",
+		"Statement": [
+			{
+				"Action": ["ec2:Describe*"],
+				"Principal": {
+					"Service": "ec2.amazonaws.com"
+				},
+				"Effect": "Allow",
+				"Resource": "*"
+			}
+		]
+	}
 EOF
 
-	 tags = {
-		tag-key = "tag-value"
+	tags = {
+		"tag-key": "tag-value"
 	}
 }
 
@@ -28,22 +27,21 @@ resource "aws_iam_role" "positive2" {
 
 	assume_role_policy = <<EOF
 {
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Action": ["ec2:Describe*"],
-      "Principal": {
-        "Service": "ec2.amazonaws.com"
-      },
-      "Effect": "Allow",
-      "Resource": "*",
-      "Sid": ""
-    }
-  ]
-}
+		"Version": "2012-10-17",
+		"Statement": [
+			{
+				"Action": ["ec2:Describe*"],
+				"Principal": {
+					"Service": "ec2.amazonaws.com"
+				},
+				"Effect": "Allow",
+				"Resource": "*"
+			}
+		]
+	}
 EOF
 
-	 tags = {
-		tag-key = "tag-value"
+	tags = {
+		"tag-key": "tag-value"
 	}
 }

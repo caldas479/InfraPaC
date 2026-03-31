@@ -11,10 +11,9 @@ resource "aws_dms_replication_instance" "test" {
  replication_instance_class = "dms.t2.micro"
  replication_instance_id = "test-dms-replication-instance-tf"
  replication_subnet_group_id = aws_dms_replication_subnet_group.test-dms-replication-subnet-group-tf.id
-
- vpc_security_group_ids = [
- "sg-12345678",
- ]
-
- depends_on = [aws_iam_role_policy_attachment.dms-access-for-endpoint-AmazonDMSRedshiftS3Role, aws_iam_role_policy_attachment.dms-cloudwatch-logs-role-AmazonDMSCloudWatchLogsRole, aws_iam_role_policy_attachment.dms-vpc-role-AmazonDMSVPCManagementRole]
+ vpc_security_group_ids = [ "sg-12345678" ]
+ depends_on = [
+ aws_iam_role_policy_attachment.dms-access-for-endpoint-AmazonDMSRedshiftS3Role,
+ aws_iam_role_policy_attachment.dms-cloudwatch-logs-role-AmazonDMSCloudWatchLogsRole,
+ aws_iam_role_policy_attachment.dms-vpc-role-AmazonDMSVPCManagementRole ]
  }

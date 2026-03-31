@@ -29,6 +29,4 @@ resource "aws_iam_user_policy" "positive4" {
 EOF
 }
 
-output "secret" {
-  value = aws_iam_access_key.lb.encrypted_secret
-}
+output "secret" { value = aws_iam_access_key.lb.encrypted_secret }

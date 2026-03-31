@@ -3,10 +3,10 @@ resource "aws_ecs_service" "positive1" {
 	cluster = aws_ecs_cluster.foo.id
 	task_definition = aws_ecs_task_definition.mongo.arn
 	desired_count = 3
-	iam_role = "" # admin role removed
+	iam_role = ""
 	depends_on = [aws_iam_role_policy.foo]
 
-	ordered_placement_strategy {
+	older_placement_strategy {
 		type = "binpack"
 		field = "cpu"
 	}

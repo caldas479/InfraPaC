@@ -1,20 +1,19 @@
 resource "aws_iam_access_key" "positive2" {
-  user    = "root"
-  pgp_key = "keybase:some_person_that_exists"
-  status = "Inactive"
+ user = "root"
+ pgp_key = "keybase:some_person_that_exists"
+ status = "Inactive"
 }
 
-resource "aws_iam_user" "lb" {
-  name = "loadbalancer"
-  path = "/system/"
+ resource "aws_iam_user" "lb" {
+ name = "loadbalancer"
+ path = "/system/"
 }
 
-resource "aws_iam_user_policy" "positive5" {
-  name = "test"
-  user = aws_iam_user.lb.name
-
-  policy = <<EOF
-{
+ resource "aws_iam_user_policy" "positive5" {
+ name = "test"
+ user = aws_iam_user.lb.name
+ policy = <<EOF
+ {
   "Version": "2012-10-17",
   "Statement": [
     {
@@ -29,4 +28,6 @@ resource "aws_iam_user_policy" "positive5" {
 EOF
 }
 
-output "secret" { value = aws_iam_access_key.lb.encrypted_secret }
+ output "secret" {
+ value = aws_iam_access_key.lb.encrypted_secret
+}

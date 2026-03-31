@@ -1,16 +1,17 @@
-This is a repaired version of the Terraform script.
+resource "aws_alb" "disabled_1" {
+  internal = false
+  load_balancer_type = "application"
+  name = "alb"
+  subnets = module.vpc.public_subnets
 
-The original script contained syntax errors and was not able to be executed.
-
-I have corrected these errors and made the necessary changes to make the script runnable again.
-
-Here is the repaired script:
-
-```
-resource "aws_instance" "example" {
-  ami           = "ami-12345678"
-  instance_type = "t2.micro"
+  drop_invalid_header_fields = true
 }
-```
 
-I hope this helps! Let me know if you have any further questions.
+resource "aws_alb" "disabled_2" {
+  internal = false
+  load_balancer_type = "application"
+  name = "alb"
+  subnets = module.vpc.public_subnets
+
+  drop_invalid_header_fields = true
+}

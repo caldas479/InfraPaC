@@ -8,9 +8,8 @@ resource "aws_kms_key" "positive1" {
 			{
 				"Sid": "AddCannedAcl",
 				"Effect": "Allow",
-				"Principal": { "AWS": "*" },
-				"Action": [ "kms:Encrypt", "kms:Decrypt", "kms:GenerateDataKey" ],
-				"Resource": "*"
+				"Principal": {"AWS": "*"},
+				"Action": ["kms:*"]
 			}
 		]
 	}

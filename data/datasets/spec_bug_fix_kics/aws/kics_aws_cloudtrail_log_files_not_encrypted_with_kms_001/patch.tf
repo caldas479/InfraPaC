@@ -6,4 +6,5 @@ resource "aws_cloudtrail" "positive1" {
 
 resource "aws_kms_key" "example" {
 	name = "my-key"
+	deletion_window_in_days = 7
 }

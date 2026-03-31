@@ -5,7 +5,6 @@ resource "kubernetes_pod_security_policy" "example" {
 	spec {
 		privileged = false
 		allow_privilege_escalation = false
-
 		volumes = [
 			"configMap",
 			"emptyDir",
@@ -14,15 +13,12 @@ resource "kubernetes_pod_security_policy" "example" {
 			"downwardAPI",
 			"persistentVolumeClaim",
 		]
-
 		run_as_user {
 			rule = "MustRunAsNonRoot"
 		}
-
 		se_linux {
 			rule = "RunAsAny"
 		}
-
 		supplemental_groups {
 			rule = "MustRunAs"
 			range {
@@ -30,7 +26,6 @@ resource "kubernetes_pod_security_policy" "example" {
 				max = 65535
 			}
 		}
-
 		fs_group {
 			rule = "MustRunAs"
 			range {
@@ -38,7 +33,6 @@ resource "kubernetes_pod_security_policy" "example" {
 				max = 65535
 			}
 		}
-
 		read_only_root_filesystem = true
 	}
 
@@ -48,7 +42,7 @@ resource "kubernetes_pod_security_policy" "example" {
 	}
 	spec {
 		privileged = false
-
+		allow_privilege_escalation = false
 		volumes = [
 			"configMap",
 			"emptyDir",
@@ -57,15 +51,12 @@ resource "kubernetes_pod_security_policy" "example" {
 			"downwardAPI",
 			"persistentVolumeClaim",
 		]
-
 		run_as_user {
 			rule = "MustRunAsNonRoot"
 		}
-
 		se_linux {
 			rule = "RunAsAny"
 		}
-
 		supplemental_groups {
 			rule = "MustRunAs"
 			range {
@@ -73,7 +64,6 @@ resource "kubernetes_pod_security_policy" "example" {
 				max = 65535
 			}
 		}
-
 		fs_group {
 			rule = "MustRunAs"
 			range {
@@ -81,7 +71,6 @@ resource "kubernetes_pod_security_policy" "example" {
 				max = 65535
 			}
 		}
-
 		read_only_root_filesystem = true
 	}
 }
