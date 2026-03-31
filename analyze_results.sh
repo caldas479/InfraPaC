@@ -108,6 +108,20 @@ if [ -n "$ITERATION_STATS" ]; then
 else
     echo "  No iteration data found"
 fi
+
+# Mean Repair Attempts (MRA)
+MRA=$(grep -E "✓ Repair successful in [0-9]+ iteration" "$LOG_FILE" | \
+    sed -E 's/.*in ([0-9]+) iteration.*/\1/' | \
+    python3 -c "
+import sys
+values = [int(x.strip()) for x in sys.stdin if x.strip()]
+if values:
+    print(f'  Mean Repair Attempts (MRA): {sum(values)/len(values):.2f}')
+    print('  (avg iterations across successful repairs — lower is more efficient)')
+else:
+    print('  Mean Repair Attempts (MRA): N/A')
+")
+echo "$MRA"
 echo ""
 
 # Category breakdown
