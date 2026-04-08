@@ -1,7 +1,8 @@
 # ============================================================================
 
 import logging
-from typing import Any, Dict, List, Optional
+import os
+from typing import Any, Dict, List
 
 from langchain_ollama import ChatOllama
 from langchain_openai import ChatOpenAI
@@ -46,6 +47,18 @@ class RepairChain:
                 temperature=self.llm_config.get("temperature", 0.2),
                 max_tokens=self.llm_config.get("max_tokens", 2048),
                 timeout=self.llm_config.get("timeout", 60),
+            )
+        elif provider == "openrouter":
+            api_key = self.llm_config.get("api_key") or os.environ.get(
+                "OPENROUTER_API_KEY", ""
+            )
+            llm = ChatOpenAI(
+                model=self.llm_config.get("model", "meta-llama/llama-3.3-70b-instruct"),
+                temperature=self.llm_config.get("temperature", 0.2),
+                max_tokens=self.llm_config.get("max_tokens", 2048),
+                timeout=self.llm_config.get("timeout", 120),
+                openai_api_base="https://openrouter.ai/api/v1",
+                openai_api_key=api_key,
             )
         # Add other providers (HuggingFace, Anthropic) as needed
         else:
