@@ -77,10 +77,12 @@ def compute_cost(model: str, prompt_tokens: int, completion_tokens: int) -> floa
     ) / 1_000_000
 
 
-def build_llm_config(model: str, base_config: Dict[str, Any]) -> Dict[str, Any]:
-    """Build the LLM config dict for OpenRouter, overriding base config values."""
+def build_llm_config(
+    model: str, provider: str, base_config: Dict[str, Any]
+) -> Dict[str, Any]:
+    """Build the LLM config dict for the given provider, overriding base config values."""
     llm_cfg = dict(base_config.get("llm", {}))
-    llm_cfg["provider"] = "openrouter"
+    llm_cfg["provider"] = provider
     llm_cfg["model"] = model
     llm_cfg["temperature"] = 0.2
     llm_cfg["max_tokens"] = 2048
@@ -179,6 +181,8 @@ def process_entry(
         }
 
     # Run repair with token/cost tracking
+    # get_openai_callback() only captures usage from OpenAI-compatible responses;
+    # for Ollama it returns zeros, which is fine since cost is $0 anyway.
     try:
         with get_openai_callback() as cb:
             result = repair_agent.repair(
@@ -190,7 +194,6 @@ def process_entry(
         prompt_tokens = cb.prompt_tokens
         completion_tokens = cb.completion_tokens
         model_id = llm_config.get("model", "")
-        # OpenRouter doesn't return cost via the callback; calculate from token counts.
         total_cost = compute_cost(model_id, prompt_tokens, completion_tokens)
 
     except Exception as exc:
@@ -252,9 +255,17 @@ def main() -> None:
         type=str,
         required=True,
         help=(
-            "OpenRouter model string "
-            "(e.g. meta-llama/llama-3.3-70b-instruct, deepseek/deepseek-chat-v3-0324)"
+            "Model name — OpenRouter string for cloud models "
+            "(e.g. meta-llama/llama-3.3-70b-instruct) or Ollama model name "
+            "(e.g. codellama)"
         ),
+    )
+    parser.add_argument(
+        "--provider",
+        type=str,
+        default="openrouter",
+        choices=["openrouter", "ollama"],
+        help="LLM provider (default: openrouter)",
     )
     parser.add_argument(
         "--workers",
@@ -286,7 +297,7 @@ def main() -> None:
     import os
 
     load_environment()  # loads .env if present
-    if not os.environ.get("OPENROUTER_API_KEY"):
+    if args.provider == "openrouter" and not os.environ.get("OPENROUTER_API_KEY"):
         print("ERROR: OPENROUTER_API_KEY environment variable is not set.")
         sys.exit(1)
 
@@ -318,7 +329,7 @@ def main() -> None:
     # Load base config and build LLM config
     # -----------------------------------------------------------------------
     config = load_config("src/config/default_config.yaml")
-    llm_config = build_llm_config(args.model, config)
+    llm_config = build_llm_config(args.model, args.provider, config)
 
     # -----------------------------------------------------------------------
     # Set up logging
@@ -338,7 +349,7 @@ def main() -> None:
     logger.info("RQ2 Model Comparison Experiment")
     logger.info("=" * 70)
     logger.info(f"Model:          {args.model}")
-    logger.info(f"Provider:       openrouter")
+    logger.info(f"Provider:       {args.provider}")
     logger.info(f"Temperature:    {llm_config['temperature']}")
     logger.info(f"Max tokens:     {llm_config['max_tokens']}")
     logger.info(f"Max iterations: {config.get('repair', {}).get('max_iterations', 3)}")
