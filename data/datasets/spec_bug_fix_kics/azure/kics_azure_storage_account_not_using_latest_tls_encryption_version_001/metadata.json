@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_azure_storage_account_not_using_latest_tls_encryption_version_001",
+  "category": "azure",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "storage_account_not_using_latest_tls_encryption_version",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "8263f146-5e03-43e0-9cfe-db960d56d1e7",
+  "query_name": "Storage Account Not Using Latest TLS Encryption Version"
+}

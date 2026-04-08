@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_azure_ad_admin_not_configured_for_sql_server_001",
+  "category": "azure",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "ad_admin_not_configured_for_sql_server",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "a3a055d2-9a2e-4cc9-b9fb-12850a1a3a4b",
+  "query_name": "AD Admin Not Configured For SQL Server"
+}

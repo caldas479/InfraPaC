@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_azure_cosmosdb_account_ip_range_filter_not_set_001",
+  "category": "azure",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "cosmosdb_account_ip_range_filter_not_set",
+  "description": "",
+  "severity": "CRITICAL",
+  "query_id": "c2a3efb6-8a58-481c-82f2-bfddf34bb4b7",
+  "query_name": "CosmosDB Account IP Range Filter Not Set"
+}

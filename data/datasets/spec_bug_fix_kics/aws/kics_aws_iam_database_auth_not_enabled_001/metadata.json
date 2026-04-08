@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_iam_database_auth_not_enabled_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "iam_database_auth_not_enabled",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "88fd05e0-ac0e-43d2-ba6d-fc0ba60ae1a6",
+  "query_name": "IAM Database Auth Not Enabled"
+}

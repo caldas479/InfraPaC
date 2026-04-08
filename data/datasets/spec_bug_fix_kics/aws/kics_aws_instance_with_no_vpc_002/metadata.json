@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_instance_with_no_vpc_002",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "instance_with_no_vpc",
+  "description": "",
+  "severity": "LOW",
+  "query_id": "a31a5a29-718a-4ff4-8001-a69e5e4d029e",
+  "query_name": "Instance With No VPC"
+}

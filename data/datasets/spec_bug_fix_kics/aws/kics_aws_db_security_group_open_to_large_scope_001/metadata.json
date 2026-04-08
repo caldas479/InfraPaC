@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_db_security_group_open_to_large_scope_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "db_security_group_open_to_large_scope",
+  "description": "",
+  "severity": "HIGH",
+  "query_id": "4f615f3e-fb9c-4fad-8b70-2e9f781806ce",
+  "query_name": "DB Security Group Open To Large Scope"
+}

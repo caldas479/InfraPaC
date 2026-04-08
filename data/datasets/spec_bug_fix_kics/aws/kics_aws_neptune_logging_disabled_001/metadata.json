@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_neptune_logging_disabled_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "neptune_logging_disabled",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "45cff7b6-3b80-40c1-ba7b-2cf480678bb8",
+  "query_name": "Neptune Logging Is Disabled"
+}

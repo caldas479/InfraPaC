@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_iam_user_too_many_access_keys_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "iam_user_too_many_access_keys",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "3561130e-9c5f-485b-9e16-2764c82763e5",
+  "query_name": "IAM User Has Too Many Access Keys"
+}

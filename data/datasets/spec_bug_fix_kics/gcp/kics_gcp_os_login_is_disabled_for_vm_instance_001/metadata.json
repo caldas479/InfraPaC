@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_gcp_os_login_is_disabled_for_vm_instance_001",
+  "category": "gcp",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "os_login_is_disabled_for_vm_instance",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "d0b4d550-c001-46c3-bbdb-d5d75d33f05f",
+  "query_name": "OSLogin Is Disabled For VM Instance"
+}

@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_certificate_rsa_key_bytes_lower_than_256_002",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "certificate_rsa_key_bytes_lower_than_256",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "874d68a3-bfbe-4a4b-aaa0-9e74d7da634b",
+  "query_name": "Certificate RSA Key Bytes Lower Than 256"
+}

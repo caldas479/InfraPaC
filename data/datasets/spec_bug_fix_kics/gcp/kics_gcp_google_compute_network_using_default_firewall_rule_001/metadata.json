@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_gcp_google_compute_network_using_default_firewall_rule_001",
+  "category": "gcp",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "google_compute_network_using_default_firewall_rule",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "40abce54-95b1-478c-8e5f-ea0bf0bb0e33",
+  "query_name": "Google Compute Network Using Default Firewall Rule"
+}

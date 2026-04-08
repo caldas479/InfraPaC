@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_glue_with_vulnerable_policy_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "glue_with_vulnerable_policy",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "d25edb51-07fb-4a73-97d4-41cecdc53a22",
+  "query_name": "Glue With Vulnerable Policy"
+}

@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_azure_postgresql_log_duration_not_set_001",
+  "category": "azure",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "postgresql_log_duration_not_set",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "16e0879a-c4ae-4ff8-a67d-a2eed5d67b8f",
+  "query_name": "PostgreSQL Log Duration Not Set"
+}

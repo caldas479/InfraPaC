@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_kubernetes_service_account_name_undefined_or_empty_002",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "service_account_name_undefined_or_empty",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "24b132df-5cc7-4823-8029-f898e1c50b72",
+  "query_name": "Service Account Name Undefined Or Empty"
+}

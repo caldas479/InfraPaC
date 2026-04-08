@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_kubernetes_secrets_as_environment_variables_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "secrets_as_environment_variables",
+  "description": "",
+  "severity": "LOW",
+  "query_id": "6d8f1a10-b6cd-48f0-b960-f7c535d5cdb8",
+  "query_name": "Secrets As Environment Variables"
+}

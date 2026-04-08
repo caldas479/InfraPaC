@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_azure_function_app_client_certificates_unrequired_002",
+  "category": "azure",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "function_app_client_certificates_unrequired",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "9bb3c639-5edf-458c-8ee5-30c17c7d671d",
+  "query_name": "Function App Client Certificates Unrequired"
+}

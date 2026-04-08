@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_kubernetes_service_type_is_nodeport_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "service_type_is_nodeport",
+  "description": "",
+  "severity": "LOW",
+  "query_id": "5c281bf8-d9bb-47f2-b909-3f6bb11874ad",
+  "query_name": "Service Type is NodePort"
+}

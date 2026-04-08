@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_elasticache_nodes_not_created_across_multi_az_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "elasticache_nodes_not_created_across_multi_az",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "6db03a91-f933-4f13-ab38-a8b87a7de54d",
+  "query_name": "ElastiCache Nodes Not Created Across Multi AZ"
+}

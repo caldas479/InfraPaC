@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_cloudtrail_log_files_not_encrypted_with_kms_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "cloudtrail_log_files_not_encrypted_with_kms",
+  "description": "",
+  "severity": "LOW",
+  "query_id": "5d9e3164-9265-470c-9a10-57ae454ac0c7",
+  "query_name": "CloudTrail Log Files Not Encrypted With KMS"
+}

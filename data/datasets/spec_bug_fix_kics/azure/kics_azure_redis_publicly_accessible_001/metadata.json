@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_azure_redis_publicly_accessible_001",
+  "category": "azure",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "redis_publicly_accessible",
+  "description": "",
+  "severity": "CRITICAL",
+  "query_id": "5089d055-53ff-421b-9482-a5267bdce629",
+  "query_name": "Redis Publicly Accessible"
+}

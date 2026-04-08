@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_security_group_without_description_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "security_group_without_description",
+  "description": "",
+  "severity": "INFO",
+  "query_id": "cb3f5ed6-0d18-40de-a93d-b3538db31e8c",
+  "query_name": "Security Group Without Description"
+}

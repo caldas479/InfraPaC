@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_msk_cluster_encryption_disabled_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "msk_cluster_encryption_disabled",
+  "description": "",
+  "severity": "HIGH",
+  "query_id": "6db52fa6-d4da-4608-908a-89f0c59e743e",
+  "query_name": "MSK Cluster Encryption Disabled"
+}

@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_ssm_session_transit_encryption_disabled_002",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "ssm_session_transit_encryption_disabled",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "ce60cc6b-6831-4bd7-84a2-cc7f8ee71433",
+  "query_name": "SSM Session Transit Encryption Disabled"
+}

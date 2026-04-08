@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_azure_mysql_ssl_connection_disabled_001",
+  "category": "azure",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "mysql_ssl_connection_disabled",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "73e42469-3a86-4f39-ad78-098f325b4e9f",
+  "query_name": "MySQL SSL Connection Disabled"
+}

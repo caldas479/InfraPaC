@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_gcp_google_compute_network_using_firewall_rule_allows_all_ports_001",
+  "category": "gcp",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "google_compute_network_using_firewall_rule_allows_all_ports",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "22ef1d26-80f8-4a6c-8c15-f35aab3cac78",
+  "query_name": "Google Compute Network Using Firewall Rule that Allows All Ports"
+}

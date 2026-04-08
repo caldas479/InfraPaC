@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_elb_access_logging_disabled_002",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "elb_access_logging_disabled",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "20018359-6fd7-4d05-ab26-d4dffccbdf79",
+  "query_name": "ELB Access Log Disabled"
+}

@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_iam_user_with_access_to_console_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "iam_user_with_access_to_console",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "9ec311bf-dfd9-421f-8498-0b063c8bc552",
+  "query_name": "IAM User With Access To Console"
+}

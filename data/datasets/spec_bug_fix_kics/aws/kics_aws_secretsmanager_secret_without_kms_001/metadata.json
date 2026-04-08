@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_secretsmanager_secret_without_kms_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "secretsmanager_secret_without_kms",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "a2f548f2-188c-4fff-b172-e9a6acb216bd",
+  "query_name": "Secretsmanager Secret Without KMS"
+}

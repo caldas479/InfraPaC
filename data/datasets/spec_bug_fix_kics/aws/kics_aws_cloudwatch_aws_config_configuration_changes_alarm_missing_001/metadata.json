@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_cloudwatch_aws_config_configuration_changes_alarm_missing_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "cloudwatch_aws_config_configuration_changes_alarm_missing",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "5b8d7527-de8e-4114-b9dd-9d988f1f418f",
+  "query_name": "CloudWatch AWS Config Configuration Changes Alarm Missing"
+}

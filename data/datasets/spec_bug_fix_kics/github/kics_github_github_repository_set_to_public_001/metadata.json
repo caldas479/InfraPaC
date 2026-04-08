@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_github_github_repository_set_to_public_001",
+  "category": "github",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "github_repository_set_to_public",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "15d8a7fd-465a-4d15-a868-add86552f17b",
+  "query_name": "GitHub Repository Set To Public"
+}

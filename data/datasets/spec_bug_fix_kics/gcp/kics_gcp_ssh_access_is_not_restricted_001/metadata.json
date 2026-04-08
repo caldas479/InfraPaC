@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_gcp_ssh_access_is_not_restricted_001",
+  "category": "gcp",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "ssh_access_is_not_restricted",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "c4dcdcdf-10dd-4bf4-b4a0-8f6239e6aaa0",
+  "query_name": "SSH Access Is Not Restricted"
+}

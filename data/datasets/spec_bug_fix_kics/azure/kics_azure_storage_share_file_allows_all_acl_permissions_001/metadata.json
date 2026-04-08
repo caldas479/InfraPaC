@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_azure_storage_share_file_allows_all_acl_permissions_001",
+  "category": "azure",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "storage_share_file_allows_all_acl_permissions",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "48bbe0fd-57e4-4678-a4a1-119e79c90fc3",
+  "query_name": "Storage Share File Allows All ACL Permissions"
+}

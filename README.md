@@ -1,29 +1,30 @@
 # InfraPaC: Automated Infrastructure as Code Repair via Policy as Code
 
-InfraPaC is an automated Infrastructure as Code (IaC) repair framework that uses Large Language Models to fix policy violations in IaC configurations. The system detects violations using Policy as Code engines (OPA/Sentinel), generates fixes via LLMs, and iteratively validates repairs until compliance is achieved.
+InfraPaC is an automated Infrastructure as Code (IaC) repair framework that uses Large Language Models to fix policy violations in IaC configurations. The system detects violations using Policy as Code engines (OPA/Sentinel/KICS), generates fixes via LLMs, and iteratively validates repairs until compliance is achieved.
 
 ## Overview
 
 InfraPaC is a framework that:
 
-1. Detects policy violations in IaC scripts using Policy as Code engines (OPA/Sentinel)
+1. Detects policy violations in IaC scripts using Policy as Code engines (OPA/Sentinel/KICS)
 2. Automatically generates fixes using LLMs
 3. Validates the repairs to ensure policy compliance
 4. Iterates until all violations are resolved or max retries are reached
 
 ## Features
 
-- 🔍 Policy Violation Detection using Open Policy Agent (OPA)
+- 🔍 Policy Violation Detection using OPA, Sentinel, or KICS
 - 🤖 LLM-based Repair Generation (supports OpenAI, Ollama models)
 - ✅ Automated Fix Validation
 - 🔄 Iterative Repair Process
 - 📊 Evaluation Metrics (Fix Rate, Retry Rate)
 - 🎯 Modular Design for Multiple PaC Engines
+- 📦 Large-scale Dataset Support (700+ KICS examples)
 
 ## Prerequisites
 
 - Python 3.12+
-- Open Policy Agent (OPA) CLI
+- Policy Engine: OPA CLI, KICS, or Sentinel
 - Ollama (for local LLMs) or OpenAI API key
 
 ## Installation
@@ -50,19 +51,31 @@ source .venv/bin/activate  # Linux/macOS
 pip install -e .
 ```
 
-4. Install OPA:
+4. Install a Policy Engine:
 
-**macOS (Homebrew - Recommended):**
+**KICS (Recommended for comprehensive security scanning):**
 ```bash
-brew install opa
+# macOS (Homebrew)
+brew install kics
+
+# Linux
+curl -L https://github.com/Checkmarx/kics/releases/latest/download/kics_linux_amd64.tar.gz | tar -xz
+sudo mv kics /usr/local/bin
 ```
 
-**Linux:**
+**OPA (Open Policy Agent):**
 ```bash
+# macOS (Homebrew)
+brew install opa
+
+# Linux
 curl -L -o opa https://openpolicyagent.org/downloads/v0.57.1/opa_linux_amd64_static
 chmod 755 opa
 sudo mv opa /usr/local/bin
 ```
+
+**Sentinel (HashiCorp):**
+- Download from https://docs.hashicorp.com/sentinel/downloads
 
 
 5. Install and start Ollama (optional, for local LLMs):
@@ -77,6 +90,21 @@ ollama pull codellama
 ```
 
 ## Usage
+
+### Using KICS Engine
+
+Example repairing an Elasticsearch configuration to enable slow logs:
+
+```bash
+# Using KICS policy engine
+uv run python main.py \
+  --policy-engine kics \
+  --policy data/datasets/spec_bug_fix_kics/aws/kics_aws_elasticsearch_without_slow_logs_001/policy.rego \
+  --iac data/datasets/spec_bug_fix_kics/aws/kics_aws_elasticsearch_without_slow_logs_001/buggy.tf \
+  --verbose
+```
+
+### Using OPA Engine
 
 Basic example repairing an S3 bucket configuration to enable versioning:
 
@@ -116,7 +144,32 @@ The tool will:
 
 ## Dataset Management
 
-### Generate Patches
+### KICS Dataset
+
+Generate patches for the KICS dataset (700+ entries):
+
+```bash
+# Generate patches for all KICS entries
+uv run python generate_patches_kics.py
+
+# Generate patch for a specific entry
+uv run python generate_patches_kics.py --entry-id kics_aws_elasticsearch_without_slow_logs_001
+
+# Generate patches for a specific category (aws, azure, gcp, kubernetes, github)
+uv run python generate_patches_kics.py --category aws
+
+# Skip entries that already have patches
+uv run python generate_patches_kics.py --skip-existing --verbose
+```
+
+The KICS dataset includes:
+- 453 AWS security checks
+- 120 Azure security checks
+- 60 GCP security checks
+- 73 Kubernetes security checks
+- 2 GitHub security checks
+
+### SpecBugFix Dataset
 
 Generate patches for dataset entries using the repair framework:
 

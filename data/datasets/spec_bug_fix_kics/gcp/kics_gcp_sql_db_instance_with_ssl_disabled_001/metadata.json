@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_gcp_sql_db_instance_with_ssl_disabled_001",
+  "category": "gcp",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "sql_db_instance_with_ssl_disabled",
+  "description": "",
+  "severity": "HIGH",
+  "query_id": "02474449-71aa-40a1-87ae-e14497747b00",
+  "query_name": "SQL DB Instance With SSL Disabled"
+}

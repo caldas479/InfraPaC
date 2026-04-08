@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_kinesis_not_encrypted_with_kms_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "kinesis_not_encrypted_with_kms",
+  "description": "",
+  "severity": "HIGH",
+  "query_id": "862fe4bf-3eec-4767-a517-40f378886b88",
+  "query_name": "Kinesis Not Encrypted With KMS"
+}

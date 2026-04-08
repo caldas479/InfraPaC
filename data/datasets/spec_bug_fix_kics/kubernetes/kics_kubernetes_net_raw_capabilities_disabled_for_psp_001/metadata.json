@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_kubernetes_net_raw_capabilities_disabled_for_psp_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "net_raw_capabilities_disabled_for_psp",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "9aa32890-ac1a-45ee-81ca-5164e2098556",
+  "query_name": "NET_RAW Capabilities Disabled for PSP"
+}

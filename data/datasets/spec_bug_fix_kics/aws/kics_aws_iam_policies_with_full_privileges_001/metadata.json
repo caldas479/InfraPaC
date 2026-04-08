@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_iam_policies_with_full_privileges_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "iam_policies_with_full_privileges",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "2f37c4a3-58b9-4afe-8a87-d7f1d2286f84",
+  "query_name": "IAM Policies With Full Privileges"
+}

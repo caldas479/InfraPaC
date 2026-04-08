@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_gcp_iam_audit_not_properly_configured_001",
+  "category": "gcp",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "iam_audit_not_properly_configured",
+  "description": "",
+  "severity": "LOW",
+  "query_id": "89fe890f-b480-460c-8b6b-7d8b1468adb4",
+  "query_name": "IAM Audit Not Properly Configured"
+}

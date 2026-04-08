@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_gcp_cloud_dns_without_dnssec_001",
+  "category": "gcp",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "cloud_dns_without_dnssec",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "5ef61c88-bbb4-4725-b1df-55d23c9676bb",
+  "query_name": "Cloud DNS Without DNSSEC"
+}

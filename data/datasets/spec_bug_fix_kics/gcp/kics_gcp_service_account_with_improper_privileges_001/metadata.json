@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_gcp_service_account_with_improper_privileges_001",
+  "category": "gcp",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "service_account_with_improper_privileges",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "cefdad16-0dd5-4ac5-8ed2-a37502c78672",
+  "query_name": "Service Account with Improper Privileges"
+}

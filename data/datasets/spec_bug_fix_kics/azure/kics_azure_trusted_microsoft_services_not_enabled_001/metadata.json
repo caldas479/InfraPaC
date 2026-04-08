@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_azure_trusted_microsoft_services_not_enabled_001",
+  "category": "azure",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "trusted_microsoft_services_not_enabled",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "5400f379-a347-4bdd-a032-446465fdcc6f",
+  "query_name": "Trusted Microsoft Services Not Enabled"
+}

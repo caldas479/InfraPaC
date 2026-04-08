@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_alb_not_dropping_invalid_headers_002",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "alb_not_dropping_invalid_headers",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "6e3fd2ed-5c83-4c68-9679-7700d224d379",
+  "query_name": "ALB Not Dropping Invalid Headers"
+}

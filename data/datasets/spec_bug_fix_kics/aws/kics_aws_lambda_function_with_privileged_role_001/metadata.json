@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_lambda_function_with_privileged_role_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "lambda_function_with_privileged_role",
+  "description": "",
+  "severity": "HIGH",
+  "query_id": "1b3af2f9-af8c-4dfc-a0f1-a03adb70deb2",
+  "query_name": "Lambda Function With Privileged Role"
+}

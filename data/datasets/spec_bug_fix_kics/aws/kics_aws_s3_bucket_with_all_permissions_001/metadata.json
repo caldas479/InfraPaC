@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_s3_bucket_with_all_permissions_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "s3_bucket_with_all_permissions",
+  "description": "",
+  "severity": "CRITICAL",
+  "query_id": "a4966c4f-9141-48b8-a564-ffe9959945bc",
+  "query_name": "S3 Bucket With All Permissions"
+}

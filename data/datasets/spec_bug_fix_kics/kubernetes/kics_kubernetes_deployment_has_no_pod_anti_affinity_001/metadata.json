@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_kubernetes_deployment_has_no_pod_anti_affinity_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "deployment_has_no_pod_anti_affinity",
+  "description": "",
+  "severity": "LOW",
+  "query_id": "461ed7e4-f8d5-4bc1-b3c6-64ddb4fd00a3",
+  "query_name": "Deployment Has No PodAntiAffinity"
+}

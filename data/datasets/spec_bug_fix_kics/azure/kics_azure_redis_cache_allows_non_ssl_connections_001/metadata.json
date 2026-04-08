@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_azure_redis_cache_allows_non_ssl_connections_001",
+  "category": "azure",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "redis_cache_allows_non_ssl_connections",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "e29a75e6-aba3-4896-b42d-b87818c16b58",
+  "query_name": "Redis Cache Allows Non SSL Connections"
+}

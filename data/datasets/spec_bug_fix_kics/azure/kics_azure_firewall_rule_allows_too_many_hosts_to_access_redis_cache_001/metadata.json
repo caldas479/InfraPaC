@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_azure_firewall_rule_allows_too_many_hosts_to_access_redis_cache_001",
+  "category": "azure",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "firewall_rule_allows_too_many_hosts_to_access_redis_cache",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "a829b715-cf75-4e92-b645-54c9b739edfb",
+  "query_name": "Firewall Rule Allows Too Many Hosts To Access Redis Cache"
+}

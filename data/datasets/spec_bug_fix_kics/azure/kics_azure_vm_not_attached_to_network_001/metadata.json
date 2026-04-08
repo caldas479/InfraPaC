@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_azure_vm_not_attached_to_network_001",
+  "category": "azure",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "vm_not_attached_to_network",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "bbf6b3df-4b65-4f87-82cc-da9f30f8c033",
+  "query_name": "VM Not Attached To Network"
+}

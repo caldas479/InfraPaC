@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_role_with_privilege_escalation_by_actions_iam_UpdateAssumeRolePolicy_and_sts_AssumeRole_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "role_with_privilege_escalation_by_actions_iam_UpdateAssumeRolePolicy_and_sts_AssumeRole",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "f1173d8c-3264-4148-9fdb-61181e031b51",
+  "query_name": "Role With Privilege Escalation By Actions 'iam:UpdateAssumeRolePolicy' And 'sts:AssumeRole'"
+}

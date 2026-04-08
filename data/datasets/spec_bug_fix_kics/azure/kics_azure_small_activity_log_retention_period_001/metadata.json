@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_azure_small_activity_log_retention_period_001",
+  "category": "azure",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "small_activity_log_retention_period",
+  "description": "",
+  "severity": "LOW",
+  "query_id": "2b856bf9-8e8c-4005-875f-303a8cba3918",
+  "query_name": "Small Activity Log Retention Period"
+}

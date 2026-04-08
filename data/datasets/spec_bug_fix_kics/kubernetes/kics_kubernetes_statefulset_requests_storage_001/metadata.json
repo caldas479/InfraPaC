@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_kubernetes_statefulset_requests_storage_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "statefulset_requests_storage",
+  "description": "",
+  "severity": "LOW",
+  "query_id": "fcc2612a-1dfe-46e4-8ce6-0320959f0040",
+  "query_name": "StatefulSet Requests Storage"
+}

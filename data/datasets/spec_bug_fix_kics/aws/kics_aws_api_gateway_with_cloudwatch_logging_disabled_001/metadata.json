@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_api_gateway_with_cloudwatch_logging_disabled_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "api_gateway_with_cloudwatch_logging_disabled",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "982aa526-6970-4c59-8b9b-2ce7e019fe36",
+  "query_name": "API Gateway With CloudWatch Logging Disabled"
+}

@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_mq_broker_logging_disabled_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "mq_broker_logging_disabled",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "31245f98-a6a9-4182-9fc1-45482b9d030a",
+  "query_name": "MQ Broker Logging Disabled"
+}

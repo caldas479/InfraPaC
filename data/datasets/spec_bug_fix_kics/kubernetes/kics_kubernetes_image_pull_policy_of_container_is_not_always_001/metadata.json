@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_kubernetes_image_pull_policy_of_container_is_not_always_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "image_pull_policy_of_container_is_not_always",
+  "description": "",
+  "severity": "LOW",
+  "query_id": "aa737abf-6b1d-4aba-95aa-5c160bd7f96e",
+  "query_name": "Image Pull Policy Of The Container Is Not Set To Always"
+}

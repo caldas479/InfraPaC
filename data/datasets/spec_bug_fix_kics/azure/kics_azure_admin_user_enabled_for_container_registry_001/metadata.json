@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_azure_admin_user_enabled_for_container_registry_001",
+  "category": "azure",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "admin_user_enabled_for_container_registry",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "b897dfbf-322c-45a8-b67c-1e698beeaa51",
+  "query_name": "Admin User Enabled For Container Registry"
+}

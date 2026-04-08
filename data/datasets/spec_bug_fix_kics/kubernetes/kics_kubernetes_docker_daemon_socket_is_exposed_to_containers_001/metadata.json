@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_kubernetes_docker_daemon_socket_is_exposed_to_containers_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "docker_daemon_socket_is_exposed_to_containers",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "4e203a65-c8d8-49a2-b749-b124d43c9dc1",
+  "query_name": "Docker Daemon Socket is Exposed to Containers"
+}

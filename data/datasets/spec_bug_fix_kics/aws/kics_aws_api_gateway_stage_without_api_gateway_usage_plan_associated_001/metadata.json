@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_api_gateway_stage_without_api_gateway_usage_plan_associated_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "api_gateway_stage_without_api_gateway_usage_plan_associated",
+  "description": "",
+  "severity": "LOW",
+  "query_id": "c999cf62-0920-40f8-8dda-0caccd66ed7e",
+  "query_name": "API Gateway Stage Without API Gateway UsagePlan Associated"
+}

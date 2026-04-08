@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_iam_group_without_users_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "iam_group_without_users",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "fc101ca7-c9dd-4198-a1eb-0fbe92e80044",
+  "query_name": "IAM Group Without Users"
+}

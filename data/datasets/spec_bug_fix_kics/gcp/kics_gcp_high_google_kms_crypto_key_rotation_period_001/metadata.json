@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_gcp_high_google_kms_crypto_key_rotation_period_001",
+  "category": "gcp",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "high_google_kms_crypto_key_rotation_period",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "d8c57c4e-bf6f-4e32-a2bf-8643532de77b",
+  "query_name": "High Google KMS Crypto Key Rotation Period"
+}

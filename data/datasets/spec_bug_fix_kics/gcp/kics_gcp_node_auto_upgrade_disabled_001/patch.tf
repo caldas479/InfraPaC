@@ -1,0 +1,13 @@
+resource "google_container_node_pool" "my-node-pool" {
+	name = "my-node-pool"
+	location = "us-central1-a"
+	cluster = google_container_cluster.primary.name
+	node_count = 3
+	timeouts {
+		create = "30m"
+		update = "20m"
+	}
+	management {
+		auto_upgrade = true
+	}
+}

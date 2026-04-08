@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_s3_bucket_without_versioning_002",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "s3_bucket_without_versioning",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "568a4d22-3517-44a6-a7ad-6a7eed88722c",
+  "query_name": "S3 Bucket Without Versioning"
+}

@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_kubernetes_shared_host_ipc_namespace_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "shared_host_ipc_namespace",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "e94d3121-c2d1-4e34-a295-139bfeb73ea3",
+  "query_name": "Shared Host IPC Namespace"
+}

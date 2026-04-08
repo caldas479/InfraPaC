@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_elasticsearch_with_https_disabled_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "elasticsearch_with_https_disabled",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "2e9e0729-66d5-4148-9d39-5e6fb4bf2a4e",
+  "query_name": "Elasticsearch with HTTPS disabled"
+}

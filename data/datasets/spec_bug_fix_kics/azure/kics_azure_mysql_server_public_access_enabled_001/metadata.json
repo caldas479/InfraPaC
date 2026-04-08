@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_azure_mysql_server_public_access_enabled_001",
+  "category": "azure",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "mysql_server_public_access_enabled",
+  "description": "",
+  "severity": "HIGH",
+  "query_id": "f118890b-2468-42b1-9ce9-af35146b425b",
+  "query_name": "MySQL Server Public Access Enabled"
+}

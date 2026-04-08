@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_gcp_dnssec_using_rsasha1_001",
+  "category": "gcp",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "dnssec_using_rsasha1",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "ccc3100c-0fdd-4a5e-9908-c10107291860",
+  "query_name": "DNSSEC Using RSASHA1"
+}

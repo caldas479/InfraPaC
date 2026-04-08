@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_azure_mariadb_server_georedundant_backup_disabled_001",
+  "category": "azure",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "mariadb_server_georedundant_backup_disabled",
+  "description": "",
+  "severity": "LOW",
+  "query_id": "0a70d5f3-1ecd-4c8e-9292-928fc9a8c4f1",
+  "query_name": "MariaDB Server Geo-redundant Backup Disabled"
+}

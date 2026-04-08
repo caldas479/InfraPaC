@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_azure_app_service_authentication_disabled_001",
+  "category": "azure",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "app_service_authentication_disabled",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "c7fc1481-2899-4490-bbd8-544a3a61a2f3",
+  "query_name": "App Service Authentication Disabled"
+}

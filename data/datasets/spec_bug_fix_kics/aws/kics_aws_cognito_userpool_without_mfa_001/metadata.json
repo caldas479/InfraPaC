@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_cognito_userpool_without_mfa_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "cognito_userpool_without_mfa",
+  "description": "",
+  "severity": "LOW",
+  "query_id": "ec28bf61-a474-4dbe-b414-6dd3a067d6f0",
+  "query_name": "Cognito UserPool Without MFA"
+}

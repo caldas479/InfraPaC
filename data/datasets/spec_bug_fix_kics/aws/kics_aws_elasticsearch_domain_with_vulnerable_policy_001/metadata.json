@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_elasticsearch_domain_with_vulnerable_policy_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "elasticsearch_domain_with_vulnerable_policy",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "16c4216a-50d3-4785-bfb2-4adb5144a8ba",
+  "query_name": "Elasticsearch Domain With Vulnerable Policy"
+}

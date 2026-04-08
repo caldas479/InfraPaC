@@ -24,6 +24,11 @@ sentinel:
   binary_path: "/usr/local/bin/sentinel"
   timeout: 30
 
+# KICS Configuration
+kics:
+  binary_path: "kics"
+  timeout: 60
+
 # Dataset Configuration
 dataset:
   base_path: "data/datasets/spec_bug_fix"

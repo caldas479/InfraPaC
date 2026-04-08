@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_api_gateway_deployment_without_api_gateway_usage_plan_associated_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "api_gateway_deployment_without_api_gateway_usage_plan_associated",
+  "description": "",
+  "severity": "LOW",
+  "query_id": "b3a59b8e-94a3-403e-b6e2-527abaf12034",
+  "query_name": "API Gateway Deployment Without API Gateway UsagePlan Associated"
+}

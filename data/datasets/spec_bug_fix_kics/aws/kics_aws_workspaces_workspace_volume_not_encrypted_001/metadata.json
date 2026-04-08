@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_workspaces_workspace_volume_not_encrypted_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "workspaces_workspace_volume_not_encrypted",
+  "description": "",
+  "severity": "HIGH",
+  "query_id": "b9033580-6886-401a-8631-5f19f5bb24c7",
+  "query_name": "Workspaces Workspace Volume Not Encrypted"
+}

@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_ses_policy_with_allowed_iam_actions_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "ses_policy_with_allowed_iam_actions",
+  "description": "",
+  "severity": "HIGH",
+  "query_id": "34b921bd-90a0-402e-a0a5-dc73371fd963",
+  "query_name": "SES Policy With Allowed IAM Actions"
+}

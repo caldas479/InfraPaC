@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_cloudwatch_root_account_use_alarm_missing_002",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "cloudwatch_root_account_use_alarm_missing",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "8b1b1e67-6248-4dca-bbad-93486bb181c0",
+  "query_name": "CloudWatch Root Account Use Missing"
+}

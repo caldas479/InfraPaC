@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_gcp_sql_db_instance_backup_disabled_001",
+  "category": "gcp",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "sql_db_instance_backup_disabled",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "cf3c7631-cd1e-42f3-8801-a561214a6e79",
+  "query_name": "SQL DB Instance Backup Disabled"
+}

@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_github_github_organization_webhook_with_ssl_disabled_001",
+  "category": "github",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "github_organization_webhook_with_ssl_disabled",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "ce7c874e-1b88-450b-a5e4-cb76ada3c8a9",
+  "query_name": "Github Organization Webhook With SSL Disabled"
+}

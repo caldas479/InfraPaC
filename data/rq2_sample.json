@@ -1,0 +1,1016 @@
+{
+  "sample_size": 200,
+  "target_size": 200,
+  "stratification": {
+    "aws": 97,
+    "azure": 48,
+    "kubernetes": 29,
+    "gcp": 24,
+    "github": 2
+  },
+  "seed": 42,
+  "source_dataset": "spec_bug_fix_kics",
+  "source_version": "1.0.0",
+  "entries": [
+    {
+      "entry_id": "kics_aws_alb_listening_on_http_001",
+      "category": "aws",
+      "path": "aws/kics_aws_alb_listening_on_http_001"
+    },
+    {
+      "entry_id": "kics_aws_alb_listening_on_http_002",
+      "category": "aws",
+      "path": "aws/kics_aws_alb_listening_on_http_002"
+    },
+    {
+      "entry_id": "kics_aws_amazon_mq_broker_encryption_disabled_001",
+      "category": "aws",
+      "path": "aws/kics_aws_amazon_mq_broker_encryption_disabled_001"
+    },
+    {
+      "entry_id": "kics_aws_api_gateway_access_logging_disabled_002",
+      "category": "aws",
+      "path": "aws/kics_aws_api_gateway_access_logging_disabled_002"
+    },
+    {
+      "entry_id": "kics_aws_api_gateway_method_settings_cache_not_encrypted_001",
+      "category": "aws",
+      "path": "aws/kics_aws_api_gateway_method_settings_cache_not_encrypted_001"
+    },
+    {
+      "entry_id": "kics_aws_api_gateway_with_invalid_compression_001",
+      "category": "aws",
+      "path": "aws/kics_aws_api_gateway_with_invalid_compression_001"
+    },
+    {
+      "entry_id": "kics_aws_api_gateway_without_security_policy_001",
+      "category": "aws",
+      "path": "aws/kics_aws_api_gateway_without_security_policy_001"
+    },
+    {
+      "entry_id": "kics_aws_api_gateway_without_waf_001",
+      "category": "aws",
+      "path": "aws/kics_aws_api_gateway_without_waf_001"
+    },
+    {
+      "entry_id": "kics_aws_athena_workgroup_not_encrypted_001",
+      "category": "aws",
+      "path": "aws/kics_aws_athena_workgroup_not_encrypted_001"
+    },
+    {
+      "entry_id": "kics_aws_aurora_with_disabled_at_rest_encryption_001",
+      "category": "aws",
+      "path": "aws/kics_aws_aurora_with_disabled_at_rest_encryption_001"
+    },
+    {
+      "entry_id": "kics_aws_aurora_with_disabled_at_rest_encryption_002",
+      "category": "aws",
+      "path": "aws/kics_aws_aurora_with_disabled_at_rest_encryption_002"
+    },
+    {
+      "entry_id": "kics_aws_automatic_minor_upgrades_disabled_002",
+      "category": "aws",
+      "path": "aws/kics_aws_automatic_minor_upgrades_disabled_002"
+    },
+    {
+      "entry_id": "kics_aws_autoscaling_groups_supply_tags_002",
+      "category": "aws",
+      "path": "aws/kics_aws_autoscaling_groups_supply_tags_002"
+    },
+    {
+      "entry_id": "kics_aws_certificate_has_expired_001",
+      "category": "aws",
+      "path": "aws/kics_aws_certificate_has_expired_001"
+    },
+    {
+      "entry_id": "kics_aws_certificate_rsa_key_bytes_lower_than_256_001",
+      "category": "aws",
+      "path": "aws/kics_aws_certificate_rsa_key_bytes_lower_than_256_001"
+    },
+    {
+      "entry_id": "kics_aws_cloudfront_without_minimum_protocol_tls_1.2_001",
+      "category": "aws",
+      "path": "aws/kics_aws_cloudfront_without_minimum_protocol_tls_1.2_001"
+    },
+    {
+      "entry_id": "kics_aws_cloudtrail_multi_region_disabled_001",
+      "category": "aws",
+      "path": "aws/kics_aws_cloudtrail_multi_region_disabled_001"
+    },
+    {
+      "entry_id": "kics_aws_cloudwatch_aws_organizations_changes_missing_alarm_002",
+      "category": "aws",
+      "path": "aws/kics_aws_cloudwatch_aws_organizations_changes_missing_alarm_002"
+    },
+    {
+      "entry_id": "kics_aws_cloudwatch_changes_to_nacl_alarm_missing_001",
+      "category": "aws",
+      "path": "aws/kics_aws_cloudwatch_changes_to_nacl_alarm_missing_001"
+    },
+    {
+      "entry_id": "kics_aws_cloudwatch_cloudtrail_configuration_changes_alarm_missing_001",
+      "category": "aws",
+      "path": "aws/kics_aws_cloudwatch_cloudtrail_configuration_changes_alarm_missing_001"
+    },
+    {
+      "entry_id": "kics_aws_cloudwatch_cloudtrail_configuration_changes_alarm_missing_002",
+      "category": "aws",
+      "path": "aws/kics_aws_cloudwatch_cloudtrail_configuration_changes_alarm_missing_002"
+    },
+    {
+      "entry_id": "kics_aws_cloudwatch_root_account_use_alarm_missing_002",
+      "category": "aws",
+      "path": "aws/kics_aws_cloudwatch_root_account_use_alarm_missing_002"
+    },
+    {
+      "entry_id": "kics_aws_cloudwatch_vpc_changes_alarm_missing_002",
+      "category": "aws",
+      "path": "aws/kics_aws_cloudwatch_vpc_changes_alarm_missing_002"
+    },
+    {
+      "entry_id": "kics_aws_cloudwatch_without_retention_period_specified_001",
+      "category": "aws",
+      "path": "aws/kics_aws_cloudwatch_without_retention_period_specified_001"
+    },
+    {
+      "entry_id": "kics_aws_cmk_rotation_disabled_002",
+      "category": "aws",
+      "path": "aws/kics_aws_cmk_rotation_disabled_002"
+    },
+    {
+      "entry_id": "kics_aws_dax_cluster_not_encrypted_001",
+      "category": "aws",
+      "path": "aws/kics_aws_dax_cluster_not_encrypted_001"
+    },
+    {
+      "entry_id": "kics_aws_db_security_group_open_to_large_scope_001",
+      "category": "aws",
+      "path": "aws/kics_aws_db_security_group_open_to_large_scope_001"
+    },
+    {
+      "entry_id": "kics_aws_db_security_group_with_public_scope_001",
+      "category": "aws",
+      "path": "aws/kics_aws_db_security_group_with_public_scope_001"
+    },
+    {
+      "entry_id": "kics_aws_default_vpc_exists_001",
+      "category": "aws",
+      "path": "aws/kics_aws_default_vpc_exists_001"
+    },
+    {
+      "entry_id": "kics_aws_default_vpc_exists_002",
+      "category": "aws",
+      "path": "aws/kics_aws_default_vpc_exists_002"
+    },
+    {
+      "entry_id": "kics_aws_ebs_default_encryption_disabled_001",
+      "category": "aws",
+      "path": "aws/kics_aws_ebs_default_encryption_disabled_001"
+    },
+    {
+      "entry_id": "kics_aws_ebs_volume_snapshot_not_encrypted_001",
+      "category": "aws",
+      "path": "aws/kics_aws_ebs_volume_snapshot_not_encrypted_001"
+    },
+    {
+      "entry_id": "kics_aws_ec2_instance_using_api_keys_002",
+      "category": "aws",
+      "path": "aws/kics_aws_ec2_instance_using_api_keys_002"
+    },
+    {
+      "entry_id": "kics_aws_ec2_instance_using_default_security_group_002",
+      "category": "aws",
+      "path": "aws/kics_aws_ec2_instance_using_default_security_group_002"
+    },
+    {
+      "entry_id": "kics_aws_ec2_instance_using_default_vpc_001",
+      "category": "aws",
+      "path": "aws/kics_aws_ec2_instance_using_default_vpc_001"
+    },
+    {
+      "entry_id": "kics_aws_ec2_not_ebs_optimized_002",
+      "category": "aws",
+      "path": "aws/kics_aws_ec2_not_ebs_optimized_002"
+    },
+    {
+      "entry_id": "kics_aws_ecr_repository_is_publicly_accessible_001",
+      "category": "aws",
+      "path": "aws/kics_aws_ecr_repository_is_publicly_accessible_001"
+    },
+    {
+      "entry_id": "kics_aws_ecr_repository_without_policy_001",
+      "category": "aws",
+      "path": "aws/kics_aws_ecr_repository_without_policy_001"
+    },
+    {
+      "entry_id": "kics_aws_ecs_service_admin_role_is_present_001",
+      "category": "aws",
+      "path": "aws/kics_aws_ecs_service_admin_role_is_present_001"
+    },
+    {
+      "entry_id": "kics_aws_efs_not_encrypted_001",
+      "category": "aws",
+      "path": "aws/kics_aws_efs_not_encrypted_001"
+    },
+    {
+      "entry_id": "kics_aws_eks_cluster_encryption_disabled_002",
+      "category": "aws",
+      "path": "aws/kics_aws_eks_cluster_encryption_disabled_002"
+    },
+    {
+      "entry_id": "kics_aws_eks_cluster_has_public_access_cidrs_001",
+      "category": "aws",
+      "path": "aws/kics_aws_eks_cluster_has_public_access_cidrs_001"
+    },
+    {
+      "entry_id": "kics_aws_eks_cluster_log_disabled_001",
+      "category": "aws",
+      "path": "aws/kics_aws_eks_cluster_log_disabled_001"
+    },
+    {
+      "entry_id": "kics_aws_elasticsearch_without_slow_logs_001",
+      "category": "aws",
+      "path": "aws/kics_aws_elasticsearch_without_slow_logs_001"
+    },
+    {
+      "entry_id": "kics_aws_elb_access_logging_disabled_002",
+      "category": "aws",
+      "path": "aws/kics_aws_elb_access_logging_disabled_002"
+    },
+    {
+      "entry_id": "kics_aws_elb_using_insecure_protocols_001",
+      "category": "aws",
+      "path": "aws/kics_aws_elb_using_insecure_protocols_001"
+    },
+    {
+      "entry_id": "kics_aws_emr_without_vpc_001",
+      "category": "aws",
+      "path": "aws/kics_aws_emr_without_vpc_001"
+    },
+    {
+      "entry_id": "kics_aws_glue_security_configuration_encryption_disabled_002",
+      "category": "aws",
+      "path": "aws/kics_aws_glue_security_configuration_encryption_disabled_002"
+    },
+    {
+      "entry_id": "kics_aws_group_with_privilege_escalation_by_actions_iam_PassRole_and_lambda_CreateFunction_and_lambda_InvokeFunction_001",
+      "category": "aws",
+      "path": "aws/kics_aws_group_with_privilege_escalation_by_actions_iam_PassRole_and_lambda_CreateFunction_and_lambda_InvokeFunction_001"
+    },
+    {
+      "entry_id": "kics_aws_group_with_privilege_escalation_by_actions_iam_PutGroupPolicy_001",
+      "category": "aws",
+      "path": "aws/kics_aws_group_with_privilege_escalation_by_actions_iam_PutGroupPolicy_001"
+    },
+    {
+      "entry_id": "kics_aws_group_with_privilege_escalation_by_actions_iam_PutUserPolicy_001",
+      "category": "aws",
+      "path": "aws/kics_aws_group_with_privilege_escalation_by_actions_iam_PutUserPolicy_001"
+    },
+    {
+      "entry_id": "kics_aws_group_with_privilege_escalation_by_actions_iam_SetDefaultPolicyVersion_001",
+      "category": "aws",
+      "path": "aws/kics_aws_group_with_privilege_escalation_by_actions_iam_SetDefaultPolicyVersion_001"
+    },
+    {
+      "entry_id": "kics_aws_hardcoded_aws_access_key_001",
+      "category": "aws",
+      "path": "aws/kics_aws_hardcoded_aws_access_key_001"
+    },
+    {
+      "entry_id": "kics_aws_iam_database_auth_not_enabled_002",
+      "category": "aws",
+      "path": "aws/kics_aws_iam_database_auth_not_enabled_002"
+    },
+    {
+      "entry_id": "kics_aws_iam_password_without_minimum_length_001",
+      "category": "aws",
+      "path": "aws/kics_aws_iam_password_without_minimum_length_001"
+    },
+    {
+      "entry_id": "kics_aws_iam_role_with_full_privileges_001",
+      "category": "aws",
+      "path": "aws/kics_aws_iam_role_with_full_privileges_001"
+    },
+    {
+      "entry_id": "kics_aws_kinesis_not_encrypted_with_kms_001",
+      "category": "aws",
+      "path": "aws/kics_aws_kinesis_not_encrypted_with_kms_001"
+    },
+    {
+      "entry_id": "kics_aws_kms_key_with_no_deletion_window_001",
+      "category": "aws",
+      "path": "aws/kics_aws_kms_key_with_no_deletion_window_001"
+    },
+    {
+      "entry_id": "kics_aws_lambda_function_with_privileged_role_001",
+      "category": "aws",
+      "path": "aws/kics_aws_lambda_function_with_privileged_role_001"
+    },
+    {
+      "entry_id": "kics_aws_lambda_with_vulnerable_policy_001",
+      "category": "aws",
+      "path": "aws/kics_aws_lambda_with_vulnerable_policy_001"
+    },
+    {
+      "entry_id": "kics_aws_mq_broker_is_publicly_accessible_001",
+      "category": "aws",
+      "path": "aws/kics_aws_mq_broker_is_publicly_accessible_001"
+    },
+    {
+      "entry_id": "kics_aws_mq_broker_logging_disabled_001",
+      "category": "aws",
+      "path": "aws/kics_aws_mq_broker_logging_disabled_001"
+    },
+    {
+      "entry_id": "kics_aws_msk_broker_is_publicly_accessible_001",
+      "category": "aws",
+      "path": "aws/kics_aws_msk_broker_is_publicly_accessible_001"
+    },
+    {
+      "entry_id": "kics_aws_neptune_database_cluster_encryption_disabled_001",
+      "category": "aws",
+      "path": "aws/kics_aws_neptune_database_cluster_encryption_disabled_001"
+    },
+    {
+      "entry_id": "kics_aws_neptune_logging_disabled_002",
+      "category": "aws",
+      "path": "aws/kics_aws_neptune_logging_disabled_002"
+    },
+    {
+      "entry_id": "kics_aws_network_acl_with_unrestricted_access_to_ssh_002",
+      "category": "aws",
+      "path": "aws/kics_aws_network_acl_with_unrestricted_access_to_ssh_002"
+    },
+    {
+      "entry_id": "kics_aws_public_and_private_ec2_share_role_002",
+      "category": "aws",
+      "path": "aws/kics_aws_public_and_private_ec2_share_role_002"
+    },
+    {
+      "entry_id": "kics_aws_public_lambda_via_api_gateway_001",
+      "category": "aws",
+      "path": "aws/kics_aws_public_lambda_via_api_gateway_001"
+    },
+    {
+      "entry_id": "kics_aws_rds_with_backup_disabled_002",
+      "category": "aws",
+      "path": "aws/kics_aws_rds_with_backup_disabled_002"
+    },
+    {
+      "entry_id": "kics_aws_rds_without_logging_001",
+      "category": "aws",
+      "path": "aws/kics_aws_rds_without_logging_001"
+    },
+    {
+      "entry_id": "kics_aws_redshift_cluster_without_vpc_001",
+      "category": "aws",
+      "path": "aws/kics_aws_redshift_cluster_without_vpc_001"
+    },
+    {
+      "entry_id": "kics_aws_rest_api_with_vulnerable_policy_001",
+      "category": "aws",
+      "path": "aws/kics_aws_rest_api_with_vulnerable_policy_001"
+    },
+    {
+      "entry_id": "kics_aws_role_with_privilege_escalation_by_actions_iam_AttachGroupPolicy_001",
+      "category": "aws",
+      "path": "aws/kics_aws_role_with_privilege_escalation_by_actions_iam_AttachGroupPolicy_001"
+    },
+    {
+      "entry_id": "kics_aws_role_with_privilege_escalation_by_actions_iam_CreateLoginProfile_001",
+      "category": "aws",
+      "path": "aws/kics_aws_role_with_privilege_escalation_by_actions_iam_CreateLoginProfile_001"
+    },
+    {
+      "entry_id": "kics_aws_role_with_privilege_escalation_by_actions_iam_PassRole_and_glue_CreateDevEndpoint_001",
+      "category": "aws",
+      "path": "aws/kics_aws_role_with_privilege_escalation_by_actions_iam_PassRole_and_glue_CreateDevEndpoint_001"
+    },
+    {
+      "entry_id": "kics_aws_role_with_privilege_escalation_by_actions_iam_PutRolePolicy_001",
+      "category": "aws",
+      "path": "aws/kics_aws_role_with_privilege_escalation_by_actions_iam_PutRolePolicy_001"
+    },
+    {
+      "entry_id": "kics_aws_role_with_privilege_escalation_by_actions_iam_SetDefaultPolicyVersion_001",
+      "category": "aws",
+      "path": "aws/kics_aws_role_with_privilege_escalation_by_actions_iam_SetDefaultPolicyVersion_001"
+    },
+    {
+      "entry_id": "kics_aws_route53_record_undefined_001",
+      "category": "aws",
+      "path": "aws/kics_aws_route53_record_undefined_001"
+    },
+    {
+      "entry_id": "kics_aws_s3_bucket_acl_allows_read_to_any_authenticated_user_001",
+      "category": "aws",
+      "path": "aws/kics_aws_s3_bucket_acl_allows_read_to_any_authenticated_user_001"
+    },
+    {
+      "entry_id": "kics_aws_s3_bucket_acl_grants_write_acp_permission_002",
+      "category": "aws",
+      "path": "aws/kics_aws_s3_bucket_acl_grants_write_acp_permission_002"
+    },
+    {
+      "entry_id": "kics_aws_s3_bucket_with_unsecured_cors_rule_002",
+      "category": "aws",
+      "path": "aws/kics_aws_s3_bucket_with_unsecured_cors_rule_002"
+    },
+    {
+      "entry_id": "kics_aws_s3_bucket_without_enabled_mfa_delete_002",
+      "category": "aws",
+      "path": "aws/kics_aws_s3_bucket_without_enabled_mfa_delete_002"
+    },
+    {
+      "entry_id": "kics_aws_s3_static_website_host_enabled_001",
+      "category": "aws",
+      "path": "aws/kics_aws_s3_static_website_host_enabled_001"
+    },
+    {
+      "entry_id": "kics_aws_secretsmanager_secret_encrypted_with_aws_managed_key_001",
+      "category": "aws",
+      "path": "aws/kics_aws_secretsmanager_secret_encrypted_with_aws_managed_key_001"
+    },
+    {
+      "entry_id": "kics_aws_sensitive_port_is_exposed_to_wide_private_network_001",
+      "category": "aws",
+      "path": "aws/kics_aws_sensitive_port_is_exposed_to_wide_private_network_001"
+    },
+    {
+      "entry_id": "kics_aws_sensitive_port_is_exposed_to_wide_private_network_002",
+      "category": "aws",
+      "path": "aws/kics_aws_sensitive_port_is_exposed_to_wide_private_network_002"
+    },
+    {
+      "entry_id": "kics_aws_ses_policy_with_allowed_iam_actions_001",
+      "category": "aws",
+      "path": "aws/kics_aws_ses_policy_with_allowed_iam_actions_001"
+    },
+    {
+      "entry_id": "kics_aws_sns_topic_encrypted_with_aws_managed_key_002",
+      "category": "aws",
+      "path": "aws/kics_aws_sns_topic_encrypted_with_aws_managed_key_002"
+    },
+    {
+      "entry_id": "kics_aws_sns_topic_is_publicly_accessible_001",
+      "category": "aws",
+      "path": "aws/kics_aws_sns_topic_is_publicly_accessible_001"
+    },
+    {
+      "entry_id": "kics_aws_sns_topic_not_encrypted_002",
+      "category": "aws",
+      "path": "aws/kics_aws_sns_topic_not_encrypted_002"
+    },
+    {
+      "entry_id": "kics_aws_sqs_policy_allows_all_actions_001",
+      "category": "aws",
+      "path": "aws/kics_aws_sqs_policy_allows_all_actions_001"
+    },
+    {
+      "entry_id": "kics_aws_ssm_session_transit_encryption_disabled_002",
+      "category": "aws",
+      "path": "aws/kics_aws_ssm_session_transit_encryption_disabled_002"
+    },
+    {
+      "entry_id": "kics_aws_sso_policy_with_full_priveleges_copy_001",
+      "category": "aws",
+      "path": "aws/kics_aws_sso_policy_with_full_priveleges_copy_001"
+    },
+    {
+      "entry_id": "kics_aws_user_with_privilege_escalation_by_actions_iam_PutUserPolicy_001",
+      "category": "aws",
+      "path": "aws/kics_aws_user_with_privilege_escalation_by_actions_iam_PutUserPolicy_001"
+    },
+    {
+      "entry_id": "kics_aws_vpc_peering_route_table_with_unrestricted_cidr_002",
+      "category": "aws",
+      "path": "aws/kics_aws_vpc_peering_route_table_with_unrestricted_cidr_002"
+    },
+    {
+      "entry_id": "kics_aws_vpc_without_network_firewall_001",
+      "category": "aws",
+      "path": "aws/kics_aws_vpc_without_network_firewall_001"
+    },
+    {
+      "entry_id": "kics_aws_workspaces_workspace_volume_not_encrypted_002",
+      "category": "aws",
+      "path": "aws/kics_aws_workspaces_workspace_volume_not_encrypted_002"
+    },
+    {
+      "entry_id": "kics_azure_aks_private_cluster_disabled_001",
+      "category": "azure",
+      "path": "azure/kics_azure_aks_private_cluster_disabled_001"
+    },
+    {
+      "entry_id": "kics_azure_aks_rbac_disabled_001",
+      "category": "azure",
+      "path": "azure/kics_azure_aks_rbac_disabled_001"
+    },
+    {
+      "entry_id": "kics_azure_app_service_authentication_disabled_001",
+      "category": "azure",
+      "path": "azure/kics_azure_app_service_authentication_disabled_001"
+    },
+    {
+      "entry_id": "kics_azure_app_service_http2_disabled_001",
+      "category": "azure",
+      "path": "azure/kics_azure_app_service_http2_disabled_001"
+    },
+    {
+      "entry_id": "kics_azure_app_service_not_using_latest_tls_encryption_version_002",
+      "category": "azure",
+      "path": "azure/kics_azure_app_service_not_using_latest_tls_encryption_version_002"
+    },
+    {
+      "entry_id": "kics_azure_app_service_without_latest_php_version_002",
+      "category": "azure",
+      "path": "azure/kics_azure_app_service_without_latest_php_version_002"
+    },
+    {
+      "entry_id": "kics_azure_app_service_without_latest_python_version_001",
+      "category": "azure",
+      "path": "azure/kics_azure_app_service_without_latest_python_version_001"
+    },
+    {
+      "entry_id": "kics_azure_app_service_without_latest_python_version_002",
+      "category": "azure",
+      "path": "azure/kics_azure_app_service_without_latest_python_version_002"
+    },
+    {
+      "entry_id": "kics_azure_azure_active_directory_authentication_002",
+      "category": "azure",
+      "path": "azure/kics_azure_azure_active_directory_authentication_002"
+    },
+    {
+      "entry_id": "kics_azure_azure_app_service_client_certificate_disabled_001",
+      "category": "azure",
+      "path": "azure/kics_azure_azure_app_service_client_certificate_disabled_001"
+    },
+    {
+      "entry_id": "kics_azure_azure_app_service_client_certificate_disabled_002",
+      "category": "azure",
+      "path": "azure/kics_azure_azure_app_service_client_certificate_disabled_002"
+    },
+    {
+      "entry_id": "kics_azure_azure_cognitive_search_public_network_access_enabled_001",
+      "category": "azure",
+      "path": "azure/kics_azure_azure_cognitive_search_public_network_access_enabled_001"
+    },
+    {
+      "entry_id": "kics_azure_azure_front_door_waf_disabled_001",
+      "category": "azure",
+      "path": "azure/kics_azure_azure_front_door_waf_disabled_001"
+    },
+    {
+      "entry_id": "kics_azure_azure_instance_using_basic_authentication_001",
+      "category": "azure",
+      "path": "azure/kics_azure_azure_instance_using_basic_authentication_001"
+    },
+    {
+      "entry_id": "kics_azure_default_azure_storage_account_network_access_is_too_permissive_001",
+      "category": "azure",
+      "path": "azure/kics_azure_default_azure_storage_account_network_access_is_too_permissive_001"
+    },
+    {
+      "entry_id": "kics_azure_encryption_on_managed_disk_disabled_001",
+      "category": "azure",
+      "path": "azure/kics_azure_encryption_on_managed_disk_disabled_001"
+    },
+    {
+      "entry_id": "kics_azure_function_app_client_certificates_unrequired_001",
+      "category": "azure",
+      "path": "azure/kics_azure_function_app_client_certificates_unrequired_001"
+    },
+    {
+      "entry_id": "kics_azure_function_app_ftps_enforce_disabled_002",
+      "category": "azure",
+      "path": "azure/kics_azure_function_app_ftps_enforce_disabled_002"
+    },
+    {
+      "entry_id": "kics_azure_function_app_managed_identity_disabled_001",
+      "category": "azure",
+      "path": "azure/kics_azure_function_app_managed_identity_disabled_001"
+    },
+    {
+      "entry_id": "kics_azure_function_app_not_using_latest_tls_encryption_version_001",
+      "category": "azure",
+      "path": "azure/kics_azure_function_app_not_using_latest_tls_encryption_version_001"
+    },
+    {
+      "entry_id": "kics_azure_function_app_not_using_latest_tls_encryption_version_002",
+      "category": "azure",
+      "path": "azure/kics_azure_function_app_not_using_latest_tls_encryption_version_002"
+    },
+    {
+      "entry_id": "kics_azure_key_vault_secrets_content_type_undefined_001",
+      "category": "azure",
+      "path": "azure/kics_azure_key_vault_secrets_content_type_undefined_001"
+    },
+    {
+      "entry_id": "kics_azure_mariadb_public_network_access_enabled_002",
+      "category": "azure",
+      "path": "azure/kics_azure_mariadb_public_network_access_enabled_002"
+    },
+    {
+      "entry_id": "kics_azure_mariadb_server_georedundant_backup_disabled_001",
+      "category": "azure",
+      "path": "azure/kics_azure_mariadb_server_georedundant_backup_disabled_001"
+    },
+    {
+      "entry_id": "kics_azure_mssql_server_auditing_disabled_001",
+      "category": "azure",
+      "path": "azure/kics_azure_mssql_server_auditing_disabled_001"
+    },
+    {
+      "entry_id": "kics_azure_mysql_server_public_access_enabled_001",
+      "category": "azure",
+      "path": "azure/kics_azure_mysql_server_public_access_enabled_001"
+    },
+    {
+      "entry_id": "kics_azure_network_interfaces_with_public_ip_001",
+      "category": "azure",
+      "path": "azure/kics_azure_network_interfaces_with_public_ip_001"
+    },
+    {
+      "entry_id": "kics_azure_network_watcher_flow_disabled_001",
+      "category": "azure",
+      "path": "azure/kics_azure_network_watcher_flow_disabled_001"
+    },
+    {
+      "entry_id": "kics_azure_postgresql_server_infrastructure_encryption_disabled_001",
+      "category": "azure",
+      "path": "azure/kics_azure_postgresql_server_infrastructure_encryption_disabled_001"
+    },
+    {
+      "entry_id": "kics_azure_public_storage_account_001",
+      "category": "azure",
+      "path": "azure/kics_azure_public_storage_account_001"
+    },
+    {
+      "entry_id": "kics_azure_public_storage_account_002",
+      "category": "azure",
+      "path": "azure/kics_azure_public_storage_account_002"
+    },
+    {
+      "entry_id": "kics_azure_redis_not_updated_regularly_001",
+      "category": "azure",
+      "path": "azure/kics_azure_redis_not_updated_regularly_001"
+    },
+    {
+      "entry_id": "kics_azure_role_definition_allows_custom_role_creation_001",
+      "category": "azure",
+      "path": "azure/kics_azure_role_definition_allows_custom_role_creation_001"
+    },
+    {
+      "entry_id": "kics_azure_secret_expiration_not_set_001",
+      "category": "azure",
+      "path": "azure/kics_azure_secret_expiration_not_set_001"
+    },
+    {
+      "entry_id": "kics_azure_security_contact_email_001",
+      "category": "azure",
+      "path": "azure/kics_azure_security_contact_email_001"
+    },
+    {
+      "entry_id": "kics_azure_sensitive_port_is_exposed_to_entire_network_001",
+      "category": "azure",
+      "path": "azure/kics_azure_sensitive_port_is_exposed_to_entire_network_001"
+    },
+    {
+      "entry_id": "kics_azure_small_mssql_audit_retention_period_001",
+      "category": "azure",
+      "path": "azure/kics_azure_small_mssql_audit_retention_period_001"
+    },
+    {
+      "entry_id": "kics_azure_small_postgresql_db_server_log_retention_period_001",
+      "category": "azure",
+      "path": "azure/kics_azure_small_postgresql_db_server_log_retention_period_001"
+    },
+    {
+      "entry_id": "kics_azure_sql_database_audit_disabled_001",
+      "category": "azure",
+      "path": "azure/kics_azure_sql_database_audit_disabled_001"
+    },
+    {
+      "entry_id": "kics_azure_sql_server_alert_email_disabled_002",
+      "category": "azure",
+      "path": "azure/kics_azure_sql_server_alert_email_disabled_002"
+    },
+    {
+      "entry_id": "kics_azure_sql_server_predictable_active_directory_admin_account_name_001",
+      "category": "azure",
+      "path": "azure/kics_azure_sql_server_predictable_active_directory_admin_account_name_001"
+    },
+    {
+      "entry_id": "kics_azure_sql_server_predictable_admin_account_name_001",
+      "category": "azure",
+      "path": "azure/kics_azure_sql_server_predictable_admin_account_name_001"
+    },
+    {
+      "entry_id": "kics_azure_ssh_is_exposed_to_the_internet_001",
+      "category": "azure",
+      "path": "azure/kics_azure_ssh_is_exposed_to_the_internet_001"
+    },
+    {
+      "entry_id": "kics_azure_storage_account_not_using_latest_tls_encryption_version_001",
+      "category": "azure",
+      "path": "azure/kics_azure_storage_account_not_using_latest_tls_encryption_version_001"
+    },
+    {
+      "entry_id": "kics_azure_trusted_microsoft_services_not_enabled_001",
+      "category": "azure",
+      "path": "azure/kics_azure_trusted_microsoft_services_not_enabled_001"
+    },
+    {
+      "entry_id": "kics_azure_vault_auditing_disabled_001",
+      "category": "azure",
+      "path": "azure/kics_azure_vault_auditing_disabled_001"
+    },
+    {
+      "entry_id": "kics_azure_virtual_network_with_ddos_protection_plan_disabled_001",
+      "category": "azure",
+      "path": "azure/kics_azure_virtual_network_with_ddos_protection_plan_disabled_001"
+    },
+    {
+      "entry_id": "kics_azure_web_app_accepting_traffic_other_than_https_001",
+      "category": "azure",
+      "path": "azure/kics_azure_web_app_accepting_traffic_other_than_https_001"
+    },
+    {
+      "entry_id": "kics_gcp_bigquery_dataset_is_public_001",
+      "category": "gcp",
+      "path": "gcp/kics_gcp_bigquery_dataset_is_public_001"
+    },
+    {
+      "entry_id": "kics_gcp_cloud_storage_anonymous_or_publicly_accessible_001",
+      "category": "gcp",
+      "path": "gcp/kics_gcp_cloud_storage_anonymous_or_publicly_accessible_001"
+    },
+    {
+      "entry_id": "kics_gcp_disk_encryption_disabled_001",
+      "category": "gcp",
+      "path": "gcp/kics_gcp_disk_encryption_disabled_001"
+    },
+    {
+      "entry_id": "kics_gcp_dnssec_using_rsasha1_001",
+      "category": "gcp",
+      "path": "gcp/kics_gcp_dnssec_using_rsasha1_001"
+    },
+    {
+      "entry_id": "kics_gcp_gke_using_default_service_account_001",
+      "category": "gcp",
+      "path": "gcp/kics_gcp_gke_using_default_service_account_001"
+    },
+    {
+      "entry_id": "kics_gcp_google_project_auto_create_network_disabled_001",
+      "category": "gcp",
+      "path": "gcp/kics_gcp_google_project_auto_create_network_disabled_001"
+    },
+    {
+      "entry_id": "kics_gcp_google_project_iam_member_service_account_has_token_creator_or_account_user_role_001",
+      "category": "gcp",
+      "path": "gcp/kics_gcp_google_project_iam_member_service_account_has_token_creator_or_account_user_role_001"
+    },
+    {
+      "entry_id": "kics_gcp_iam_audit_not_properly_configured_001",
+      "category": "gcp",
+      "path": "gcp/kics_gcp_iam_audit_not_properly_configured_001"
+    },
+    {
+      "entry_id": "kics_gcp_ip_aliasing_disabled_001",
+      "category": "gcp",
+      "path": "gcp/kics_gcp_ip_aliasing_disabled_001"
+    },
+    {
+      "entry_id": "kics_gcp_ip_forwarding_enabled_001",
+      "category": "gcp",
+      "path": "gcp/kics_gcp_ip_forwarding_enabled_001"
+    },
+    {
+      "entry_id": "kics_gcp_kms_crypto_key_publicly_accessible_001",
+      "category": "gcp",
+      "path": "gcp/kics_gcp_kms_crypto_key_publicly_accessible_001"
+    },
+    {
+      "entry_id": "kics_gcp_legacy_client_certificate_auth_enabled_001",
+      "category": "gcp",
+      "path": "gcp/kics_gcp_legacy_client_certificate_auth_enabled_001"
+    },
+    {
+      "entry_id": "kics_gcp_network_policy_disabled_001",
+      "category": "gcp",
+      "path": "gcp/kics_gcp_network_policy_disabled_001"
+    },
+    {
+      "entry_id": "kics_gcp_not_proper_email_account_in_use_001",
+      "category": "gcp",
+      "path": "gcp/kics_gcp_not_proper_email_account_in_use_001"
+    },
+    {
+      "entry_id": "kics_gcp_os_login_is_disabled_for_vm_instance_001",
+      "category": "gcp",
+      "path": "gcp/kics_gcp_os_login_is_disabled_for_vm_instance_001"
+    },
+    {
+      "entry_id": "kics_gcp_outdated_gke_version_001",
+      "category": "gcp",
+      "path": "gcp/kics_gcp_outdated_gke_version_001"
+    },
+    {
+      "entry_id": "kics_gcp_project_wide_ssh_keys_are_enabled_in_vm_instances_001",
+      "category": "gcp",
+      "path": "gcp/kics_gcp_project_wide_ssh_keys_are_enabled_in_vm_instances_001"
+    },
+    {
+      "entry_id": "kics_gcp_service_account_with_improper_privileges_001",
+      "category": "gcp",
+      "path": "gcp/kics_gcp_service_account_with_improper_privileges_001"
+    },
+    {
+      "entry_id": "kics_gcp_service_account_with_improper_privileges_002",
+      "category": "gcp",
+      "path": "gcp/kics_gcp_service_account_with_improper_privileges_002"
+    },
+    {
+      "entry_id": "kics_gcp_shielded_vm_disabled_001",
+      "category": "gcp",
+      "path": "gcp/kics_gcp_shielded_vm_disabled_001"
+    },
+    {
+      "entry_id": "kics_gcp_sql_db_instance_backup_disabled_001",
+      "category": "gcp",
+      "path": "gcp/kics_gcp_sql_db_instance_backup_disabled_001"
+    },
+    {
+      "entry_id": "kics_gcp_sql_db_instance_is_publicly_accessible_001",
+      "category": "gcp",
+      "path": "gcp/kics_gcp_sql_db_instance_is_publicly_accessible_001"
+    },
+    {
+      "entry_id": "kics_gcp_sql_db_instance_with_ssl_disabled_001",
+      "category": "gcp",
+      "path": "gcp/kics_gcp_sql_db_instance_with_ssl_disabled_001"
+    },
+    {
+      "entry_id": "kics_gcp_using_default_service_account_001",
+      "category": "gcp",
+      "path": "gcp/kics_gcp_using_default_service_account_001"
+    },
+    {
+      "entry_id": "kics_github_github_organization_webhook_with_ssl_disabled_001",
+      "category": "github",
+      "path": "github/kics_github_github_organization_webhook_with_ssl_disabled_001"
+    },
+    {
+      "entry_id": "kics_github_github_repository_set_to_public_001",
+      "category": "github",
+      "path": "github/kics_github_github_repository_set_to_public_001"
+    },
+    {
+      "entry_id": "kics_kubernetes_container_is_privileged_001",
+      "category": "kubernetes",
+      "path": "kubernetes/kics_kubernetes_container_is_privileged_001"
+    },
+    {
+      "entry_id": "kics_kubernetes_container_resources_limits_undefined_001",
+      "category": "kubernetes",
+      "path": "kubernetes/kics_kubernetes_container_resources_limits_undefined_001"
+    },
+    {
+      "entry_id": "kics_kubernetes_container_runs_unmasked_001",
+      "category": "kubernetes",
+      "path": "kubernetes/kics_kubernetes_container_runs_unmasked_001"
+    },
+    {
+      "entry_id": "kics_kubernetes_containers_with_sys_admin_capabilities_001",
+      "category": "kubernetes",
+      "path": "kubernetes/kics_kubernetes_containers_with_sys_admin_capabilities_001"
+    },
+    {
+      "entry_id": "kics_kubernetes_cpu_limits_not_set_001",
+      "category": "kubernetes",
+      "path": "kubernetes/kics_kubernetes_cpu_limits_not_set_001"
+    },
+    {
+      "entry_id": "kics_kubernetes_cpu_requests_not_set_001",
+      "category": "kubernetes",
+      "path": "kubernetes/kics_kubernetes_cpu_requests_not_set_001"
+    },
+    {
+      "entry_id": "kics_kubernetes_deployment_has_no_pod_anti_affinity_002",
+      "category": "kubernetes",
+      "path": "kubernetes/kics_kubernetes_deployment_has_no_pod_anti_affinity_002"
+    },
+    {
+      "entry_id": "kics_kubernetes_hpa_targets_invalid_object_001",
+      "category": "kubernetes",
+      "path": "kubernetes/kics_kubernetes_hpa_targets_invalid_object_001"
+    },
+    {
+      "entry_id": "kics_kubernetes_ingress_controller_exposes_workload_001",
+      "category": "kubernetes",
+      "path": "kubernetes/kics_kubernetes_ingress_controller_exposes_workload_001"
+    },
+    {
+      "entry_id": "kics_kubernetes_memory_requests_not_defined_001",
+      "category": "kubernetes",
+      "path": "kubernetes/kics_kubernetes_memory_requests_not_defined_001"
+    },
+    {
+      "entry_id": "kics_kubernetes_no_drop_capabilities_for_containers_001",
+      "category": "kubernetes",
+      "path": "kubernetes/kics_kubernetes_no_drop_capabilities_for_containers_001"
+    },
+    {
+      "entry_id": "kics_kubernetes_permissive_access_to_create_pods_002",
+      "category": "kubernetes",
+      "path": "kubernetes/kics_kubernetes_permissive_access_to_create_pods_002"
+    },
+    {
+      "entry_id": "kics_kubernetes_privilege_escalation_allowed_001",
+      "category": "kubernetes",
+      "path": "kubernetes/kics_kubernetes_privilege_escalation_allowed_001"
+    },
+    {
+      "entry_id": "kics_kubernetes_psp_allows_privilege_escalation_001",
+      "category": "kubernetes",
+      "path": "kubernetes/kics_kubernetes_psp_allows_privilege_escalation_001"
+    },
+    {
+      "entry_id": "kics_kubernetes_psp_set_to_privileged_001",
+      "category": "kubernetes",
+      "path": "kubernetes/kics_kubernetes_psp_set_to_privileged_001"
+    },
+    {
+      "entry_id": "kics_kubernetes_rbac_roles_with_read_secrets_permissions_001",
+      "category": "kubernetes",
+      "path": "kubernetes/kics_kubernetes_rbac_roles_with_read_secrets_permissions_001"
+    },
+    {
+      "entry_id": "kics_kubernetes_readiness_probe_is_not_configured_001",
+      "category": "kubernetes",
+      "path": "kubernetes/kics_kubernetes_readiness_probe_is_not_configured_001"
+    },
+    {
+      "entry_id": "kics_kubernetes_role_binding_to_default_service_account_001",
+      "category": "kubernetes",
+      "path": "kubernetes/kics_kubernetes_role_binding_to_default_service_account_001"
+    },
+    {
+      "entry_id": "kics_kubernetes_root_container_not_mounted_as_read_only_001",
+      "category": "kubernetes",
+      "path": "kubernetes/kics_kubernetes_root_container_not_mounted_as_read_only_001"
+    },
+    {
+      "entry_id": "kics_kubernetes_root_containers_admitted_001",
+      "category": "kubernetes",
+      "path": "kubernetes/kics_kubernetes_root_containers_admitted_001"
+    },
+    {
+      "entry_id": "kics_kubernetes_service_account_name_undefined_or_empty_001",
+      "category": "kubernetes",
+      "path": "kubernetes/kics_kubernetes_service_account_name_undefined_or_empty_001"
+    },
+    {
+      "entry_id": "kics_kubernetes_service_account_name_undefined_or_empty_002",
+      "category": "kubernetes",
+      "path": "kubernetes/kics_kubernetes_service_account_name_undefined_or_empty_002"
+    },
+    {
+      "entry_id": "kics_kubernetes_service_with_external_load_balancer_001",
+      "category": "kubernetes",
+      "path": "kubernetes/kics_kubernetes_service_with_external_load_balancer_001"
+    },
+    {
+      "entry_id": "kics_kubernetes_shared_host_ipc_namespace_001",
+      "category": "kubernetes",
+      "path": "kubernetes/kics_kubernetes_shared_host_ipc_namespace_001"
+    },
+    {
+      "entry_id": "kics_kubernetes_statefulset_requests_storage_001",
+      "category": "kubernetes",
+      "path": "kubernetes/kics_kubernetes_statefulset_requests_storage_001"
+    },
+    {
+      "entry_id": "kics_kubernetes_statefulset_without_pod_disruption_budget_001",
+      "category": "kubernetes",
+      "path": "kubernetes/kics_kubernetes_statefulset_without_pod_disruption_budget_001"
+    },
+    {
+      "entry_id": "kics_kubernetes_using_default_namespace_001",
+      "category": "kubernetes",
+      "path": "kubernetes/kics_kubernetes_using_default_namespace_001"
+    },
+    {
+      "entry_id": "kics_kubernetes_volume_mount_with_os_directory_write_permissions_001",
+      "category": "kubernetes",
+      "path": "kubernetes/kics_kubernetes_volume_mount_with_os_directory_write_permissions_001"
+    },
+    {
+      "entry_id": "kics_kubernetes_workload_host_port_not_specified_001",
+      "category": "kubernetes",
+      "path": "kubernetes/kics_kubernetes_workload_host_port_not_specified_001"
+    }
+  ]
+}

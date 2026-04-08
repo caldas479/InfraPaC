@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_ebs_volume_encryption_disabled_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "ebs_volume_encryption_disabled",
+  "description": "",
+  "severity": "HIGH",
+  "query_id": "cc997676-481b-4e93-aa81-d19f8c5e9b12",
+  "query_name": "EBS Volume Encryption Disabled"
+}

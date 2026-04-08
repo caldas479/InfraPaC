@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_cdn_configuration_is_missing_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "cdn_configuration_is_missing",
+  "description": "",
+  "severity": "LOW",
+  "query_id": "1bc367f6-901d-4870-ad0c-71d79762ef52",
+  "query_name": "CDN Configuration Is Missing"
+}

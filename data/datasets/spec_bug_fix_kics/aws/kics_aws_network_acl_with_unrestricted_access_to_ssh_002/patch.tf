@@ -1,0 +1,1 @@
+provider "aws" { region = "us-east-1" } resource "aws_network_acl" "positive2" { vpc_id = aws_vpc.main.id tags = { Name = "main" } } resource "aws_network_acl_rule" "postive2" { network_acl_id = aws_network_acl.positive2.id rule_number = 100 egress = false protocol = "tcp" rule_action = "deny" from_port = 22 to_port = 22 cidr_block = "0.0.0.0/0" }

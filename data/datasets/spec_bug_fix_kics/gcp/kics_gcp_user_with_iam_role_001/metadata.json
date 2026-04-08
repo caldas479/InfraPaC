@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_gcp_user_with_iam_role_001",
+  "category": "gcp",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "user_with_iam_role",
+  "description": "",
+  "severity": "LOW",
+  "query_id": "704fcc44-a58f-4af5-82e2-93f2a58ef918",
+  "query_name": "User with IAM Role"
+}

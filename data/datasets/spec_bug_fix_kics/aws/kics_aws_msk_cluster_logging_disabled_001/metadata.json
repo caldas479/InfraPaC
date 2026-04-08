@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_msk_cluster_logging_disabled_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "msk_cluster_logging_disabled",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "2f56b7ab-7fba-4e93-82f0-247e5ddeb239",
+  "query_name": "MSK Cluster Logging Disabled"
+}

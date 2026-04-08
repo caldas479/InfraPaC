@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_kubernetes_readiness_probe_is_not_configured_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "readiness_probe_is_not_configured",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "8657197e-3f87-4694-892b-8144701d83c1",
+  "query_name": "Readiness Probe Is Not Configured"
+}

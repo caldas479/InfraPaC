@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_dax_cluster_not_encrypted_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "dax_cluster_not_encrypted",
+  "description": "",
+  "severity": "HIGH",
+  "query_id": "f11aec39-858f-4b6f-b946-0a1bf46c0c87",
+  "query_name": "DAX Cluster Not Encrypted"
+}

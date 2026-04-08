@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_gcp_gke_legacy_authorization_enabled_001",
+  "category": "gcp",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "gke_legacy_authorization_enabled",
+  "description": "",
+  "severity": "HIGH",
+  "query_id": "5baa92d2-d8ee-4c75-88a4-52d9d8bb8067",
+  "query_name": "GKE Legacy Authorization Enabled"
+}

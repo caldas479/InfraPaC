@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_azure_postgresql_log_connections_not_set_001",
+  "category": "azure",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "postgresql_log_connections_not_set",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "c640d783-10c5-4071-b6c1-23507300d333",
+  "query_name": "PostgreSQL Log Connections Not Set"
+}

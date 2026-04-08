@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_secretsmanager_secret_encrypted_with_aws_managed_key_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "secretsmanager_secret_encrypted_with_aws_managed_key",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "b0d3ef3f-845d-4b1b-83d6-63a5a380375f",
+  "query_name": "Secretsmanager Secret Encrypted With AWS Managed Key"
+}

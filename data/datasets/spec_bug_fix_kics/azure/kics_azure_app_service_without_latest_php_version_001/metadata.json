@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_azure_app_service_without_latest_php_version_001",
+  "category": "azure",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "app_service_without_latest_php_version",
+  "description": "",
+  "severity": "LOW",
+  "query_id": "96fe318e-d631-4156-99fa-9080d57280ae",
+  "query_name": "App Service Without Latest PHP Version"
+}

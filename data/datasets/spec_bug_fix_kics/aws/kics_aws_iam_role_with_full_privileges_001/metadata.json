@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_iam_role_with_full_privileges_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "iam_role_with_full_privileges",
+  "description": "",
+  "severity": "HIGH",
+  "query_id": "b1ffa705-19a3-4b73-b9d0-0c97d0663842",
+  "query_name": "IAM Role With Full Privileges"
+}

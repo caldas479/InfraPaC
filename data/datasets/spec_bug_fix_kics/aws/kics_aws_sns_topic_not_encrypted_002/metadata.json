@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_sns_topic_not_encrypted_002",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "sns_topic_not_encrypted",
+  "description": "",
+  "severity": "HIGH",
+  "query_id": "28545147-2fc6-42d5-a1f9-cf226658e591",
+  "query_name": "SNS Topic Not Encrypted"
+}

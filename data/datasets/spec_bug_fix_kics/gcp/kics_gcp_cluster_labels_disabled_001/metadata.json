@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_gcp_cluster_labels_disabled_001",
+  "category": "gcp",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "cluster_labels_disabled",
+  "description": "",
+  "severity": "LOW",
+  "query_id": "65c1bc7a-4835-4ac4-a2b6-13d310b0648d",
+  "query_name": "Cluster Labels Disabled"
+}

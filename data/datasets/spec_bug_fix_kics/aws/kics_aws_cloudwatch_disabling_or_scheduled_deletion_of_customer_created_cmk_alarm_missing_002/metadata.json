@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_cloudwatch_disabling_or_scheduled_deletion_of_customer_created_cmk_alarm_missing_002",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "cloudwatch_disabling_or_scheduled_deletion_of_customer_created_cmk_alarm_missing",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "56a585f5-555c-48b2-8395-e64e4740a9cf",
+  "query_name": "CloudWatch Disabling Or Scheduled Deletion Of Customer Created CMK Alarm Missing"
+}

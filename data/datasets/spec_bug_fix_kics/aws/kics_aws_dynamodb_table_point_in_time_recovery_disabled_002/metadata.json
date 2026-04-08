@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_dynamodb_table_point_in_time_recovery_disabled_002",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "dynamodb_table_point_in_time_recovery_disabled",
+  "description": "",
+  "severity": "INFO",
+  "query_id": "741f1291-47ac-4a85-a07b-3d32a9d6bd3e",
+  "query_name": "DynamoDB Table Point In Time Recovery Disabled"
+}

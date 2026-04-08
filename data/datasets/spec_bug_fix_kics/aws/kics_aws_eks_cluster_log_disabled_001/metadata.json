@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_eks_cluster_log_disabled_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "eks_cluster_log_disabled",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "37304d3f-f852-40b8-ae3f-725e87a7cedf",
+  "query_name": "EKS cluster logging is not enabled"
+}

@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_authentication_without_mfa_002",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "authentication_without_mfa",
+  "description": "",
+  "severity": "LOW",
+  "query_id": "3ddfa124-6407-4845-a501-179f90c65097",
+  "query_name": "Authentication Without MFA"
+}

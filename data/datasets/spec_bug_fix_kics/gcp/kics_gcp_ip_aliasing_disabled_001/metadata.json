@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_gcp_ip_aliasing_disabled_001",
+  "category": "gcp",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "ip_aliasing_disabled",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "c606ba1d-d736-43eb-ac24-e16108f3a9e0",
+  "query_name": "IP Aliasing Disabled"
+}

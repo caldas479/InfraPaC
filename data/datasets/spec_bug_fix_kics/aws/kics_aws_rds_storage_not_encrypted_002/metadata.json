@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_rds_storage_not_encrypted_002",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "rds_storage_not_encrypted",
+  "description": "",
+  "severity": "HIGH",
+  "query_id": "3199c26c-7871-4cb3-99c2-10a59244ce7f",
+  "query_name": "RDS Storage Not Encrypted"
+}

@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_gcp_google_project_auto_create_network_disabled_001",
+  "category": "gcp",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "google_project_auto_create_network_disabled",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "59571246-3f62-4965-a96f-c7d97e269351",
+  "query_name": "Google Project Auto Create Network Disabled"
+}

@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_iam_policy_grants_assumerole_permission_across_all_services_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "iam_policy_grants_assumerole_permission_across_all_services",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "bcdcbdc6-a350-4855-ae7c-d1e6436f7c97",
+  "query_name": "IAM Policy Grants 'AssumeRole' Permission Across All Services"
+}

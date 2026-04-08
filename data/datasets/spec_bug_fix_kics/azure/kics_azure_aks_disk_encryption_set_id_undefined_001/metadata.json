@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_azure_aks_disk_encryption_set_id_undefined_001",
+  "category": "azure",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "aks_disk_encryption_set_id_undefined",
+  "description": "",
+  "severity": "LOW",
+  "query_id": "b17d8bb8-4c08-4785-867e-cb9e62a622aa",
+  "query_name": "AKS Disk Encryption Set ID Undefined"
+}

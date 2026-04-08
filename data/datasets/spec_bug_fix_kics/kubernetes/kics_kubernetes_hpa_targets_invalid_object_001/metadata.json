@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_kubernetes_hpa_targets_invalid_object_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "hpa_targets_invalid_object",
+  "description": "",
+  "severity": "LOW",
+  "query_id": "17e52ca3-ddd0-4610-9d56-ce107442e110",
+  "query_name": "HPA Targets Invalid Object"
+}

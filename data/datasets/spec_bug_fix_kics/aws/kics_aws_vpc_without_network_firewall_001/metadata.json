@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_vpc_without_network_firewall_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "vpc_without_network_firewall",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "fd632aaf-b8a1-424d-a4d1-0de22fd3247a",
+  "query_name": "VPC Without Network Firewall"
+}

@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_kubernetes_metadata_label_is_invalid_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "metadata_label_is_invalid",
+  "description": "",
+  "severity": "LOW",
+  "query_id": "bc3dabb6-fd50-40f8-b9ba-7429c9f1fb0e",
+  "query_name": "Metadata Label Is Invalid"
+}

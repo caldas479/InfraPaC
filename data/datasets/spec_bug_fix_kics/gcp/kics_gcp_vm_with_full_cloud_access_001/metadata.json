@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_gcp_vm_with_full_cloud_access_001",
+  "category": "gcp",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "vm_with_full_cloud_access",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "bc280331-27b9-4acb-a010-018e8098aa5d",
+  "query_name": "VM With Full Cloud Access"
+}

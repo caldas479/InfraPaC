@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_eks_cluster_has_public_access_cidrs_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "eks_cluster_has_public_access_cidrs",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "61cf9883-1752-4768-b18c-0d57f2737709",
+  "query_name": "EKS Cluster Has Public Access CIDRs"
+}

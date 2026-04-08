@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_azure_redis_not_updated_regularly_001",
+  "category": "azure",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "redis_not_updated_regularly",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "b947809d-dd2f-4de9-b724-04d101c515aa",
+  "query_name": "Redis Not Updated Regularly"
+}

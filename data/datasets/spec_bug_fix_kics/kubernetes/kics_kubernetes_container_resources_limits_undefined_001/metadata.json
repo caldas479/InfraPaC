@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_kubernetes_container_resources_limits_undefined_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "container_resources_limits_undefined",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "60af03ff-a421-45c8-b214-6741035476fa",
+  "query_name": "Container Resources Limits Undefined"
+}

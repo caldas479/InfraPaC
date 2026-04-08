@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_stack_notifications_disabled_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "stack_notifications_disabled",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "b72d0026-f649-4c91-a9ea-15d8f681ac09",
+  "query_name": "Stack Notifications Disabled"
+}

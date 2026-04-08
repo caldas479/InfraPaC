@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_sensitive_port_is_exposed_to_entire_network_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "sensitive_port_is_exposed_to_entire_network",
+  "description": "",
+  "severity": "HIGH",
+  "query_id": "381c3f2a-ef6f-4eff-99f7-b169cda3422c",
+  "query_name": "Sensitive Port Is Exposed To Entire Network"
+}

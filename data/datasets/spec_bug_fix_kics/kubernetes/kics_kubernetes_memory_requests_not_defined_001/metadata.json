@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_kubernetes_memory_requests_not_defined_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "memory_requests_not_defined",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "21719347-d02b-497d-bda4-04a03c8e5b61",
+  "query_name": "Memory Requests Not Defined"
+}

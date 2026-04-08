@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_kubernetes_net_raw_capabilities_not_being_dropped_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "net_raw_capabilities_not_being_dropped",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "e5587d53-a673-4a6b-b3f2-ba07ec274def",
+  "query_name": "NET_RAW Capabilities Not Being Dropped"
+}

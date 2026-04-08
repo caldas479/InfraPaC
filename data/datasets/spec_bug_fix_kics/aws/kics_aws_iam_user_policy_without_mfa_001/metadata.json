@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_iam_user_policy_without_mfa_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "iam_user_policy_without_mfa",
+  "description": "",
+  "severity": "LOW",
+  "query_id": "b5681959-6c09-4f55-b42b-c40fa12d03ec",
+  "query_name": "IAM User Policy Without MFA"
+}

@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_cloudtrail_sns_topic_name_undefined_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "cloudtrail_sns_topic_name_undefined",
+  "description": "",
+  "severity": "LOW",
+  "query_id": "482b7d26-0bdb-4b5f-bf6f-545826c0a3dd",
+  "query_name": "CloudTrail SNS Topic Name Undefined"
+}

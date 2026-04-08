@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_kubernetes_shared_host_network_namespace_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "shared_host_network_namespace",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "ac1564a3-c324-4747-9fa1-9dfc234dace0",
+  "query_name": "Shared Host Network Namespace"
+}

@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_iam_access_key_is_exposed_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "iam_access_key_is_exposed",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "7081f85c-b94d-40fd-8b45-a4f1cac75e46",
+  "query_name": "IAM Access Key Is Exposed"
+}

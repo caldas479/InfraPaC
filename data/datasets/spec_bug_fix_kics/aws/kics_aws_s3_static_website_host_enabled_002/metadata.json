@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_s3_static_website_host_enabled_002",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "s3_static_website_host_enabled",
+  "description": "",
+  "severity": "HIGH",
+  "query_id": "42bb6b7f-6d54-4428-b707-666f669d94fb",
+  "query_name": "S3 Static Website Host Enabled"
+}

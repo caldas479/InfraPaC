@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_api_gateway_with_open_access_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "api_gateway_with_open_access",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "15ccec05-5476-4890-ad19-53991eba1db8",
+  "query_name": "API Gateway With Open Access"
+}

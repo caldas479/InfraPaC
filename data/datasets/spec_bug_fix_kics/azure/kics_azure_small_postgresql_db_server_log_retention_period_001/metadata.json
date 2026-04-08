@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_azure_small_postgresql_db_server_log_retention_period_001",
+  "category": "azure",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "small_postgresql_db_server_log_retention_period",
+  "description": "",
+  "severity": "LOW",
+  "query_id": "261a83f8-dd72-4e8c-b5e1-ebf06e8fe606",
+  "query_name": "Small PostgreSQL DB Server Log Retention Period"
+}

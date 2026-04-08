@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_config_configuration_aggregator_to_all_regions_disabled_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "config_configuration_aggregator_to_all_regions_disabled",
+  "description": "",
+  "severity": "LOW",
+  "query_id": "ac5a0bc0-a54c-45aa-90c3-15f7703b9132",
+  "query_name": "Configuration Aggregator to All Regions Disabled"
+}

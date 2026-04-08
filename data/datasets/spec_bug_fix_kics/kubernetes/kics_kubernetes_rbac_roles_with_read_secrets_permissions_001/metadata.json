@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_kubernetes_rbac_roles_with_read_secrets_permissions_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "rbac_roles_with_read_secrets_permissions",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "826abb30-3cd5-4e0b-a93b-67729b4f7e63",
+  "query_name": "RBAC Roles with Read Secrets Permissions"
+}

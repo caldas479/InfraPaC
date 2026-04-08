@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_gcp_bigquery_dataset_is_public_001",
+  "category": "gcp",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "bigquery_dataset_is_public",
+  "description": "",
+  "severity": "HIGH",
+  "query_id": "e576ce44-dd03-4022-a8c0-3906acca2ab4",
+  "query_name": "BigQuery Dataset Is Public"
+}

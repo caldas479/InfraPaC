@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_kubernetes_liveness_probe_is_not_defined_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "liveness_probe_is_not_defined",
+  "description": "",
+  "severity": "INFO",
+  "query_id": "5b6d53dd-3ba3-4269-b4d7-f82e880e43c3",
+  "query_name": "Liveness Probe Is Not Defined"
+}

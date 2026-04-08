@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_kubernetes_default_service_account_in_use_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "default_service_account_in_use",
+  "description": "",
+  "severity": "LOW",
+  "query_id": "737a0dd9-0aaa-4145-8118-f01778262b8a",
+  "query_name": "Default Service Account In Use"
+}

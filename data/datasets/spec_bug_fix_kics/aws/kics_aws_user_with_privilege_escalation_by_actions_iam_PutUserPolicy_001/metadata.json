@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_user_with_privilege_escalation_by_actions_iam_PutUserPolicy_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "user_with_privilege_escalation_by_actions_iam_PutUserPolicy",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "0c10d7da-85c4-4d62-b2a8-d6c104f1bd77",
+  "query_name": "User With Privilege Escalation By Actions 'iam:PutUserPolicy'"
+}

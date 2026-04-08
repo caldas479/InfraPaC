@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_elasticsearch_logs_disabled_002",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "elasticsearch_logs_disabled",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "acb6b4e2-a086-4f35-aefd-4db6ea51ada2",
+  "query_name": "Elasticsearch Log Disabled"
+}

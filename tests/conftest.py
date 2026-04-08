@@ -18,6 +18,15 @@ def sample_opa_config() -> Dict[str, Any]:
 
 
 @pytest.fixture
+def sample_kics_config() -> Dict[str, Any]:
+    """Sample KICS configuration for testing."""
+    return {
+        "binary_path": "kics",
+        "timeout": 60,
+    }
+
+
+@pytest.fixture
 def sample_llm_config() -> Dict[str, Any]:
     """Sample LLM configuration for testing."""
     return {

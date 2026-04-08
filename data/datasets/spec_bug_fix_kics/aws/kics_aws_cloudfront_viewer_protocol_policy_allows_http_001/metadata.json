@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_cloudfront_viewer_protocol_policy_allows_http_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "cloudfront_viewer_protocol_policy_allows_http",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "55af1353-2f62-4fa0-a8e1-a210ca2708f5",
+  "query_name": "Cloudfront Viewer Protocol Policy Allows HTTP"
+}

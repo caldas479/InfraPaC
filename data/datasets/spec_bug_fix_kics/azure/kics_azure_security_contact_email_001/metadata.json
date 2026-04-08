@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_azure_security_contact_email_001",
+  "category": "azure",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "security_contact_email",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "34664094-59e0-4524-b69f-deaa1a68cce3",
+  "query_name": "Security Contact Email"
+}

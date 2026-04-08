@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_role_with_privilege_escalation_by_actions_iam_UpdateLoginProfile_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "role_with_privilege_escalation_by_actions_iam_UpdateLoginProfile",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "35ccf766-0e4d-41ed-9ec4-2dab155082b4",
+  "query_name": "Role With Privilege Escalation By Actions 'iam:UpdateLoginProfile'"
+}

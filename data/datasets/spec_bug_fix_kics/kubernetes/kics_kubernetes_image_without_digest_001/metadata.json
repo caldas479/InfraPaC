@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_kubernetes_image_without_digest_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "image_without_digest",
+  "description": "",
+  "severity": "LOW",
+  "query_id": "228c4c19-feeb-4c18-848c-800ac70fdfb7",
+  "query_name": "Image Without Digest"
+}

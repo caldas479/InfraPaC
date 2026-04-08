@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_cloudwatch_aws_organizations_changes_missing_alarm_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "cloudwatch_aws_organizations_changes_missing_alarm",
+  "description": "",
+  "severity": "INFO",
+  "query_id": "38b85c45-e772-4de8-a247-69619ca137b3",
+  "query_name": "CloudWatch AWS Organizations Changes Missing Alarm"
+}

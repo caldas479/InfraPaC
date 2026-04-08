@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_ecs_service_admin_role_is_present_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "ecs_service_admin_role_is_present",
+  "description": "",
+  "severity": "HIGH",
+  "query_id": "3206240f-2e87-4e58-8d24-3e19e7c83d7c",
+  "query_name": "ECS Service Admin Role Is Present"
+}

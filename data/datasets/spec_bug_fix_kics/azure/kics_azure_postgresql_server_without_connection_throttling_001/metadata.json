@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_azure_postgresql_server_without_connection_throttling_001",
+  "category": "azure",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "postgresql_server_without_connection_throttling",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "2b3c671f-1b76-4741-8789-ed1fe0785dc4",
+  "query_name": "PostgreSQL Server Without Connection Throttling"
+}

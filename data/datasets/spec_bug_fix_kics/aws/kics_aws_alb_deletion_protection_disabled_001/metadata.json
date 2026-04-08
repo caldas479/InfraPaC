@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_alb_deletion_protection_disabled_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "alb_deletion_protection_disabled",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "afecd1f1-6378-4f7e-bb3b-60c35801fdd4",
+  "query_name": "ALB Deletion Protection Disabled"
+}

@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_azure_network_watcher_flow_disabled_001",
+  "category": "azure",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "network_watcher_flow_disabled",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "b90842e5-6779-44d4-9760-972f4c03ba1c",
+  "query_name": "Network Watcher Flow Disabled"
+}

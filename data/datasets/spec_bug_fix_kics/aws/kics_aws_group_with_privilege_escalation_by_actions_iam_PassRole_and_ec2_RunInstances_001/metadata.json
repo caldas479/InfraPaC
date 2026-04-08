@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_group_with_privilege_escalation_by_actions_iam_PassRole_and_ec2_RunInstances_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "group_with_privilege_escalation_by_actions_iam_PassRole_and_ec2_RunInstances",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "15e6ad8c-f420-49a6-bafb-074f5eb1ec74",
+  "query_name": "Group With Privilege Escalation By Actions 'ec2:RunInstances' And 'iam:PassRole'"
+}

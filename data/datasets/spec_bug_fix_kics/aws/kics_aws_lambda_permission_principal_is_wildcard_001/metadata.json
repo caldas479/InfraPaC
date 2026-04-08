@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_lambda_permission_principal_is_wildcard_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "lambda_permission_principal_is_wildcard",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "e08ed7eb-f3ef-494d-9d22-2e3db756a347",
+  "query_name": "Lambda Permission Principal Is Wildcard"
+}

@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_kubernetes_container_with_added_capabilities_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "container_with_added_capabilities",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "fe771ff7-ba15-4f8f-ad7a-8aa232b49a28",
+  "query_name": "Containers With Added Capabilities"
+}

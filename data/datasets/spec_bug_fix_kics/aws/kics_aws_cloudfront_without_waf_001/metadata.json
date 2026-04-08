@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_cloudfront_without_waf_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "cloudfront_without_waf",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "1419b4c6-6d5c-4534-9cf6-6a5266085333",
+  "query_name": "CloudFront Without WAF"
+}

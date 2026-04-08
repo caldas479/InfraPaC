@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_codebuild_project_encrypted_with_aws_managed_key_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "codebuild_project_encrypted_with_aws_managed_key",
+  "description": "",
+  "severity": "LOW",
+  "query_id": "3deec14b-03d2-4d27-9670-7d79322e3340",
+  "query_name": "CodeBuild Project Encrypted With AWS Managed Key"
+}

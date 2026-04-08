@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_kubernetes_service_account_allows_access_secrets_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "service_account_allows_access_secrets",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "07fc3413-e572-42f7-9877-5c8fc6fccfb5",
+  "query_name": "Service Account Allows Access Secrets"
+}

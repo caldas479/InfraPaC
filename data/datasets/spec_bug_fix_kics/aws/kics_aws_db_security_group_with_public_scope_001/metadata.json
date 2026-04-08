@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_db_security_group_with_public_scope_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "db_security_group_with_public_scope",
+  "description": "",
+  "severity": "CRITICAL",
+  "query_id": "1e0ef61b-ad85-4518-a3d3-85eaad164885",
+  "query_name": "DB Security Group With Public Scope"
+}

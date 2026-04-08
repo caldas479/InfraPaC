@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_kubernetes_workload_mounting_with_sensitive_os_directory_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "workload_mounting_with_sensitive_os_directory",
+  "description": "",
+  "severity": "HIGH",
+  "query_id": "a737be28-37d8-4bff-aa6d-1be8aa0a0015",
+  "query_name": "Workload Mounting With Sensitive OS Directory"
+}

@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_azure_sql_server_alert_email_disabled_001",
+  "category": "azure",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "sql_server_alert_email_disabled",
+  "description": "",
+  "severity": "INFO",
+  "query_id": "55975007-f6e7-4134-83c3-298f1fe4b519",
+  "query_name": "SQL Server Alert Email Disabled"
+}

@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_db_instance_storage_not_encrypted_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "db_instance_storage_not_encrypted",
+  "description": "",
+  "severity": "HIGH",
+  "query_id": "08bd0760-8752-44e1-9779-7bb369b2b4e4",
+  "query_name": "DB Instance Storage Not Encrypted"
+}

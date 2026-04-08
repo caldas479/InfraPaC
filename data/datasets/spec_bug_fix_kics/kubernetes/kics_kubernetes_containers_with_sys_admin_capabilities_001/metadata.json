@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_kubernetes_containers_with_sys_admin_capabilities_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "containers_with_sys_admin_capabilities",
+  "description": "",
+  "severity": "HIGH",
+  "query_id": "3f55386d-75cd-4e9a-ac47-167b26c04724",
+  "query_name": "Containers With Sys Admin Capabilities"
+}

@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_azure_mariadb_public_network_access_enabled_002",
+  "category": "azure",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "mariadb_public_network_access_enabled",
+  "description": "",
+  "severity": "HIGH",
+  "query_id": "7f0a8696-7159-4337-ad0d-8a3ab4a78195",
+  "query_name": "MariaDB Server Public Network Access Enabled"
+}

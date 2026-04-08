@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_cloudwatch_logs_destination_with_vulnerable_policy_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "cloudwatch_logs_destination_with_vulnerable_policy",
+  "description": "",
+  "severity": "LOW",
+  "query_id": "db0ec4c4-852c-46a2-b4f3-7ec13cdb12a8",
+  "query_name": "CloudWatch Logs Destination With Vulnerable Policy"
+}

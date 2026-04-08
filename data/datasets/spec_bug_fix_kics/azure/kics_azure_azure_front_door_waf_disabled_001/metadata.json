@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_azure_azure_front_door_waf_disabled_001",
+  "category": "azure",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "azure_front_door_waf_disabled",
+  "description": "",
+  "severity": "LOW",
+  "query_id": "835a4f2f-df43-437d-9943-545ccfc55961",
+  "query_name": "Azure Front Door WAF Disabled"
+}

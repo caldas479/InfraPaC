@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_sensitive_port_is_exposed_to_small_public_network_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "sensitive_port_is_exposed_to_small_public_network",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "e35c16a2-d54e-419d-8546-a804d8e024d0",
+  "query_name": "Sensitive Port Is Exposed To Small Public Network"
+}

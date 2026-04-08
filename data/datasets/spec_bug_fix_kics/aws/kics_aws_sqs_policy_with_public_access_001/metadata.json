@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_sqs_policy_with_public_access_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "sqs_policy_with_public_access",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "730675f9-52ed-49b6-8ead-0acb5dd7df7f",
+  "query_name": "SQS Policy With Public Access"
+}

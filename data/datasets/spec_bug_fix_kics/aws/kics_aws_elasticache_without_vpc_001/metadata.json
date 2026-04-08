@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_elasticache_without_vpc_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "elasticache_without_vpc",
+  "description": "",
+  "severity": "LOW",
+  "query_id": "8c849af7-a399-46f7-a34c-32d3dc96f1fc",
+  "query_name": "ElastiCache Without VPC"
+}

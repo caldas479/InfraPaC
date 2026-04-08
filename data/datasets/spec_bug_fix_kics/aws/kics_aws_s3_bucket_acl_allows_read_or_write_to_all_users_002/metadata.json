@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_s3_bucket_acl_allows_read_or_write_to_all_users_002",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "s3_bucket_acl_allows_read_or_write_to_all_users",
+  "description": "",
+  "severity": "CRITICAL",
+  "query_id": "38c5ee0d-7f22-4260-ab72-5073048df100",
+  "query_name": "S3 Bucket ACL Allows Read Or Write to All Users"
+}

@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_azure_unrestricted_sql_server_access_001",
+  "category": "azure",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "unrestricted_sql_server_access",
+  "description": "",
+  "severity": "CRITICAL",
+  "query_id": "d7ba74da-2da0-4d4b-83c8-2fd72a3f6c28",
+  "query_name": "Unrestricted SQL Server Access"
+}

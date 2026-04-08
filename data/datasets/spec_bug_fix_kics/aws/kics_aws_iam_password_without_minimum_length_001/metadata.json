@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_iam_password_without_minimum_length_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "iam_password_without_minimum_length",
+  "description": "",
+  "severity": "LOW",
+  "query_id": "1bc1c685-e593-450e-88fb-19db4c82aa1d",
+  "query_name": "IAM Password Without Minimum Length"
+}

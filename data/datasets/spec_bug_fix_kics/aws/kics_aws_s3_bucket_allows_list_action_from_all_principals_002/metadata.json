@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_s3_bucket_allows_list_action_from_all_principals_002",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "s3_bucket_allows_list_action_from_all_principals",
+  "description": "",
+  "severity": "HIGH",
+  "query_id": "66c6f96f-2d9e-417e-a998-9058aeeecd44",
+  "query_name": "S3 Bucket Allows List Action From All Principals"
+}

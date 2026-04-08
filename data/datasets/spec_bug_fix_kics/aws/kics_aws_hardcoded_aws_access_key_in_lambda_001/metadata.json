@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_hardcoded_aws_access_key_in_lambda_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "hardcoded_aws_access_key_in_lambda",
+  "description": "",
+  "severity": "HIGH",
+  "query_id": "1402afd8-a95c-4e84-8b0b-6fb43758e6ce",
+  "query_name": "Hardcoded AWS Access Key In Lambda"
+}

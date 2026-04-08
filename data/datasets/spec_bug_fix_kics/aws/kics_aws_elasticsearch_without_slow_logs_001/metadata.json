@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_elasticsearch_without_slow_logs_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "elasticsearch_without_slow_logs",
+  "description": "",
+  "severity": "LOW",
+  "query_id": "e979fcbc-df6c-422d-9458-c33d65e71c45",
+  "query_name": "ElasticSearch Without Slow Logs"
+}

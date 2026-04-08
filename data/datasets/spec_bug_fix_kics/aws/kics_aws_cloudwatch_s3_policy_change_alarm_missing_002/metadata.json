@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_cloudwatch_s3_policy_change_alarm_missing_002",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "cloudwatch_s3_policy_change_alarm_missing",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "27c6a499-895a-4dc7-9617-5c485218db13",
+  "query_name": "CloudWatch S3 policy Change Alarm Missing"
+}

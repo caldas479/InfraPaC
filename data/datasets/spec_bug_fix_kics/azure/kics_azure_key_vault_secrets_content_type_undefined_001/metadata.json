@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_azure_key_vault_secrets_content_type_undefined_001",
+  "category": "azure",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "key_vault_secrets_content_type_undefined",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "f8e08a38-fc6e-4915-abbe-a7aadf1d59ef",
+  "query_name": "Key Vault Secrets Content Type Undefined"
+}

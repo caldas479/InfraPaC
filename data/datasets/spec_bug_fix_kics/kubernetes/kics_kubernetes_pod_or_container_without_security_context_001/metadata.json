@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_kubernetes_pod_or_container_without_security_context_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "pod_or_container_without_security_context",
+  "description": "",
+  "severity": "LOW",
+  "query_id": "ad69e38a-d92e-4357-a8da-f2f29d545883",
+  "query_name": "Pod or Container Without Security Context"
+}

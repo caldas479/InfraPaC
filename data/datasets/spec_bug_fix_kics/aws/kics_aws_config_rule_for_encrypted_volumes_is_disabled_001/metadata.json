@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_config_rule_for_encrypted_volumes_is_disabled_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "config_rule_for_encrypted_volumes_is_disabled",
+  "description": "",
+  "severity": "HIGH",
+  "query_id": "abdb29d4-5ca1-4e91-800b-b3569bbd788c",
+  "query_name": "Config Rule For Encrypted Volumes Disabled"
+}

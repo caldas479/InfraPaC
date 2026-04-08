@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_kubernetes_permissive_access_to_create_pods_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "permissive_access_to_create_pods",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "522d4a64-4dc9-44bd-9240-7d8a0d5cb5ba",
+  "query_name": "Permissive Access to Create Pods"
+}

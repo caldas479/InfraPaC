@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_sqs_policy_allows_all_actions_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "sqs_policy_allows_all_actions",
+  "description": "",
+  "severity": "HIGH",
+  "query_id": "816ea8cf-d589-442d-a917-2dd0ce0e45e3",
+  "query_name": "SQS Policy Allows All Actions"
+}

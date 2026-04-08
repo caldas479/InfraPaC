@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_s3_bucket_without_enabled_mfa_delete_002",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "s3_bucket_without_enabled_mfa_delete",
+  "description": "",
+  "severity": "LOW",
+  "query_id": "c5b31ab9-0f26-4a49-b8aa-4cc064392f4d",
+  "query_name": "S3 Bucket Without Enabled MFA Delete"
+}

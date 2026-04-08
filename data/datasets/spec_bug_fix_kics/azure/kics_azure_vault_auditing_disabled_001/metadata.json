@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_azure_vault_auditing_disabled_001",
+  "category": "azure",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "vault_auditing_disabled",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "38c71c00-c177-4cd7-8d36-cd1007cdb190",
+  "query_name": "Vault Auditing Disabled"
+}

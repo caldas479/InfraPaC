@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_gcp_google_project_iam_binding_service_account_has_token_creator_or_account_user_role_001",
+  "category": "gcp",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "google_project_iam_binding_service_account_has_token_creator_or_account_user_role",
+  "description": "",
+  "severity": "HIGH",
+  "query_id": "617ef6ff-711e-4bd7-94ae-e965911b1b40",
+  "query_name": "Google Project IAM Binding Service Account has Token Creator or Account User Role"
+}

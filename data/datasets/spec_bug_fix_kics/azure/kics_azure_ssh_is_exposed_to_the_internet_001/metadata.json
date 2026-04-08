@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_azure_ssh_is_exposed_to_the_internet_001",
+  "category": "azure",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "ssh_is_exposed_to_the_internet",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "3e3c175e-aadf-4e2b-a464-3fdac5748d24",
+  "query_name": "SSH Is Exposed To The Internet"
+}

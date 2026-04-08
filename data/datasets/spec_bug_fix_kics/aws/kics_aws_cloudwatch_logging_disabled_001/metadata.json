@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_cloudwatch_logging_disabled_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "cloudwatch_logging_disabled",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "7dbba512-e244-42dc-98bb-422339827967",
+  "query_name": "CloudWatch Logging Disabled"
+}

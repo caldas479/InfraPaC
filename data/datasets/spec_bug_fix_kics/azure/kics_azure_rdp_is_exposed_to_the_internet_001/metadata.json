@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_azure_rdp_is_exposed_to_the_internet_001",
+  "category": "azure",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "rdp_is_exposed_to_the_internet",
+  "description": "",
+  "severity": "HIGH",
+  "query_id": "efbf6449-5ec5-4cfe-8f15-acc51e0d787c",
+  "query_name": "RDP Is Exposed To The Internet"
+}

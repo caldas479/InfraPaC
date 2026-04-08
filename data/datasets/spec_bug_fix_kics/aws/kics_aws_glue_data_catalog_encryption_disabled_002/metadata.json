@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_glue_data_catalog_encryption_disabled_002",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "glue_data_catalog_encryption_disabled",
+  "description": "",
+  "severity": "HIGH",
+  "query_id": "01d50b14-e933-4c99-b314-6d08cd37ad35",
+  "query_name": "Glue Data Catalog Encryption Disabled"
+}

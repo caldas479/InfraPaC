@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_api_gateway_without_waf_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "api_gateway_without_waf",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "a186e82c-1078-4a7b-85d8-579561fde884",
+  "query_name": "API Gateway without WAF"
+}

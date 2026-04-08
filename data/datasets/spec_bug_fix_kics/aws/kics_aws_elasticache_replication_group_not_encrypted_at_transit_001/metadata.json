@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_elasticache_replication_group_not_encrypted_at_transit_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "elasticache_replication_group_not_encrypted_at_transit",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "1afbb3fa-cf6c-4a3d-b730-95e9f4df343e",
+  "query_name": "ElastiCache Replication Group Not Encrypted At Transit"
+}

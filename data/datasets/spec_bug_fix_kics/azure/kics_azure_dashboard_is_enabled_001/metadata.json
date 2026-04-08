@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_azure_dashboard_is_enabled_001",
+  "category": "azure",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "dashboard_is_enabled",
+  "description": "",
+  "severity": "LOW",
+  "query_id": "61c3cb8b-0715-47e4-b788-86dde40dd2db",
+  "query_name": "Dashboard Is Enabled"
+}

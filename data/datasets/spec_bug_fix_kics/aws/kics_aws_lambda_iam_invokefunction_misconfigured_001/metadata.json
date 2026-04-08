@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_lambda_iam_invokefunction_misconfigured_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "lambda_iam_invokefunction_misconfigured",
+  "description": "",
+  "severity": "LOW",
+  "query_id": "0ca1017d-3b80-423e-bb9c-6cd5898d34bd",
+  "query_name": "Lambda IAM InvokeFunction Misconfigured"
+}

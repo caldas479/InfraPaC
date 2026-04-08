@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_cloudfront_without_minimum_protocol_tls_1.2_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "cloudfront_without_minimum_protocol_tls_1.2",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "00e5e55e-c2ff-46b3-a757-a7a1cd802456",
+  "query_name": "CloudFront Without Minimum Protocol TLS 1.2"
+}

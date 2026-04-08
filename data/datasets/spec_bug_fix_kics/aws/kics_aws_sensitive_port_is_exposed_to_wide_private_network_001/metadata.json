@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_sensitive_port_is_exposed_to_wide_private_network_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "sensitive_port_is_exposed_to_wide_private_network",
+  "description": "",
+  "severity": "LOW",
+  "query_id": "92fe237e-074c-4262-81a4-2077acb928c1",
+  "query_name": "Sensitive Port Is Exposed To Wide Private Network"
+}

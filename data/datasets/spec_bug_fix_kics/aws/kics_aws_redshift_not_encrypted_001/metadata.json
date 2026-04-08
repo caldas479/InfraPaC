@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_redshift_not_encrypted_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "redshift_not_encrypted",
+  "description": "",
+  "severity": "HIGH",
+  "query_id": "cfdcabb0-fc06-427c-865b-c59f13e898ce",
+  "query_name": "Redshift Not Encrypted"
+}

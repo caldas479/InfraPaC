@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_s3_bucket_allows_put_action_from_all_principals_002",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "s3_bucket_allows_put_action_from_all_principals",
+  "description": "",
+  "severity": "CRITICAL",
+  "query_id": "d24c0755-c028-44b1-b503-8e719c898832",
+  "query_name": "S3 Bucket Allows Put Action From All Principals"
+}

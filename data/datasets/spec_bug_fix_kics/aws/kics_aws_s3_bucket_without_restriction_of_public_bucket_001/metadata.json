@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_s3_bucket_without_restriction_of_public_bucket_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "s3_bucket_without_restriction_of_public_bucket",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "1ec253ab-c220-4d63-b2de-5b40e0af9293",
+  "query_name": "S3 Bucket Without Restriction Of Public Bucket"
+}

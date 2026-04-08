@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_neptune_database_cluster_encryption_disabled_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "neptune_database_cluster_encryption_disabled",
+  "description": "",
+  "severity": "HIGH",
+  "query_id": "98d59056-f745-4ef5-8613-32bca8d40b7e",
+  "query_name": "Neptune Database Cluster Encryption Disabled"
+}

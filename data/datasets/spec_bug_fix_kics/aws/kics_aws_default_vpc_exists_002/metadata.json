@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_default_vpc_exists_002",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "default_vpc_exists",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "96ed3526-0179-4c73-b1b2-372fde2e0d13",
+  "query_name": "Default VPC Exists"
+}

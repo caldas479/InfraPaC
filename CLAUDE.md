@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-InfraPaC is an automated Infrastructure as Code (IaC) repair framework that uses Large Language Models to fix policy violations in Terraform configurations. The system detects violations using Policy as Code engines (OPA/Sentinel), generates fixes via LLMs, and iteratively validates repairs until compliance is achieved.
+InfraPaC is an automated Infrastructure as Code (IaC) repair framework that uses Large Language Models to fix policy violations in Terraform configurations. The system detects violations using Policy as Code engines (OPA/Sentinel/KICS), generates fixes via LLMs, and iteratively validates repairs until compliance is achieved.
 
 ## Development Commands
 
@@ -19,8 +19,11 @@ uv sync
 
 ### Running the Main Tool
 ```bash
-# Basic usage with policy and IaC file
+# Basic usage with policy and IaC file (default: OPA engine)
 uv run python main.py --policy examples/s3_versioning.rego --iac examples/s3_bucket.tf
+
+# Using KICS engine
+uv run python main.py --policy-engine kics --policy <policy_file> --iac <iac_file>
 
 # With verbose output
 uv run python main.py --policy <policy_file> --iac <iac_file> --verbose
@@ -34,7 +37,7 @@ uv run python main.py --policy <policy_file> --iac <iac_file> --output repaired.
 
 ### Dataset Management
 ```bash
-# Generate patches for all dataset entries
+# SpecBugFix dataset (OPA-based)
 uv run python generate_patches.py
 
 # Generate patch for specific entry
@@ -42,6 +45,12 @@ uv run python generate_patches.py --entry-id opa_storage_001
 
 # Generate patches for category
 uv run python generate_patches.py --category storage
+
+# KICS dataset (700+ entries)
+uv run python generate_patches_kics.py
+
+# Generate patches for specific KICS category (aws, azure, gcp, kubernetes, github)
+uv run python generate_patches_kics.py --category aws
 
 # Skip existing patches
 uv run python generate_patches.py --skip-existing --verbose
@@ -88,6 +97,12 @@ pre-commit install
 - `BasePaCEngine`: Abstract base class defining the policy evaluation interface
 - `OPAEngine`: Open Policy Agent implementation for evaluating Rego policies
 - `SentinelEngine`: HashiCorp Sentinel implementation
+- `KICSEngine`: KICS (Keeping Infrastructure as Code Secure) implementation
+  - Uses `kics scan` command with custom queries and libraries
+  - Automatically locates KICS helper libraries from multiple paths
+  - Generates required metadata.json for query recognition
+  - Handles KICS exit codes (0-69) for various severity levels
+  - Parses JSON output into PolicyViolation objects
 - Each engine evaluates IaC scripts against policies and returns structured violations
 
 **2. Repair Agent (`src/agents/repair_agent.py`)**
@@ -143,7 +158,7 @@ Configuration uses a layered approach (priority from highest to lowest):
 Key config sections:
 - `llm`: Provider, model, temperature, max_tokens, timeout
 - `repair`: max_iterations, validation_timeout
-- `opa`/`sentinel`: binary_path, timeout
+- `opa`/`sentinel`/`kics`: binary_path, timeout
 - `logging`: level, file, format
 
 ### Import Structure
@@ -159,12 +174,16 @@ from src.chains.repair_chain import RepairChain
 ## External Dependencies
 
 **Critical Requirements:**
-- OPA binary (`opa`) must be in PATH or specified in config
-  - Install: `brew install opa` (macOS) or download from openpolicyagent.org
+- Policy Engine binary must be in PATH or specified in config:
+  - OPA: `brew install opa` (macOS) or download from openpolicyagent.org
+  - KICS: `brew install kics` (macOS) or download from github.com/Checkmarx/kics
+  - Sentinel: Download from docs.hashicorp.com/sentinel/downloads
 - For Ollama: Service must be running (`ollama serve`) with desired model pulled (`ollama pull codellama`)
 - For OpenAI: `OPENAI_API_KEY` environment variable must be set
 
 ## Dataset Structure
+
+### SpecBugFix Dataset
 
 The project uses the SpecBugFix dataset format:
 ```
@@ -177,6 +196,28 @@ data/datasets/spec_bug_fix/
         ├── fixed.tf           # Reference fix
         └── patch.tf           # Generated repair (created by generate_patches.py)
 ```
+
+### KICS Dataset
+
+The KICS dataset includes 700+ security checks imported from the Checkmarx KICS repository:
+```
+data/datasets/spec_bug_fix_kics/
+├── dataset_index.json          # Metadata and entry index
+└── <category>/                 # aws, azure, gcp, kubernetes, github
+    └── <entry_id>/
+        ├── policy.rego         # KICS query
+        ├── buggy.tf           # Violating IaC script
+        ├── fixed.tf           # Reference fix (from KICS negative tests)
+        ├── patch.tf           # Generated repair (created by generate_patches_kics.py)
+        └── metadata.json      # Entry metadata
+```
+
+Dataset statistics:
+- 453 AWS security checks
+- 120 Azure security checks
+- 60 GCP security checks
+- 73 Kubernetes security checks
+- 2 GitHub security checks
 
 Experiment logs are automatically saved to `results/<dataset_name>/<model_name>/execution_<timestamp>.log`
 

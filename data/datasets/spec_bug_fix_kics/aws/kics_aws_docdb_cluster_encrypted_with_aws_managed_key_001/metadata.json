@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_docdb_cluster_encrypted_with_aws_managed_key_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "docdb_cluster_encrypted_with_aws_managed_key",
+  "description": "",
+  "severity": "LOW",
+  "query_id": "2134641d-30a4-4b16-8ffc-2cd4c4ffd15d",
+  "query_name": "DOCDB Cluster Encrypted With AWS Managed Key"
+}

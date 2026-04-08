@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_iam_role_allows_all_principals_to_assume_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "iam_role_allows_all_principals_to_assume",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "12b7e704-37f0-4d1e-911a-44bf60c48c21",
+  "query_name": "IAM Role Allows All Principals To Assume"
+}

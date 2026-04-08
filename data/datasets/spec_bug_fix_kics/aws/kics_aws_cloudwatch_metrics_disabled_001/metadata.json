@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_cloudwatch_metrics_disabled_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "cloudwatch_metrics_disabled",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "081069cb-588b-4ce1-884c-2a1ce3029fe5",
+  "query_name": "CloudWatch Metrics Disabled"
+}

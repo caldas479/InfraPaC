@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_gcp_sql_db_instance_is_publicly_accessible_001",
+  "category": "gcp",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "sql_db_instance_is_publicly_accessible",
+  "description": "",
+  "severity": "CRITICAL",
+  "query_id": "b187edca-b81e-4fdc-aff4-aab57db45edb",
+  "query_name": "SQL DB Instance Publicly Accessible"
+}

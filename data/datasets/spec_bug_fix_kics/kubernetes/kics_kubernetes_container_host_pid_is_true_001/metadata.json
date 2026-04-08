@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_kubernetes_container_host_pid_is_true_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "container_host_pid_is_true",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "587d5d82-70cf-449b-9817-f60f9bccb88c",
+  "query_name": "Container Host Pid Is True"
+}

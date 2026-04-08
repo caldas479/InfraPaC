@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_gcp_google_container_node_pool_auto_repair_disabled_001",
+  "category": "gcp",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "google_container_node_pool_auto_repair_disabled",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "acfdbec6-4a17-471f-b412-169d77553332",
+  "query_name": "Google Container Node Pool Auto Repair Disabled"
+}

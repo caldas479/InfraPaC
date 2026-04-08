@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_default_security_groups_with_unrestricted_traffic_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "default_security_groups_with_unrestricted_traffic",
+  "description": "",
+  "severity": "HIGH",
+  "query_id": "46883ce1-dc3e-4b17-9195-c6a601624c73",
+  "query_name": "Default Security Groups With Unrestricted Traffic"
+}

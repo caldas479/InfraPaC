@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_cross_account_iam_assume_role_policy_without_external_id_or_mfa_002",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "cross_account_iam_assume_role_policy_without_external_id_or_mfa",
+  "description": "",
+  "severity": "HIGH",
+  "query_id": "09c35abf-5852-4622-ac7a-b987b331232e",
+  "query_name": "Cross-Account IAM Assume Role Policy Without ExternalId or MFA"
+}

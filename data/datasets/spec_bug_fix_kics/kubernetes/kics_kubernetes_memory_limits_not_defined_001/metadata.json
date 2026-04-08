@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_kubernetes_memory_limits_not_defined_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "memory_limits_not_defined",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "fd097ed0-7fe6-4f58-8b71-fef9f0820a21",
+  "query_name": "Memory Limits Not Defined"
+}

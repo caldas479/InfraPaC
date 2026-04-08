@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_aws_elasticsearch_not_encrypted_at_rest_001",
+  "category": "aws",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "elasticsearch_not_encrypted_at_rest",
+  "description": "",
+  "severity": "HIGH",
+  "query_id": "24e16922-4330-4e9d-be8a-caa90299466a",
+  "query_name": "ElasticSearch Not Encrypted At Rest"
+}

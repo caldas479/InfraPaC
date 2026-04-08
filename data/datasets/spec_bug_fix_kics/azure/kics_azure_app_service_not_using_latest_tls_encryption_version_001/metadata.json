@@ -1,0 +1,12 @@
+{
+  "entry_id": "kics_azure_app_service_not_using_latest_tls_encryption_version_001",
+  "category": "azure",
+  "policy_engine": "opa",
+  "iac_tool": "terraform",
+  "source": "kics",
+  "original_query": "app_service_not_using_latest_tls_encryption_version",
+  "description": "",
+  "severity": "MEDIUM",
+  "query_id": "b7b9d1c7-2d3b-49b4-b867-ebbe68d0b643",
+  "query_name": "App Service Not Using Latest TLS Encryption Version"
+}
