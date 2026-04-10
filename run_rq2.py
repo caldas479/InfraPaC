@@ -85,7 +85,7 @@ def build_llm_config(
     llm_cfg["provider"] = provider
     llm_cfg["model"] = model
     llm_cfg["temperature"] = 0.2
-    llm_cfg["max_tokens"] = 2048
+    llm_cfg["max_tokens"] = 4096
     llm_cfg["timeout"] = 120
     return llm_cfg
 
