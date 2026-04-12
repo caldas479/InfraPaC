@@ -51,6 +51,8 @@ OPENROUTER_PRICING: Dict[str, Dict[str, float]] = {
     "meta-llama/llama-3.3-70b-instruct:free": {"input": 0.00, "output": 0.00},
     "deepseek/deepseek-chat-v3-0324": {"input": 0.27, "output": 1.10},
     "mistralai/mistral-large-2411": {"input": 2.00, "output": 6.00},
+    "anthropic/claude-haiku-4-5": {"input": 0.524, "output": 5.00},
+    "anthropic/claude-sonnet-4-5": {"input": 1.65, "output": 15.02},
 }
 
 # Thread-safe progress counter
