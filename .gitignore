@@ -216,8 +216,5 @@ results/
 # Research/experiment scripts and outputs
 experiments/
 
-# Generated LLM repair patches (not for public release)
-**/patch.tf
-
 # Internal architecture docs
 ARCHITECTURE.md
