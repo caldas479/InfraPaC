@@ -7,7 +7,7 @@ This directory contains the test suite for InfraPaC using pytest.
 ```
 tests/
 ├── conftest.py              # Shared fixtures and test configuration
-├── test_pac_engines.py      # Tests for OPA and Sentinel engines
+├── test_pac_engines.py      # Tests for OPA and KICS engines
 ├── test_chains.py           # Tests for LangChain components
 └── test_agents.py           # Tests for repair agent
 ```
@@ -66,11 +66,6 @@ The test suite covers:
   - Timeout handling
   - Violation formatting
 
-- **SentinelEngine**: 6 tests
-  - Initialization and verification
-  - Policy evaluation
-  - Resource extraction
-
 ### Chains (`test_chains.py`)
 - **PromptBuilder**: 6 tests
   - Prompt generation for repairs
@@ -108,7 +103,7 @@ Shared fixtures are defined in `conftest.py`:
 ## Mocking
 
 Tests use `pytest-mock` and `unittest.mock` to:
-- Mock subprocess calls to OPA/Sentinel binaries
+- Mock subprocess calls to OPA/KICS binaries
 - Mock LLM API calls
 - Isolate unit tests from external dependencies
 
@@ -161,7 +156,6 @@ class TestNewFeature:
 - **models.py**: 100%
 - **repair_chain.py**: 93%
 - **opa_engine.py**: 88%
-- **sentinel_engine.py**: 85%
 - **base_engine.py**: 81%
 
 Areas needing more coverage:

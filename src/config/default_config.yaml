@@ -19,11 +19,6 @@ opa:
   binary_path: "opa"
   timeout: 30
 
-# Sentinel Configuration
-sentinel:
-  binary_path: "/usr/local/bin/sentinel"
-  timeout: 30
-
 # KICS Configuration
 kics:
   binary_path: "kics"

@@ -10,7 +10,6 @@ import pytest
 from src.models import PolicyViolation
 from src.pac_engines.kics_engine import KICSEngine
 from src.pac_engines.opa_engine import OPAEngine
-from src.pac_engines.sentinel_engine import SentinelEngine
 
 
 class TestOPAEngine:
@@ -155,97 +154,6 @@ class TestOPAEngine:
             assert violation.severity == "warning"
             assert violation.line == 10
             assert violation.resource == "aws_s3_bucket.test"
-
-
-class TestSentinelEngine:
-    """Tests for Sentinel engine."""
-
-    def test_initialization_success(self):
-        """Test Sentinel engine initialization with valid config."""
-        config = {"binary_path": "sentinel", "timeout": 30}
-        with patch("subprocess.run") as mock_run:
-            mock_run.return_value = Mock(returncode=0, stdout="Sentinel version")
-            engine = SentinelEngine(config)
-            assert engine.binary_path == "sentinel"
-            assert engine.timeout == 30
-
-    def test_initialization_binary_not_found(self):
-        """Test Sentinel engine initialization when binary is not found."""
-        config = {"binary_path": "sentinel", "timeout": 30}
-        with patch("subprocess.run", side_effect=FileNotFoundError()):
-            with pytest.raises(FileNotFoundError):
-                SentinelEngine(config)
-
-    def test_evaluate_policy_passed(self):
-        """Test evaluate method when policy passes."""
-        config = {"binary_path": "sentinel", "timeout": 30}
-        with patch("subprocess.run") as mock_run:
-            # Mock verification
-            mock_run.return_value = Mock(returncode=0, stdout="Sentinel version")
-            engine = SentinelEngine(config)
-
-            # Mock policy evaluation - passed
-            mock_run.return_value = Mock(returncode=0, stdout="", stderr="")
-
-            violations = engine.evaluate("policy", "script")
-            assert len(violations) == 0
-
-    def test_evaluate_policy_failed(self):
-        """Test evaluate method when policy fails."""
-        config = {"binary_path": "sentinel", "timeout": 30}
-        with patch("subprocess.run") as mock_run:
-            # Mock verification
-            mock_run.return_value = Mock(returncode=0, stdout="Sentinel version")
-            engine = SentinelEngine(config)
-
-            # Mock policy evaluation - failed
-            sentinel_output = {
-                "result": False,
-                "trace": [{"type": "error", "message": "Policy violation detected"}],
-            }
-            mock_run.return_value = Mock(
-                returncode=1, stdout=json.dumps(sentinel_output), stderr=""
-            )
-
-            violations = engine.evaluate("policy", "script")
-            assert len(violations) > 0
-            assert isinstance(violations[0], PolicyViolation)
-
-    def test_validate_compliant_code(self):
-        """Test validate method with compliant code."""
-        config = {"binary_path": "sentinel", "timeout": 30}
-        with patch("subprocess.run") as mock_run:
-            # Mock verification
-            mock_run.return_value = Mock(returncode=0, stdout="Sentinel version")
-            engine = SentinelEngine(config)
-
-            # Mock policy evaluation - passed
-            mock_run.return_value = Mock(returncode=0, stdout="", stderr="")
-
-            is_valid = engine.validate("policy", "script")
-            assert is_valid is True
-
-    def test_extract_resource_changes(self):
-        """Test _extract_resource_changes method."""
-        config = {"binary_path": "sentinel", "timeout": 30}
-        with patch("subprocess.run") as mock_run:
-            mock_run.return_value = Mock(returncode=0, stdout="Sentinel version")
-            engine = SentinelEngine(config)
-
-            script = """resource "aws_s3_bucket" "test" {
-  bucket = "test-bucket"
-}
-
-resource "aws_instance" "web" {
-  ami = "ami-12345"
-}"""
-
-            resources = engine._extract_resource_changes(script)
-            assert len(resources) == 2
-            assert resources[0]["type"] == "aws_s3_bucket"
-            assert resources[0]["name"] == "test"
-            assert resources[1]["type"] == "aws_instance"
-            assert resources[1]["name"] == "web"
 
 
 class TestKICSEngine:

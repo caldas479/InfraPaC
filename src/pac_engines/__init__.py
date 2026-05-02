@@ -3,6 +3,5 @@
 from .base_engine import BasePaCEngine
 from .kics_engine import KICSEngine
 from .opa_engine import OPAEngine
-from .sentinel_engine import SentinelEngine
 
-__all__ = ["BasePaCEngine", "KICSEngine", "OPAEngine", "SentinelEngine"]
+__all__ = ["BasePaCEngine", "KICSEngine", "OPAEngine"]

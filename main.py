@@ -16,7 +16,6 @@ from pathlib import Path
 from src.agents.repair_agent import RepairAgent
 from src.pac_engines.kics_engine import KICSEngine
 from src.pac_engines.opa_engine import OPAEngine
-from src.pac_engines.sentinel_engine import SentinelEngine
 from src.utils.config_loader import load_config
 from src.utils.env_loader import load_environment
 from src.utils.llm_validator import LLMValidationError, validate_llm_config
@@ -47,7 +46,7 @@ def parse_arguments() -> argparse.Namespace:
     parser.add_argument(
         "--policy-engine",
         type=str,
-        choices=["opa", "sentinel", "kics"],
+        choices=["opa", "kics"],
         default="opa",
         help="Policy engine to use",
     )
@@ -127,10 +126,8 @@ def main() -> int:
         logger.info(f"Initializing {args.policy_engine.upper()} engine")
         if args.policy_engine == "opa":
             pac_engine = OPAEngine(config=config.get("opa", {}))
-        elif args.policy_engine == "kics":
-            pac_engine = KICSEngine(config=config.get("kics", {}))
         else:
-            pac_engine = SentinelEngine(config=config.get("sentinel", {}))
+            pac_engine = KICSEngine(config=config.get("kics", {}))
 
         # Load policy and IaC script
         policy_path = Path(args.policy) if args.policy else None

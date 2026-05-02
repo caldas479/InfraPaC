@@ -83,7 +83,7 @@ class RepairChain:
         Generate a repaired IaC script using structured output.
 
         Args:
-            policy: Policy code (Rego/Sentinel)
+            policy: Policy code (Rego)
             iac_script: Current IaC script
             violations: List of PolicyViolation objects
 

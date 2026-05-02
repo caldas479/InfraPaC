@@ -1,18 +1,18 @@
 # InfraPaC: Automated Infrastructure as Code Repair via Policy as Code
 
-InfraPaC is an automated Infrastructure as Code (IaC) repair framework that uses Large Language Models to fix policy violations in Terraform configurations. The system detects violations using Policy as Code engines (OPA/Sentinel/KICS), generates fixes via LLMs, and iteratively validates repairs until compliance is achieved.
+InfraPaC is an automated Infrastructure as Code (IaC) repair framework that uses Large Language Models to fix policy violations in Terraform configurations. The system detects violations using Policy as Code engines (OPA/KICS), generates fixes via LLMs, and iteratively validates repairs until compliance is achieved.
 
 ## Overview
 
 InfraPaC works in three steps:
 
-1. **Detect** — evaluate a Terraform script against a policy using OPA, KICS, or Sentinel
+1. **Detect** — evaluate a Terraform script against a policy using OPA or KICS
 2. **Repair** — send violations to an LLM and generate a compliant replacement script
 3. **Validate** — re-evaluate the repaired script; iterate until all violations are resolved or the maximum number of attempts is reached
 
 ## Features
 
-- 🔍 Policy violation detection via OPA, KICS, or Sentinel
+- 🔍 Policy violation detection via OPA or KICS
 - 🤖 LLM-based repair generation (OpenAI, OpenRouter, Ollama)
 - ✅ Automated fix validation with iterative repair loop
 - 🎨 Multiple prompt styles (default, minimal, CO-STAR, no-policy)
@@ -22,7 +22,7 @@ InfraPaC works in three steps:
 ## Prerequisites
 
 - Python 3.12+
-- At least one Policy Engine: OPA CLI, KICS, or Sentinel
+- At least one Policy Engine: OPA CLI or KICS
 - An LLM backend: Ollama (local) **or** an OpenAI / OpenRouter API key
 
 ## Installation
@@ -67,8 +67,6 @@ brew install opa
 curl -L -o opa https://openpolicyagent.org/downloads/latest/opa_linux_amd64_static
 chmod 755 opa && sudo mv opa /usr/local/bin
 ```
-
-**Sentinel** (HashiCorp): download from https://docs.hashicorp.com/sentinel/downloads
 
 4. Configure your LLM backend (choose one):
 
@@ -191,7 +189,7 @@ Key options:
 | `--llm-provider` | `ollama`, `openai`, or `openrouter` |
 | `--llm-model` | Model name (e.g. `codellama`, `gpt-4o`) |
 | `--max-iterations` | Maximum repair attempts (default: 3) |
-| `--policy-engine` | `opa`, `kics`, or `sentinel` |
+| `--policy-engine` | `opa` or `kics` |
 | `--verbose` | Enable debug logging |
 
 ## Project Structure
@@ -201,7 +199,7 @@ InfraPaC/
 ├── src/
 │   ├── agents/         # Repair agent orchestration
 │   ├── chains/         # LangChain repair chain and prompt builder
-│   ├── pac_engines/    # OPA, KICS, and Sentinel engine wrappers
+│   ├── pac_engines/    # OPA and KICS engine wrappers
 │   ├── datasets/       # Dataset loading and handling
 │   ├── utils/          # Config loader, env loader, logging
 │   └── config/         # default_config.yaml
