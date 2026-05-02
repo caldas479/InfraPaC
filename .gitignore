@@ -210,5 +210,14 @@ __marimo__/
 # External repositories (cloned for reference)
 data/external-repos
 
-# Execution logs (too large for version control)
-results/**/execution_*.log
+# Execution logs and experiment results (not for public release)
+results/
+
+# Research/experiment scripts and outputs
+experiments/
+
+# Generated LLM repair patches (not for public release)
+**/patch.tf
+
+# Internal architecture docs
+ARCHITECTURE.md

@@ -1,1 +1,0 @@
-resource "aws_s3_bucket" "positive1" {\n  bucket = "example"\n}\n\nresource "aws_s3_bucket_public_access_block" "positive2" {\n  bucket = aws_s3_bucket.example.id\n\n  block_public_acls   = true\n  block_public_policy = true\n  ignore_public_acls  = true\n}\n

@@ -17,14 +17,72 @@ class PromptBuilder:
     Builds structured prompts for LLM-based IaC repair.
     """
 
-    def build_repair_prompt_template(self) -> ChatPromptTemplate:
+    def build_repair_prompt_template(
+        self, style: str = "default"
+    ) -> ChatPromptTemplate:
         """
         Build a repair prompt template with variables for the LLM.
 
+        Args:
+            style: Prompt style — "default", "minimal", or "costar"
+
         Returns:
-            ChatPromptTemplate with variables: policy, violations_text, iac_script, iteration, previous_attempt
+            ChatPromptTemplate with variables: policy, violations_text, iac_script
         """
-        system_content = """You are an expert Infrastructure as Code (IaC) engineer specializing in Terraform and policy compliance. Your task is to repair Terraform scripts to comply with given policies.
+        if style == "minimal_no_policy":
+            system_content = """Violations:
+{violations_text}
+
+Terraform script:
+{iac_script}
+
+Return the fixed Terraform script in the repaired_script field. No explanations."""
+
+        elif style == "minimal":
+            system_content = """Policy:
+{policy}
+
+Violations:
+{violations_text}
+
+Terraform script:
+{iac_script}
+
+Return the fixed Terraform script in the repaired_script field. No explanations."""
+
+        elif style == "costar":
+            system_content = """# Context
+You are a senior Infrastructure as Code security engineer. A Terraform script has failed an automated policy compliance check.
+
+# Objective
+Repair the Terraform script so it resolves ALL listed violations while preserving the original infrastructure intent.
+
+# Style
+Minimal and precise — only change what is necessary to fix the violations.
+
+# Tone
+Technical and direct.
+
+# Audience
+An automated validation system. No explanations or comments are needed.
+
+# Response
+Return ONLY valid Terraform HCL in the repaired_script field.
+- No markdown code fences
+- No inline comments
+- Proper newlines and indentation
+
+## Policy
+{policy}
+
+## Violations
+{violations_text}
+
+## Current Terraform Script
+{iac_script}"""
+
+        else:  # default
+            system_content = """You are an expert Infrastructure as Code (IaC) engineer specializing in Terraform and policy compliance. Your task is to repair Terraform scripts to comply with given policies.
 
 ## Policy
 The following policy must be satisfied:

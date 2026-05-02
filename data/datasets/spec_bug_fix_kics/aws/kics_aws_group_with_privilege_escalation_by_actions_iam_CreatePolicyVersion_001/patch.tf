@@ -1,1 +1,0 @@
-resource "aws_iam_group" "example" {\n  name = "example-group"\n}\n\nresource "aws_iam_group_policy" "example" {\n  group      = aws_iam_group.example.name\n  policy     = data.aws_iam_policy_document.example.json\n}\n\ndata "aws_iam_policy_document" "example" {\n  statement {\n    actions   = [\
