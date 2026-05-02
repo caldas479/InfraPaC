@@ -2,6 +2,8 @@
 
 InfraPaC is an automated Infrastructure as Code (IaC) repair framework that uses Large Language Models to fix policy violations in Terraform configurations. The system detects violations using Policy as Code engines (OPA/KICS), generates fixes via LLMs, and iteratively validates repairs until compliance is achieved.
 
+<img width="615" height="906" alt="image" src="https://github.com/user-attachments/assets/2ff75cb4-d435-4c95-b92d-718cd0057f79" />
+
 ## Overview
 
 InfraPaC works in three steps:
