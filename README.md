@@ -5,6 +5,7 @@ InfraPaC is an automated Infrastructure as Code (IaC) repair framework that uses
 <p align="center">
   <img width="615" height="906" alt="image" src="https://github.com/user-attachments/assets/2ff75cb4-d435-4c95-b92d-718cd0057f79" />
 </p>
+
 ## Overview
 
 InfraPaC works in three steps:
