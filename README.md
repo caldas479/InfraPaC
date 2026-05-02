@@ -1,31 +1,29 @@
 # InfraPaC: Automated Infrastructure as Code Repair via Policy as Code
 
-InfraPaC is an automated Infrastructure as Code (IaC) repair framework that uses Large Language Models to fix policy violations in IaC configurations. The system detects violations using Policy as Code engines (OPA/Sentinel/KICS), generates fixes via LLMs, and iteratively validates repairs until compliance is achieved.
+InfraPaC is an automated Infrastructure as Code (IaC) repair framework that uses Large Language Models to fix policy violations in Terraform configurations. The system detects violations using Policy as Code engines (OPA/Sentinel/KICS), generates fixes via LLMs, and iteratively validates repairs until compliance is achieved.
 
 ## Overview
 
-InfraPaC is a framework that:
+InfraPaC works in three steps:
 
-1. Detects policy violations in IaC scripts using Policy as Code engines (OPA/Sentinel/KICS)
-2. Automatically generates fixes using LLMs
-3. Validates the repairs to ensure policy compliance
-4. Iterates until all violations are resolved or max retries are reached
+1. **Detect** — evaluate a Terraform script against a policy using OPA, KICS, or Sentinel
+2. **Repair** — send violations to an LLM and generate a compliant replacement script
+3. **Validate** — re-evaluate the repaired script; iterate until all violations are resolved or the maximum number of attempts is reached
 
 ## Features
 
-- 🔍 Policy Violation Detection using OPA, Sentinel, or KICS
-- 🤖 LLM-based Repair Generation (supports OpenAI, Ollama models)
-- ✅ Automated Fix Validation
-- 🔄 Iterative Repair Process
-- 📊 Evaluation Metrics (Fix Rate, Retry Rate)
-- 🎯 Modular Design for Multiple PaC Engines
-- 📦 Large-scale Dataset Support (700+ KICS examples)
+- 🔍 Policy violation detection via OPA, KICS, or Sentinel
+- 🤖 LLM-based repair generation (OpenAI, OpenRouter, Ollama)
+- ✅ Automated fix validation with iterative repair loop
+- 🎨 Multiple prompt styles (default, minimal, CO-STAR, no-policy)
+- 📦 Large-scale dataset support (700+ KICS security checks)
+- 🎯 Modular design — swap engines and LLM providers independently
 
 ## Prerequisites
 
 - Python 3.12+
-- Policy Engine: OPA CLI, KICS, or Sentinel
-- Ollama (for local LLMs) or OpenAI API key
+- At least one Policy Engine: OPA CLI, KICS, or Sentinel
+- An LLM backend: Ollama (local) **or** an OpenAI / OpenRouter API key
 
 ## Installation
 
@@ -36,26 +34,23 @@ git clone https://github.com/caldas479/InfraPaC.git
 cd InfraPaC
 ```
 
-2. Create and activate a Python virtual environment:
+2. Install dependencies (using [uv](https://github.com/astral-sh/uv), recommended):
 
 ```bash
-python -m venv .venv
-source .venv/bin/activate  # Linux/macOS
-# or
-.venv\\Scripts\\activate  # Windows
+uv sync
 ```
 
-3. Install dependencies:
+Or with pip:
 
 ```bash
 pip install -e .
 ```
 
-4. Install a Policy Engine:
+3. Install a Policy Engine:
 
-**KICS (Recommended for comprehensive security scanning):**
+**KICS** (recommended for comprehensive security scanning):
 ```bash
-# macOS (Homebrew)
+# macOS
 brew install kics
 
 # Linux
@@ -63,202 +58,182 @@ curl -L https://github.com/Checkmarx/kics/releases/latest/download/kics_linux_am
 sudo mv kics /usr/local/bin
 ```
 
-**OPA (Open Policy Agent):**
+**OPA** (Open Policy Agent):
 ```bash
-# macOS (Homebrew)
+# macOS
 brew install opa
 
 # Linux
-curl -L -o opa https://openpolicyagent.org/downloads/v0.57.1/opa_linux_amd64_static
-chmod 755 opa
-sudo mv opa /usr/local/bin
+curl -L -o opa https://openpolicyagent.org/downloads/latest/opa_linux_amd64_static
+chmod 755 opa && sudo mv opa /usr/local/bin
 ```
 
-**Sentinel (HashiCorp):**
-- Download from https://docs.hashicorp.com/sentinel/downloads
+**Sentinel** (HashiCorp): download from https://docs.hashicorp.com/sentinel/downloads
 
+4. Configure your LLM backend (choose one):
 
-5. Install and start Ollama (optional, for local LLMs):
-
+**Ollama** (local, free):
 ```bash
-# Install Ollama
 curl https://ollama.ai/install.sh | sh
-# Start Ollama service
 ollama serve
-# Pull the CodeLlama model
 ollama pull codellama
+```
+
+**OpenAI**:
+```bash
+export OPENAI_API_KEY=sk-...
+```
+
+**OpenRouter** (access to many models via one API):
+```bash
+export OPENROUTER_API_KEY=sk-or-...
 ```
 
 ## Usage
 
-### Using KICS Engine
-
-Example repairing an Elasticsearch configuration to enable slow logs:
+### Basic usage
 
 ```bash
-# Using KICS policy engine
+# KICS engine (recommended)
 uv run python main.py \
   --policy-engine kics \
   --policy data/datasets/spec_bug_fix_kics/aws/kics_aws_elasticsearch_without_slow_logs_001/policy.rego \
   --iac data/datasets/spec_bug_fix_kics/aws/kics_aws_elasticsearch_without_slow_logs_001/buggy.tf \
   --verbose
+
+# OPA engine
+uv run python main.py \
+  --policy examples/s3_versioning.rego \
+  --iac examples/s3_bucket.tf \
+  --verbose
+
+# Save repaired output to a file
+uv run python main.py \
+  --policy examples/s3_versioning.rego \
+  --iac examples/s3_bucket.tf \
+  --output repaired.tf
 ```
 
-### Using OPA Engine
-
-Basic example repairing an S3 bucket configuration to enable versioning:
-
-1. Create a policy file (e.g., `s3_versioning.rego`):
-
-```rego
-package terraform
-
-deny[msg] {
-    resource := input.resource.aws_s3_bucket[_]
-    not resource.versioning.enabled
-    msg := sprintf("S3 bucket '%v' must have versioning enabled", [resource.bucket])
-}
-```
-
-2. Create a Terraform configuration (e.g., `s3_bucket.tf`):
-
-```hcl
-resource "aws_s3_bucket" "example" {
-    bucket = "my-example-bucket"
-    # Versioning is not enabled, violating the policy
-}
-```
-
-3. Run the repair tool:
+### Choosing an LLM provider
 
 ```bash
-uv run python main.py --policy examples/s3_versioning.rego --iac examples/s3_bucket.tf --verbose
+# OpenAI
+uv run python main.py --policy ... --iac ... --llm-provider openai --llm-model gpt-4o
+
+# OpenRouter
+uv run python main.py --policy ... --iac ... --llm-provider openrouter --llm-model meta-llama/llama-3.3-70b-instruct
+
+# Ollama (default)
+uv run python main.py --policy ... --iac ... --llm-provider ollama --llm-model codellama
 ```
 
-The tool will:
+### Prompt styles
 
-- Detect the missing versioning configuration
-- Generate a fix using the LLM
-- Validate the fix against the policy
-- Output the repaired configuration
+InfraPaC supports four prompt styles that control how the repair request is framed:
+
+| Style | Description |
+|---|---|
+| `default` | Detailed prompt with full instructions and formatting guidance |
+| `minimal` | Compact prompt with policy, violations, and script only |
+| `costar` | Structured CO-STAR prompt (Context / Objective / Style / Tone / Audience / Response) |
+| `minimal_no_policy` | Like `minimal` but omits the policy text — violations only |
+
+Configure via `src/config/default_config.yaml` or pass `prompt_style` in the LLM config.
 
 ## Dataset Management
 
-### KICS Dataset
-
-Generate patches for the KICS dataset (700+ entries):
+### KICS Dataset (700+ security checks)
 
 ```bash
-# Generate patches for all KICS entries
+# All entries
 uv run python generate_patches_kics.py
 
-# Generate patch for a specific entry
+# Specific entry
 uv run python generate_patches_kics.py --entry-id kics_aws_elasticsearch_without_slow_logs_001
 
-# Generate patches for a specific category (aws, azure, gcp, kubernetes, github)
+# By cloud provider (aws, azure, gcp, kubernetes, github)
 uv run python generate_patches_kics.py --category aws
 
-# Skip entries that already have patches
+# Skip already-patched entries
 uv run python generate_patches_kics.py --skip-existing --verbose
 ```
 
-The KICS dataset includes:
+Dataset breakdown:
 - 453 AWS security checks
 - 120 Azure security checks
 - 60 GCP security checks
 - 73 Kubernetes security checks
 - 2 GitHub security checks
 
-### SpecBugFix Dataset
-
-Generate patches for dataset entries using the repair framework:
+### SpecBugFix Dataset (OPA-based)
 
 ```bash
-# Generate patches for all entries
+# All entries
 uv run python generate_patches.py
 
-# Generate patch for a specific entry
+# Specific entry or category
 uv run python generate_patches.py --entry-id opa_storage_001
-
-# Generate patches for a specific category (iam, storage, compute, etc.)
-uv run python generate_patches.py --category storage
-
-# Skip entries that already have patches
-uv run python generate_patches.py --skip-existing
-
-# Enable verbose logging
-uv run python generate_patches.py --verbose
-
-# Combine options
-uv run python generate_patches.py --category iam --verbose
+uv run python generate_patches.py --category storage --skip-existing --verbose
 ```
-
-The patch generator:
-1. Loads each dataset entry
-2. Uses the repair agent to fix the buggy code
-3. Validates the fix against the policy
-4. Saves the repaired code to `patch.tf`
-
-### Experiment Logs
-
-All experiment runs are automatically logged to the `results/` directory with the following structure:
-
-```
-results/
-└── dataset-name/
-    └── model-name/
-        ├── execution_YYYYMMDD_HHMMSS.log
-        ├── execution_YYYYMMDD_HHMMSS.log
-        └── ...
-```
-
-For example, when running `generate_patches.py`:
-- Dataset name is extracted from `dataset_index.json` (e.g., "spec_bug_fix")
-- Model name is extracted from the config file (e.g., "codellama", "gpt-4")
-- Logs are saved to: `results/spec_bug_fix/codellama/execution_20251203_143022.log`
-
-This makes it easy to:
-- Track different experiment runs
-- Compare results across models
-- Organize logs by dataset
-- Keep historical records of all executions
 
 ## Configuration
 
-The framework can be configured via:
+Configuration is layered (highest priority first):
 
-- Command line arguments
-- Configuration file (`src/config/default_config.yaml`)
-- Environment variables
+1. Command-line arguments
+2. `src/config/default_config.yaml`
+3. Environment variables
 
-Key configuration options:
+Key options:
 
-- LLM provider and settings
-- Policy engine settings
-- Maximum repair iterations
-- Logging level and format
+| Option | Description |
+|---|---|
+| `--llm-provider` | `ollama`, `openai`, or `openrouter` |
+| `--llm-model` | Model name (e.g. `codellama`, `gpt-4o`) |
+| `--max-iterations` | Maximum repair attempts (default: 3) |
+| `--policy-engine` | `opa`, `kics`, or `sentinel` |
+| `--verbose` | Enable debug logging |
 
 ## Project Structure
 
 ```
-infrapac/
+InfraPaC/
 ├── src/
-│   ├── agents/        # LangChain agents for repair
-│   ├── chains/        # Chain logic and prompts
-│   ├── pac_engines/   # OPA/Sentinel wrappers
-│   ├── datasets/      # Dataset handling
-│   ├── utils/         # Helpers and config
-│   └── config/        # YAML configurations
-├── tests/             # Pytest test suite
-├── notebooks/         # Analysis notebooks
-├── experiments/       # Evaluation scripts
-└── examples/          # Example policies & IaC
+│   ├── agents/         # Repair agent orchestration
+│   ├── chains/         # LangChain repair chain and prompt builder
+│   ├── pac_engines/    # OPA, KICS, and Sentinel engine wrappers
+│   ├── datasets/       # Dataset loading and handling
+│   ├── utils/          # Config loader, env loader, logging
+│   └── config/         # default_config.yaml
+├── data/
+│   ├── datasets/
+│   │   ├── spec_bug_fix/          # OPA-based dataset
+│   │   └── spec_bug_fix_kics/     # KICS dataset (700+ entries)
+│   └── examples/
+├── tests/              # Pytest test suite
+├── examples/           # Example policies and Terraform files
+├── main.py             # CLI entry point
+├── generate_patches.py
+└── generate_patches_kics.py
+```
+
+## Testing
+
+```bash
+# Run all tests
+uv run pytest tests/
+
+# With coverage report
+uv run pytest tests/ --cov=src --cov-report=html
+
+# Run a specific test
+uv run pytest tests/test_agents.py::TestRepairAgent::test_repair_success_first_iteration
 ```
 
 ## Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+Contributions are welcome! Please feel free to open an issue or submit a pull request.
 
 ## License
 
-This project is licensed under MIT - see the LICENSE file for details.
+This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
