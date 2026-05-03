@@ -1,0 +1,19 @@
+apiVersion: audit.k8s.io/v1
+kind: Policy
+rules:
+  - level: Metadata
+    resources:
+    - group: ""
+      resources: ["secrets","configmaps","tokenreviews","pods","deployments"]
+  - level: Metadata
+    resources:
+    - group: ""
+      resources: ["pods/exec", "pods/portforward", "pods/proxy", "services/proxy"]
+  - level: Request
+    resources:
+    - group: ""
+      resources: ["pods/exec", "pods/portforward", "pods/proxy", "services/proxy"]
+  - level: RequestResponse
+    resources:
+    - group: ""
+      resources: ["pods/exec", "pods/portforward", "pods/proxy", "services/proxy"]

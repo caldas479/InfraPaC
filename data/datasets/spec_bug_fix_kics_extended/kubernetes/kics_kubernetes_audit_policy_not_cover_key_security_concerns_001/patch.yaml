@@ -1,0 +1,73 @@
+apiVersion: audit.k8s.io/v1
+kind: Policy
+omitStages:
+  - "RequestReceived"
+rules:
+  - level: Metadata
+    resources:
+    - group: ""
+      resources: ["secrets"]
+  - level: Metadata
+    resources:
+    - group: "authentication.k8s.io"
+      resources: ["tokenreviews"]
+  - level: Metadata
+    resources:
+    - group: ""
+      resources: ["configmaps"]
+  - level: Metadata
+    resources:
+    - group: ""
+      resources: ["pods"]
+  - level: Metadata
+    resources:
+    - group: "apps"
+      resources: ["deployments"]
+  - level: Metadata
+    resources:
+    - group: ""
+      resources: ["pods/exec"]
+  - level: Request
+    resources:
+    - group: ""
+      resources: ["pods/exec"]
+  - level: RequestResponse
+    resources:
+    - group: ""
+      resources: ["pods/exec"]
+  - level: Metadata
+    resources:
+    - group: ""
+      resources: ["pods/portforward"]
+  - level: Request
+    resources:
+    - group: ""
+      resources: ["pods/portforward"]
+  - level: RequestResponse
+    resources:
+    - group: ""
+      resources: ["pods/portforward"]
+  - level: Metadata
+    resources:
+    - group: ""
+      resources: ["pods/proxy"]
+  - level: Request
+    resources:
+    - group: ""
+      resources: ["pods/proxy"]
+  - level: RequestResponse
+    resources:
+    - group: ""
+      resources: ["pods/proxy"]
+  - level: Metadata
+    resources:
+    - group: ""
+      resources: ["services/proxy"]
+  - level: Request
+    resources:
+    - group: ""
+      resources: ["services/proxy"]
+  - level: RequestResponse
+    resources:
+    - group: ""
+      resources: ["services/proxy"]
