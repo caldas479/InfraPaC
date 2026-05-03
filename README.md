@@ -10,27 +10,27 @@ InfraPaC is an repair agent that uses Large Language Models to fix policy violat
 
 InfraPaC works in three steps:
 
-1. Detect — evaluate an IaC script against a policy using OPA or KICS
-2. Repair — send violations to an LLM and generate a compliant replacement script
-3. Validate — re-evaluate the repaired script; iterate until all violations are resolved or the maximum number of attempts is reached
+1. **Detect** — evaluate an IaC script against a policy using OPA or KICS
+2. **Repair** — send violations to an LLM and generate a compliant replacement script
+3. **Validate** — re-evaluate the repaired script; iterate until all violations are resolved or the maximum number of attempts is reached
 
 Supported IaC languages and formats: Terraform (HCL), Kubernetes (YAML), CloudFormation (YAML and JSON), and Pulumi (YAML and JSON).
 
 ## Features
 
-- Policy violation detection via OPA (Rego) or KICS
-- LLM-based repair generation (OpenAI, OpenRouter, Ollama)
-- Automated fix validation with iterative repair loop
-- Multi-format IaC support: HCL, YAML, and JSON are auto-detected and parsed
-- Multiple prompt styles (default, minimal, CO-STAR, no-policy)
-- Large-scale dataset support (700+ KICS security checks across Terraform, Kubernetes, CloudFormation, and Pulumi)
-- Modular design: swap engines and LLM providers independently
+- 🔍 Policy violation detection via OPA (Rego) or KICS
+- 🤖 LLM-based repair generation (OpenAI, OpenRouter, Ollama)
+- ✅ Automated fix validation with iterative repair loop
+- 🌐 Multi-format IaC support: HCL, YAML, and JSON are auto-detected and parsed
+- 🎨 Multiple prompt styles (default, minimal, CO-STAR, no-policy)
+- 📦 Large-scale dataset support (700+ KICS security checks across Terraform, Kubernetes, CloudFormation, and Pulumi)
+- 🎯 Modular design: swap engines and LLM providers independently
 
 ## Prerequisites
 
 - Python 3.12+
 - At least one Policy Engine: OPA CLI or KICS
-- An LLM backend: Ollama (local) or an OpenAI / OpenRouter API key
+- An LLM backend: Ollama (local) **or** an OpenAI / OpenRouter API key
 
 ## Installation
 
@@ -41,7 +41,7 @@ git clone https://github.com/caldas479/InfraPaC.git
 cd InfraPaC
 ```
 
-2. Install dependencies (using uv, recommended):
+2. Install dependencies (using [uv](https://github.com/astral-sh/uv), recommended):
 
 ```bash
 uv sync
@@ -55,7 +55,7 @@ pip install -e .
 
 3. Install a Policy Engine:
 
-KICS (recommended for comprehensive security scanning):
+**KICS** (recommended for comprehensive security scanning):
 
 ```bash
 # macOS
@@ -66,7 +66,7 @@ curl -L https://github.com/Checkmarx/kics/releases/latest/download/kics_linux_am
 sudo mv kics /usr/local/bin
 ```
 
-OPA (Open Policy Agent):
+**OPA** (Open Policy Agent):
 
 ```bash
 # macOS
@@ -79,7 +79,7 @@ chmod 755 opa && sudo mv opa /usr/local/bin
 
 4. Configure your LLM backend (choose one):
 
-Ollama (local, free):
+**Ollama** (local, free):
 
 ```bash
 curl https://ollama.ai/install.sh | sh
@@ -87,13 +87,13 @@ ollama serve
 ollama pull codellama
 ```
 
-OpenAI:
+**OpenAI**:
 
 ```bash
 export OPENAI_API_KEY=sk-...
 ```
 
-OpenRouter (access to many models via one API):
+**OpenRouter** (access to many models via one API):
 
 ```bash
 export OPENROUTER_API_KEY=sk-or-...
@@ -149,12 +149,12 @@ InfraPaC supports four prompt styles that control how the repair request is fram
 
 | Style | Description |
 |---|---|
-| default | Detailed prompt with full instructions and formatting guidance |
-| minimal | Compact prompt with policy, violations, and script only |
-| costar | Structured CO-STAR prompt (Context / Objective / Style / Tone / Audience / Response) |
-| minimal_no_policy | Like minimal but omits the policy text — violations only |
+| `default` | Detailed prompt with full instructions and formatting guidance |
+| `minimal` | Compact prompt with policy, violations, and script only |
+| `costar` | Structured CO-STAR prompt (Context / Objective / Style / Tone / Audience / Response) |
+| `minimal_no_policy` | Like `minimal` but omits the policy text — violations only |
 
-Configure via src/config/default_config.yaml or pass prompt_style in the LLM config.
+Configure via `src/config/default_config.yaml` or pass `prompt_style` in the LLM config.
 
 ## Dataset Management
 
@@ -217,18 +217,18 @@ uv run python generate_patches.py --category storage --skip-existing --verbose
 Configuration is layered (highest priority first):
 
 1. Command-line arguments
-2. src/config/default_config.yaml
+2. `src/config/default_config.yaml`
 3. Environment variables
 
 Key options:
 
 | Option | Description |
 |---|---|
-| --llm-provider | ollama, openai, or openrouter |
-| --llm-model | Model name (e.g. codellama, gpt-4o) |
-| --max-iterations | Maximum repair attempts (default: 3) |
-| --policy-engine | opa or kics |
-| --verbose | Enable debug logging |
+| `--llm-provider` | `ollama`, `openai`, or `openrouter` |
+| `--llm-model` | Model name (e.g. `codellama`, `gpt-4o`) |
+| `--max-iterations` | Maximum repair attempts (default: 3) |
+| `--policy-engine` | `opa` or `kics` |
+| `--verbose` | Enable debug logging |
 
 ## Project Structure
 
@@ -273,4 +273,4 @@ Contributions are welcome! Please feel free to open an issue or submit a pull re
 
 ## License
 
-This project is licensed under the MIT License — see the LICENSE file for details.
+This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
