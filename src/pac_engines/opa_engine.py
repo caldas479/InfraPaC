@@ -20,7 +20,31 @@ class OPAEngine(BasePaCEngine):
     """
     Open Policy Agent (OPA) engine implementation.
 
-    Executes Rego policies against Terraform/IaC scripts.
+    Evaluates any IaC script against a Rego policy by converting the script
+    to a JSON input document and calling 'opa eval'.
+
+    Supported IaC formats (auto-detected from content):
+        HCL (Terraform) -- parsed with python-hcl2 and normalised into a
+        {"resource": {...}} structure that mirrors standard Terraform OPA
+        policy conventions.
+
+        JSON (Pulumi stack exports, CloudFormation JSON) -- passed through
+        directly.
+
+        YAML (Kubernetes manifests, CloudFormation YAML, Pulumi YAML) --
+        parsed with PyYAML into a plain dict.
+
+        Unknown -- wrapped as {"iac_script": <raw text>} so policies can
+        still operate on the raw string.
+
+    The OPA query is derived automatically from the policy's package
+    declaration (e.g. 'package kubernetes' becomes 'data.kubernetes.deny'),
+    falling back to 'data.terraform.deny' for backward compatibility.
+
+    Example:
+        >>> engine = OPAEngine({"binary_path": "opa", "timeout": 30})
+        >>> violations = engine.evaluate(policy_text, iac_text)
+        >>> is_compliant = engine.validate(policy_text, iac_text)
     """
 
     def __init__(self, config: Dict[str, Any]) -> None:
@@ -28,7 +52,7 @@ class OPAEngine(BasePaCEngine):
         Initialize OPA engine.
 
         Args:
-            config: Configuration dictionary with 'binary_path' and 'timeout'
+            config: Configuration dictionary with 'binary_path' and 'timeout'.
         """
         super().__init__(config)
         self._verify_installation()
@@ -52,14 +76,19 @@ class OPAEngine(BasePaCEngine):
 
     def evaluate(self, policy: str, iac_script: str) -> List[PolicyViolation]:
         """
-        Evaluate IaC script against Rego policy.
+        Evaluate an IaC script against a Rego policy.
+
+        Detects the script format, converts it to JSON, writes both files to
+        a temporary directory, and runs 'opa eval'. The OPA query is derived
+        from the policy's package declaration.
 
         Args:
-            policy: Rego policy content
-            iac_script: Terraform/IaC script content
+            policy: Rego policy source text.
+            iac_script: IaC script content (HCL, JSON, or YAML).
 
         Returns:
-            List of PolicyViolation objects
+            List of PolicyViolation objects. Returns an empty list on timeout
+            or evaluation error.
         """
         with tempfile.TemporaryDirectory() as tmp_dir:
             tmp_path = Path(tmp_dir)
@@ -111,14 +140,14 @@ class OPAEngine(BasePaCEngine):
 
     def validate(self, policy: str, iac_script: str) -> bool:
         """
-        Validate if IaC script complies with policy.
+        Check whether an IaC script complies with a Rego policy.
 
         Args:
-            policy: Rego policy content
-            iac_script: Terraform/IaC script content
+            policy: Rego policy source text.
+            iac_script: IaC script content (HCL, JSON, or YAML).
 
         Returns:
-            True if no violations found, False otherwise
+            True if no violations are found, False otherwise.
         """
         violations = self.evaluate(policy, iac_script)
         return len(violations) == 0
@@ -127,14 +156,15 @@ class OPAEngine(BasePaCEngine):
         """
         Derive the OPA query string from the policy's package declaration.
 
-        Looks for ``package <name>`` and returns ``data.<name>.deny``.
-        Falls back to ``data.terraform.deny`` for backward compatibility.
+        Looks for 'package <name>' and returns 'data.<name>.deny'.
+        Falls back to 'data.terraform.deny' for backward compatibility with
+        policies that predate the IaC-agnostic refactor.
 
         Args:
-            policy: Rego policy source text
+            policy: Rego policy source text.
 
         Returns:
-            OPA query string (e.g. ``data.kubernetes.deny``)
+            OPA query string (e.g. 'data.kubernetes.deny').
         """
         match = re.search(r"^\s*package\s+([\w.]+)", policy, re.MULTILINE)
         if match:
@@ -180,18 +210,18 @@ class OPAEngine(BasePaCEngine):
 
         Checks syntactic signatures in order of specificity:
 
-        1. **HCL** — recognises top-level Terraform block keywords
-           (``resource``, ``variable``, ``output``, ``locals``, ``module``,
-           ``provider``, ``terraform``, ``data``).
-        2. **JSON** — script starts with ``{`` or ``[``.
-        3. **YAML** — contains a YAML document separator (``---``) or a
-           ``key: value`` pair typical of Kubernetes / CloudFormation manifests.
+        1. HCL -- recognises top-level Terraform block keywords such as
+           resource, variable, output, locals, module, provider, terraform,
+           and data.
+        2. JSON -- script starts with '{' or '['.
+        3. YAML -- contains a YAML document separator (---) or a key: value
+           pair typical of Kubernetes or CloudFormation manifests.
 
         Args:
             iac_script: Raw IaC script content.
 
         Returns:
-            One of ``"hcl"``, ``"json"``, ``"yaml"``, or ``"unknown"``.
+            One of "hcl", "json", "yaml", or "unknown".
         """
         if self._HCL_PATTERN.search(iac_script):
             return "hcl"
@@ -203,21 +233,24 @@ class OPAEngine(BasePaCEngine):
 
     def _prepare_input(self, iac_script: str) -> Dict[str, Any]:
         """
-        Prepare IaC script as JSON input for OPA.
+        Convert an IaC script to a JSON-serialisable dict for OPA.
 
-        Detects the script format once via :meth:`_detect_format`, then
-        routes directly to the appropriate parser — no trial-and-error.
+        Detects the script format once via _detect_format, then routes
+        directly to the appropriate parser -- no trial-and-error exception
+        swallowing.
 
         Supported formats:
+            HCL (Terraform) -- parsed with python-hcl2 and transformed into
+            the nested resource structure OPA policies expect.
 
-        * **HCL** (Terraform) — parsed with ``python-hcl2`` and transformed
-          into the nested ``resource`` structure OPA policies expect.
-        * **JSON** (Pulumi stack exports, CloudFormation JSON) — parsed
-          with the stdlib ``json`` module.
-        * **YAML** (Kubernetes manifests, CloudFormation YAML) — parsed
-          with ``PyYAML``.
-        * **unknown** — wrapped as ``{"iac_script": <raw text>}`` so a
-          policy can still operate on the raw string if needed.
+            JSON (Pulumi stack exports, CloudFormation JSON) -- parsed with
+            the stdlib json module.
+
+            YAML (Kubernetes manifests, CloudFormation YAML) -- parsed with
+            PyYAML.
+
+            Unknown -- wrapped as {"iac_script": <raw text>} so a policy
+            can still operate on the raw string if needed.
 
         Args:
             iac_script: Raw IaC script content.

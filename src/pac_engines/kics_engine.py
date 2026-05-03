@@ -19,33 +19,28 @@ class KICSEngine(BasePaCEngine):
     """
     KICS (Keeping Infrastructure as Code Secure) engine implementation.
 
-    Executes KICS queries against Terraform/IaC scripts using custom query paths
-    and automatically locates KICS helper libraries for policy evaluation.
+    Executes KICS queries against IaC scripts using custom query paths and
+    automatically locates KICS helper libraries for policy evaluation.
 
     KICS is an open-source security scanner for Infrastructure as Code that
     supports multiple platforms including Terraform, CloudFormation, Kubernetes,
     Docker, and more. This engine integrates KICS into the InfraPaC repair
-    framework to detect and fix security violations in Terraform configurations.
+    framework to detect and fix security violations across all supported formats.
 
-    The engine:
-    - Creates temporary directories for queries, IaC files, and results
-    - Generates required metadata.json for KICS query recognition
-    - Automatically finds KICS libraries from multiple common paths
-    - Executes KICS scan with proper exit code handling
-    - Parses JSON output into PolicyViolation objects
+    The engine creates temporary directories for queries, IaC files, and results;
+    generates the metadata.json required for KICS query recognition; automatically
+    finds KICS libraries from common installation paths; executes the KICS scan
+    with proper exit-code handling; and parses the JSON output into
+    PolicyViolation objects.
+
+    KICS must be installed and accessible via the binary_path in the config.
+    Install with brew install kics on macOS or download from
+    https://github.com/Checkmarx/kics.
 
     Example:
-        >>> config = {"binary_path": "kics", "timeout": 60}
-        >>> engine = KICSEngine(config)
-        >>> policy = Path("policy.rego").read_text()
-        >>> iac = Path("main.tf").read_text()
-        >>> violations = engine.evaluate(policy, iac)
-        >>> is_compliant = engine.validate(policy, iac)
-
-    Note:
-        KICS must be installed and accessible via the binary_path specified
-        in the configuration. Install with: brew install kics (macOS) or
-        download from https://github.com/Checkmarx/kics
+        engine = KICSEngine({"binary_path": "kics", "timeout": 60})
+        violations = engine.evaluate(policy_text, iac_text)
+        is_compliant = engine.validate(policy_text, iac_text)
     """
 
     def __init__(self, config: Dict[str, Any]) -> None:
@@ -92,39 +87,35 @@ class KICSEngine(BasePaCEngine):
         self, policy: str, iac_script: str, metadata: Optional[Dict[str, Any]] = None
     ) -> List[PolicyViolation]:
         """
-        Evaluate IaC script against KICS query.
+        Evaluate an IaC script against a KICS query.
 
-        This method performs the following steps:
-        1. Creates temporary directories for queries, IaC files, and results
-        2. Writes the Rego policy to query.rego
-        3. Generates metadata.json required by KICS for query recognition
-        4. Writes the IaC script to main.tf
-        5. Locates KICS helper libraries and includes them in the scan
-        6. Executes KICS scan with JSON output format
-        7. Parses the JSON results into PolicyViolation objects
+        Steps performed:
+        1. Creates temporary directories for queries, IaC files, and results.
+        2. Writes the Rego policy to query.rego.
+        3. Generates the metadata.json required by KICS for query recognition.
+        4. Writes the IaC script to the filename specified in metadata (default main.tf).
+        5. Locates KICS helper libraries and passes them to the scan command.
+        6. Executes the KICS scan with JSON output format.
+        7. Parses the JSON results into PolicyViolation objects.
 
-        KICS uses exit codes to indicate findings:
-        - 0: No issues found
-        - 20: INFO severity violations
-        - 30: LOW severity violations
-        - 40: MEDIUM severity violations
-        - 50: HIGH severity violations
-        - 60: CRITICAL severity violations
+        KICS exit codes:
+            0  — no issues found
+            20 — INFO severity violations
+            30 — LOW severity violations
+            40 — MEDIUM severity violations
+            50 — HIGH severity violations
+            60 — CRITICAL severity violations
 
         Args:
-            policy: KICS query (Rego policy) content
-            iac_script: Terraform/IaC script content
-            metadata: Optional metadata dict with keys: query_id, query_name,
-                     severity, description. If not provided, uses defaults.
+            policy: KICS query (Rego policy) content.
+            iac_script: IaC script content in any KICS-supported format.
+            metadata: Optional dict with keys query_id, query_name, severity,
+                      description, platform, and iac_filename. Uses defaults
+                      when not provided.
 
         Returns:
-            List of PolicyViolation objects containing detailed information
-            about each violation found. Returns empty list if scan fails or
-            no violations are detected.
-
-        Note:
-            The method uses temporary directories that are automatically
-            cleaned up after the scan completes.
+            List of PolicyViolation objects. Returns an empty list if the scan
+            fails, times out, or produces no violations.
         """
         with tempfile.TemporaryDirectory() as tmp_dir:
             tmp_path = Path(tmp_dir)
@@ -274,17 +265,16 @@ class KICSEngine(BasePaCEngine):
 
     def _find_libraries_path(self) -> Optional[Path]:
         """
-        Find KICS libraries path from common locations.
+        Find the KICS libraries directory from common installation locations.
 
-        KICS queries often use helper functions from library files (common.rego,
-        terraform.rego, etc.). This method searches for libraries in:
-        1. data/external-repos/kics/assets/libraries (project-local KICS repo)
-        2. /opt/homebrew/opt/kics/share/kics/assets/libraries (Homebrew install)
-        3. /usr/local/share/kics/assets/libraries (Manual install)
+        Searches in order:
+        1. data/external-repos/kics/assets/libraries (project-local KICS clone)
+        2. /opt/homebrew/opt/kics/share/kics/assets/libraries (Homebrew on Apple Silicon)
+        3. /usr/local/share/kics/assets/libraries (manual or Intel Homebrew install)
 
         Returns:
-            Path to KICS libraries directory, or None if not found. If None,
-            queries using library functions may fail to execute properly.
+            Path to the KICS libraries directory, or None if not found. When None
+            is returned, queries that import library helper functions may fail.
         """
         potential_paths = [
             Path("data/external-repos/kics/assets/libraries"),
@@ -306,15 +296,15 @@ class KICSEngine(BasePaCEngine):
         self, policy: str, iac_script: str, metadata: Optional[Dict[str, Any]] = None
     ) -> bool:
         """
-        Validate if IaC script complies with policy.
+        Check whether an IaC script complies with a KICS policy.
 
         Args:
-            policy: KICS query (Rego policy) content
-            iac_script: Terraform/IaC script content
-            metadata: Optional metadata dict with query information
+            policy: KICS query (Rego policy) content.
+            iac_script: IaC script content in any KICS-supported format.
+            metadata: Optional metadata dict passed through to evaluate.
 
         Returns:
-            True if no violations found, False otherwise
+            True if no violations are found, False otherwise.
         """
         violations = self.evaluate(policy, iac_script, metadata)
         return len(violations) == 0

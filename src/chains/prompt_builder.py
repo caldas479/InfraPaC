@@ -15,6 +15,10 @@ logger = logging.getLogger(__name__)
 class PromptBuilder:
     """
     Builds structured prompts for LLM-based IaC repair.
+
+    Supports multiple prompt styles (default, minimal, minimal_no_policy, costar)
+    and accepts an iac_language parameter so generated prompts name the specific
+    language being repaired (Terraform, CloudFormation, Kubernetes, etc.).
     """
 
     def build_repair_prompt_template(
@@ -24,13 +28,15 @@ class PromptBuilder:
         Build a repair prompt template with variables for the LLM.
 
         Args:
-            style: Prompt style — "default", "minimal", or "costar"
-            iac_language: Human-readable IaC language name shown in prompts
-                          (e.g. "Terraform", "CloudFormation", "Kubernetes").
-                          Defaults to the generic "IaC".
+            style: Prompt style. One of "default", "minimal", "minimal_no_policy",
+                   or "costar". Defaults to "default".
+            iac_language: Human-readable IaC language name shown in prompts,
+                          such as Terraform, CloudFormation, or Kubernetes.
+                          Defaults to the generic label "IaC".
 
         Returns:
-            ChatPromptTemplate with variables: policy, violations_text, iac_script
+            ChatPromptTemplate with input variables: policy, violations_text,
+            and iac_script.
         """
         lang = iac_language  # shorthand
 
@@ -124,13 +130,15 @@ Maintain proper indentation and structure
     @staticmethod
     def format_violations(violations: List[PolicyViolation]) -> str:
         """
-        Format violations list into a string.
+        Format a violations list into a human-readable string for prompt injection.
 
         Args:
-            violations: List of PolicyViolation objects
+            violations: List of PolicyViolation objects to format.
 
         Returns:
-            Formatted violations text
+            A numbered, multi-line string describing each violation, including
+            severity, resource, and line number where available. Returns
+            "No violations detected." when the list is empty.
         """
         if not violations:
             return "No violations detected."

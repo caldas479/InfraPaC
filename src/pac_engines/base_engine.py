@@ -8,7 +8,8 @@ class BasePaCEngine(ABC):
     """
     Abstract base class for Policy as Code engines.
 
-    All PaC engine implementations (OPA, Sentinel) should inherit from this class.
+    All PaC engine implementations (OPA, KICS, Sentinel) should inherit from
+    this class and implement the evaluate and validate methods.
     """
 
     def __init__(self, config: Dict[str, Any]) -> None:
@@ -16,7 +17,7 @@ class BasePaCEngine(ABC):
         Initialize the PaC engine.
 
         Args:
-            config: Configuration dictionary for the engine
+            config: Configuration dictionary for the engine.
         """
         self.config = config
         self.binary_path = config.get("binary_path")
@@ -25,28 +26,29 @@ class BasePaCEngine(ABC):
     @abstractmethod
     def evaluate(self, policy: str, iac_script: str) -> List[PolicyViolation]:
         """
-        Evaluate IaC script against policy and return violations.
+        Evaluate an IaC script against a policy and return violations.
 
         Args:
-            policy: Policy code (Rego or Sentinel)
-            iac_script: Infrastructure as Code script (e.g., Terraform)
+            policy: Policy code (Rego, Sentinel, or other engine-specific format).
+            iac_script: Infrastructure as Code script in any supported format
+                        (HCL, YAML, JSON, etc.).
 
         Returns:
-            List of PolicyViolation objects
+            List of PolicyViolation objects describing each detected violation.
         """
         pass
 
     @abstractmethod
     def validate(self, policy: str, iac_script: str) -> bool:
         """
-        Validate if IaC script complies with policy.
+        Check whether an IaC script complies with a policy.
 
         Args:
-            policy: Policy code
-            iac_script: Infrastructure as Code script
+            policy: Policy code (Rego, Sentinel, or other engine-specific format).
+            iac_script: Infrastructure as Code script in any supported format.
 
         Returns:
-            True if compliant, False otherwise
+            True if the script is compliant (no violations), False otherwise.
         """
         pass
 

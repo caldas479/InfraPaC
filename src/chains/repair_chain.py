@@ -16,14 +16,24 @@ logger = logging.getLogger(__name__)
 class RepairChain:
     """
     LangChain-based repair chain for IaC scripts.
+
+    Initialises an LLM with structured output (RepairOutput), builds a prompt
+    template from PromptBuilder, and exposes a repair() method that sends
+    policy, violations, and the current IaC script to the LLM and returns
+    the corrected script.
+
+    Supported LLM providers: ollama, openai, openrouter.
     """
 
     def __init__(self, llm_config: Dict[str, Any]) -> None:
         """
-        Initialize repair chain.
+        Initialize the repair chain.
 
         Args:
-            llm_config: LLM configuration dictionary
+            llm_config: LLM configuration dictionary. Recognised keys include
+                        provider, model, temperature, max_tokens, timeout,
+                        base_url (Ollama), api_key (OpenRouter), prompt_style,
+                        and iac_language.
         """
         self.llm_config = llm_config
         self.prompt_builder = PromptBuilder()
@@ -35,7 +45,13 @@ class RepairChain:
         )
 
     def _initialize_llm(self) -> Any:
-        """Initialize the LLM based on configuration with structured output."""
+        """
+        Initialize the LLM based on configuration with structured output.
+
+        Raises:
+            ValueError: If the provider is unsupported or does not support
+                        structured output.
+        """
         provider = self.llm_config.get("provider", "ollama")
 
         if provider == "ollama":
@@ -83,16 +99,19 @@ class RepairChain:
         """
         Generate a repaired IaC script using structured output.
 
+        Formats the violations into text, invokes the prompt-plus-LLM chain,
+        and returns the repaired script extracted from the RepairOutput response.
+
         Args:
-            policy: Policy code (Rego)
-            iac_script: Current IaC script
-            violations: List of PolicyViolation objects
+            policy: Policy code (Rego or other engine-specific format).
+            iac_script: Current IaC script that contains violations.
+            violations: List of PolicyViolation objects describing what must be fixed.
 
         Returns:
-            Repaired IaC script
+            Repaired IaC script as a string.
 
         Raises:
-            ValueError: If structured output parsing fails
+            ValueError: If structured output parsing fails.
         """
         # Format violations
         violations_text = self.prompt_builder.format_violations(violations)
