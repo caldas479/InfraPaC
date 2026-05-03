@@ -170,7 +170,7 @@ uv run python experiments/import_kics_dataset_extended.py
 uv run python experiments/sample_rq2_extended.py
 
 # Run the experiment
-PYTHONPATH=. uv run python experiments/run_rq2_extended.py
+uv run python experiments/run_rq2_extended.py
 ```
 
 Dataset breakdown:
