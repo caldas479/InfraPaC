@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_statefulset_without_pod_disruption_budget_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "statefulset_without_pod_disruption_budget",
+  "sub_provider": null,
+  "description": "StatefulSets should be assigned with a PodDisruptionBudget to ensure high availability",
+  "severity": "LOW",
+  "query_id": "1db3a5a5-bf75-44e5-9e44-c56cfc8b1ac5",
+  "query_name": "StatefulSet Without PodDisruptionBudget",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

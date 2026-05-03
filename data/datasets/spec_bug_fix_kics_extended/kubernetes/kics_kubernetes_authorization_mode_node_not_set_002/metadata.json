@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_authorization_mode_node_not_set_002",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "authorization_mode_node_not_set",
+  "sub_provider": null,
+  "description": "When using kube-apiserver command, the 'authorization-mode' flag should have 'Node' mode",
+  "severity": "MEDIUM",
+  "query_id": "4d7ee40f-fc5d-427d-8cac-dffbe22d42d1",
+  "query_name": "Authorization Mode Node Not Set",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

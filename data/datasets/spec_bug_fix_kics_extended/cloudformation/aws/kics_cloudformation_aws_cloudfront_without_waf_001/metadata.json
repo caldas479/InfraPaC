@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_cloudfront_without_waf_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "cloudfront_without_waf",
+  "sub_provider": "aws",
+  "description": "All AWS CloudFront distributions should be integrated with the Web Application Firewall (AWS WAF) service",
+  "severity": "MEDIUM",
+  "query_id": "0f139403-303f-467c-96bd-e717e6cfd62d",
+  "query_name": "CloudFront Without WAF",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

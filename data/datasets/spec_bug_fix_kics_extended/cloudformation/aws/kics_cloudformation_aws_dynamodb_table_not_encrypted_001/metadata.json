@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_dynamodb_table_not_encrypted_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "dynamodb_table_not_encrypted",
+  "sub_provider": "aws",
+  "description": "AWS DynamoDB Tables should have server-side encryption",
+  "severity": "HIGH",
+  "query_id": "4bd21e68-38c1-4d58-acdc-6a14b203237f",
+  "query_name": "DynamoDB Table Not Encrypted",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

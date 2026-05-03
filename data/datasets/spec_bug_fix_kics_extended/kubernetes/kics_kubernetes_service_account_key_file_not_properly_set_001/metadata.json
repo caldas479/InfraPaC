@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_service_account_key_file_not_properly_set_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "service_account_key_file_not_properly_set",
+  "sub_provider": null,
+  "description": "When using kube-apiserver command, the '--service-account-key-file' flag should be defined",
+  "severity": "MEDIUM",
+  "query_id": "dab4ec72-ce2e-4732-b7c3-1757dcce01a1",
+  "query_name": "Service Account Key File Not Properly Set",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

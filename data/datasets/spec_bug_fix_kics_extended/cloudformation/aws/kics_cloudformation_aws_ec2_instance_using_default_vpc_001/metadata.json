@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_ec2_instance_using_default_vpc_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "ec2_instance_using_default_vpc",
+  "sub_provider": "aws",
+  "description": "EC2 Instances should not be configured under a default VPC network",
+  "severity": "LOW",
+  "query_id": "e42a3ef0-5325-4667-84bf-075ba1c9d58e",
+  "query_name": "EC2 Instance Using Default VPC",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

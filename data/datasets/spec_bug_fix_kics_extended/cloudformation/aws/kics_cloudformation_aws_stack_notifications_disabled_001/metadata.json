@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_stack_notifications_disabled_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "stack_notifications_disabled",
+  "sub_provider": "aws",
+  "description": "AWS CloudFormation should have stack notifications enabled to be notified when an event occurs",
+  "severity": "LOW",
+  "query_id": "837e033c-4717-40bd-807e-6abaa30161b7",
+  "query_name": "Stack Notifications Disabled",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_cloudfront_without_minimum_protocol_tls_1.2_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "cloudfront_without_minimum_protocol_tls_1.2",
+  "sub_provider": "aws",
+  "description": "CloudFront Minimum Protocol version should be at least TLS 1.2",
+  "severity": "MEDIUM",
+  "query_id": "dc17ee4b-ddf2-4e23-96e8-7a36abad1303",
+  "query_name": "CloudFront Without Minimum Protocol TLS 1.2",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

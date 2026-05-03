@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_config_rule_for_encryption_volumes_disabled_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "config_rule_for_encryption_volumes_disabled",
+  "sub_provider": "aws",
+  "description": "Check if AWS config rules do not identify Encrypted Volumes as a source.",
+  "severity": "HIGH",
+  "query_id": "1b6322d9-c755-4f8c-b804-32c19250f2d9",
+  "query_name": "Config Rule For Encrypted Volumes Disabled",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

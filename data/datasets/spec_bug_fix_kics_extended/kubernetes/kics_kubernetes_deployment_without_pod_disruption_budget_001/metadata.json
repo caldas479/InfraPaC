@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_deployment_without_pod_disruption_budget_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "deployment_without_pod_disruption_budget",
+  "sub_provider": null,
+  "description": "Deployments should be assigned with a PodDisruptionBudget to ensure high availability",
+  "severity": "LOW",
+  "query_id": "b23e9b98-0cb6-4fc9-b257-1f3270442678",
+  "query_name": "Deployment Without PodDisruptionBudget",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

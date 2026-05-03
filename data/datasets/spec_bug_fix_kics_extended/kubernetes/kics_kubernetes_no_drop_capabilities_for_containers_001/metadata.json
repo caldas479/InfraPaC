@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_no_drop_capabilities_for_containers_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "no_drop_capabilities_for_containers",
+  "sub_provider": null,
+  "description": "Sees if Kubernetes Drop Capabilities exists to ensure containers security context",
+  "severity": "LOW",
+  "query_id": "268ca686-7fb7-4ae9-b129-955a2a89064e",
+  "query_name": "No Drop Capabilities for Containers",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_unknown_port_exposed_to_internet_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "unknown_port_exposed_to_internet",
+  "sub_provider": "aws",
+  "description": "AWS Security Group should not have an unknown port exposed to the entire Internet",
+  "severity": "HIGH",
+  "query_id": "829ce3b8-065c-41a3-ad57-e0accfea82d2",
+  "query_name": "Unknown Port Exposed To Internet",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

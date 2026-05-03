@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_kms_key_with_full_permissions_002",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "kms_key_with_full_permissions",
+  "sub_provider": "aws",
+  "description": "Checks if the policy is vulnerable and needs updating.",
+  "severity": "HIGH",
+  "query_id": "da905474-7454-43c0-b8d2-5756ab951aba",
+  "query_name": "KMS Key With Vulnerable Policy",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

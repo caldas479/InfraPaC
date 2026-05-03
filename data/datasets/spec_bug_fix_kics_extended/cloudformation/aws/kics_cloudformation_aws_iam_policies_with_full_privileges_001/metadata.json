@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_iam_policies_with_full_privileges_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "iam_policies_with_full_privileges",
+  "sub_provider": "aws",
+  "description": "IAM policies shouldn't allow full administrative privileges (for all resources)",
+  "severity": "MEDIUM",
+  "query_id": "953b3cdb-ce13-428a-aa12-318726506661",
+  "query_name": "IAM Policies With Full Privileges",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

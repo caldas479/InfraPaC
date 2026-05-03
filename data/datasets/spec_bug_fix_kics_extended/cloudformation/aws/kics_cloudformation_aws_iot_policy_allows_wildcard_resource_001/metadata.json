@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_iot_policy_allows_wildcard_resource_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "iot_policy_allows_wildcard_resource",
+  "sub_provider": "aws",
+  "description": "IoT Policy should not allow Resource to be set as *",
+  "severity": "MEDIUM",
+  "query_id": "be5b230d-4371-4a28-a441-85dc760e2aa3",
+  "query_name": "IoT Policy Allows Wildcard Resource",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

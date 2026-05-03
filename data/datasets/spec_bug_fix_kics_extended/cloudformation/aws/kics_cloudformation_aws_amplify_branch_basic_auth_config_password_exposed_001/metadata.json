@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_amplify_branch_basic_auth_config_password_exposed_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "amplify_branch_basic_auth_config_password_exposed",
+  "sub_provider": "aws",
+  "description": "Amplify Branch BasicAuthConfig Password must not be a plaintext string or a Ref to a Parameter with a Default value.",
+  "severity": "HIGH",
+  "query_id": "dfb56e5d-ee68-446e-b32a-657b62befe69",
+  "query_name": "Amplify Branch Basic Auth Config Password Exposed",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

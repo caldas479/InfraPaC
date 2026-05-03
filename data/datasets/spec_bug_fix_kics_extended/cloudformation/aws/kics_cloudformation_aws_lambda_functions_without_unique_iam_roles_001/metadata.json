@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_lambda_functions_without_unique_iam_roles_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "lambda_functions_without_unique_iam_roles",
+  "sub_provider": "aws",
+  "description": "AWS Lambda Functions should not share IAM roles to ensure they will have the minimum privileges needed to perform the required tasks",
+  "severity": "HIGH",
+  "query_id": "ae03f542-1423-402f-9cef-c834e7ee9583",
+  "query_name": "Lambda Functions Without Unique IAM Roles",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_dynamodb_with_aws_owned_cmk_002",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "dynamodb_with_aws_owned_cmk",
+  "sub_provider": "aws",
+  "description": "AWS DynamoDb should be encrypted using AWS Managed CMK, instead of AWS-owned CMK. To verify this, SSEEnabled must be verified if false for AWS-owned CMK or true for AWS-Managed CMK. Default value is false.",
+  "severity": "HIGH",
+  "query_id": "c8dee387-a2e6-4a73-a942-183c975549ac",
+  "query_name": "DynamoDB With Aws Owned CMK",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

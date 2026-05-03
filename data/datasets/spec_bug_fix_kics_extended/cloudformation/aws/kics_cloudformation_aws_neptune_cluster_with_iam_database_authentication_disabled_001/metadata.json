@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_neptune_cluster_with_iam_database_authentication_disabled_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "neptune_cluster_with_iam_database_authentication_disabled",
+  "sub_provider": "aws",
+  "description": "Neptune Cluster should have IAM Database Authentication enabled",
+  "severity": "HIGH",
+  "query_id": "a3aa0087-8228-4e7e-b202-dc9036972d02",
+  "query_name": "Neptune Cluster With IAM Database Authentication Disabled",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

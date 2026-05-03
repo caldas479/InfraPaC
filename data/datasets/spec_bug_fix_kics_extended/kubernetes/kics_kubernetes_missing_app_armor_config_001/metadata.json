@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_missing_app_armor_config_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "missing_app_armor_config",
+  "sub_provider": null,
+  "description": "Containers should be configured with an AppArmor profile to enforce fine-grained access control over low-level system resources",
+  "severity": "LOW",
+  "query_id": "8b36775e-183d-4d46-b0f7-96a6f34a723f",
+  "query_name": "Missing AppArmor Profile",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

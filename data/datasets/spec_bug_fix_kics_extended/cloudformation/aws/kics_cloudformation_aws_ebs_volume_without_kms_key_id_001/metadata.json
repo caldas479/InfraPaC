@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_ebs_volume_without_kms_key_id_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "ebs_volume_without_kms_key_id",
+  "sub_provider": "aws",
+  "description": "EBS Volume should specify a KmsKeyId value",
+  "severity": "LOW",
+  "query_id": "b7063015-6c31-4658-a8e7-14f98f37fd42",
+  "query_name": "EBS Volume Without KmsKeyId",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

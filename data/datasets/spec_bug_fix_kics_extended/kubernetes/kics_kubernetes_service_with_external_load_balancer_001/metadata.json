@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_service_with_external_load_balancer_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "service_with_external_load_balancer",
+  "sub_provider": null,
+  "description": "Service has an external load balancer, which may cause accessibility from other networks and the Internet",
+  "severity": "MEDIUM",
+  "query_id": "26763a1c-5dda-4772-b507-5fca7fb5f165",
+  "query_name": "Service With External Load Balancer",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

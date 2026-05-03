@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_sam_serverless_function_without_unique_iam_role_001",
+  "category": "cloudformation/aws_sam",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "serverless_function_without_unique_iam_role",
+  "sub_provider": "aws_sam",
+  "description": "AWS Serverless Function should not share IAM Role to ensure it will have the minimum privileges needed to perform the required tasks",
+  "severity": "HIGH",
+  "query_id": "4ba74f01-aba5-4be2-83bc-be79ff1a3b92",
+  "query_name": "Serverless Function Without Unique IAM Role",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

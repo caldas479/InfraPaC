@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_low_rds_backup_retention_period_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "low_rds_backup_retention_period",
+  "sub_provider": "aws",
+  "description": "AWS RDS backup retention policy should be at least 7 days",
+  "severity": "LOW",
+  "query_id": "e649a218-d099-4550-86a4-1231e1fcb60d",
+  "query_name": "Low RDS Backup Retention Period",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

@@ -16,7 +16,10 @@ class RepairAgent:
     """
     Agent that orchestrates the IaC repair workflow.
 
-    Coordinates between LLM-based repair and policy validation.
+    Runs an iterative detect-repair-validate loop: given a policy and a
+    violating IaC script, it calls the LLM to generate a fix, re-evaluates
+    the result with the Policy as Code engine, and repeats until no violations
+    remain or the maximum number of iterations is exhausted.
     """
 
     def __init__(
@@ -26,12 +29,14 @@ class RepairAgent:
         llm_config: Dict[str, Any],
     ) -> None:
         """
-        Initialize repair agent.
+        Initialize the repair agent.
 
         Args:
-            pac_engine: Policy as Code engine
-            config: Repair configuration
-            llm_config: LLM configuration
+            pac_engine: Policy as Code engine used for violation detection
+                        and compliance validation.
+            config: Repair configuration. Recognised key: max_iterations (int,
+                    default 3).
+            llm_config: LLM configuration passed through to RepairChain.
         """
         self.pac_engine = pac_engine
         self.config = config
@@ -45,15 +50,20 @@ class RepairAgent:
         violations: List[PolicyViolation],
     ) -> RepairResult:
         """
-        Execute repair workflow.
+        Execute the iterative repair workflow.
+
+        For each iteration, the LLM generates a candidate fix from the current
+        script and violations, the PaC engine validates the candidate, and the
+        loop continues until no violations remain or max_iterations is reached.
 
         Args:
-            policy: Policy code
-            iac_script: Original IaC script
-            violations: Initial violations
+            policy: Policy code used for validation.
+            iac_script: Original IaC script containing violations.
+            violations: Initial list of violations detected before repair.
 
         Returns:
-            RepairResult object with repair script and success status
+            RepairResult with success status, iteration count, the final
+            (possibly still violating) script, and any remaining violations.
         """
         current_script = iac_script
         current_violations = violations

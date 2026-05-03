@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_cloudwatch_metrics_disabled_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "cloudwatch_metrics_disabled",
+  "sub_provider": "aws",
+  "description": "Checks if CloudWatch Metrics is Enabled",
+  "severity": "MEDIUM",
+  "query_id": "5d3c1807-acb3-4bb0-be4e-0440230feeaf",
+  "query_name": "CloudWatch Metrics Disabled",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

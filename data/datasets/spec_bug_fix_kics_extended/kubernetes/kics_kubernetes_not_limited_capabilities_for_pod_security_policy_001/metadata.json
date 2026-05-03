@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_not_limited_capabilities_for_pod_security_policy_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "not_limited_capabilities_for_pod_security_policy",
+  "sub_provider": null,
+  "description": "Limit capabilities for a Pod Security Policy",
+  "severity": "INFO",
+  "query_id": "caa93370-791f-4fc6-814b-ba6ce0cb4032",
+  "query_name": "Not Limited Capabilities For Pod Security Policy",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

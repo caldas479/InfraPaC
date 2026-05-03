@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_metadata_label_is_invalid_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "metadata_label_is_invalid",
+  "sub_provider": null,
+  "description": "Check if any label in the metadata is invalid.",
+  "severity": "LOW",
+  "query_id": "1123031a-f921-4c5b-bd86-ef354ecfd37a",
+  "query_name": "Metadata Label Is Invalid",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

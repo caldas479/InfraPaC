@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_etcd_client_certificate_authentication_set_to_false_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "etcd_client_certificate_authentication_set_to_false",
+  "sub_provider": null,
+  "description": "When using etcd commands, the '--client-cert-auth' flag should be defined",
+  "severity": "MEDIUM",
+  "query_id": "9391103a-d8d7-4671-ac5d-606ba7ccb0ac",
+  "query_name": "Etcd Client Certificate Authentication Set To False",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

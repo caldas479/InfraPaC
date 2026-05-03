@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_cmk_rotation_disabled_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "cmk_rotation_disabled",
+  "sub_provider": "aws",
+  "description": "Customer Master Keys (CMK) must have rotation enabled, which means the attribute 'EnableKeyRotation' must be set to 'true' when the key is enabled.",
+  "severity": "LOW",
+  "query_id": "1c07bfaf-663c-4f6f-b22b-8e2d481e4df5",
+  "query_name": "CMK Rotation Disabled",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

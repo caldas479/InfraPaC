@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_ecs_task_definition_healthcheck_missing_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "ecs_task_definition_healthcheck_missing",
+  "sub_provider": "aws",
+  "description": "Amazon ECS must have the HealthCheck property defined to give more control over monitoring the health of tasks",
+  "severity": "LOW",
+  "query_id": "d24389b4-b209-4ff0-8345-dc7a4569dcdd",
+  "query_name": "ECS Task Definition HealthCheck Missing",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

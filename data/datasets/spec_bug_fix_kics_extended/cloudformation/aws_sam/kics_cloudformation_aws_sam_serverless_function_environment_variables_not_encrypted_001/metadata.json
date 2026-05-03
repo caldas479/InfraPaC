@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_sam_serverless_function_environment_variables_not_encrypted_001",
+  "category": "cloudformation/aws_sam",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "serverless_function_environment_variables_not_encrypted",
+  "sub_provider": "aws_sam",
+  "description": "AWS Serverless Function should encrypt environment variables",
+  "severity": "MEDIUM",
+  "query_id": "a7f8ac28-eed1-483d-87c8-4c325f022572",
+  "query_name": "Serverless Function Environment Variables Not Encrypted",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_db_security_group_open_to_large_scope_002",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "db_security_group_open_to_large_scope",
+  "sub_provider": "aws",
+  "description": "The IP address in a DB Security Group must not have more than 256 hosts.",
+  "severity": "HIGH",
+  "query_id": "0104165b-02d5-426f-abc9-91fb48189899",
+  "query_name": "DB Security Group Open To Large Scope",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

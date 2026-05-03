@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_kinesis_sse_not_configured_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "kinesis_sse_not_configured",
+  "sub_provider": "aws",
+  "description": "AWS Kinesis Stream should have SSE (Server Side Encryption) defined",
+  "severity": "HIGH",
+  "query_id": "7f65be75-90ab-4036-8c2a-410aef7bb650",
+  "query_name": "Kinesis SSE Not Configured",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

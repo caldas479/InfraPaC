@@ -1,0 +1,524 @@
+{
+  "sample_size": 100,
+  "target_size": 100,
+  "stratification": {
+    "kubernetes": 33,
+    "pulumi/aws": 19,
+    "pulumi/azure": 2,
+    "pulumi/gcp": 2,
+    "pulumi/kubernetes": 2,
+    "cloudformation/aws": 38,
+    "cloudformation/aws_bom": 2,
+    "cloudformation/aws_sam": 2
+  },
+  "family_counts": {
+    "kubernetes": 33,
+    "pulumi": 25,
+    "cloudformation": 42
+  },
+  "seed": 42,
+  "source_dataset": "spec_bug_fix_kics_extended",
+  "source_version": "1.0.0",
+  "entries": [
+    {
+      "entry_id": "kics_cloudformation_aws_amplify_branch_basic_auth_config_password_exposed_002",
+      "category": "cloudformation/aws",
+      "path": "cloudformation/aws/kics_cloudformation_aws_amplify_branch_basic_auth_config_password_exposed_002"
+    },
+    {
+      "entry_id": "kics_cloudformation_aws_api_gateway_deployment_without_access_log_setting_001",
+      "category": "cloudformation/aws",
+      "path": "cloudformation/aws/kics_cloudformation_aws_api_gateway_deployment_without_access_log_setting_001"
+    },
+    {
+      "entry_id": "kics_cloudformation_aws_api_gateway_method_does_not_contains_an_api_key_001",
+      "category": "cloudformation/aws",
+      "path": "cloudformation/aws/kics_cloudformation_aws_api_gateway_method_does_not_contains_an_api_key_001"
+    },
+    {
+      "entry_id": "kics_cloudformation_aws_api_gateway_with_invalid_compression_002",
+      "category": "cloudformation/aws",
+      "path": "cloudformation/aws/kics_cloudformation_aws_api_gateway_with_invalid_compression_002"
+    },
+    {
+      "entry_id": "kics_cloudformation_aws_api_gateway_without_configured_authorizer_002",
+      "category": "cloudformation/aws",
+      "path": "cloudformation/aws/kics_cloudformation_aws_api_gateway_without_configured_authorizer_002"
+    },
+    {
+      "entry_id": "kics_cloudformation_aws_api_gateway_without_waf_001",
+      "category": "cloudformation/aws",
+      "path": "cloudformation/aws/kics_cloudformation_aws_api_gateway_without_waf_001"
+    },
+    {
+      "entry_id": "kics_cloudformation_aws_bom_ebs_001",
+      "category": "cloudformation/aws_bom",
+      "path": "cloudformation/aws_bom/kics_cloudformation_aws_bom_ebs_001"
+    },
+    {
+      "entry_id": "kics_cloudformation_aws_bom_rds_002",
+      "category": "cloudformation/aws_bom",
+      "path": "cloudformation/aws_bom/kics_cloudformation_aws_bom_rds_002"
+    },
+    {
+      "entry_id": "kics_cloudformation_aws_cloudfront_without_minimum_protocol_tls_1.2_001",
+      "category": "cloudformation/aws",
+      "path": "cloudformation/aws/kics_cloudformation_aws_cloudfront_without_minimum_protocol_tls_1.2_001"
+    },
+    {
+      "entry_id": "kics_cloudformation_aws_directory_service_simple_ad_password_exposed_001",
+      "category": "cloudformation/aws",
+      "path": "cloudformation/aws/kics_cloudformation_aws_directory_service_simple_ad_password_exposed_001"
+    },
+    {
+      "entry_id": "kics_cloudformation_aws_dms_endpoint_password_exposed_001",
+      "category": "cloudformation/aws",
+      "path": "cloudformation/aws/kics_cloudformation_aws_dms_endpoint_password_exposed_001"
+    },
+    {
+      "entry_id": "kics_cloudformation_aws_ec2_instance_monitoring_disabled_002",
+      "category": "cloudformation/aws",
+      "path": "cloudformation/aws/kics_cloudformation_aws_ec2_instance_monitoring_disabled_002"
+    },
+    {
+      "entry_id": "kics_cloudformation_aws_ec2_instance_subnet_has_public_ip_mapping_on_launch_001",
+      "category": "cloudformation/aws",
+      "path": "cloudformation/aws/kics_cloudformation_aws_ec2_instance_subnet_has_public_ip_mapping_on_launch_001"
+    },
+    {
+      "entry_id": "kics_cloudformation_aws_ec2_network_acl_ineffective_denied_traffic_001",
+      "category": "cloudformation/aws",
+      "path": "cloudformation/aws/kics_cloudformation_aws_ec2_network_acl_ineffective_denied_traffic_001"
+    },
+    {
+      "entry_id": "kics_cloudformation_aws_ec2_permissive_network_acl_protocols_001",
+      "category": "cloudformation/aws",
+      "path": "cloudformation/aws/kics_cloudformation_aws_ec2_permissive_network_acl_protocols_001"
+    },
+    {
+      "entry_id": "kics_cloudformation_aws_ec2_public_instance_exposed_through_subnet_001",
+      "category": "cloudformation/aws",
+      "path": "cloudformation/aws/kics_cloudformation_aws_ec2_public_instance_exposed_through_subnet_001"
+    },
+    {
+      "entry_id": "kics_cloudformation_aws_ec2_sensitive_port_is_publicly_exposed_002",
+      "category": "cloudformation/aws",
+      "path": "cloudformation/aws/kics_cloudformation_aws_ec2_sensitive_port_is_publicly_exposed_002"
+    },
+    {
+      "entry_id": "kics_cloudformation_aws_ecs_no_load_balancer_attached_001",
+      "category": "cloudformation/aws",
+      "path": "cloudformation/aws/kics_cloudformation_aws_ecs_no_load_balancer_attached_001"
+    },
+    {
+      "entry_id": "kics_cloudformation_aws_elasticache_nodes_not_created_across_multi_az_002",
+      "category": "cloudformation/aws",
+      "path": "cloudformation/aws/kics_cloudformation_aws_elasticache_nodes_not_created_across_multi_az_002"
+    },
+    {
+      "entry_id": "kics_cloudformation_aws_elasticache_using_default_port_001",
+      "category": "cloudformation/aws",
+      "path": "cloudformation/aws/kics_cloudformation_aws_elasticache_using_default_port_001"
+    },
+    {
+      "entry_id": "kics_cloudformation_aws_elasticache_using_default_port_002",
+      "category": "cloudformation/aws",
+      "path": "cloudformation/aws/kics_cloudformation_aws_elasticache_using_default_port_002"
+    },
+    {
+      "entry_id": "kics_cloudformation_aws_elasticache_with_disabled_transit_encryption_002",
+      "category": "cloudformation/aws",
+      "path": "cloudformation/aws/kics_cloudformation_aws_elasticache_with_disabled_transit_encryption_002"
+    },
+    {
+      "entry_id": "kics_cloudformation_aws_elasticsearch_not_encrypted_at_rest_001",
+      "category": "cloudformation/aws",
+      "path": "cloudformation/aws/kics_cloudformation_aws_elasticsearch_not_encrypted_at_rest_001"
+    },
+    {
+      "entry_id": "kics_cloudformation_aws_elb_v2_alb_access_log_disabled_001",
+      "category": "cloudformation/aws",
+      "path": "cloudformation/aws/kics_cloudformation_aws_elb_v2_alb_access_log_disabled_001"
+    },
+    {
+      "entry_id": "kics_cloudformation_aws_empty_roles_for_ecs_cluster_task_definitions_001",
+      "category": "cloudformation/aws",
+      "path": "cloudformation/aws/kics_cloudformation_aws_empty_roles_for_ecs_cluster_task_definitions_001"
+    },
+    {
+      "entry_id": "kics_cloudformation_aws_http_port_open_001",
+      "category": "cloudformation/aws",
+      "path": "cloudformation/aws/kics_cloudformation_aws_http_port_open_001"
+    },
+    {
+      "entry_id": "kics_cloudformation_aws_iam_groups_inline_policies_001",
+      "category": "cloudformation/aws",
+      "path": "cloudformation/aws/kics_cloudformation_aws_iam_groups_inline_policies_001"
+    },
+    {
+      "entry_id": "kics_cloudformation_aws_iam_policies_attached_to_user_001",
+      "category": "cloudformation/aws",
+      "path": "cloudformation/aws/kics_cloudformation_aws_iam_policies_attached_to_user_001"
+    },
+    {
+      "entry_id": "kics_cloudformation_aws_iam_policy_on_user_001",
+      "category": "cloudformation/aws",
+      "path": "cloudformation/aws/kics_cloudformation_aws_iam_policy_on_user_001"
+    },
+    {
+      "entry_id": "kics_cloudformation_aws_instance_with_no_vpc_002",
+      "category": "cloudformation/aws",
+      "path": "cloudformation/aws/kics_cloudformation_aws_instance_with_no_vpc_002"
+    },
+    {
+      "entry_id": "kics_cloudformation_aws_kinesis_sse_not_configured_001",
+      "category": "cloudformation/aws",
+      "path": "cloudformation/aws/kics_cloudformation_aws_kinesis_sse_not_configured_001"
+    },
+    {
+      "entry_id": "kics_cloudformation_aws_rds_db_instance_publicly_accessible_001",
+      "category": "cloudformation/aws",
+      "path": "cloudformation/aws/kics_cloudformation_aws_rds_db_instance_publicly_accessible_001"
+    },
+    {
+      "entry_id": "kics_cloudformation_aws_rds_storage_encryption_disabled_001",
+      "category": "cloudformation/aws",
+      "path": "cloudformation/aws/kics_cloudformation_aws_rds_storage_encryption_disabled_001"
+    },
+    {
+      "entry_id": "kics_cloudformation_aws_s3_bucket_acl_allows_read_or_write_to_all_users_001",
+      "category": "cloudformation/aws",
+      "path": "cloudformation/aws/kics_cloudformation_aws_s3_bucket_acl_allows_read_or_write_to_all_users_001"
+    },
+    {
+      "entry_id": "kics_cloudformation_aws_s3_bucket_with_unsecured_cors_rule_001",
+      "category": "cloudformation/aws",
+      "path": "cloudformation/aws/kics_cloudformation_aws_s3_bucket_with_unsecured_cors_rule_001"
+    },
+    {
+      "entry_id": "kics_cloudformation_aws_sagemaker_notebook_not_placed_in_vpc_001",
+      "category": "cloudformation/aws",
+      "path": "cloudformation/aws/kics_cloudformation_aws_sagemaker_notebook_not_placed_in_vpc_001"
+    },
+    {
+      "entry_id": "kics_cloudformation_aws_sam_serverless_api_endpoint_config_not_private_001",
+      "category": "cloudformation/aws_sam",
+      "path": "cloudformation/aws_sam/kics_cloudformation_aws_sam_serverless_api_endpoint_config_not_private_001"
+    },
+    {
+      "entry_id": "kics_cloudformation_aws_sam_serverless_api_xray_tracing_disabled_001",
+      "category": "cloudformation/aws_sam",
+      "path": "cloudformation/aws_sam/kics_cloudformation_aws_sam_serverless_api_xray_tracing_disabled_001"
+    },
+    {
+      "entry_id": "kics_cloudformation_aws_security_group_egress_with_all_protocols_001",
+      "category": "cloudformation/aws",
+      "path": "cloudformation/aws/kics_cloudformation_aws_security_group_egress_with_all_protocols_001"
+    },
+    {
+      "entry_id": "kics_cloudformation_aws_support_has_no_role_associated_001",
+      "category": "cloudformation/aws",
+      "path": "cloudformation/aws/kics_cloudformation_aws_support_has_no_role_associated_001"
+    },
+    {
+      "entry_id": "kics_cloudformation_aws_vulnerable_default_ssl_certificate_002",
+      "category": "cloudformation/aws",
+      "path": "cloudformation/aws/kics_cloudformation_aws_vulnerable_default_ssl_certificate_002"
+    },
+    {
+      "entry_id": "kics_cloudformation_aws_wildcard_in_acm_certificate_domain_name_001",
+      "category": "cloudformation/aws",
+      "path": "cloudformation/aws/kics_cloudformation_aws_wildcard_in_acm_certificate_domain_name_001"
+    },
+    {
+      "entry_id": "kics_kubernetes_audit_log_maxbackup_not_properly_set_001",
+      "category": "kubernetes",
+      "path": "kubernetes/kics_kubernetes_audit_log_maxbackup_not_properly_set_001"
+    },
+    {
+      "entry_id": "kics_kubernetes_audit_log_maxbackup_not_properly_set_002",
+      "category": "kubernetes",
+      "path": "kubernetes/kics_kubernetes_audit_log_maxbackup_not_properly_set_002"
+    },
+    {
+      "entry_id": "kics_kubernetes_audit_log_maxsize_not_properly_set_001",
+      "category": "kubernetes",
+      "path": "kubernetes/kics_kubernetes_audit_log_maxsize_not_properly_set_001"
+    },
+    {
+      "entry_id": "kics_kubernetes_auto_tls_set_to_true_001",
+      "category": "kubernetes",
+      "path": "kubernetes/kics_kubernetes_auto_tls_set_to_true_001"
+    },
+    {
+      "entry_id": "kics_kubernetes_basic_auth_file_is_set_001",
+      "category": "kubernetes",
+      "path": "kubernetes/kics_kubernetes_basic_auth_file_is_set_001"
+    },
+    {
+      "entry_id": "kics_kubernetes_bind_address_not_properly_set_002",
+      "category": "kubernetes",
+      "path": "kubernetes/kics_kubernetes_bind_address_not_properly_set_002"
+    },
+    {
+      "entry_id": "kics_kubernetes_client_certificate_authentication_not_setup_properly_002",
+      "category": "kubernetes",
+      "path": "kubernetes/kics_kubernetes_client_certificate_authentication_not_setup_properly_002"
+    },
+    {
+      "entry_id": "kics_kubernetes_container_runs_unmasked_001",
+      "category": "kubernetes",
+      "path": "kubernetes/kics_kubernetes_container_runs_unmasked_001"
+    },
+    {
+      "entry_id": "kics_kubernetes_encryption_provider_not_properly_configured_001",
+      "category": "kubernetes",
+      "path": "kubernetes/kics_kubernetes_encryption_provider_not_properly_configured_001"
+    },
+    {
+      "entry_id": "kics_kubernetes_etcd_peer_client_certificate_authentication_set_to_false_001",
+      "category": "kubernetes",
+      "path": "kubernetes/kics_kubernetes_etcd_peer_client_certificate_authentication_set_to_false_001"
+    },
+    {
+      "entry_id": "kics_kubernetes_etcd_peer_client_certificate_authentication_set_to_false_002",
+      "category": "kubernetes",
+      "path": "kubernetes/kics_kubernetes_etcd_peer_client_certificate_authentication_set_to_false_002"
+    },
+    {
+      "entry_id": "kics_kubernetes_etcd_peer_tls_certificate_files_not_properly_set_001",
+      "category": "kubernetes",
+      "path": "kubernetes/kics_kubernetes_etcd_peer_tls_certificate_files_not_properly_set_001"
+    },
+    {
+      "entry_id": "kics_kubernetes_etcd_tls_certificate_files_not_properly_set_001",
+      "category": "kubernetes",
+      "path": "kubernetes/kics_kubernetes_etcd_tls_certificate_files_not_properly_set_001"
+    },
+    {
+      "entry_id": "kics_kubernetes_etcd_tls_certificate_not_properly_configured_002",
+      "category": "kubernetes",
+      "path": "kubernetes/kics_kubernetes_etcd_tls_certificate_not_properly_configured_002"
+    },
+    {
+      "entry_id": "kics_kubernetes_incorrect_volume_claim_access_mode_read_write_once_001",
+      "category": "kubernetes",
+      "path": "kubernetes/kics_kubernetes_incorrect_volume_claim_access_mode_read_write_once_001"
+    },
+    {
+      "entry_id": "kics_kubernetes_ingress_controller_exposes_workload_001",
+      "category": "kubernetes",
+      "path": "kubernetes/kics_kubernetes_ingress_controller_exposes_workload_001"
+    },
+    {
+      "entry_id": "kics_kubernetes_network_policy_is_not_targeting_any_pod_001",
+      "category": "kubernetes",
+      "path": "kubernetes/kics_kubernetes_network_policy_is_not_targeting_any_pod_001"
+    },
+    {
+      "entry_id": "kics_kubernetes_no_drop_capabilities_for_containers_001",
+      "category": "kubernetes",
+      "path": "kubernetes/kics_kubernetes_no_drop_capabilities_for_containers_001"
+    },
+    {
+      "entry_id": "kics_kubernetes_peer_auto_tls_set_to_true_001",
+      "category": "kubernetes",
+      "path": "kubernetes/kics_kubernetes_peer_auto_tls_set_to_true_001"
+    },
+    {
+      "entry_id": "kics_kubernetes_psp_allows_privilege_escalation_001",
+      "category": "kubernetes",
+      "path": "kubernetes/kics_kubernetes_psp_allows_privilege_escalation_001"
+    },
+    {
+      "entry_id": "kics_kubernetes_rbac_roles_with_exec_permission_001",
+      "category": "kubernetes",
+      "path": "kubernetes/kics_kubernetes_rbac_roles_with_exec_permission_001"
+    },
+    {
+      "entry_id": "kics_kubernetes_rbac_wildcard_in_rule_001",
+      "category": "kubernetes",
+      "path": "kubernetes/kics_kubernetes_rbac_wildcard_in_rule_001"
+    },
+    {
+      "entry_id": "kics_kubernetes_root_containers_admitted_001",
+      "category": "kubernetes",
+      "path": "kubernetes/kics_kubernetes_root_containers_admitted_001"
+    },
+    {
+      "entry_id": "kics_kubernetes_rotate_kubelet_server_certificate_not_active_001",
+      "category": "kubernetes",
+      "path": "kubernetes/kics_kubernetes_rotate_kubelet_server_certificate_not_active_001"
+    },
+    {
+      "entry_id": "kics_kubernetes_seccomp_profile_is_not_configured_002",
+      "category": "kubernetes",
+      "path": "kubernetes/kics_kubernetes_seccomp_profile_is_not_configured_002"
+    },
+    {
+      "entry_id": "kics_kubernetes_service_account_name_undefined_or_empty_001",
+      "category": "kubernetes",
+      "path": "kubernetes/kics_kubernetes_service_account_name_undefined_or_empty_001"
+    },
+    {
+      "entry_id": "kics_kubernetes_service_account_token_automount_not_disabled_002",
+      "category": "kubernetes",
+      "path": "kubernetes/kics_kubernetes_service_account_token_automount_not_disabled_002"
+    },
+    {
+      "entry_id": "kics_kubernetes_shared_host_network_namespace_001",
+      "category": "kubernetes",
+      "path": "kubernetes/kics_kubernetes_shared_host_network_namespace_001"
+    },
+    {
+      "entry_id": "kics_kubernetes_tls_connection_certificate_not_setup_002",
+      "category": "kubernetes",
+      "path": "kubernetes/kics_kubernetes_tls_connection_certificate_not_setup_002"
+    },
+    {
+      "entry_id": "kics_kubernetes_token_auth_file_is_set_001",
+      "category": "kubernetes",
+      "path": "kubernetes/kics_kubernetes_token_auth_file_is_set_001"
+    },
+    {
+      "entry_id": "kics_kubernetes_use_service_account_credentials_not_set_to_true_002",
+      "category": "kubernetes",
+      "path": "kubernetes/kics_kubernetes_use_service_account_credentials_not_set_to_true_002"
+    },
+    {
+      "entry_id": "kics_kubernetes_weak_tls_cipher_suites_001",
+      "category": "kubernetes",
+      "path": "kubernetes/kics_kubernetes_weak_tls_cipher_suites_001"
+    },
+    {
+      "entry_id": "kics_kubernetes_weak_tls_cipher_suites_002",
+      "category": "kubernetes",
+      "path": "kubernetes/kics_kubernetes_weak_tls_cipher_suites_002"
+    },
+    {
+      "entry_id": "kics_pulumi_aws_amazon_dms_replication_instance_is_publicly_accessible_001",
+      "category": "pulumi/aws",
+      "path": "pulumi/aws/kics_pulumi_aws_amazon_dms_replication_instance_is_publicly_accessible_001"
+    },
+    {
+      "entry_id": "kics_pulumi_aws_amazon_dms_replication_instance_is_publicly_accessible_002",
+      "category": "pulumi/aws",
+      "path": "pulumi/aws/kics_pulumi_aws_amazon_dms_replication_instance_is_publicly_accessible_002"
+    },
+    {
+      "entry_id": "kics_pulumi_aws_api_gateway_access_logging_disabled_001",
+      "category": "pulumi/aws",
+      "path": "pulumi/aws/kics_pulumi_aws_api_gateway_access_logging_disabled_001"
+    },
+    {
+      "entry_id": "kics_pulumi_aws_api_gateway_without_ssl_certificate_001",
+      "category": "pulumi/aws",
+      "path": "pulumi/aws/kics_pulumi_aws_api_gateway_without_ssl_certificate_001"
+    },
+    {
+      "entry_id": "kics_pulumi_aws_docdb_logging_disabled_001",
+      "category": "pulumi/aws",
+      "path": "pulumi/aws/kics_pulumi_aws_docdb_logging_disabled_001"
+    },
+    {
+      "entry_id": "kics_pulumi_aws_docdb_logging_disabled_002",
+      "category": "pulumi/aws",
+      "path": "pulumi/aws/kics_pulumi_aws_docdb_logging_disabled_002"
+    },
+    {
+      "entry_id": "kics_pulumi_aws_dynamodb_table_not_encrypted_001",
+      "category": "pulumi/aws",
+      "path": "pulumi/aws/kics_pulumi_aws_dynamodb_table_not_encrypted_001"
+    },
+    {
+      "entry_id": "kics_pulumi_aws_dynamodb_table_point_in_time_recovery_disabled_001",
+      "category": "pulumi/aws",
+      "path": "pulumi/aws/kics_pulumi_aws_dynamodb_table_point_in_time_recovery_disabled_001"
+    },
+    {
+      "entry_id": "kics_pulumi_aws_ec2_instance_monitoring_disabled_001",
+      "category": "pulumi/aws",
+      "path": "pulumi/aws/kics_pulumi_aws_ec2_instance_monitoring_disabled_001"
+    },
+    {
+      "entry_id": "kics_pulumi_aws_ec2_not_ebs_optimized_001",
+      "category": "pulumi/aws",
+      "path": "pulumi/aws/kics_pulumi_aws_ec2_not_ebs_optimized_001"
+    },
+    {
+      "entry_id": "kics_pulumi_aws_ecs_cluster_container_insights_disabled_001",
+      "category": "pulumi/aws",
+      "path": "pulumi/aws/kics_pulumi_aws_ecs_cluster_container_insights_disabled_001"
+    },
+    {
+      "entry_id": "kics_pulumi_aws_ecs_cluster_container_insights_disabled_002",
+      "category": "pulumi/aws",
+      "path": "pulumi/aws/kics_pulumi_aws_ecs_cluster_container_insights_disabled_002"
+    },
+    {
+      "entry_id": "kics_pulumi_aws_elasticache_nodes_not_created_across_multi_az_001",
+      "category": "pulumi/aws",
+      "path": "pulumi/aws/kics_pulumi_aws_elasticache_nodes_not_created_across_multi_az_001"
+    },
+    {
+      "entry_id": "kics_pulumi_aws_elasticache_redis_cluster_without_backup_001",
+      "category": "pulumi/aws",
+      "path": "pulumi/aws/kics_pulumi_aws_elasticache_redis_cluster_without_backup_001"
+    },
+    {
+      "entry_id": "kics_pulumi_aws_elasticsearch_logs_disabled_001",
+      "category": "pulumi/aws",
+      "path": "pulumi/aws/kics_pulumi_aws_elasticsearch_logs_disabled_001"
+    },
+    {
+      "entry_id": "kics_pulumi_aws_elasticsearch_logs_disabled_002",
+      "category": "pulumi/aws",
+      "path": "pulumi/aws/kics_pulumi_aws_elasticsearch_logs_disabled_002"
+    },
+    {
+      "entry_id": "kics_pulumi_aws_elasticsearch_with_https_disabled_001",
+      "category": "pulumi/aws",
+      "path": "pulumi/aws/kics_pulumi_aws_elasticsearch_with_https_disabled_001"
+    },
+    {
+      "entry_id": "kics_pulumi_aws_iam_password_without_minimum_length_001",
+      "category": "pulumi/aws",
+      "path": "pulumi/aws/kics_pulumi_aws_iam_password_without_minimum_length_001"
+    },
+    {
+      "entry_id": "kics_pulumi_aws_rds_db_instance_publicly_accessible_001",
+      "category": "pulumi/aws",
+      "path": "pulumi/aws/kics_pulumi_aws_rds_db_instance_publicly_accessible_001"
+    },
+    {
+      "entry_id": "kics_pulumi_azure_redis_cache_allows_non_ssl_connections_001",
+      "category": "pulumi/azure",
+      "path": "pulumi/azure/kics_pulumi_azure_redis_cache_allows_non_ssl_connections_001"
+    },
+    {
+      "entry_id": "kics_pulumi_azure_storage_account_not_forcing_https_001",
+      "category": "pulumi/azure",
+      "path": "pulumi/azure/kics_pulumi_azure_storage_account_not_forcing_https_001"
+    },
+    {
+      "entry_id": "kics_pulumi_gcp_cloud_storage_bucket_logging_not_enabled_001",
+      "category": "pulumi/gcp",
+      "path": "pulumi/gcp/kics_pulumi_gcp_cloud_storage_bucket_logging_not_enabled_001"
+    },
+    {
+      "entry_id": "kics_pulumi_gcp_google_compute_ssl_policy_weak_cipher_in_use_001",
+      "category": "pulumi/gcp",
+      "path": "pulumi/gcp/kics_pulumi_gcp_google_compute_ssl_policy_weak_cipher_in_use_001"
+    },
+    {
+      "entry_id": "kics_pulumi_kubernetes_missing_app_armor_config_001",
+      "category": "pulumi/kubernetes",
+      "path": "pulumi/kubernetes/kics_pulumi_kubernetes_missing_app_armor_config_001"
+    },
+    {
+      "entry_id": "kics_pulumi_kubernetes_psp_set_to_privileged_001",
+      "category": "pulumi/kubernetes",
+      "path": "pulumi/kubernetes/kics_pulumi_kubernetes_psp_set_to_privileged_001"
+    }
+  ]
+}

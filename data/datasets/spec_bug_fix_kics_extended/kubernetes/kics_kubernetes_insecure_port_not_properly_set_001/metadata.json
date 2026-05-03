@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_insecure_port_not_properly_set_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "insecure_port_not_properly_set",
+  "sub_provider": null,
+  "description": "When using kube-apiserver command, the '--insecure-port' flag should be defined and set to 0",
+  "severity": "HIGH",
+  "query_id": "fa4def8c-1898-4a35-a139-7b76b1acdef0",
+  "query_name": "Insecure Port Not Properly Set",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

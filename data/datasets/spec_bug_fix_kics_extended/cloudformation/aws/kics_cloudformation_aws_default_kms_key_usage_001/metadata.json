@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_default_kms_key_usage_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "default_kms_key_usage",
+  "sub_provider": "aws",
+  "description": "When `StorageEncrypted` is set to true, `KmsKeyId` should be defined, to avoid the use of the default KMS Key",
+  "severity": "MEDIUM",
+  "query_id": "e52395b4-250b-4c60-81d5-2e58c1d37abc",
+  "query_name": "Default KMS Key Usage",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

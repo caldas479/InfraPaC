@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_codebuild_not_encrypted_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "codebuild_not_encrypted",
+  "sub_provider": "aws",
+  "description": "CodeBuild Project should be encrypted, which means 'EncryptionKey' should be defined",
+  "severity": "MEDIUM",
+  "query_id": "d7467bb6-3ed1-4c82-8095-5e7a818d0aad",
+  "query_name": "CodeBuild Not Encrypted",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

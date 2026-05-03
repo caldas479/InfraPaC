@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_elasticsearch_domain_encryption_with_kms_disabled_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "elasticsearch_domain_encryption_with_kms_disabled",
+  "sub_provider": "aws",
+  "description": "Check if any ElasticSearch domain isn't encrypted with KMS.",
+  "severity": "HIGH",
+  "query_id": "d926aa95-0a04-4abc-b20c-acf54afe38a1",
+  "query_name": "ElasticSearch Encryption With KMS Disabled",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

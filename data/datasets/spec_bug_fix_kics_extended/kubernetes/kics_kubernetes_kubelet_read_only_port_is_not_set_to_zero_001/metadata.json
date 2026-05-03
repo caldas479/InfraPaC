@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_kubelet_read_only_port_is_not_set_to_zero_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "kubelet_read_only_port_is_not_set_to_zero",
+  "sub_provider": null,
+  "description": "When using the kubelet command, the read-only port should be set to zero (--read-only-port=0)",
+  "severity": "MEDIUM",
+  "query_id": "2940d48a-dc5e-4178-a3f8-bfbd80720b41",
+  "query_name": "Kubelet Read Only Port Is Not Set To Zero",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

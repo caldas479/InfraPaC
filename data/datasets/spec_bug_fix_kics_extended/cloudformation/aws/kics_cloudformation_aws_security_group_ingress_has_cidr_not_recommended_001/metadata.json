@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_security_group_ingress_has_cidr_not_recommended_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "security_group_ingress_has_cidr_not_recommended",
+  "sub_provider": "aws",
+  "description": "AWS Security Group Ingress CIDR should not be /32 in case of IPV4 or /128 in case of IPV6",
+  "severity": "LOW",
+  "query_id": "a3e4e39a-e5fc-4ee9-8cf5-700febfa86dd",
+  "query_name": "Security Group Ingress Has CIDR Not Recommended",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

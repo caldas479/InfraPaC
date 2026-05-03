@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_elasticache_without_vpc_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "elasticache_without_vpc",
+  "sub_provider": "aws",
+  "description": "ElastiCache should be launched in a Virtual Private Cloud (VPC)",
+  "severity": "LOW",
+  "query_id": "ba766c53-fe71-4bbb-be35-b6803f2ef13e",
+  "query_name": "ElastiCache Without VPC",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

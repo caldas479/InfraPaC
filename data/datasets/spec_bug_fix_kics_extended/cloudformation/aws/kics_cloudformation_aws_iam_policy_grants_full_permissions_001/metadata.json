@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_iam_policy_grants_full_permissions_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "iam_policy_grants_full_permissions",
+  "sub_provider": "aws",
+  "description": "IAM policy should not grant full permissions to resources from the get-go, instead of granting permissions gradually as necessary.",
+  "severity": "HIGH",
+  "query_id": "f62aa827-4ade-4dc4-89e4-1433d384a368",
+  "query_name": "IAM Policy Grants Full Permissions",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

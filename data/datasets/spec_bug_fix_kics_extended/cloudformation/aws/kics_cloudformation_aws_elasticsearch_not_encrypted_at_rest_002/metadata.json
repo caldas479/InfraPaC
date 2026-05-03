@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_elasticsearch_not_encrypted_at_rest_002",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "elasticsearch_not_encrypted_at_rest",
+  "sub_provider": "aws",
+  "description": "Check if ElasticSearch encryption is disabled at Rest",
+  "severity": "HIGH",
+  "query_id": "86a248ab-0e01-4564-a82a-878303e253bb",
+  "query_name": "ElasticSearch Not Encrypted At Rest",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

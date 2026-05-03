@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_security_groups_with_meta_ip_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "security_groups_with_meta_ip",
+  "sub_provider": "aws",
+  "description": "Security Groups allows 0.0.0.0/0 for all ports and protocols.",
+  "severity": "HIGH",
+  "query_id": "adcd0082-e90b-4b63-862b-21899f6e6a48",
+  "query_name": "Security Groups With Meta IP",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

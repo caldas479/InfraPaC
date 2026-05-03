@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_container_is_privileged_002",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "container_is_privileged",
+  "sub_provider": null,
+  "description": "Privileged containers lack essential security restrictions and should be avoided by removing the 'privileged' flag or by changing its value to false",
+  "severity": "HIGH",
+  "query_id": "dd29336b-fe57-445b-a26e-e6aa867ae609",
+  "query_name": "Container Is Privileged",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

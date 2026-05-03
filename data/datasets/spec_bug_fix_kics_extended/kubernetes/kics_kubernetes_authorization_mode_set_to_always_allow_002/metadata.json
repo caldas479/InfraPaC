@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_authorization_mode_set_to_always_allow_002",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "authorization_mode_set_to_always_allow",
+  "sub_provider": null,
+  "description": "When using the kubelet command, the authorization-mode flag should not have 'AlwaysAllow' mode",
+  "severity": "HIGH",
+  "query_id": "f1f4d8da-1ac4-47d0-b1aa-91e69d33f7d5",
+  "query_name": "Authorization Mode Set To Always Allow",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

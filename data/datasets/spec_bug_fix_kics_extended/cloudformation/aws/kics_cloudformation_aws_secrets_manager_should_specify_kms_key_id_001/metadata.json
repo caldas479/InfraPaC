@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_secrets_manager_should_specify_kms_key_id_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "secrets_manager_should_specify_kms_key_id",
+  "sub_provider": "aws",
+  "description": "Secrets Manager Secret should explicitly specify KmsKeyId, this will allow the secret to be shared cross-account",
+  "severity": "LOW",
+  "query_id": "c8ae9ba9-c2f7-4e5c-b32e-a4b7712d4d22",
+  "query_name": "Secrets Manager Should Specify KmsKeyId",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

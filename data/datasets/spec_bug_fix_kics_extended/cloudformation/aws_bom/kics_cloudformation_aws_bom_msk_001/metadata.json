@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_bom_msk_001",
+  "category": "cloudformation/aws_bom",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "msk",
+  "sub_provider": "aws_bom",
+  "description": "A list of MSK resources specified. Amazon Managed Streaming for Apache Kafka (Amazon MSK) is a fully managed service that enables you to build and run applications that use Apache Kafka to process streaming data.",
+  "severity": "TRACE",
+  "query_id": "2730c169-51d7-4ae7-99b5-584379eff1bb",
+  "query_name": "BOM - AWS MSK",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_pod_misconfigured_network_policy_002",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "pod_misconfigured_network_policy",
+  "sub_provider": null,
+  "description": "Check if any pod is not being targeted by a proper network policy.",
+  "severity": "MEDIUM",
+  "query_id": "0401f71b-9c1e-4821-ab15-a955caa621be",
+  "query_name": "Pod Misconfigured Network Policy",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_rds_multi_az_deployment_disabled_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "rds_multi_az_deployment_disabled",
+  "sub_provider": "aws",
+  "description": "AWS RDS Instance should have a multi-az deployment",
+  "severity": "MEDIUM",
+  "query_id": "2b1d4935-9acf-48a7-8466-10d18bf51a69",
+  "query_name": "RDS Multi-AZ Deployment Disabled",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_tiller_deployment_is_accessible_from_within_the_cluster_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "tiller_deployment_is_accessible_from_within_the_cluster",
+  "sub_provider": null,
+  "description": "Check if any Tiller Deployment container allows access from within the cluster.",
+  "severity": "HIGH",
+  "query_id": "e17fa86a-6222-4584-a914-56e8f6c87e06",
+  "query_name": "Tiller Deployment Is Accessible From Within The Cluster",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

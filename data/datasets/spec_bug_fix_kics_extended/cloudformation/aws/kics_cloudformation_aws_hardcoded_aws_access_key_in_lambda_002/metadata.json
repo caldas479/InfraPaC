@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_hardcoded_aws_access_key_in_lambda_002",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "hardcoded_aws_access_key_in_lambda",
+  "sub_provider": "aws",
+  "description": "Lambda access/secret keys should not be hardcoded",
+  "severity": "HIGH",
+  "query_id": "2564172f-c92b-4261-9acd-464aed511696",
+  "query_name": "Hardcoded AWS Access Key In Lambda",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

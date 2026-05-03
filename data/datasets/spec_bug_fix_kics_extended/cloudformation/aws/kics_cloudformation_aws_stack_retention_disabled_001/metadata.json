@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_stack_retention_disabled_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "stack_retention_disabled",
+  "sub_provider": "aws",
+  "description": "Make sure that retain_stack is enabled to keep the Stack and it's associated resources during resource destruction",
+  "severity": "MEDIUM",
+  "query_id": "fe974ae9-858e-4991-bbd5-e040a834679f",
+  "query_name": "Stack Retention Disabled",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

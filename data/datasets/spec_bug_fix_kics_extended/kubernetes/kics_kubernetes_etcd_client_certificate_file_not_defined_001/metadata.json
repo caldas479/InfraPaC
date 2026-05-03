@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_etcd_client_certificate_file_not_defined_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "etcd_client_certificate_file_not_defined",
+  "sub_provider": null,
+  "description": "When using kube-apiserver commands, the '--etcd-cafile' flag should be defined",
+  "severity": "MEDIUM",
+  "query_id": "3f5ff8a7-5ad6-4d02-86f5-666307da1b20",
+  "query_name": "Etcd Client Certificate File Not Defined",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

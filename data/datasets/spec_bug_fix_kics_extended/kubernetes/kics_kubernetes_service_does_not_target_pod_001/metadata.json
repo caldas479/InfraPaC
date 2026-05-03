@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_service_does_not_target_pod_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "service_does_not_target_pod",
+  "sub_provider": null,
+  "description": "Service should Target a Pod",
+  "severity": "LOW",
+  "query_id": "3ca03a61-3249-4c16-8427-6f8e47dda729",
+  "query_name": "Service Does Not Target Pod",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

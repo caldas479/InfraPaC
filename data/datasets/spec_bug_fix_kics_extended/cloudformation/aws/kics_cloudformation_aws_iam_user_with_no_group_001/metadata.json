@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_iam_user_with_no_group_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "iam_user_with_no_group",
+  "sub_provider": "aws",
+  "description": "A IAM user should belong to a group",
+  "severity": "LOW",
+  "query_id": "06933df4-0ea7-461c-b9b5-104d27390e0e",
+  "query_name": "IAM User With No Group",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

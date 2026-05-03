@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_cni_plugin_does_not_support_network_policies_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "cni_plugin_does_not_support_network_policies",
+  "sub_provider": null,
+  "description": "Ensure the use of CNI Plugin that support Network Policies. If the CNI Plugin in use does not support Network Policies it may not be possible to effectively restrict traffic in the cluster",
+  "severity": "MEDIUM",
+  "query_id": "03aabc8c-35d6-481e-9c85-20139cf72d23",
+  "query_name": "CNI Plugin Does Not Support Network Policies",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

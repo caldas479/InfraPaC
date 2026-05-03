@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_ec2_sensitive_port_is_publicly_exposed_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "ec2_sensitive_port_is_publicly_exposed",
+  "sub_provider": "aws",
+  "description": "The EC2 instance has a sensitive port connection exposed to the entire network",
+  "severity": "HIGH",
+  "query_id": "494b03d3-bf40-4464-8524-7c56ad0700ed",
+  "query_name": "EC2 Sensitive Port Is Publicly Exposed",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

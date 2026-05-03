@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_ec2_permissive_network_acl_protocols_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "ec2_permissive_network_acl_protocols",
+  "sub_provider": "aws",
+  "description": "To avoid opening all ports for Allow rules, EC2 NetworkACL Entry Protocol should be either 6 (for TCP), 17 (for UDP), 1 (for ICMP), or 58 (for ICMPv6, which must include an IPv6 CIDR block, ICMP type, and code).",
+  "severity": "MEDIUM",
+  "query_id": "03879981-efa2-47a0-a818-c843e1441b88",
+  "query_name": "EC2 Permissive Network ACL Protocols",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

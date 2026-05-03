@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_security_groups_allows_unrestricted_outbound_traffic_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "security_groups_allows_unrestricted_outbound_traffic",
+  "sub_provider": "aws",
+  "description": "No security group should allow unrestricted egress access",
+  "severity": "MEDIUM",
+  "query_id": "66f2d8f9-a911-4ced-ae27-34f09690bb2c",
+  "query_name": "Security Groups Allows Unrestricted Outbound Traffic",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

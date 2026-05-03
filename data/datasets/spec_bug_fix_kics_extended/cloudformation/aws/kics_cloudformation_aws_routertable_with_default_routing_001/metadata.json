@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_routertable_with_default_routing_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "routertable_with_default_routing",
+  "sub_provider": "aws",
+  "description": "NAT gateways are recommended, and not the default route which permits all traffic, in Route Tables.",
+  "severity": "LOW",
+  "query_id": "4f0908b9-eb66-433f-9145-134274e1e944",
+  "query_name": "RouterTable with Default Routing",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

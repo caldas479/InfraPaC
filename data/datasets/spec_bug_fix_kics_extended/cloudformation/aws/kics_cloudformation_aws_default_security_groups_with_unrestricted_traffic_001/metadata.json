@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_default_security_groups_with_unrestricted_traffic_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "default_security_groups_with_unrestricted_traffic",
+  "sub_provider": "aws",
+  "description": "Check if default security group does not restrict all inbound and outbound traffic.",
+  "severity": "HIGH",
+  "query_id": "ea33fcf7-394b-4d11-a228-985c5d08f205",
+  "query_name": "Default Security Groups With Unrestricted Traffic",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

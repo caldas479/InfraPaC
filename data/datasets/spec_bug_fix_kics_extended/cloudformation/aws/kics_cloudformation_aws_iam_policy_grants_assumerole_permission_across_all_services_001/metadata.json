@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_iam_policy_grants_assumerole_permission_across_all_services_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "iam_policy_grants_assumerole_permission_across_all_services",
+  "sub_provider": "aws",
+  "description": "IAM Policy should not grant 'AssumeRole' permission across all services.",
+  "severity": "MEDIUM",
+  "query_id": "e835bd0d-65da-49f7-b6d1-b646da8727e6",
+  "query_name": "IAM Policy Grants 'AssumeRole' Permission Across All Services",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

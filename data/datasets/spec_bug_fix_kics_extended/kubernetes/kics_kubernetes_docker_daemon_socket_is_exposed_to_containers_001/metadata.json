@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_docker_daemon_socket_is_exposed_to_containers_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "docker_daemon_socket_is_exposed_to_containers",
+  "sub_provider": null,
+  "description": "Sees if Docker Daemon Socket is not exposed to Containers",
+  "severity": "MEDIUM",
+  "query_id": "a6f34658-fdfb-4154-9536-56d516f65828",
+  "query_name": "Docker Daemon Socket is Exposed to Containers",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

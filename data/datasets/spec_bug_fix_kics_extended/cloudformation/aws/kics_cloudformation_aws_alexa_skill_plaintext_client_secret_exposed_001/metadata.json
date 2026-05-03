@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_alexa_skill_plaintext_client_secret_exposed_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "alexa_skill_plaintext_client_secret_exposed",
+  "sub_provider": "aws",
+  "description": "Alexa skills' client secrets should not be defined as a plaintext string. It should either use 'AWS Systems Manager Parameter Store' or 'AWS Secrets Manager' to retrieve sensitive information",
+  "severity": "MEDIUM",
+  "query_id": "3c3b7a58-b018-4d07-9444-d9ee7156e111",
+  "query_name": "Alexa Skill Plaintext Client Secret Exposed",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

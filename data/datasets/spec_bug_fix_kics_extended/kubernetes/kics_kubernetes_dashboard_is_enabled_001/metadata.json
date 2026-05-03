@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_dashboard_is_enabled_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "dashboard_is_enabled",
+  "sub_provider": null,
+  "description": "If not needed, disabling the dashboard can prevent from being used as an attack vector",
+  "severity": "LOW",
+  "query_id": "d2ad057f-0928-41ef-a83c-f59203bb855b",
+  "query_name": "Dashboard Is Enabled",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

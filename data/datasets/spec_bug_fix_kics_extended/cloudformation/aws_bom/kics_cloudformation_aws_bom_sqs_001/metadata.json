@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_bom_sqs_001",
+  "category": "cloudformation/aws_bom",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "sqs",
+  "sub_provider": "aws_bom",
+  "description": "A list of SQS resources specified. Amazon Simple Queue Service (SQS) is a fully managed message queuing service that enables you to decouple and scale microservices, distributed systems, and serverless applications.",
+  "severity": "TRACE",
+  "query_id": "59a849c2-1127-4023-85a5-ef906dcd458c",
+  "query_name": "BOM - AWS SQS",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

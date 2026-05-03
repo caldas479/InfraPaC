@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_s3_bucket_with_public_policy_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "s3_bucket_with_public_policy",
+  "sub_provider": "aws",
+  "description": "S3 bucket allows public policy",
+  "severity": "HIGH",
+  "query_id": "860ba89b-b8de-4e72-af54-d6aee4138a69",
+  "query_name": "S3 Bucket Allows Public Policy",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

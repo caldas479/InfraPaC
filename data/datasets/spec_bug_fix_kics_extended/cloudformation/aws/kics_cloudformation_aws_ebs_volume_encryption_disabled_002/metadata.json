@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_ebs_volume_encryption_disabled_002",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "ebs_volume_encryption_disabled",
+  "sub_provider": "aws",
+  "description": "EBS volumes should be encrypted",
+  "severity": "HIGH",
+  "query_id": "80b7ac3f-d2b7-4577-9b10-df7913497162",
+  "query_name": "EBS Volume Encryption Disabled",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_redshift_not_encrypted_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "redshift_not_encrypted",
+  "sub_provider": "aws",
+  "description": "AWS Redshift Cluster should be encrypted. Check if 'Encrypted' field is false or undefined (default is false)",
+  "severity": "HIGH",
+  "query_id": "3b316b05-564c-44a7-9c3f-405bb95e211e",
+  "query_name": "Redshift Not Encrypted",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

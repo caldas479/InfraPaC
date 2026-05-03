@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_s3_static_website_host_enabled_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "s3_static_website_host_enabled",
+  "sub_provider": "aws",
+  "description": "Checks if any static websites are hosted on buckets. Even static websites can be a liability when poorly configured.",
+  "severity": "HIGH",
+  "query_id": "90501b1b-cded-4cc1-9e8b-206b85cda317",
+  "query_name": "S3 Static Website Host Enabled",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

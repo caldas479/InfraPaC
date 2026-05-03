@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_cross_account_iam_assume_role_policy_without_external_id_or_mfa_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "cross_account_iam_assume_role_policy_without_external_id_or_mfa",
+  "sub_provider": "aws",
+  "description": "Cross-Account IAM Assume Role Policy should require external ID or MFA to protect cross-account access",
+  "severity": "HIGH",
+  "query_id": "85138beb-ce7c-4ca3-a09f-e8fbcc57ddd7",
+  "query_name": "Cross-Account IAM Assume Role Policy Without ExternalId or MFA",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

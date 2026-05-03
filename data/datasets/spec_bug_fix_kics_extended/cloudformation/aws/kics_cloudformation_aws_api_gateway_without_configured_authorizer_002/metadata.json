@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_api_gateway_without_configured_authorizer_002",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "api_gateway_without_configured_authorizer",
+  "sub_provider": "aws",
+  "description": "API Gateway REST API should have an API Gateway Authorizer",
+  "severity": "MEDIUM",
+  "query_id": "7fd0d461-5b8c-4815-898c-f2b4b117eb28",
+  "query_name": "API Gateway Without Configured Authorizer",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

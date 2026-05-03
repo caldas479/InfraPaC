@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_psp_allows_sharing_host_pid_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "psp_allows_sharing_host_pid",
+  "sub_provider": null,
+  "description": "Pod Security Policy allows containers to share the host process ID namespace",
+  "severity": "MEDIUM",
+  "query_id": "91dacd0e-d189-4a9c-8272-5999a3cc32d9",
+  "query_name": "PSP Allows Sharing Host PID",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_public_lambda_via_api_gateway_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "public_lambda_via_api_gateway",
+  "sub_provider": "aws",
+  "description": "Allowing to run lambda function using public API Gateway",
+  "severity": "MEDIUM",
+  "query_id": "57b12981-3816-4c31-b190-a1e614361dd2",
+  "query_name": "Public Lambda via API Gateway",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

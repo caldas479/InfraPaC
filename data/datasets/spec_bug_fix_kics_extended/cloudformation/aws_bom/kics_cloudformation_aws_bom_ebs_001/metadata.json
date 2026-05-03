@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_bom_ebs_001",
+  "category": "cloudformation/aws_bom",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "ebs",
+  "sub_provider": "aws_bom",
+  "description": "A list of EBS resources found. Amazon Elastic Block Store (Amazon EBS) is an easy-to-use, scalable, high-performance block-storage service designed for Amazon Elastic Compute Cloud (Amazon EC2).",
+  "severity": "TRACE",
+  "query_id": "0b0556ea-9cd9-476f-862e-20679dda752b",
+  "query_name": "BOM - AWS EBS",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

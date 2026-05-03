@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_etcd_tls_certificate_files_not_properly_set_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "etcd_tls_certificate_files_not_properly_set",
+  "sub_provider": null,
+  "description": "When using etcd commands, the '--cert-file' and '--key-file' should be defined",
+  "severity": "MEDIUM",
+  "query_id": "075ca296-6768-4322-aea2-ba5063b969a9",
+  "query_name": "Etcd TLS Certificate Files Not Properly Set",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

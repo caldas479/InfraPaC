@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_tcp_or_udp_protocol_network_acl_entry_allows_all_ports_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "tcp_or_udp_protocol_network_acl_entry_allows_all_ports",
+  "sub_provider": "aws",
+  "description": "TCP UDP protocol AWS Network ACL Entry should not allow all ports",
+  "severity": "MEDIUM",
+  "query_id": "f57f849c-883b-4cb7-85e7-f7b199dff163",
+  "query_name": "TCP UDP Protocol Network ACL Entry Allows All Ports",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

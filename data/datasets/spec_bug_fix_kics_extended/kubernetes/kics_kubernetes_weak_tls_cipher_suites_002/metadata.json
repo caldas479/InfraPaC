@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_weak_tls_cipher_suites_002",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "weak_tls_cipher_suites",
+  "sub_provider": null,
+  "description": "TLS Connection should use strong Cipher Suites",
+  "severity": "MEDIUM",
+  "query_id": "510d5810-9a30-443a-817d-5c1fa527b110",
+  "query_name": "Weak TLS Cipher Suites",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

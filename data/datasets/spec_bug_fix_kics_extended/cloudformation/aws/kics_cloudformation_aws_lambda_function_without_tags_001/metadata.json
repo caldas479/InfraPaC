@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_lambda_function_without_tags_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "lambda_function_without_tags",
+  "sub_provider": "aws",
+  "description": "AWS Lambda Functions must have associated tags.",
+  "severity": "LOW",
+  "query_id": "8df8e857-bd59-44fa-9f4c-d77594b95b46",
+  "query_name": "Lambda Function Without Tags",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

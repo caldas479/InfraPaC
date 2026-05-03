@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_dynamodb_with_table_billing_mode_not_recommended_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "dynamodb_with_table_billing_mode_not_recommended",
+  "sub_provider": "aws",
+  "description": "Checks if DynamoDB Table Billing Mode is set to either PAY_PER_REQUEST or PROVISIONED",
+  "severity": "LOW",
+  "query_id": "c333e906-8d8b-4275-b999-78b6318f8dc6",
+  "query_name": "DynamoDB With Not Recommended Table Billing Mode",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_ecs_service_without_running_tasks_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "ecs_service_without_running_tasks",
+  "sub_provider": "aws",
+  "description": "ECS Service should have at least 1 task running",
+  "severity": "LOW",
+  "query_id": "79d745f0-d5f3-46db-9504-bef73e9fd528",
+  "query_name": "ECS Service Without Running Tasks",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

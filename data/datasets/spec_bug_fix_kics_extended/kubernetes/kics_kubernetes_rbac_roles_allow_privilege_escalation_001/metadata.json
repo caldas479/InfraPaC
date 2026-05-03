@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_rbac_roles_allow_privilege_escalation_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "rbac_roles_allow_privilege_escalation",
+  "sub_provider": null,
+  "description": "Roles or ClusterRoles with RBAC permissions 'bind' or 'escalate' allow subjects to create new bindings with other roles. This is dangerous, as users with these privileges can bind to roles that may exceed their own privileges",
+  "severity": "MEDIUM",
+  "query_id": "8320826e-7a9c-4b0b-9535-578333193432",
+  "query_name": "RBAC Roles Allow Privilege Escalation",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

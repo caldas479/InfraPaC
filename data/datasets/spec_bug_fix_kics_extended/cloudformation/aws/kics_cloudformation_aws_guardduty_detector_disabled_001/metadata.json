@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_guardduty_detector_disabled_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "guardduty_detector_disabled",
+  "sub_provider": "aws",
+  "description": "Make sure that Amazon GuardDuty is Enabled",
+  "severity": "MEDIUM",
+  "query_id": "a25cd877-375c-4121-a640-730929936fac",
+  "query_name": "GuardDuty Detector Disabled",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

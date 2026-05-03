@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_workspace_without_encryption_002",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "workspace_without_encryption",
+  "sub_provider": "aws",
+  "description": "Workspaces should have encryption enabled",
+  "severity": "HIGH",
+  "query_id": "89827c57-5a8a-49eb-9731-976a606d70db",
+  "query_name": "Workspace Without Encryption",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

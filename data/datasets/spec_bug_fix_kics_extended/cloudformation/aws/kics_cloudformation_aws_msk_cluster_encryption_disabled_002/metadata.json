@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_msk_cluster_encryption_disabled_002",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "msk_cluster_encryption_disabled",
+  "sub_provider": "aws",
+  "description": "Ensure MSK Cluster encryption in rest and transit is enabled",
+  "severity": "HIGH",
+  "query_id": "a976d63f-af0e-46e8-b714-8c1a9c4bf768",
+  "query_name": "MSK Cluster Encryption Disabled",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

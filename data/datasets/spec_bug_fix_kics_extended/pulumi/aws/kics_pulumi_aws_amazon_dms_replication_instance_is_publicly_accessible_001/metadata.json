@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_pulumi_aws_amazon_dms_replication_instance_is_publicly_accessible_001",
+  "category": "pulumi/aws",
+  "policy_engine": "opa",
+  "iac_tool": "pulumi",
+  "source": "kics",
+  "original_query": "amazon_dms_replication_instance_is_publicly_accessible",
+  "sub_provider": "aws",
+  "description": "Amazon DMS is publicly accessible, therefore exposing possible sensitive information. To prevent such a scenario, update the attribute 'PubliclyAccessible' to false.",
+  "severity": "CRITICAL",
+  "query_id": "bccb296f-362c-4b05-9221-86d1437a1016",
+  "query_name": "Amazon DMS Replication Instance Is Publicly Accessible",
+  "platform": "Pulumi",
+  "cloud_provider": "aws"
+}

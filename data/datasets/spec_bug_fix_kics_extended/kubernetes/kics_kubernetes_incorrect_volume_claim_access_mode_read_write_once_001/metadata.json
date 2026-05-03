@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_incorrect_volume_claim_access_mode_read_write_once_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "incorrect_volume_claim_access_mode_read_write_once",
+  "sub_provider": null,
+  "description": "Kubernetes Stateful Sets must have one Volume Claim template with the access mode 'ReadWriteOnce'",
+  "severity": "MEDIUM",
+  "query_id": "3878dc92-8e5d-47cf-9cdd-7590f71d21b9",
+  "query_name": "Incorrect Volume Claim Access Mode ReadWriteOnce",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_sam_serverless_api_cache_cluster_disabled_001",
+  "category": "cloudformation/aws_sam",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "serverless_api_cache_cluster_disabled",
+  "sub_provider": "aws_sam",
+  "description": "AWS Serverless API should have cache clustering enabled",
+  "severity": "LOW",
+  "query_id": "60a05ede-0a68-4d0d-a58f-f538cf55ff79",
+  "query_name": "Serverless API Cache Cluster Disabled",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

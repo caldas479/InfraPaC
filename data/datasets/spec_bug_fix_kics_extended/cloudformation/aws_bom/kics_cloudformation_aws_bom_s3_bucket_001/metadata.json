@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_bom_s3_bucket_001",
+  "category": "cloudformation/aws_bom",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "s3_bucket",
+  "sub_provider": "aws_bom",
+  "description": "A list of S3 resources found. Amazon Simple Storage Service (Amazon S3) is an object storage service that offers industry-leading scalability, data availability, security, and performance.",
+  "severity": "TRACE",
+  "query_id": "b5d6a2e0-8f15-4664-bd5b-68ec5c9bab83",
+  "query_name": "BOM - AWS S3 Buckets",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

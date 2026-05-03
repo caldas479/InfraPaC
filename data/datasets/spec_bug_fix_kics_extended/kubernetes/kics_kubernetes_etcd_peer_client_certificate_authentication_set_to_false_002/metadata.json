@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_etcd_peer_client_certificate_authentication_set_to_false_002",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "etcd_peer_client_certificate_authentication_set_to_false",
+  "sub_provider": null,
+  "description": "When using etcd commands, the '--peer-client-cert-auth' flag should be set to true",
+  "severity": "MEDIUM",
+  "query_id": "b7d0181d-0a9b-4611-9d1c-1ad4f0b620ff",
+  "query_name": "Etcd Peer Client Certificate Authentication Set To False",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

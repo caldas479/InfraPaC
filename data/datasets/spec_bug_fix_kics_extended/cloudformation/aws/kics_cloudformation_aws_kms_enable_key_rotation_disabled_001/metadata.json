@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_kms_enable_key_rotation_disabled_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "kms_enable_key_rotation_disabled",
+  "sub_provider": "aws",
+  "description": "EnableKeyRotation should not be false or undefined",
+  "severity": "MEDIUM",
+  "query_id": "235ca980-eb71-48f4-9030-df0c371029eb",
+  "query_name": "KMS Key Rotation Disabled",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

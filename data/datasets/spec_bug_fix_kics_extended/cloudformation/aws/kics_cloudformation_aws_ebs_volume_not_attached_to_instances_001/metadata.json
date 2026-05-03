@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_ebs_volume_not_attached_to_instances_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "ebs_volume_not_attached_to_instances",
+  "sub_provider": "aws",
+  "description": "EBS Volumes that are unattached to instances may contain sensitive data",
+  "severity": "LOW",
+  "query_id": "1819ac03-542b-4026-976b-f37addd59f3b",
+  "query_name": "EBS Volume Not Attached To Instances",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

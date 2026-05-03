@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_eks_node_group_remote_access_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "eks_node_group_remote_access",
+  "sub_provider": "aws",
+  "description": "Ensure Amazon EKS Node group has implict SSH access",
+  "severity": "MEDIUM",
+  "query_id": "73d59e76-a12c-4b74-a3d8-d3e1e19c25b3",
+  "query_name": "EKS node group remote access",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_docdb_logging_disabled_002",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "docdb_logging_disabled",
+  "sub_provider": "aws",
+  "description": "DocDB logging should be enabled",
+  "severity": "MEDIUM",
+  "query_id": "1bf3b3d4-f373-4d7c-afbb-7d85948a67a5",
+  "query_name": "DocDB Logging Is Disabled",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

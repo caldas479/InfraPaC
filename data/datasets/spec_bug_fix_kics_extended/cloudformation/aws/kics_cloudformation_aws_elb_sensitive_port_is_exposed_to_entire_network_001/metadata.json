@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_elb_sensitive_port_is_exposed_to_entire_network_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "elb_sensitive_port_is_exposed_to_entire_network",
+  "sub_provider": "aws",
+  "description": "The load balancer of the application with a sensitive port connection is exposed to the entire internet.",
+  "severity": "HIGH",
+  "query_id": "78055456-f670-4d2e-94d5-392d1cf4f5e4",
+  "query_name": "ELB Sensitive Port Is Exposed To Entire Network",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

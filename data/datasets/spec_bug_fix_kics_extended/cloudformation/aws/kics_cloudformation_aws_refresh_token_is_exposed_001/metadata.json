@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_refresh_token_is_exposed_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "refresh_token_is_exposed",
+  "sub_provider": "aws",
+  "description": "Alexa ASK Skill AuthenticationConfiguration RefreshToken should not be a plaintext string",
+  "severity": "HIGH",
+  "query_id": "5b48c507-0d1f-41b0-a630-76817c6b4189",
+  "query_name": "RefreshToken Is Exposed",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

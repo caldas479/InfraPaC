@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_cloudtrail_logging_disabled_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "cloudtrail_logging_disabled",
+  "sub_provider": "aws",
+  "description": "Checks if logging is enabled for CloudTrail.",
+  "severity": "MEDIUM",
+  "query_id": "5c0b06d5-b7a4-484c-aeb0-75a836269ff0",
+  "query_name": "CloudTrail Logging Disabled",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

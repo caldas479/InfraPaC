@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_privilege_escalation_allowed_002",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "privilege_escalation_allowed",
+  "sub_provider": null,
+  "description": "Containers should not run with allowPrivilegeEscalation in order to prevent them from gaining more privileges than their parent process",
+  "severity": "HIGH",
+  "query_id": "5572cc5e-1e4c-4113-92a6-7a8a3bd25e6d",
+  "query_name": "Privilege Escalation Allowed",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

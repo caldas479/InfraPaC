@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_s3_bucket_acl_allows_read_to_all_users_002",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "s3_bucket_acl_allows_read_to_all_users",
+  "sub_provider": "aws",
+  "description": "S3 Buckets should not be readable to all users",
+  "severity": "HIGH",
+  "query_id": "219f4c95-aa50-44e0-97de-cf71f4641170",
+  "query_name": "S3 Bucket ACL Allows Read to All Users",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

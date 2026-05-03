@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_sagemaker_notebook_not_placed_in_vpc_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "sagemaker_notebook_not_placed_in_vpc",
+  "sub_provider": "aws",
+  "description": "SageMaker Notebook must be placed in a VPC",
+  "severity": "MEDIUM",
+  "query_id": "9c7028d9-04c2-45be-b8b2-1188ccaefb36",
+  "query_name": "SageMaker Notebook Not Placed In VPC",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

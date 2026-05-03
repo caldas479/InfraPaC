@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_service_account_token_automount_not_disabled_002",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "service_account_token_automount_not_disabled",
+  "sub_provider": null,
+  "description": "Service Account Tokens are automatically mounted even if not necessary",
+  "severity": "MEDIUM",
+  "query_id": "48471392-d4d0-47c0-b135-cdec95eb3eef",
+  "query_name": "Service Account Token Automount Not Disabled",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

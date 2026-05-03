@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_ec2_network_acl_ineffective_denied_traffic_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "ec2_network_acl_ineffective_denied_traffic",
+  "sub_provider": "aws",
+  "description": "Ineffective deny rules. A deny rule should be applied to all IP addresses.",
+  "severity": "MEDIUM",
+  "query_id": "2623d682-dccb-44cd-99d0-54d9fd62f8f2",
+  "query_name": "EC2 Network ACL Ineffective Denied Traffic",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

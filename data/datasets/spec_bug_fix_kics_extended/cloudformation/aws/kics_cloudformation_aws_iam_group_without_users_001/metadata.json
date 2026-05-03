@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_iam_group_without_users_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "iam_group_without_users",
+  "sub_provider": "aws",
+  "description": "IAM Group should have at least one user associated",
+  "severity": "MEDIUM",
+  "query_id": "8f957abd-9703-413d-87d3-c578950a753c",
+  "query_name": "IAM Group Without Users",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

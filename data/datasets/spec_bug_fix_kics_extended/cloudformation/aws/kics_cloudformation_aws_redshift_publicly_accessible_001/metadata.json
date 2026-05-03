@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_redshift_publicly_accessible_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "redshift_publicly_accessible",
+  "sub_provider": "aws",
+  "description": "AWS Redshift Clusters must not be publicly accessible, which means the attribute 'PubliclyAccessible' must be set to false",
+  "severity": "MEDIUM",
+  "query_id": "bdf8dcb4-75df-4370-92c4-606e4ae6c4d3",
+  "query_name": "Redshift Publicly Accessible",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

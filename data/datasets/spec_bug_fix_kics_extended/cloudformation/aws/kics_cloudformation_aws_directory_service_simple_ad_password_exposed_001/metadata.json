@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_directory_service_simple_ad_password_exposed_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "directory_service_simple_ad_password_exposed",
+  "sub_provider": "aws",
+  "description": "DirectoryService SimpleAD password must not be a plaintext string or a Ref to a Parameter with a Default value.",
+  "severity": "HIGH",
+  "query_id": "6685d912-d81f-4cfa-95ad-e316ea31c989",
+  "query_name": "Directory Service Simple AD Password Exposed",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

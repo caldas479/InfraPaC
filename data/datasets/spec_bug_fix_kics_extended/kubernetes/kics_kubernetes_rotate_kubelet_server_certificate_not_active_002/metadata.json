@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_rotate_kubelet_server_certificate_not_active_002",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "rotate_kubelet_server_certificate_not_active",
+  "sub_provider": null,
+  "description": "The RotateKubeletServerCertificate argument should be true",
+  "severity": "MEDIUM",
+  "query_id": "1c621b8e-2c6a-44f5-bd6a-fb0fb7ba33e2",
+  "query_name": "Rotate Kubelet Server Certificate Not Active",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

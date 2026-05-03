@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_rds_db_instance_with_deletion_protection_disabled_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "rds_db_instance_with_deletion_protection_disabled",
+  "sub_provider": "aws",
+  "description": "RDS DBInstance should have deletion protection set to true",
+  "severity": "LOW",
+  "query_id": "2c161e58-cb52-454f-abea-6470c37b5e6e",
+  "query_name": "RDS DB Instance With Deletion Protection Disabled",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

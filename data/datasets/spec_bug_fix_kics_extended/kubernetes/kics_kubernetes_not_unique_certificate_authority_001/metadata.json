@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_not_unique_certificate_authority_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "not_unique_certificate_authority",
+  "sub_provider": null,
+  "description": "Certificate Authority should be unique for etcd",
+  "severity": "MEDIUM",
+  "query_id": "cb7e695d-6a85-495c-b15f-23aed2519303",
+  "query_name": "Not Unique Certificate Authority",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

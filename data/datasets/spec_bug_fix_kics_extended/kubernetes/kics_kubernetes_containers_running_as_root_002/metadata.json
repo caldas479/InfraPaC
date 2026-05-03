@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_containers_running_as_root_002",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "containers_running_as_root",
+  "sub_provider": null,
+  "description": "Containers should only run as non-root user. This limits the exploitability of security misconfigurations and restricts an attacker's possibilities in case of compromise",
+  "severity": "MEDIUM",
+  "query_id": "cf34805e-3872-4c08-bf92-6ff7bb0cfadb",
+  "query_name": "Container Running As Root",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

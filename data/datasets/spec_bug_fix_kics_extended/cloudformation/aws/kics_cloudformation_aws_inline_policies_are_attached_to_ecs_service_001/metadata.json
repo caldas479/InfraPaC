@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_inline_policies_are_attached_to_ecs_service_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "inline_policies_are_attached_to_ecs_service",
+  "sub_provider": "aws",
+  "description": "Check if any ECS service has inline policies attached, which are embedded directly into an entity (user, group,...), instead of the equivalent recommended managed policies.",
+  "severity": "LOW",
+  "query_id": "9e8c89b3-7997-4d15-93e4-7911b9db99fd",
+  "query_name": "Inline Policies Are Attached To ECS Service",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

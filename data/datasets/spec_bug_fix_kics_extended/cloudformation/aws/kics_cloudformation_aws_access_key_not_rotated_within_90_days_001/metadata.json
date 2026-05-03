@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_access_key_not_rotated_within_90_days_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "access_key_not_rotated_within_90_days",
+  "sub_provider": "aws",
+  "description": "ConfigRule should enforce access keys to be rotated within 90 days.",
+  "severity": "MEDIUM",
+  "query_id": "800fa019-49dd-421b-9042-7331fdd83fa2",
+  "query_name": "High Access Key Rotation Period",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

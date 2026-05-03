@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_s3_bucket_without_versioning_002",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "s3_bucket_without_versioning",
+  "sub_provider": "aws",
+  "description": "S3 bucket should have versioning enabled",
+  "severity": "MEDIUM",
+  "query_id": "a227ec01-f97a-4084-91a4-47b350c1db54",
+  "query_name": "S3 Bucket Without Versioning",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

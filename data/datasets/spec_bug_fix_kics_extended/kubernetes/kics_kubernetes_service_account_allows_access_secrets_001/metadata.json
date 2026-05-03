@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_service_account_allows_access_secrets_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "service_account_allows_access_secrets",
+  "sub_provider": null,
+  "description": "Roles and ClusterRoles when binded, should not use get, list or watch as verbs",
+  "severity": "MEDIUM",
+  "query_id": "056ac60e-fe07-4acc-9b34-8e1d51716ab9",
+  "query_name": "ServiceAccount Allows Access Secrets",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_network_policy_is_not_targeting_any_pod_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "network_policy_is_not_targeting_any_pod",
+  "sub_provider": null,
+  "description": "Check if any network policy is not targeting any pod.",
+  "severity": "LOW",
+  "query_id": "85ab1c5b-014e-4352-b5f8-d7dea3bb4fd3",
+  "query_name": "Network Policy Is Not Targeting Any Pod",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

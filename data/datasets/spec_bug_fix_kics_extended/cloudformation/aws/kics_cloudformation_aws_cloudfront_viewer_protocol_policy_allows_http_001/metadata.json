@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_cloudfront_viewer_protocol_policy_allows_http_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "cloudfront_viewer_protocol_policy_allows_http",
+  "sub_provider": "aws",
+  "description": "Checks if the connection between CloudFront and the viewer is encrypted",
+  "severity": "MEDIUM",
+  "query_id": "31733ee2-fef0-4e87-9778-65da22a8ecf1",
+  "query_name": "Cloudfront Viewer Protocol Policy Allows HTTP",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

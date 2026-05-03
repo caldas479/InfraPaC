@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_encryption_provider_not_properly_configured_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "encryption_provider_not_properly_configured",
+  "sub_provider": null,
+  "description": "The EncryptionConfiguration should be configured to have at least one 'aescbc', 'kms' or 'secretbox' provider",
+  "severity": "MEDIUM",
+  "query_id": "10efce34-5af6-4d83-b414-9e096d5a06a9",
+  "query_name": "Encryption Provider Not Properly Configured",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

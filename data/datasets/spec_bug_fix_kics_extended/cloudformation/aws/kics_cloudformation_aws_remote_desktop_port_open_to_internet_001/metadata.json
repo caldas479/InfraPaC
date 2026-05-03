@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_remote_desktop_port_open_to_internet_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "remote_desktop_port_open_to_internet",
+  "sub_provider": "aws",
+  "description": "The Remote Desktop port is open to the internet in a Security Group",
+  "severity": "HIGH",
+  "query_id": "c9846969-d066-431f-9b34-8c4abafe422a",
+  "query_name": "Remote Desktop Port Open To Internet",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

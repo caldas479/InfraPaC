@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_s3_bucket_should_have_bucket_policy_002",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "s3_bucket_should_have_bucket_policy",
+  "sub_provider": "aws",
+  "description": "Checks if S3 Bucket has the same name as a Bucket Policy, if it has, S3 Bucket has a Bucket Policy associated",
+  "severity": "LOW",
+  "query_id": "37fa8188-738b-42c8-bf82-6334ea567738",
+  "query_name": "S3 Bucket Should Have Bucket Policy",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

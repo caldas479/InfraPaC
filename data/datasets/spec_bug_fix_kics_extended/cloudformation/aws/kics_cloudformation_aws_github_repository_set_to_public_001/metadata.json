@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_github_repository_set_to_public_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "github_repository_set_to_public",
+  "sub_provider": "aws",
+  "description": "Repositories must be set to private, which means the attribute 'visibility' must be set to 'private' and/or the attribute 'private' must be set to true (the attribute 'visibility' overrides 'private')",
+  "severity": "MEDIUM",
+  "query_id": "5906092d-5f74-490d-9a03-78febe0f65e1",
+  "query_name": "GitHub Repository Set To Public",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

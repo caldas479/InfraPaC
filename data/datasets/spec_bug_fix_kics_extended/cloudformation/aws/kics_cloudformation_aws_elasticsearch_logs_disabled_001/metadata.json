@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_elasticsearch_logs_disabled_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "elasticsearch_logs_disabled",
+  "sub_provider": "aws",
+  "description": "AWS Elasticsearch should have logs enabled",
+  "severity": "MEDIUM",
+  "query_id": "edbd62d4-8700-41de-b000-b3cfebb5e996",
+  "query_name": "Elasticsearch Logs Disabled",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

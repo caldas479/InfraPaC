@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_volume_mount_with_os_directory_write_permissions_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "volume_mount_with_os_directory_write_permissions",
+  "sub_provider": null,
+  "description": "Containers can mount sensitive folders from the hosts, giving them potentially dangerous access to critical host configurations and binaries.",
+  "severity": "HIGH",
+  "query_id": "b7652612-de4e-4466-a0bf-1cd81f0c6063",
+  "query_name": "Volume Mount With OS Directory Write Permissions",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

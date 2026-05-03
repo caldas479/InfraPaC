@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_alb_listening_on_http_002",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "alb_listening_on_http",
+  "sub_provider": "aws",
+  "description": "AWS Application Load Balancer (alb) should not listen on HTTP",
+  "severity": "MEDIUM",
+  "query_id": "275a3217-ca37-40c1-a6cf-bb57d245ab32",
+  "query_name": "ALB Listening on HTTP",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

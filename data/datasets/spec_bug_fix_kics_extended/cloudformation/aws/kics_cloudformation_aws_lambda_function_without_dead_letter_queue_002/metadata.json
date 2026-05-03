@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_lambda_function_without_dead_letter_queue_002",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "lambda_function_without_dead_letter_queue",
+  "sub_provider": "aws",
+  "description": "AWS Lambda Function should be configured for a Dead Letter Queue(DLQ)",
+  "severity": "LOW",
+  "query_id": "c2eae442-d3ba-4cb1-84ca-1db4f80eae3d",
+  "query_name": "Lambda Function Without Dead Letter Queue",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

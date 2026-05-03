@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_cpu_requests_not_set_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "cpu_requests_not_set",
+  "sub_provider": null,
+  "description": "CPU requests should be set to ensure the sum of the resource requests of the scheduled Containers is less than the capacity of the node",
+  "severity": "LOW",
+  "query_id": "ca469dd4-c736-448f-8ac1-30a642705e0a",
+  "query_name": "CPU Requests Not Set",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

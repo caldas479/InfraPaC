@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_use_service_account_credentials_not_set_to_true_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "use_service_account_credentials_not_set_to_true",
+  "sub_provider": null,
+  "description": "When using kube-controller-manager commands, the '--use-service-account-credentials' should be set to true",
+  "severity": "MEDIUM",
+  "query_id": "1acd93f1-5a37-45c0-aaac-82ece818be7d",
+  "query_name": "Use Service Account Credentials Not Set To True",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_emr_security_configuration_encryptions_enabled_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "emr_security_configuration_encryptions_enabled",
+  "sub_provider": "aws",
+  "description": "EMR SecurityConfiguration should enable and properly configure encryption at rest and in transit.",
+  "severity": "MEDIUM",
+  "query_id": "5b033ec8-f079-4323-b5c8-99d4620433a9",
+  "query_name": "EMR Security Configuration Encryption Disabled",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_pulumi_aws_iam_password_without_minimum_length_001",
+  "category": "pulumi/aws",
+  "policy_engine": "opa",
+  "iac_tool": "pulumi",
+  "source": "kics",
+  "original_query": "iam_password_without_minimum_length",
+  "sub_provider": "aws",
+  "description": "IAM password should have the required minimum length",
+  "severity": "LOW",
+  "query_id": "9850d621-7485-44f7-8bdd-b3cf426315cf",
+  "query_name": "IAM Password Without Minimum Length",
+  "platform": "Pulumi",
+  "cloud_provider": "aws"
+}

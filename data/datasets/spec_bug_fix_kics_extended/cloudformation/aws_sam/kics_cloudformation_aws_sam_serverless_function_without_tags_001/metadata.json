@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_sam_serverless_function_without_tags_001",
+  "category": "cloudformation/aws_sam",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "serverless_function_without_tags",
+  "sub_provider": "aws_sam",
+  "description": "AWS Serverless Function should have associated tags",
+  "severity": "LOW",
+  "query_id": "a71ecabe-03b6-456a-b3bc-d1a39aa20c98",
+  "query_name": "Serverless Function Without Tags",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

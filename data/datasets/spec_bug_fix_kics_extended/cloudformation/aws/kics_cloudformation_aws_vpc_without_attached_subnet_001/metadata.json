@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_vpc_without_attached_subnet_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "vpc_without_attached_subnet",
+  "sub_provider": "aws",
+  "description": "VPCs without attached subnets may indicate that they are not being used",
+  "severity": "LOW",
+  "query_id": "3b3b4411-ad1f-40e7-b257-a78a6bb9673a",
+  "query_name": "VPC Without Attached Subnet",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

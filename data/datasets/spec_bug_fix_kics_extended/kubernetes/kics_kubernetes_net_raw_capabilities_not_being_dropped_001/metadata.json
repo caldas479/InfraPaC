@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_net_raw_capabilities_not_being_dropped_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "net_raw_capabilities_not_being_dropped",
+  "sub_provider": null,
+  "description": "Containers should drop 'ALL' or at least 'NET_RAW' capabilities",
+  "severity": "MEDIUM",
+  "query_id": "dbbc6705-d541-43b0-b166-dd4be8208b54",
+  "query_name": "NET_RAW Capabilities Not Being Dropped",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

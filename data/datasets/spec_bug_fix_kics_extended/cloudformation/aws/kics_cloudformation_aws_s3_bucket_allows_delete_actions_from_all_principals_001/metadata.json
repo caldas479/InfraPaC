@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_s3_bucket_allows_delete_actions_from_all_principals_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "s3_bucket_allows_delete_actions_from_all_principals",
+  "sub_provider": "aws",
+  "description": "S3 Buckets must not allow Delete Action From All Principals, as to prevent leaking private information to the entire internet or allow unauthorized data tampering / deletion. This means the 'Effect' must not be 'Allow' when the 'Action' is Delete, for all Principals.",
+  "severity": "CRITICAL",
+  "query_id": "acc78859-765e-4011-a229-a65ea57db252",
+  "query_name": "S3 Bucket Allows Delete Action From All Principals",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

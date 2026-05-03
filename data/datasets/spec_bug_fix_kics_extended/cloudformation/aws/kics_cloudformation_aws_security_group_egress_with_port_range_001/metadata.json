@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_security_group_egress_with_port_range_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "security_group_egress_with_port_range",
+  "sub_provider": "aws",
+  "description": "AWS Security Group Egress should have a single port",
+  "severity": "MEDIUM",
+  "query_id": "dae9c373-8287-462f-8746-6f93dad93610",
+  "query_name": "Security Group Egress With Port Range",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

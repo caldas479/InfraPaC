@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_s3_bucket_without_ssl_in_write_actions_002",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "s3_bucket_without_ssl_in_write_actions",
+  "sub_provider": "aws",
+  "description": "S3 Buckets should enforce encryption of data transfers using Secure Sockets Layer (SSL)",
+  "severity": "MEDIUM",
+  "query_id": "38c64e76-c71e-4d92-a337-60174d1de1c9",
+  "query_name": "S3 Bucket Without SSL In Write Actions",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

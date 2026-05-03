@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_db_security_group_with_public_scope_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "db_security_group_with_public_scope",
+  "sub_provider": "aws",
+  "description": "The IP address in a DB Security Group should not be '0.0.0.0/0' (IPv4) or '::/0' (IPv6). If so, any IP can access it",
+  "severity": "CRITICAL",
+  "query_id": "9564406d-e761-4e61-b8d7-5926e3ab8e79",
+  "query_name": "DB Security Group With Public Scope",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

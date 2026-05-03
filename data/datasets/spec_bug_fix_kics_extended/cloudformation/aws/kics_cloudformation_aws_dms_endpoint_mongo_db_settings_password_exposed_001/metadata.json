@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_dms_endpoint_mongo_db_settings_password_exposed_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "dms_endpoint_mongo_db_settings_password_exposed",
+  "sub_provider": "aws",
+  "description": "DMS Endpoint MongoDbSettings Password must not be a plaintext string or a Ref to a Parameter with a Default value.",
+  "severity": "HIGH",
+  "query_id": "f988a17f-1139-46a3-8928-f27eafd8b024",
+  "query_name": "DMS Endpoint MongoDB Settings Password Exposed",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

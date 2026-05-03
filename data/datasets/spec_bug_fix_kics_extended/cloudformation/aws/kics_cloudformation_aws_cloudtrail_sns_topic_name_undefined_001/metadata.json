@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_cloudtrail_sns_topic_name_undefined_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "cloudtrail_sns_topic_name_undefined",
+  "sub_provider": "aws",
+  "description": "Check if SNS topic name is set for CloudTrail",
+  "severity": "LOW",
+  "query_id": "3e09413f-471e-40f3-8626-990c79ae63f3",
+  "query_name": "CloudTrail SNS Topic Name Undefined",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

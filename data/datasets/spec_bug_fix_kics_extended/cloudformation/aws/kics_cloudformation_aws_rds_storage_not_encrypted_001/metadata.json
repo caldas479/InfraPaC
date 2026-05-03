@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_rds_storage_not_encrypted_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "rds_storage_not_encrypted",
+  "sub_provider": "aws",
+  "description": "RDS Storage should be encrypted, which means the attribute 'StorageEncrypted' should be set to 'true'",
+  "severity": "HIGH",
+  "query_id": "5beacce3-4020-4a3d-9e1d-a36f953df630",
+  "query_name": "RDS Storage Not Encrypted",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

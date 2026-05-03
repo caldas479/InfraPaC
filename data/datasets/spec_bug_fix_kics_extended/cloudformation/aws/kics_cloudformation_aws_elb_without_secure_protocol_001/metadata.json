@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_elb_without_secure_protocol_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "elb_without_secure_protocol",
+  "sub_provider": "aws",
+  "description": "Check if the ELB is setup with SSL or HTTPS for secure communication",
+  "severity": "MEDIUM",
+  "query_id": "80908a75-586b-4c61-ab04-490f4f4525b8",
+  "query_name": "ELB Without Secure Protocol",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_bind_address_not_properly_set_002",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "bind_address_not_properly_set",
+  "sub_provider": null,
+  "description": "When using kube-controller-manager or kube-scheduler commands, the '--bind-address' should be set to 127.0.0.1",
+  "severity": "INFO",
+  "query_id": "46a2e9ec-6a5f-4faa-9d39-4ea44d5d87a2",
+  "query_name": "Bind Address Not Properly Set",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_security_groups_with_exhibited_admin_ports_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "security_groups_with_exhibited_admin_ports",
+  "sub_provider": "aws",
+  "description": "Security Groups should not have ports open in (20, 21, 22, 23, 115, 137, 138, 139, 2049, 3389)",
+  "severity": "HIGH",
+  "query_id": "cdbb0467-2957-4a77-9992-7b55b29df7b7",
+  "query_name": "Security Groups With Exposed Admin Ports",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

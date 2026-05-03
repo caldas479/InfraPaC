@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_kubelet_streaming_connection_timeout_disabled_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "kubelet_streaming_connection_timeout_disabled",
+  "sub_provider": null,
+  "description": "The flag --streaming-connection-idle-timeout should not be set to 0",
+  "severity": "MEDIUM",
+  "query_id": "ed89b97d-04e9-4fd4-919f-ee5b27e555e9",
+  "query_name": "Kubelet Streaming Connection Timeout Disabled",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

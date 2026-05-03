@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_psp_with_unrestricted_access_to_host_path_002",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "psp_with_unrestricted_access_to_host_path",
+  "sub_provider": null,
+  "description": "PodSecurityPolicy should set 'readOnly' to true in every host path allowed",
+  "severity": "HIGH",
+  "query_id": "de4421f1-4e35-43b4-9783-737dd4e4a47e",
+  "query_name": "PSP With Unrestricted Access to Host Path",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

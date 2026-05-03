@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_api_gateway_cache_cluster_disabled_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "api_gateway_cache_cluster_disabled",
+  "sub_provider": "aws",
+  "description": "AWS API Gateway should have cache clustering enabled",
+  "severity": "LOW",
+  "query_id": "52790cad-d60d-41d5-8483-146f9f21208d",
+  "query_name": "API Gateway Cache Cluster Disabled",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

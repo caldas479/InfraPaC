@@ -1,0 +1,23 @@
+name: my-pulumi-project
+runtime: nodejs
+
+config:
+  aws:region: us-east-1
+  masterPassword:
+    type: string
+    secret: true
+
+resources:
+  aws:docdb/cluster:
+    type: aws:docdb:Cluster
+    properties:
+      backupRetentionPeriod: 5
+      clusterIdentifier: my-docdb-cluster
+      engine: docdb
+      masterPassword: ${masterPassword}
+      masterUsername: foo
+      preferredBackupWindow: 07:00-09:00
+      skipFinalSnapshot: true
+      enabledCloudwatchLogsExports:
+        - audit
+        - profiler

@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_instance_with_no_vpc_002",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "instance_with_no_vpc",
+  "sub_provider": "aws",
+  "description": "EC2 Instances should be configured under a VPC network. AWS VPCs provide the controls to facilitate a formal process for approving and testing all network connections and changes to the firewall and router configurations.",
+  "severity": "LOW",
+  "query_id": "8a6d36cd-0bc6-42b7-92c4-67acc8576861",
+  "query_name": "Instance With No VPC",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

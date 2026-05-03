@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_gamelift_fleet_ec2_inbound_permissions_with_port_range_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "gamelift_fleet_ec2_inbound_permissions_with_port_range",
+  "sub_provider": "aws",
+  "description": "AWS GameLift Fleet EC2InboundPermissions should have a single port",
+  "severity": "MEDIUM",
+  "query_id": "43356255-495d-4148-ad8d-f6af5eac09dd",
+  "query_name": "GameLift Fleet EC2 InboundPermissions With Port Range",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

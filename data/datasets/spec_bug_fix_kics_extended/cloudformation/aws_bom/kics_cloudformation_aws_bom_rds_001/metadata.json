@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_bom_rds_001",
+  "category": "cloudformation/aws_bom",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "rds",
+  "sub_provider": "aws_bom",
+  "description": "A list of RDS resources found. Amazon Relational Database Service (Amazon RDS) is a collection of managed services that makes it simple to set up, operate, and scale databases in the cloud.",
+  "severity": "TRACE",
+  "query_id": "6ef03ff6-a2bd-483c-851f-631f248bc0ea",
+  "query_name": "BOM - AWS RDS",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

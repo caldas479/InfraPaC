@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_emr_wihout_vpc_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "emr_wihout_vpc",
+  "sub_provider": "aws",
+  "description": "Elastic MapReduce Cluster (EMR) should be launched in a Virtual Private Cloud (VPC)",
+  "severity": "LOW",
+  "query_id": "bf89373a-be40-4c04-99f5-746742dfd7f3",
+  "query_name": "EMR Without VPC",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

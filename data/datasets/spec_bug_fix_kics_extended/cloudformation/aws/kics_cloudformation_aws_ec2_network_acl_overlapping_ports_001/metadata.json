@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_ec2_network_acl_overlapping_ports_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "ec2_network_acl_overlapping_ports",
+  "sub_provider": "aws",
+  "description": "NetworkACL Entries are reusing or overlapping ports which may create ineffective rules",
+  "severity": "MEDIUM",
+  "query_id": "77b6f1e2-bde4-4a6a-ae7e-a40659ff1576",
+  "query_name": "EC2 Network ACL Overlapping Ports",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

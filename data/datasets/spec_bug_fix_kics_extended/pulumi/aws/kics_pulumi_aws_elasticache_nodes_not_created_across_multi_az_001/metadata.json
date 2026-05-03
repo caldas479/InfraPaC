@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_pulumi_aws_elasticache_nodes_not_created_across_multi_az_001",
+  "category": "pulumi/aws",
+  "policy_engine": "opa",
+  "iac_tool": "pulumi",
+  "source": "kics",
+  "original_query": "elasticache_nodes_not_created_across_multi_az",
+  "sub_provider": "aws",
+  "description": "ElastiCache Nodes should be created across multi az, which means 'AZMode' should be set to 'cross-az' in multi nodes cluster",
+  "severity": "MEDIUM",
+  "query_id": "9b18fc19-7fb8-49b1-8452-9c757c70f926",
+  "query_name": "ElastiCache Nodes Not Created Across Multi AZ",
+  "platform": "Pulumi",
+  "cloud_provider": "aws"
+}

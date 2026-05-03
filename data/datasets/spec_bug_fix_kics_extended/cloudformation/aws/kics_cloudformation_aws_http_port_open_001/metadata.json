@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_http_port_open_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "http_port_open",
+  "sub_provider": "aws",
+  "description": "The HTTP port is open to the internet in a Security Group",
+  "severity": "MEDIUM",
+  "query_id": "ddfc4eaa-af23-409f-b96c-bf5c45dc4daa",
+  "query_name": "HTTP Port Open To Internet",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

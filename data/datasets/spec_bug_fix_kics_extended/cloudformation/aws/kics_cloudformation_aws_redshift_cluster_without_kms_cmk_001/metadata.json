@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_redshift_cluster_without_kms_cmk_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "redshift_cluster_without_kms_cmk",
+  "sub_provider": "aws",
+  "description": "AWS Redshift Cluster should have KMS CMK defined",
+  "severity": "MEDIUM",
+  "query_id": "de76a0d6-66d5-45c9-9022-f05545b85c78",
+  "query_name": "Redshift Cluster Without KMS CMK",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

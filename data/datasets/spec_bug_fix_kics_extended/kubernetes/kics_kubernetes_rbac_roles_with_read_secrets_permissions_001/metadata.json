@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_rbac_roles_with_read_secrets_permissions_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "rbac_roles_with_read_secrets_permissions",
+  "sub_provider": null,
+  "description": "Roles and ClusterRoles with get/watch/list RBAC permissions on Kubernetes secrets are dangerous and should be avoided. In case of compromise, attackers could abuse these roles to access sensitive data, such as passwords, tokens and keys",
+  "severity": "MEDIUM",
+  "query_id": "b7bca5c4-1dab-4c2c-8cbe-3050b9d59b14",
+  "query_name": "RBAC Roles with Read Secrets Permissions",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

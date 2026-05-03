@@ -4,6 +4,7 @@
 
 import json
 import logging
+import re
 import subprocess
 import tempfile
 from pathlib import Path
@@ -19,7 +20,31 @@ class OPAEngine(BasePaCEngine):
     """
     Open Policy Agent (OPA) engine implementation.
 
-    Executes Rego policies against Terraform/IaC scripts.
+    Evaluates any IaC script against a Rego policy by converting the script
+    to a JSON input document and calling 'opa eval'.
+
+    Supported IaC formats (auto-detected from content):
+        HCL (Terraform) -- parsed with python-hcl2 and normalised into a
+        {"resource": {...}} structure that mirrors standard Terraform OPA
+        policy conventions.
+
+        JSON (Pulumi stack exports, CloudFormation JSON) -- passed through
+        directly.
+
+        YAML (Kubernetes manifests, CloudFormation YAML, Pulumi YAML) --
+        parsed with PyYAML into a plain dict.
+
+        Unknown -- wrapped as {"iac_script": <raw text>} so policies can
+        still operate on the raw string.
+
+    The OPA query is derived automatically from the policy's package
+    declaration (e.g. 'package kubernetes' becomes 'data.kubernetes.deny'),
+    falling back to 'data.terraform.deny' for backward compatibility.
+
+    Example:
+        >>> engine = OPAEngine({"binary_path": "opa", "timeout": 30})
+        >>> violations = engine.evaluate(policy_text, iac_text)
+        >>> is_compliant = engine.validate(policy_text, iac_text)
     """
 
     def __init__(self, config: Dict[str, Any]) -> None:
@@ -27,7 +52,7 @@ class OPAEngine(BasePaCEngine):
         Initialize OPA engine.
 
         Args:
-            config: Configuration dictionary with 'binary_path' and 'timeout'
+            config: Configuration dictionary with 'binary_path' and 'timeout'.
         """
         super().__init__(config)
         self._verify_installation()
@@ -51,14 +76,19 @@ class OPAEngine(BasePaCEngine):
 
     def evaluate(self, policy: str, iac_script: str) -> List[PolicyViolation]:
         """
-        Evaluate IaC script against Rego policy.
+        Evaluate an IaC script against a Rego policy.
+
+        Detects the script format, converts it to JSON, writes both files to
+        a temporary directory, and runs 'opa eval'. The OPA query is derived
+        from the policy's package declaration.
 
         Args:
-            policy: Rego policy content
-            iac_script: Terraform/IaC script content
+            policy: Rego policy source text.
+            iac_script: IaC script content (HCL, JSON, or YAML).
 
         Returns:
-            List of PolicyViolation objects
+            List of PolicyViolation objects. Returns an empty list on timeout
+            or evaluation error.
         """
         with tempfile.TemporaryDirectory() as tmp_dir:
             tmp_path = Path(tmp_dir)
@@ -76,6 +106,7 @@ class OPAEngine(BasePaCEngine):
             # Execute OPA eval
             try:
                 logger.debug(f"OPA input data: {input_file.read_text()}")
+                opa_query = self._build_query(policy)
                 cmd = [
                     self.binary_path,
                     "eval",
@@ -85,7 +116,7 @@ class OPAEngine(BasePaCEngine):
                     str(input_file),
                     "--format",
                     "json",
-                    "data.terraform.deny",
+                    opa_query,
                 ]
                 logger.debug(f"OPA command: {' '.join(cmd)}")
 
@@ -109,78 +140,191 @@ class OPAEngine(BasePaCEngine):
 
     def validate(self, policy: str, iac_script: str) -> bool:
         """
-        Validate if IaC script complies with policy.
+        Check whether an IaC script complies with a Rego policy.
 
         Args:
-            policy: Rego policy content
-            iac_script: Terraform/IaC script content
+            policy: Rego policy source text.
+            iac_script: IaC script content (HCL, JSON, or YAML).
 
         Returns:
-            True if no violations found, False otherwise
+            True if no violations are found, False otherwise.
         """
         violations = self.evaluate(policy, iac_script)
         return len(violations) == 0
 
-    def _prepare_input(self, iac_script: str) -> Dict[str, Any]:
+    def _build_query(self, policy: str) -> str:
         """
-        Prepare IaC script as JSON input for OPA by parsing HCL.
+        Derive the OPA query string from the policy's package declaration.
+
+        Looks for 'package <name>' and returns 'data.<name>.deny'.
+        Falls back to 'data.terraform.deny' for backward compatibility with
+        policies that predate the IaC-agnostic refactor.
 
         Args:
-            iac_script: Raw Terraform/IaC script
+            policy: Rego policy source text.
 
         Returns:
-            Dictionary representation for OPA evaluation
+            OPA query string (e.g. 'data.kubernetes.deny').
         """
-        try:
-            import hcl2
+        match = re.search(r"^\s*package\s+([\w.]+)", policy, re.MULTILINE)
+        if match:
+            package_name = match.group(1)
+            query = f"data.{package_name}.deny"
+            logger.debug(f"Derived OPA query from package: {query}")
+            return query
+        logger.debug("No package declaration found; using default data.terraform.deny")
+        return "data.terraform.deny"
 
-            # Parse HCL to Python dict
-            parsed = hcl2.loads(iac_script)
+    # Signatures that unambiguously identify an IaC format before parsing.
+    # Patterns are checked against the first non-blank line of the script.
+    _HCL_PATTERN = re.compile(
+        r"""
+        ^\s*(?:
+            resource   |  # resource "aws_s3_bucket" "name" {
+            variable   |  # variable "foo" {
+            output     |  # output "bar" {
+            locals     |  # locals {
+            module     |  # module "name" {
+            provider   |  # provider "aws" {
+            terraform  |  # terraform {
+            data          # data "source" "name" {
+        )\s+["{\w]
+        """,
+        re.VERBOSE | re.MULTILINE,
+    )
+    _JSON_PATTERN = re.compile(r"^\s*[{\[]", re.MULTILINE)
+    _YAML_PATTERN = re.compile(
+        r"""
+        ^\s*(?:
+            ---\s*$           |  # YAML document separator
+            \w[\w\s]*:\s       |  # key: value  (covers apiVersion, kind, …)
+            -\s+\w               # list item
+        )
+        """,
+        re.VERBOSE | re.MULTILINE,
+    )
 
-            # Convert any tuples to lists (hcl2 specific)
-            def _convert_tuples(obj):
-                if isinstance(obj, tuple):
-                    return list(obj)
-                elif isinstance(obj, dict):
-                    return {k: _convert_tuples(v) for k, v in obj.items()}
-                elif isinstance(obj, list):
-                    return [_convert_tuples(i) for i in obj]
-                return obj
+    def _detect_format(self, iac_script: str) -> str:
+        """
+        Detect the serialisation format of an IaC script from its content.
 
-            # Transform the structure to match OPA expectations
-            def _transform_resources(data):
-                result = {"resource": {}}
-                if "resource" in data and isinstance(data["resource"], list):
-                    for resource_block in data["resource"]:
-                        for resource_type, instances in resource_block.items():
-                            if resource_type not in result["resource"]:
-                                result["resource"][resource_type] = {}
-                            for name, config in instances.items():
-                                # Transform block attributes to be objects instead of lists
-                                transformed_config = {}
-                                for key, value in config.items():
-                                    if (
-                                        isinstance(value, list)
-                                        and len(value) == 1
-                                        and isinstance(value[0], dict)
-                                    ):
-                                        # Convert block to object
-                                        transformed_config[key] = value[0]
-                                    else:
-                                        transformed_config[key] = value
-                                result["resource"][resource_type][
-                                    name
-                                ] = transformed_config
-                return result
+        Checks syntactic signatures in order of specificity:
 
-            parsed_data = _convert_tuples(parsed)
-            result = _transform_resources(parsed_data)
-            logger.debug(f"Prepared OPA input: {json.dumps(result, indent=2)}")
+        1. HCL -- recognises top-level Terraform block keywords such as
+           resource, variable, output, locals, module, provider, terraform,
+           and data.
+        2. JSON -- script starts with '{' or '['.
+        3. YAML -- contains a YAML document separator (---) or a key: value
+           pair typical of Kubernetes or CloudFormation manifests.
+
+        Args:
+            iac_script: Raw IaC script content.
+
+        Returns:
+            One of "hcl", "json", "yaml", or "unknown".
+        """
+        if self._HCL_PATTERN.search(iac_script):
+            return "hcl"
+        if self._JSON_PATTERN.match(iac_script.lstrip()):
+            return "json"
+        if self._YAML_PATTERN.search(iac_script):
+            return "yaml"
+        return "unknown"
+
+    def _prepare_input(self, iac_script: str) -> Dict[str, Any]:
+        """
+        Convert an IaC script to a JSON-serialisable dict for OPA.
+
+        Detects the script format once via _detect_format, then routes
+        directly to the appropriate parser -- no trial-and-error exception
+        swallowing.
+
+        Supported formats:
+            HCL (Terraform) -- parsed with python-hcl2 and transformed into
+            the nested resource structure OPA policies expect.
+
+            JSON (Pulumi stack exports, CloudFormation JSON) -- parsed with
+            the stdlib json module.
+
+            YAML (Kubernetes manifests, CloudFormation YAML) -- parsed with
+            PyYAML.
+
+            Unknown -- wrapped as {"iac_script": <raw text>} so a policy
+            can still operate on the raw string if needed.
+
+        Args:
+            iac_script: Raw IaC script content.
+
+        Returns:
+            Dictionary representation for OPA evaluation.
+        """
+        fmt = self._detect_format(iac_script)
+        logger.debug(f"Detected IaC format: {fmt}")
+
+        if fmt == "hcl":
+            return self._parse_hcl(iac_script)
+        if fmt == "json":
+            return self._parse_json(iac_script)
+        if fmt == "yaml":
+            return self._parse_yaml(iac_script)
+
+        logger.warning(
+            "Could not detect IaC script format. " "Falling back to raw string input."
+        )
+        return {"iac_script": iac_script}
+
+    def _parse_hcl(self, iac_script: str) -> Dict[str, Any]:
+        """Parse an HCL (Terraform) script into an OPA-ready dict."""
+        import hcl2
+
+        def _convert_tuples(obj):
+            if isinstance(obj, tuple):
+                return list(obj)
+            elif isinstance(obj, dict):
+                return {k: _convert_tuples(v) for k, v in obj.items()}
+            elif isinstance(obj, list):
+                return [_convert_tuples(i) for i in obj]
+            return obj
+
+        def _transform_resources(data):
+            result = {"resource": {}}
+            if "resource" in data and isinstance(data["resource"], list):
+                for resource_block in data["resource"]:
+                    for resource_type, instances in resource_block.items():
+                        if resource_type not in result["resource"]:
+                            result["resource"][resource_type] = {}
+                        for name, config in instances.items():
+                            transformed_config = {}
+                            for key, value in config.items():
+                                if (
+                                    isinstance(value, list)
+                                    and len(value) == 1
+                                    and isinstance(value[0], dict)
+                                ):
+                                    transformed_config[key] = value[0]
+                                else:
+                                    transformed_config[key] = value
+                            result["resource"][resource_type][name] = transformed_config
             return result
 
-        except Exception as e:
-            logger.error(f"Error parsing Terraform HCL: {e}")
-            return {}
+        parsed = hcl2.loads(iac_script)
+        result = _transform_resources(_convert_tuples(parsed))
+        logger.debug(f"Prepared OPA input (HCL): {json.dumps(result, indent=2)}")
+        return result
+
+    def _parse_json(self, iac_script: str) -> Dict[str, Any]:
+        """Parse a JSON IaC script (e.g. Pulumi stack export) into a dict."""
+        result = json.loads(iac_script)
+        logger.debug("Parsed IaC script as JSON.")
+        return result
+
+    def _parse_yaml(self, iac_script: str) -> Dict[str, Any]:
+        """Parse a YAML IaC script (e.g. Kubernetes manifest) into a dict."""
+        import yaml
+
+        result = yaml.safe_load(iac_script)
+        logger.debug("Parsed IaC script as YAML.")
+        return result
 
     def _parse_violations(self, opa_output: Dict[str, Any]) -> List[PolicyViolation]:
         """
