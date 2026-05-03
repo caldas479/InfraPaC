@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_unscanned_ecr_image_002",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "unscanned_ecr_image",
+  "sub_provider": "aws",
+  "description": "Checks if the ECR Image has been scanned",
+  "severity": "LOW",
+  "query_id": "9025b2b3-e554-4842-ba87-db7aeec36d35",
+  "query_name": "Unscanned ECR Image",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

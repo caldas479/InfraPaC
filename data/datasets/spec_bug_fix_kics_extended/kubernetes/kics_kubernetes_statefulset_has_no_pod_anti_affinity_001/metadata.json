@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_statefulset_has_no_pod_anti_affinity_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "statefulset_has_no_pod_anti_affinity",
+  "sub_provider": null,
+  "description": "Check if StatefulSet resources don't have a podAntiAffinity policy, which prevents multiple pods from being scheduled on the same node.",
+  "severity": "LOW",
+  "query_id": "d740d048-8ed3-49d3-b77b-6f072f3b669e",
+  "query_name": "StatefulSet Has No PodAntiAffinity",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

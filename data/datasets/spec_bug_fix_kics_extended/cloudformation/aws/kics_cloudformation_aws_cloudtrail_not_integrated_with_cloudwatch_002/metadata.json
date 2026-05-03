@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_cloudtrail_not_integrated_with_cloudwatch_002",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "cloudtrail_not_integrated_with_cloudwatch",
+  "sub_provider": "aws",
+  "description": "CloudTrail should be integrated with CloudWatch",
+  "severity": "LOW",
+  "query_id": "65d07da5-9af5-44df-8983-52d2e6f24c44",
+  "query_name": "CloudTrail Not Integrated With CloudWatch",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

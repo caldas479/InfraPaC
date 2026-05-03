@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_tls_connection_certificate_not_setup_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "tls_connection_certificate_not_setup",
+  "sub_provider": null,
+  "description": "TSL Connection Certificate files should be Setup",
+  "severity": "MEDIUM",
+  "query_id": "fa750c81-93c2-4fab-9c6d-d3fd3ce3b89f",
+  "query_name": "TSL Connection Certificate Not Setup",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

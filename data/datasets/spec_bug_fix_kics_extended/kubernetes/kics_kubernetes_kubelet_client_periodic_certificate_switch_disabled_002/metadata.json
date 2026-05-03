@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_kubelet_client_periodic_certificate_switch_disabled_002",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "kubelet_client_periodic_certificate_switch_disabled",
+  "sub_provider": null,
+  "description": "Kubelet argument --rotate-certificates should be true",
+  "severity": "MEDIUM",
+  "query_id": "52d70f2e-3257-474c-b3dc-8ad9ba6a061a",
+  "query_name": "Kubelet Client Periodic Certificate Switch Disabled",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

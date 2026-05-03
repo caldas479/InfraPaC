@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_elb_v2_alb_access_log_disabled_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "elb_v2_alb_access_log_disabled",
+  "sub_provider": "aws",
+  "description": "ELBv2 ALBs should have access log enabled to capture detailed information about requests sent to your load balancer.",
+  "severity": "MEDIUM",
+  "query_id": "c62e8b7d-1fdf-4050-ac4c-76ba9e1d9621",
+  "query_name": "ELBv2 ALB Access Log Disabled",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_directory_service_microsoft_ad_password_set_to_plaintext_or_default_ref_002",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "directory_service_microsoft_ad_password_set_to_plaintext_or_default_ref",
+  "sub_provider": "aws",
+  "description": "Directory Service Microsoft AD password must not be a plaintext string or a Ref to a Parameter with a Default value.",
+  "severity": "HIGH",
+  "query_id": "06b9f52a-8cd5-459b-bdc6-21a22521e1be",
+  "query_name": "Directory Service Microsoft AD Password Set to Plaintext or Default Ref",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

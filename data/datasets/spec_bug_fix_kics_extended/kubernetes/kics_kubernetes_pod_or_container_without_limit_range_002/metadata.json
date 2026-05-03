@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_pod_or_container_without_limit_range_002",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "pod_or_container_without_limit_range",
+  "sub_provider": null,
+  "description": "Each namespace should have a LimitRange policy associated to ensure that resource allocations of Pods, Containers and PersistentVolumeClaims do not exceed the defined boundaries",
+  "severity": "LOW",
+  "query_id": "4a20ebac-1060-4c81-95d1-1f7f620e983b",
+  "query_name": "Pod or Container Without LimitRange",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

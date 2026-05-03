@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_pulumi_aws_ec2_instance_monitoring_disabled_001",
+  "category": "pulumi/aws",
+  "policy_engine": "opa",
+  "iac_tool": "pulumi",
+  "source": "kics",
+  "original_query": "ec2_instance_monitoring_disabled",
+  "sub_provider": "aws",
+  "description": "EC2 Instance should have detailed monitoring enabled. With detailed monitoring enabled data is available in 1-minute periods",
+  "severity": "MEDIUM",
+  "query_id": "daa581ef-731c-4121-832d-cf078f67759d",
+  "query_name": "EC2 Instance Monitoring Disabled",
+  "platform": "Pulumi",
+  "cloud_provider": "aws"
+}

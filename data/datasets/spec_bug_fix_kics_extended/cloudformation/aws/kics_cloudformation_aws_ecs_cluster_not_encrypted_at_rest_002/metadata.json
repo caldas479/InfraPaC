@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_ecs_cluster_not_encrypted_at_rest_002",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "ecs_cluster_not_encrypted_at_rest",
+  "sub_provider": "aws",
+  "description": "Ensure that AWS ECS clusters are encrypted. Data encryption at rest, prevents unauthorized users from accessing sensitive data on your AWS ECS clusters and associated cache storage systems.",
+  "severity": "HIGH",
+  "query_id": "6c131358-c54d-419b-9dd6-1f7dd41d180c",
+  "query_name": "ECS Cluster Not Encrypted At Rest",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

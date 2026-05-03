@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_namespace_lifecycle_admission_control_plugin_disabled_002",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "namespace_lifecycle_admission_control_plugin_disabled",
+  "sub_provider": null,
+  "description": "When using kube-apiserver command, the '--disable-admission-plugins' flag should not have 'NamespaceLifecycle' plugin",
+  "severity": "LOW",
+  "query_id": "1ffe7bf7-563b-4b3d-a71d-ba6bd8d49b37",
+  "query_name": "Namespace Lifecycle Admission Control Plugin Disabled",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

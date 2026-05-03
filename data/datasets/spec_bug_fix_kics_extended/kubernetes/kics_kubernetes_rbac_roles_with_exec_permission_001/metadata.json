@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_rbac_roles_with_exec_permission_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "rbac_roles_with_exec_permission",
+  "sub_provider": null,
+  "description": "Roles or ClusterRoles with RBAC permissions to run commands in containers via 'kubectl exec' could be abused by attackers to execute malicious code in case of compromise. To prevent this, the 'pods/exec' verb should not be used in production environments",
+  "severity": "MEDIUM",
+  "query_id": "c589f42c-7924-4871-aee2-1cede9bc7cbc",
+  "query_name": "RBAC Roles with Exec Permission",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

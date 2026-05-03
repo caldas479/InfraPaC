@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_ensure_administrative_boundaries_between_resources_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "ensure_administrative_boundaries_between_resources",
+  "sub_provider": null,
+  "description": "As a best practice, ensure that is made the correct use of namespaces to adequately administer your resources. Kubernetes Authorization plugins can also be used to create policies that segregate user access to namespaces.",
+  "severity": "INFO",
+  "query_id": "e84eaf4d-2f45-47b2-abe8-e581b06deb66",
+  "query_name": "Ensure Administrative Boundaries Between Resources",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

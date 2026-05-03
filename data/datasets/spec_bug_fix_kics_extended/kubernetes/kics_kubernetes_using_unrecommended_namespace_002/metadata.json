@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_using_unrecommended_namespace_002",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "using_unrecommended_namespace",
+  "sub_provider": null,
+  "description": "Namespaces like 'default', 'kube-system' or 'kube-public' should not be used",
+  "severity": "MEDIUM",
+  "query_id": "611ab018-c4aa-4ba2-b0f6-a448337509a6",
+  "query_name": "Using Unrecommended Namespace",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

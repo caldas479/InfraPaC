@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_pulumi_gcp_cloud_storage_bucket_logging_not_enabled_001",
+  "category": "pulumi/gcp",
+  "policy_engine": "opa",
+  "iac_tool": "pulumi",
+  "source": "kics",
+  "original_query": "cloud_storage_bucket_logging_not_enabled",
+  "sub_provider": "gcp",
+  "description": "Cloud storage bucket should have logging enabled",
+  "severity": "MEDIUM",
+  "query_id": "48f7e44d-d1d1-44c2-b336-9f11b65c4fb0",
+  "query_name": "Cloud Storage Bucket Logging Not Enabled",
+  "platform": "Pulumi",
+  "cloud_provider": "gcp"
+}

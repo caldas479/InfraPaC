@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_cloudformation_specifying_credentials_not_safe_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "cloudformation_specifying_credentials_not_safe",
+  "sub_provider": "aws",
+  "description": "Specifying credentials in the template itself is probably not safe to do.",
+  "severity": "MEDIUM",
+  "query_id": "9ecb6b21-18bc-4aa7-bd07-db20f1c746db",
+  "query_name": "CloudFormation Specifying Credentials Not Safe",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

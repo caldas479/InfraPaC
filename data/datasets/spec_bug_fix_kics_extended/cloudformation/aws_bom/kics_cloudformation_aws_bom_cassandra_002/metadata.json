@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_bom_cassandra_002",
+  "category": "cloudformation/aws_bom",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "cassandra",
+  "sub_provider": "aws_bom",
+  "description": "A list of Cassandra resources found. Amazon Cassandra is an open-source NoSQL database designed to store data for applications that require fast read and write performance",
+  "severity": "TRACE",
+  "query_id": "124b173b-e06d-48a6-8acd-f889443d97a4",
+  "query_name": "BOM - AWS Cassandra",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_root_container_not_mounted_as_read_only_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "root_container_not_mounted_as_read_only",
+  "sub_provider": null,
+  "description": "Check if the root container filesystem is not being mounted as read-only.",
+  "severity": "LOW",
+  "query_id": "a9c2f49d-0671-4fc9-9ece-f4e261e128d0",
+  "query_name": "Root Container Not Mounted Read-only",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

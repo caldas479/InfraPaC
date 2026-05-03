@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_cmk_unencrypted_storage_002",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "cmk_unencrypted_storage",
+  "sub_provider": "aws",
+  "description": "Ensure that storage is encrypted.",
+  "severity": "HIGH",
+  "query_id": "ffee2785-c347-451e-89f3-11aeb08e5c84",
+  "query_name": "CMK Unencrypted Storage",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

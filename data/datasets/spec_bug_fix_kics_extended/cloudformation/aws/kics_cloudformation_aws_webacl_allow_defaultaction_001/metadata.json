@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_webacl_allow_defaultaction_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "webacl_allow_defaultaction",
+  "sub_provider": "aws",
+  "description": "WebAcl DefaultAction should not be ALLOW",
+  "severity": "HIGH",
+  "query_id": "6d64f311-3da6-45f3-80f1-14db9771ea40",
+  "query_name": "Permissive Web ACL Default Action",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

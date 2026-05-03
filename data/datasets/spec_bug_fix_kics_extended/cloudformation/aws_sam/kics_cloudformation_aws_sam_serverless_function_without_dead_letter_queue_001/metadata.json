@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_sam_serverless_function_without_dead_letter_queue_001",
+  "category": "cloudformation/aws_sam",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "serverless_function_without_dead_letter_queue",
+  "sub_provider": "aws_sam",
+  "description": "AWS Serverless Function should be configured for a Dead Letter Queue(DLQ)",
+  "severity": "LOW",
+  "query_id": "cb2f612b-ed42-4ff5-9fb9-255c73d39a18",
+  "query_name": "Serverless Function Without Dead Letter Queue",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

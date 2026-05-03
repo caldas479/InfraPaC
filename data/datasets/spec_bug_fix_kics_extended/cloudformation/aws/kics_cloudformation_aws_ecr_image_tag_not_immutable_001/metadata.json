@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_ecr_image_tag_not_immutable_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "ecr_image_tag_not_immutable",
+  "sub_provider": "aws",
+  "description": "ECR should have an image tag be immutable. This prevents image tags from being overwritten.",
+  "severity": "MEDIUM",
+  "query_id": "33f41d31-86b1-46a4-81f7-9c9a671f59ac",
+  "query_name": "ECR Image Tag Not Immutable",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_pulumi_aws_elasticache_redis_cluster_without_backup_001",
+  "category": "pulumi/aws",
+  "policy_engine": "opa",
+  "iac_tool": "pulumi",
+  "source": "kics",
+  "original_query": "elasticache_redis_cluster_without_backup",
+  "sub_provider": "aws",
+  "description": "ElastiCache Redis cluster should have 'snapshotRetentionLimit' higher than 0",
+  "severity": "MEDIUM",
+  "query_id": "e93bbe63-a631-4c0f-b6ef-700d48441ff2",
+  "query_name": "ElastiCache Redis Cluster Without Backup",
+  "platform": "Pulumi",
+  "cloud_provider": "aws"
+}

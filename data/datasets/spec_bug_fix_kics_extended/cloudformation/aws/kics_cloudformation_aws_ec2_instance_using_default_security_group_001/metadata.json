@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_ec2_instance_using_default_security_group_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "ec2_instance_using_default_security_group",
+  "sub_provider": "aws",
+  "description": "EC2 instances should not use default security group(s)",
+  "severity": "MEDIUM",
+  "query_id": "08b81bb3-0985-4023-8602-b606ad81d279",
+  "query_name": "EC2 Instance Using Default Security Group",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

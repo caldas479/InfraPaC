@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_bom_kinesis_001",
+  "category": "cloudformation/aws_bom",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "kinesis",
+  "sub_provider": "aws_bom",
+  "description": "A list of Kinesis resources found. Amazon Kinesis is a real-time streaming service that provides collection, processing, and analysis of video and data streams in real-time",
+  "severity": "TRACE",
+  "query_id": "d53323be-dde6-4457-9a43-42df737e71d2",
+  "query_name": "BOM - AWS Kinesis",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

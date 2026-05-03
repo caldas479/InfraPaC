@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_iam_user_too_many_access_keys_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "iam_user_too_many_access_keys",
+  "sub_provider": "aws",
+  "description": "Any IAM User should not have more than one access key since it increases the risk of unauthorized access and compromise credentials",
+  "severity": "MEDIUM",
+  "query_id": "48677914-6fdf-40ec-80c4-2b0e94079f54",
+  "query_name": "IAM User Has Too Many Access Keys",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

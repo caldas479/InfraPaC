@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_pulumi_aws_elasticsearch_with_https_disabled_001",
+  "category": "pulumi/aws",
+  "policy_engine": "opa",
+  "iac_tool": "pulumi",
+  "source": "kics",
+  "original_query": "elasticsearch_with_https_disabled",
+  "sub_provider": "aws",
+  "description": "Amazon Elasticsearch does not have encryption for its domains enabled. To prevent such a scenario, update the attribute 'EnforceHTTPS' to true.",
+  "severity": "MEDIUM",
+  "query_id": "00603add-7f72-448f-a6c0-9e456a7a3f94",
+  "query_name": "Elasticsearch with HTTPS disabled",
+  "platform": "Pulumi",
+  "cloud_provider": "aws"
+}

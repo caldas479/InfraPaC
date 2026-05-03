@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_pulumi_azure_storage_account_not_forcing_https_001",
+  "category": "pulumi/azure",
+  "policy_engine": "opa",
+  "iac_tool": "pulumi",
+  "source": "kics",
+  "original_query": "storage_account_not_forcing_https",
+  "sub_provider": "azure",
+  "description": "Storage Accounts should enforce the use of HTTPS",
+  "severity": "MEDIUM",
+  "query_id": "cb8e4bf0-903d-45c6-a278-9a947d82a27b",
+  "query_name": "Storage Account Not Forcing HTTPS",
+  "platform": "Pulumi",
+  "cloud_provider": "azure"
+}

@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_s3_bucket_allows_get_actions_from_all_principals_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "s3_bucket_allows_get_actions_from_all_principals",
+  "sub_provider": "aws",
+  "description": "S3 Buckets must not allow Get Action From All Principals, as to prevent leaking private information to the entire internet or allow unauthorized data tampering / deletion. This means the 'Effect' must not be 'Allow' when the 'Action' is Get, for all Principals.",
+  "severity": "HIGH",
+  "query_id": "f97b7d23-568f-4bcc-9ac9-02df0d57fbba",
+  "query_name": "S3 Bucket Allows Get Action From All Principals",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

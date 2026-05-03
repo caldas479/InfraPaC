@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_iam_database_auth_not_enabled_002",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "iam_database_auth_not_enabled",
+  "sub_provider": "aws",
+  "description": "IAM Database Auth Enabled should be configured to true when using compatible engine and version",
+  "severity": "MEDIUM",
+  "query_id": "9fcd0a0a-9b6f-4670-a215-d94e6bf3f184",
+  "query_name": "IAM Database Auth Not Enabled",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

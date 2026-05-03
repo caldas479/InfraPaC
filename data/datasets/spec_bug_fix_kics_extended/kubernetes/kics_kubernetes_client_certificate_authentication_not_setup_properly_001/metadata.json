@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_client_certificate_authentication_not_setup_properly_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "client_certificate_authentication_not_setup_properly",
+  "sub_provider": null,
+  "description": "Client Certificate Authentication should be Setup with a .pem or .crt file",
+  "severity": "HIGH",
+  "query_id": "e0e00aba-5f1c-4981-a542-9a9563c0ee20",
+  "query_name": "Client Certificate Authentication Not Setup Properly",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

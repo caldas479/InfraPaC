@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_sam_serverless_api_endpoint_config_not_private_001",
+  "category": "cloudformation/aws_sam",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "serverless_api_endpoint_config_not_private",
+  "sub_provider": "aws_sam",
+  "description": "AWS Serverless API should set API Endpoint Config type to 'PRIVATE'. This way, it's not exposed to the public internet",
+  "severity": "MEDIUM",
+  "query_id": "6b5b0313-771b-4319-ad7a-122ee78700ef",
+  "query_name": "Serverless API Endpoint Config Not Private",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

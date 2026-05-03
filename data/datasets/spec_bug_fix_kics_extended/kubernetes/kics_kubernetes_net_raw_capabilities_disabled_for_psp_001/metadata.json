@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_net_raw_capabilities_disabled_for_psp_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "net_raw_capabilities_disabled_for_psp",
+  "sub_provider": null,
+  "description": "Containers need to have NET_RAW or All as drop capabilities",
+  "severity": "MEDIUM",
+  "query_id": "2270987f-bb51-479f-b8be-3ca73e5ad648",
+  "query_name": "NET_RAW Capabilities Disabled for PSP",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

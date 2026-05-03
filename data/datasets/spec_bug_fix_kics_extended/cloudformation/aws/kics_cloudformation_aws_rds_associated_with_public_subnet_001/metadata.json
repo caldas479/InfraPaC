@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_rds_associated_with_public_subnet_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "rds_associated_with_public_subnet",
+  "sub_provider": "aws",
+  "description": "RDS should not run in public subnet",
+  "severity": "CRITICAL",
+  "query_id": "4e88adee-a8eb-4605-a78d-9fb1096e3091",
+  "query_name": "RDS Associated with Public Subnet",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

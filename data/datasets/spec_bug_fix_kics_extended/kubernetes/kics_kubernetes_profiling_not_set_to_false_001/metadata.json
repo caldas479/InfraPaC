@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_profiling_not_set_to_false_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "profiling_not_set_to_false",
+  "sub_provider": null,
+  "description": "When using kube-apiserver or kube-controller-manager or kube-scheduler command, the '--profiling' flag should be defined and set to false",
+  "severity": "LOW",
+  "query_id": "2f491173-6375-4a84-b28e-a4e2b9a58a69",
+  "query_name": "Profiling Not Set To False",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

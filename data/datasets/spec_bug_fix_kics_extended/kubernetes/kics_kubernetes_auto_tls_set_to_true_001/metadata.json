@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_auto_tls_set_to_true_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "auto_tls_set_to_true",
+  "sub_provider": null,
+  "description": "When using etcd commands, the '--auto-tls' should be set to false",
+  "severity": "MEDIUM",
+  "query_id": "98ce8b81-7707-4734-aa39-627c6db3d84b",
+  "query_name": "Auto TLS Set To True",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

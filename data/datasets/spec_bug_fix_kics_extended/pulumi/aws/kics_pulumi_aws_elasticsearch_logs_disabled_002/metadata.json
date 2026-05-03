@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_pulumi_aws_elasticsearch_logs_disabled_002",
+  "category": "pulumi/aws",
+  "policy_engine": "opa",
+  "iac_tool": "pulumi",
+  "source": "kics",
+  "original_query": "elasticsearch_logs_disabled",
+  "sub_provider": "aws",
+  "description": "AWS Elasticsearch should have logs enabled",
+  "severity": "MEDIUM",
+  "query_id": "a1120ee4-a712-42d9-8fb5-22595fed643b",
+  "query_name": "Elasticsearch Logs Disabled",
+  "platform": "Pulumi",
+  "cloud_provider": "aws"
+}

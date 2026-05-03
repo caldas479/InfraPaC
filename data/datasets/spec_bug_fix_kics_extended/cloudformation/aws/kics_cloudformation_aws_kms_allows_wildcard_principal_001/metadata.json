@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_kms_allows_wildcard_principal_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "kms_allows_wildcard_principal",
+  "sub_provider": "aws",
+  "description": "KMS Should not allow Principal parameter to be set as *",
+  "severity": "MEDIUM",
+  "query_id": "f6049677-ec4a-43af-8779-5190b6d03cba",
+  "query_name": "KMS Allows Wildcard Principal",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_container_runs_unmasked_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "container_runs_unmasked",
+  "sub_provider": null,
+  "description": "Check if a container has full access (unmasked) to the host's /proc command, which would allow to retrieve sensitive information and possibly change the kernel parameters in runtime.",
+  "severity": "HIGH",
+  "query_id": "f922827f-aab6-447c-832a-e1ff63312bd3",
+  "query_name": "Container Runs Unmasked",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

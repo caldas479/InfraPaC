@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_api_gateway_with_invalid_compression_002",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "api_gateway_with_invalid_compression",
+  "sub_provider": "aws",
+  "description": "API Gateway should have valid compression, which means attribute 'MinimumCompressionSize' should be set and its value should be greater than -1 and smaller than 10485760.",
+  "severity": "LOW",
+  "query_id": "d6653eee-2d4d-4e6a-976f-6794a497999a",
+  "query_name": "API Gateway With Invalid Compression",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

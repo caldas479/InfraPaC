@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_elb_with_security_group_without_outbound_rules_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "elb_with_security_group_without_outbound_rules",
+  "sub_provider": "aws",
+  "description": "An AWS Elastic Load Balancer (ELB) shouldn't have security groups without outbound rules",
+  "severity": "MEDIUM",
+  "query_id": "01d5a458-a6c4-452a-ac50-054d59275b7c",
+  "query_name": "ELB With Security Group Without Outbound Rules",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

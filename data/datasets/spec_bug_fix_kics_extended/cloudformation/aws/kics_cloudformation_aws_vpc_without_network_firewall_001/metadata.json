@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_vpc_without_network_firewall_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "vpc_without_network_firewall",
+  "sub_provider": "aws",
+  "description": "VPC should have a Network Firewall associated",
+  "severity": "MEDIUM",
+  "query_id": "3e293410-d5b8-411f-85fd-7d26294f20c9",
+  "query_name": "VPC Without Network Firewall",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_security_groups_with_unrestricted_access_to_ssh_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "security_groups_with_unrestricted_access_to_ssh",
+  "sub_provider": "aws",
+  "description": "'SSH' (TCP:22) should not be public in AWS Security Group",
+  "severity": "MEDIUM",
+  "query_id": "6e856af2-62d7-4ba2-adc1-73b62cef9cc1",
+  "query_name": "Security Group With Unrestricted Access To SSH",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

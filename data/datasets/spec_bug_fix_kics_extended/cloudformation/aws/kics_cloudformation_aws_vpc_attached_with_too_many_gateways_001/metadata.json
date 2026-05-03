@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_vpc_attached_with_too_many_gateways_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "vpc_attached_with_too_many_gateways",
+  "sub_provider": "aws",
+  "description": "The number of gateways attached should not approach or go beyond the limit of 3, in a particular VPC",
+  "severity": "LOW",
+  "query_id": "97e94d17-e2c7-4109-a53b-6536ac1bb64e",
+  "query_name": "VPC Attached With Too Many Gateways",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_service_type_is_nodeport_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "service_type_is_nodeport",
+  "sub_provider": null,
+  "description": "Service type should not be NodePort",
+  "severity": "LOW",
+  "query_id": "845acfbe-3e10-4b8e-b656-3b404d36dfb2",
+  "query_name": "Service Type is NodePort",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

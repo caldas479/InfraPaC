@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_cronjob_deadline_not_configured_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "cronjob_deadline_not_configured",
+  "sub_provider": null,
+  "description": "Cronjobs must have a configured deadline, which means the attribute 'startingDeadlineSeconds' must be defined",
+  "severity": "LOW",
+  "query_id": "192fe40b-b1c3-448a-aba2-6cc19a300fe3",
+  "query_name": "CronJob Deadline Not Configured",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

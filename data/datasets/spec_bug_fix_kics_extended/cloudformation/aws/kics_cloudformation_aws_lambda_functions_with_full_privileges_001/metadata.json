@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_lambda_functions_with_full_privileges_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "lambda_functions_with_full_privileges",
+  "sub_provider": "aws",
+  "description": "AWS Lambda Functions should not have roles with policies granting full administrative privileges.",
+  "severity": "HIGH",
+  "query_id": "a0ae0a4e-712b-4115-8112-51b9eeed9d69",
+  "query_name": "Lambda Functions With Full Privileges",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

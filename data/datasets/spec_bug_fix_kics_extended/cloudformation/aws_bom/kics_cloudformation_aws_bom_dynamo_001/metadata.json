@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_bom_dynamo_001",
+  "category": "cloudformation/aws_bom",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "dynamo",
+  "sub_provider": "aws_bom",
+  "description": "A list of DynamoDB resources found. Amazon DynamoDB is a fully managed, serverless, key-value NoSQL database designed to run high-performance applications at any scale.",
+  "severity": "TRACE",
+  "query_id": "4e67c0ae-38a0-47f4-a50c-f0c9b75826df",
+  "query_name": "BOM - AWS DynamoDB",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

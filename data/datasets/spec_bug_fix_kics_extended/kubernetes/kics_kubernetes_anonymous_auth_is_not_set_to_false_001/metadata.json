@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_anonymous_auth_is_not_set_to_false_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "anonymous_auth_is_not_set_to_false",
+  "sub_provider": null,
+  "description": "When using the kubelet or kube-apiserver command, the 'anonymous-auth' flag should be set to false (--anonymous-auth=false)",
+  "severity": "MEDIUM",
+  "query_id": "1de5cc51-f376-4638-a940-20f2e85ae238",
+  "query_name": "Anonymous Auth Is Not Set To False",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

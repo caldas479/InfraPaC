@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_sam_serverless_api_access_logging_setting_undefined_002",
+  "category": "cloudformation/aws_sam",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "serverless_api_access_logging_setting_undefined",
+  "sub_provider": "aws_sam",
+  "description": "AWS Serverless API/AWS Serverless HTTP API should have Access Logging Setting(s) defined",
+  "severity": "MEDIUM",
+  "query_id": "0a994e04-c6dc-471d-817e-d37451d18a3b",
+  "query_name": "Serverless API Access Logging Setting Undefined",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

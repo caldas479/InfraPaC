@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_lambda_permission_misconfigured_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "lambda_permission_misconfigured",
+  "sub_provider": "aws",
+  "description": "Lambda permission may be misconfigured if the action field is not filled in by 'lambda:InvokeFunction'",
+  "severity": "LOW",
+  "query_id": "9b83114b-b2a1-4534-990d-06da015e47aa",
+  "query_name": "Lambda Permission Misconfigured",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

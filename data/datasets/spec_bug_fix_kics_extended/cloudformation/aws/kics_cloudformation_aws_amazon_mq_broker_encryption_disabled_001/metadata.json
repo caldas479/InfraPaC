@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_amazon_mq_broker_encryption_disabled_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "amazon_mq_broker_encryption_disabled",
+  "sub_provider": "aws",
+  "description": "AmazonMQ Broker should have Encryption Options defined",
+  "severity": "HIGH",
+  "query_id": "316278b3-87ac-444c-8f8f-a733a28da60f",
+  "query_name": "AmazonMQ Broker Encryption Disabled",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

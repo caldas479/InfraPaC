@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_sam_serverless_api_xray_tracing_disabled_001",
+  "category": "cloudformation/aws_sam",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "serverless_api_xray_tracing_disabled",
+  "sub_provider": "aws_sam",
+  "description": "AWS Serverless API should have X-Ray Tracing enabled",
+  "severity": "MEDIUM",
+  "query_id": "c757c6a3-ac87-4b9d-b28d-e5a5add6a315",
+  "query_name": "Serverless API X-Ray Tracing Disabled",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

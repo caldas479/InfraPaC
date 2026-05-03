@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_kubelet_protect_kernel_defaults_set_to_false_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "kubelet_protect_kernel_defaults_set_to_false",
+  "sub_provider": null,
+  "description": "--protect-kernel-defaults should be set to true",
+  "severity": "MEDIUM",
+  "query_id": "6cf42c97-facd-4fda-b8af-ea4529123355",
+  "query_name": "Kubelet Protect Kernel Defaults Set To False",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

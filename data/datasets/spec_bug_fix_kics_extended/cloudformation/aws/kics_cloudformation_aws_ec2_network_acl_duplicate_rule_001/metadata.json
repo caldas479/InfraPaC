@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_ec2_network_acl_duplicate_rule_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "ec2_network_acl_duplicate_rule",
+  "sub_provider": "aws",
+  "description": "A Network ACL's rule numbers cannot be repeated unless one is egress and the other is ingress",
+  "severity": "INFO",
+  "query_id": "045ddb54-cfc5-4abb-9e05-e427b2bc96fe",
+  "query_name": "EC2 Network ACL Duplicate Rule",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

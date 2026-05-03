@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_root_ca_file_not_defined_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "root_ca_file_not_defined",
+  "sub_provider": null,
+  "description": "When using kube-controller-manager commands, the '--root-ca-file' should be defined",
+  "severity": "MEDIUM",
+  "query_id": "05fb986f-ac73-4ebb-a5b2-7faafa93d882",
+  "query_name": "Root CA File Not Defined",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

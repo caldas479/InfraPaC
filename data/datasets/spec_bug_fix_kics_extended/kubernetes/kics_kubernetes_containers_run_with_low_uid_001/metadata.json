@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_containers_run_with_low_uid_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "containers_run_with_low_uid",
+  "sub_provider": null,
+  "description": "Check if containers are running with low UID, which might cause conflicts with the host's user table.",
+  "severity": "MEDIUM",
+  "query_id": "02323c00-cdc3-4fdc-a310-4f2b3e7a1660",
+  "query_name": "Container Running With Low UID",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

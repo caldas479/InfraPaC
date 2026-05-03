@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_alb_is_not_integrated_with_waf_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "alb_is_not_integrated_with_waf",
+  "sub_provider": "aws",
+  "description": "All Application Load Balancers (ALB) must be protected with Web Application Firewall (WAF) service",
+  "severity": "MEDIUM",
+  "query_id": "105ba098-1e34-48cd-b0f2-a8a43a51bf9b",
+  "query_name": "ALB Is Not Integrated With WAF",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

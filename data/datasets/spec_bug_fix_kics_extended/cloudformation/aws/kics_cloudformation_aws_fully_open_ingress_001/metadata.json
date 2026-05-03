@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_fully_open_ingress_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "fully_open_ingress",
+  "sub_provider": "aws",
+  "description": "ECS Service's security group should not allow unrestricted access to all ports from all IPv4 addresses",
+  "severity": "HIGH",
+  "query_id": "e415f8d3-fc2b-4f52-88ab-1129e8c8d3f5",
+  "query_name": "Fully Open Ingress",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

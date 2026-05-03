@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_rbac_roles_with_impersonate_permission_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "rbac_roles_with_impersonate_permission",
+  "sub_provider": null,
+  "description": "Roles or ClusterRoles with the permission 'impersonate' allow subjects to assume the rights of other users, groups, or service accounts. In case of compromise, attackers may abuse this sudo-like functionality to achieve privilege escalation",
+  "severity": "MEDIUM",
+  "query_id": "9f85c3f6-26fd-4007-938a-2e0cb0100980",
+  "query_name": "RBAC Roles with Impersonate Permission",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

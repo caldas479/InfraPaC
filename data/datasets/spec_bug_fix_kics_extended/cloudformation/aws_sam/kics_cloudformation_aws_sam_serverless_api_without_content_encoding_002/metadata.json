@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_sam_serverless_api_without_content_encoding_002",
+  "category": "cloudformation/aws_sam",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "serverless_api_without_content_encoding",
+  "sub_provider": "aws_sam",
+  "description": "AWS Serverless API should enable Content Encoding through the attribute 'MinimumCompressionSize'. This value should be greater than -1 and smaller than 10485760",
+  "severity": "LOW",
+  "query_id": "a2f2800e-614b-4bc8-89e6-fec8afd24800",
+  "query_name": "Serverless API Without Content Encoding",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

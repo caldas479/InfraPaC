@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_efs_not_encrypted_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "efs_not_encrypted",
+  "sub_provider": "aws",
+  "description": "Elastic File System (EFS) must be encrypted",
+  "severity": "HIGH",
+  "query_id": "2ff8e83c-90e1-4d68-a300-6d652112e622",
+  "query_name": "EFS Not Encrypted",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

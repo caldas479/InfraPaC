@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_shield_advanced_not_in_use_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "shield_advanced_not_in_use",
+  "sub_provider": "aws",
+  "description": "AWS Shield Advanced should be used for Amazon Route 53 hosted zone, AWS Global Accelerator accelerator, Elastic IP Address, Elastic Load Balancing, and Amazon CloudFront Distribution to protect these resources against robust DDoS attacks",
+  "severity": "LOW",
+  "query_id": "ad7444cf-817a-4765-a79e-2145f7981faf",
+  "query_name": "Shield Advanced Not In Use",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

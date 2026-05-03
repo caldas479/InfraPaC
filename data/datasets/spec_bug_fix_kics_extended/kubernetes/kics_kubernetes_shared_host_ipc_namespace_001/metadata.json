@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_shared_host_ipc_namespace_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "shared_host_ipc_namespace",
+  "sub_provider": null,
+  "description": "Container should not share the host IPC namespace",
+  "severity": "MEDIUM",
+  "query_id": "cd290efd-6c82-4e9d-a698-be12ae31d536",
+  "query_name": "Shared Host IPC Namespace",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

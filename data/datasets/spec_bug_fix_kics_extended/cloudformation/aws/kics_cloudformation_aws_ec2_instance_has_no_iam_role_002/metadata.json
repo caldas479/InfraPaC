@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_ec2_instance_has_no_iam_role_002",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "ec2_instance_has_no_iam_role",
+  "sub_provider": "aws",
+  "description": "Check if an EC2 instance refers to an IAM profile, which represents an IAM Role.",
+  "severity": "MEDIUM",
+  "query_id": "f914357d-8386-4d56-9ba6-456e5723f9a6",
+  "query_name": "EC2 Instance Has No IAM Role",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

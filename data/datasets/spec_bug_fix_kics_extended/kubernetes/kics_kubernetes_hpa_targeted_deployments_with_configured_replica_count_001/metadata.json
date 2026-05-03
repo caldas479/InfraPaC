@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_hpa_targeted_deployments_with_configured_replica_count_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "hpa_targeted_deployments_with_configured_replica_count",
+  "sub_provider": null,
+  "description": "Deployments targeted by HorizontalPodAutoscaler should not have a statically configured replica count set",
+  "severity": "INFO",
+  "query_id": "5744cbb8-5946-4b75-a196-ade44449525b",
+  "query_name": "HPA Targeted Deployments With Configured Replica Count",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

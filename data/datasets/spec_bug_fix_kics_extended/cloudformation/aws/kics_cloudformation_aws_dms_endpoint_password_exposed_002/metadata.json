@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_dms_endpoint_password_exposed_002",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "dms_endpoint_password_exposed",
+  "sub_provider": "aws",
+  "description": "DMS Endpoint password must not be a plaintext string or a Ref to a Parameter with a Default value.",
+  "severity": "HIGH",
+  "query_id": "5f700072-b7ce-4e84-b3f3-497bf1c24a4d",
+  "query_name": "DMS Endpoint Password Exposed",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

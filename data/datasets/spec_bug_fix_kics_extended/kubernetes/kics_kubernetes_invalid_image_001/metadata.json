@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_invalid_image_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "invalid_image",
+  "sub_provider": null,
+  "description": "Image tag must be defined and not be empty or equal to latest.",
+  "severity": "LOW",
+  "query_id": "583053b7-e632-46f0-b989-f81ff8045385",
+  "query_name": "Invalid Image Tag",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_amplify_app_access_token_exposed_002",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "amplify_app_access_token_exposed",
+  "sub_provider": "aws",
+  "description": "Amplify App Access Token must not be in a plain text string or referenced in a parameter as a default value.",
+  "severity": "HIGH",
+  "query_id": "73980e43-f399-4fcc-a373-658228f7adf7",
+  "query_name": "Amplify App Access Token Exposed",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

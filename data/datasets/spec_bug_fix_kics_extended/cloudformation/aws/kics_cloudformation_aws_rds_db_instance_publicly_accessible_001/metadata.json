@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_rds_db_instance_publicly_accessible_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "rds_db_instance_publicly_accessible",
+  "sub_provider": "aws",
+  "description": "RDS must not be defined with public interface, which means the attribute 'PubliclyAccessible' must be set to false.",
+  "severity": "CRITICAL",
+  "query_id": "de38e1d5-54cb-4111-a868-6f7722695007",
+  "query_name": "RDS DB Instance Publicly Accessible",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

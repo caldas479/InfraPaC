@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_iam_policy_on_user_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "iam_policy_on_user",
+  "sub_provider": "aws",
+  "description": "IAM policies should be applied to groups and not to users",
+  "severity": "MEDIUM",
+  "query_id": "e4239438-e639-44aa-adb8-866e400e3ade",
+  "query_name": "IAM Policy On User",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

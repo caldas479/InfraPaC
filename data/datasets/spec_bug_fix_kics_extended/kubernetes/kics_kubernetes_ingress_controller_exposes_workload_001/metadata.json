@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_ingress_controller_exposes_workload_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "ingress_controller_exposes_workload",
+  "sub_provider": null,
+  "description": "Ingress Controllers should not expose workload in order to avoid vulnerabilities and DoS attacks",
+  "severity": "MEDIUM",
+  "query_id": "69bbc5e3-0818-4150-89cc-1e989b48f23b",
+  "query_name": "Ingress Controller Exposes Workload",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

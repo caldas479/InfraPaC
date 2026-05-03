@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_bom_sns_001",
+  "category": "cloudformation/aws_bom",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "sns",
+  "sub_provider": "aws_bom",
+  "description": "A list of SNS resources specified. Amazon Simple Notification Service (Amazon SNS) is a fully managed messaging service for both application-to-application (A2A) and application-to-person (A2P) communication.",
+  "severity": "TRACE",
+  "query_id": "42e7dca3-8cce-4325-8df0-108888259136",
+  "query_name": "BOM - AWS SNS",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

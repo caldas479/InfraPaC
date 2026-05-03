@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_sqs_policy_with_public_access_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "sqs_policy_with_public_access",
+  "sub_provider": "aws",
+  "description": "Checks for dangerous permissions in Action statements in an SQS Queue Policy. This is deemed a potential security risk as it would allow various attacks to the queue",
+  "severity": "MEDIUM",
+  "query_id": "9b6a3f5b-5fd6-40ee-9bc0-ed604911212d",
+  "query_name": "SQS Policy With Public Access",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

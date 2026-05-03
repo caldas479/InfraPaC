@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_service_account_private_key_file_not_defined_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "service_account_private_key_file_not_defined",
+  "sub_provider": null,
+  "description": "When using kube-controller-manager commands, the '--service-account-private-key-file' should be defined",
+  "severity": "MEDIUM",
+  "query_id": "ccc98ff7-68a7-436e-9218-185cb0b0b780",
+  "query_name": "Service Account Private Key File Not Defined",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

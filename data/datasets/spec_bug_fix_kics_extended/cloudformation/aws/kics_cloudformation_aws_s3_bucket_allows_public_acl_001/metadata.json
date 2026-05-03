@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_s3_bucket_allows_public_acl_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "s3_bucket_allows_public_acl",
+  "sub_provider": "aws",
+  "description": "S3 bucket allows public ACL",
+  "severity": "MEDIUM",
+  "query_id": "48f100d9-f499-4c6d-b2b8-deafe47ffb26",
+  "query_name": "S3 Bucket Allows Public ACL",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

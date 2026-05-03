@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_iam_groups_inline_policies_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "iam_groups_inline_policies",
+  "sub_provider": "aws",
+  "description": "IAM Groups should not use inline policies and instead use managed policies. If a group is deleted, the inline policy is also deleted",
+  "severity": "MEDIUM",
+  "query_id": "a58d1a2d-4078-4b80-855b-84cc3f7f4540",
+  "query_name": "IAM Group Inline Policies",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

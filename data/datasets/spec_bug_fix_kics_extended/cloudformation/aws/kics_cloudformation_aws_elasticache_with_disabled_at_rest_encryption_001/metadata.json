@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_elasticache_with_disabled_at_rest_encryption_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "elasticache_with_disabled_at_rest_encryption",
+  "sub_provider": "aws",
+  "description": "Ensure AWS ElastiCache Redis clusters have encryption for data at rest enabled",
+  "severity": "HIGH",
+  "query_id": "e4ee3903-9225-4b6a-bdfb-e62dbadef821",
+  "query_name": "ElastiCache With Disabled at Rest Encryption",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

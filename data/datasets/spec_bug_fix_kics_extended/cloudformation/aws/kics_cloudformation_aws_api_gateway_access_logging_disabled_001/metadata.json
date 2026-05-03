@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_api_gateway_access_logging_disabled_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "api_gateway_access_logging_disabled",
+  "sub_provider": "aws",
+  "description": "API Gateway Stage should have Access Logging Settings defined",
+  "severity": "MEDIUM",
+  "query_id": "80d45af4-4920-4236-a56e-b7ef419d1941",
+  "query_name": "API Gateway V2 Stage Access Logging Settings Not Defined",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

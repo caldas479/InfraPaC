@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_audit_policy_not_cover_key_security_concerns_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "audit_policy_not_cover_key_security_concerns",
+  "sub_provider": null,
+  "description": "Audit Policy should cover key security concerns about the sensitive data logged in Kubernetes audit policies",
+  "severity": "LOW",
+  "query_id": "1828a670-5957-4bc5-9974-47da228f75e2",
+  "query_name": "Audit Policy Not Cover Key Security Concerns",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_containers_with_sys_admin_capabilities_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "containers_with_sys_admin_capabilities",
+  "sub_provider": null,
+  "description": "Containers should not have CAP_SYS_ADMIN Linux capability",
+  "severity": "HIGH",
+  "query_id": "235236ee-ad78-4065-bd29-61b061f28ce0",
+  "query_name": "Containers With Sys Admin Capabilities",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

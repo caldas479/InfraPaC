@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_statefulset_requests_storage_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "statefulset_requests_storage",
+  "sub_provider": null,
+  "description": "A StatefulSet requests volume storage.",
+  "severity": "LOW",
+  "query_id": "8cf4671a-cf3d-46fc-8389-21e7405063a2",
+  "query_name": "StatefulSet Requests Storage",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

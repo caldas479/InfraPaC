@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_security_group_rule_without_description_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "security_group_rule_without_description",
+  "sub_provider": "aws",
+  "description": "It's considered a best practice for AWS Security Group to have a description",
+  "severity": "INFO",
+  "query_id": "5e6c9c68-8a82-408e-8749-ddad78cbb9c5",
+  "query_name": "Security Group Rule Without Description",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_pulumi_aws_ecs_cluster_container_insights_disabled_002",
+  "category": "pulumi/aws",
+  "policy_engine": "opa",
+  "iac_tool": "pulumi",
+  "source": "kics",
+  "original_query": "ecs_cluster_container_insights_disabled",
+  "sub_provider": "aws",
+  "description": "ECS Cluster should enable container insights",
+  "severity": "LOW",
+  "query_id": "abcefee4-a0c1-4245-9f82-a473f79a9e2f",
+  "query_name": "ECS Cluster with Container Insights Disabled",
+  "platform": "Pulumi",
+  "cloud_provider": "aws"
+}

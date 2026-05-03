@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_ec2_public_instance_exposed_through_subnet_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "ec2_public_instance_exposed_through_subnet",
+  "sub_provider": "aws",
+  "description": "EC2 instances with public IP addresses shouldn't allow for unrestricted traffic to their subnets",
+  "severity": "MEDIUM",
+  "query_id": "c44c95fc-ae92-4bb8-bdf8-bb9bc412004a",
+  "query_name": "EC2 Public Instance Exposed Through Subnet",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

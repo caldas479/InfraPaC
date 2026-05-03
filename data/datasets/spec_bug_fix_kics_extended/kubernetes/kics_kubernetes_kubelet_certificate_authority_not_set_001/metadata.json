@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_kubelet_certificate_authority_not_set_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "kubelet_certificate_authority_not_set",
+  "sub_provider": null,
+  "description": "When using kube-apiserver command, the 'kubelet-certificate-authority' flag should be set",
+  "severity": "MEDIUM",
+  "query_id": "ec18a0d3-0069-4a58-a7fb-fbfe0b4bbbe0",
+  "query_name": "Kubelet Certificate Authority Not Set",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

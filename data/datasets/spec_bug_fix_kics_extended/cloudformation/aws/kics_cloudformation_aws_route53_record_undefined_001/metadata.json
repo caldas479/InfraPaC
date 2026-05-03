@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_route53_record_undefined_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "route53_record_undefined",
+  "sub_provider": "aws",
+  "description": "Route53 HostedZone must have the Record Set defined.",
+  "severity": "HIGH",
+  "query_id": "24d932e1-91f0-46ea-836f-fdbd81694151",
+  "query_name": "Route53 Record Undefined",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

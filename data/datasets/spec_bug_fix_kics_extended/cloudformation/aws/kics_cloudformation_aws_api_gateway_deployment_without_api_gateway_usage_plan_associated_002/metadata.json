@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_api_gateway_deployment_without_api_gateway_usage_plan_associated_002",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "api_gateway_deployment_without_api_gateway_usage_plan_associated",
+  "sub_provider": "aws",
+  "description": "API Gateway Deployment should have API Gateway UsagePlan defined and associated.",
+  "severity": "LOW",
+  "query_id": "783860a3-6dca-4c8b-81d0-7b62769ccbca",
+  "query_name": "API Gateway Deployment Without API Gateway UsagePlan Associated",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

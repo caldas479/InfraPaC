@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_automatic_minor_upgrades_disabled_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "automatic_minor_upgrades_disabled",
+  "sub_provider": "aws",
+  "description": "RDS instance should have automatic minor upgrades enabled, which means the attribute 'AutoMinorVersionUpgrade' must be set to true.",
+  "severity": "LOW",
+  "query_id": "f0104061-8bfc-4b45-8a7d-630eb502f281",
+  "query_name": "Automatic Minor Upgrades Disabled",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

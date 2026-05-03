@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_elasticsearch_without_slow_logs_002",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "elasticsearch_without_slow_logs",
+  "sub_provider": "aws",
+  "description": "Ensure that AWS Elasticsearch enables support for slow logs",
+  "severity": "LOW",
+  "query_id": "086ea2eb-14a6-4fd4-914b-38e0bc8703e8",
+  "query_name": "ElasticSearch Without Slow Logs",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

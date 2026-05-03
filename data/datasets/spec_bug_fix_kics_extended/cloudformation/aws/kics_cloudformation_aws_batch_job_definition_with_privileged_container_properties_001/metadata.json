@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_batch_job_definition_with_privileged_container_properties_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "batch_job_definition_with_privileged_container_properties",
+  "sub_provider": "aws",
+  "description": "Batch Job Definition should not have Privileged Container Properties",
+  "severity": "HIGH",
+  "query_id": "76ddf32c-85b1-4808-8935-7eef8030ab36",
+  "query_name": "Batch Job Definition With Privileged Container Properties",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

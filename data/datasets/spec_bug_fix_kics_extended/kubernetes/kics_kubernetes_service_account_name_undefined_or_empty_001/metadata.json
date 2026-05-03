@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_service_account_name_undefined_or_empty_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "service_account_name_undefined_or_empty",
+  "sub_provider": null,
+  "description": "A Kubernetes Pod should have a Service Account defined so to restrict Kubernetes API access, which means the attribute 'serviceAccountName' should be defined and not empty.",
+  "severity": "MEDIUM",
+  "query_id": "591ade62-d6b0-4580-b1ae-209f80ba1cd9",
+  "query_name": "Service Account Name Undefined Or Empty",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

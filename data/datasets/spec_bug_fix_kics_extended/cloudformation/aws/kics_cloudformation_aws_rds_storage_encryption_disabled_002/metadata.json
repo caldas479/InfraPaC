@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_rds_storage_encryption_disabled_002",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "rds_storage_encryption_disabled",
+  "sub_provider": "aws",
+  "description": "RDS DBCluster should have storage encrypted set to true",
+  "severity": "HIGH",
+  "query_id": "65844ba3-03a1-40a8-b3dd-919f122e8c95",
+  "query_name": "RDS Storage Encryption Disabled",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

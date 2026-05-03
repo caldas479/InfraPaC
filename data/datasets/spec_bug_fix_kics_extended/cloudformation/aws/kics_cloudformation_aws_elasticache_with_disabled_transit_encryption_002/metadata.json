@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_elasticache_with_disabled_transit_encryption_002",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "elasticache_with_disabled_transit_encryption",
+  "sub_provider": "aws",
+  "description": "Ensure AWS ElastiCache Redis clusters have encryption for data at transit enabled",
+  "severity": "MEDIUM",
+  "query_id": "3b02569b-fc6f-4153-b3a3-ba91022fed68",
+  "query_name": "ElastiCache With Disabled Transit Encryption",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

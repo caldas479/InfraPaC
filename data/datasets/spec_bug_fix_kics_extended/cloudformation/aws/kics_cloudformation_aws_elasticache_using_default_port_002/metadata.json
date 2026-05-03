@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_elasticache_using_default_port_002",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "elasticache_using_default_port",
+  "sub_provider": "aws",
+  "description": "ElastiCache should not use the default port (an attacker can easily guess the port). For engine set to Redis, the default port is 6379. The Memcached default port is 11211",
+  "severity": "LOW",
+  "query_id": "323db967-c68e-44e6-916c-a777f95af34b",
+  "query_name": "ElastiCache Using Default Port",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

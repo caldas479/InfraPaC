@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_memory_requests_not_defined_002",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "memory_requests_not_defined",
+  "sub_provider": null,
+  "description": "Memory requests should be defined for each container. This allows the kubelet to reserve the requested amount of system resources and prevents over-provisioning on individual nodes",
+  "severity": "MEDIUM",
+  "query_id": "229588ef-8fde-40c8-8756-f4f2b5825ded",
+  "query_name": "Memory Requests Not Defined",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

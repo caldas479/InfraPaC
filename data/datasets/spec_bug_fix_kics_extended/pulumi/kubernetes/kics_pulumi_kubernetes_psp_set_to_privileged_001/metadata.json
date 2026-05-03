@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_pulumi_kubernetes_psp_set_to_privileged_001",
+  "category": "pulumi/kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "pulumi",
+  "source": "kics",
+  "original_query": "psp_set_to_privileged",
+  "sub_provider": "kubernetes",
+  "description": "Do not allow pod to request execution as privileged.",
+  "severity": "HIGH",
+  "query_id": "ee305555-6b1d-4055-94cf-e22131143c34",
+  "query_name": "PSP Set To Privileged",
+  "platform": "Pulumi",
+  "cloud_provider": "common"
+}

@@ -29,8 +29,9 @@ class RepairChain:
         self.prompt_builder = PromptBuilder()
         self.llm = self._initialize_llm()
         prompt_style = llm_config.get("prompt_style", "default")
+        iac_language = llm_config.get("iac_language", "IaC")
         self.prompt_template = self.prompt_builder.build_repair_prompt_template(
-            style=prompt_style
+            style=prompt_style, iac_language=iac_language
         )
 
     def _initialize_llm(self) -> Any:

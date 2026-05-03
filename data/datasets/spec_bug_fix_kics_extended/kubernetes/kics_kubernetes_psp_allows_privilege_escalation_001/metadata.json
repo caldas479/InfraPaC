@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_psp_allows_privilege_escalation_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "psp_allows_privilege_escalation",
+  "sub_provider": null,
+  "description": "PodSecurityPolicy should not allow privilege escalation",
+  "severity": "HIGH",
+  "query_id": "87554eef-154d-411d-bdce-9dbd91e56851",
+  "query_name": "PSP Allows Privilege Escalation",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

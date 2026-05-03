@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_geo_restriction_disabled_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "geo_restriction_disabled",
+  "sub_provider": "aws",
+  "description": "Geo Restriction feature should be enabled, to restrict or allow users in specific locations accessing web application content",
+  "severity": "LOW",
+  "query_id": "7f8843f0-9ea5-42b4-a02b-753055113195",
+  "query_name": "Geo Restriction Disabled",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

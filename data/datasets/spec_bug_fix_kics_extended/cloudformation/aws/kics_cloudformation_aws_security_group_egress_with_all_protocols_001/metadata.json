@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_security_group_egress_with_all_protocols_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "security_group_egress_with_all_protocols",
+  "sub_provider": "aws",
+  "description": "AWS Security Group Egress should not specify all protocols to prevent allow traffic on all ports",
+  "severity": "MEDIUM",
+  "query_id": "ee464fc2-54a6-4e22-b10a-c6dcd2474d0c",
+  "query_name": "Security Group Egress With All Protocols",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

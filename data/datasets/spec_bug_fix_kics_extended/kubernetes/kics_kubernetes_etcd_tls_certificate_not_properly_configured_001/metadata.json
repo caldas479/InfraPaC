@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_etcd_tls_certificate_not_properly_configured_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "etcd_tls_certificate_not_properly_configured",
+  "sub_provider": null,
+  "description": "When using kube-apiserver commands, the '--etcd-certfile' and '--etcd-keyfile' flags should be defined",
+  "severity": "MEDIUM",
+  "query_id": "895a5a95-3756-4b04-9924-2f3bc93181bd",
+  "query_name": "Etcd TLS Certificate Not Properly Configured",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

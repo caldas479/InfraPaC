@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_emr_cluster_without_security_configuration_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "emr_cluster_without_security_configuration",
+  "sub_provider": "aws",
+  "description": "EMR Cluster should have security configuration defined.",
+  "severity": "MEDIUM",
+  "query_id": "48af92a5-c89b-4936-bc62-1086fe2bab23",
+  "query_name": "EMR Cluster Without Security Configuration",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

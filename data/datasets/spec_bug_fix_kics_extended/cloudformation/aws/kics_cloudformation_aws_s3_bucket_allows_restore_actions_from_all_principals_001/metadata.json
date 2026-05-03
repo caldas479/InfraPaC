@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_s3_bucket_allows_restore_actions_from_all_principals_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "s3_bucket_allows_restore_actions_from_all_principals",
+  "sub_provider": "aws",
+  "description": "S3 Buckets must not allow Restore Actions From All Principals, as to prevent leaking private information to the entire internet or allow unauthorized data tampering / deletion. This means the 'Effect' must not be 'Allow' when the 'Action' is Restore, for all Principals.",
+  "severity": "HIGH",
+  "query_id": "456b00a3-1072-4149-9740-6b8bb60251b0",
+  "query_name": "S3 Bucket Allows Restore Actions From All Principals",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

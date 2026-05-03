@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_psp_with_added_capabilities_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "psp_with_added_capabilities",
+  "sub_provider": null,
+  "description": "PodSecurityPolicy should not have added capabilities",
+  "severity": "HIGH",
+  "query_id": "7307579a-3abb-46ad-9ce5-2a915634d5c8",
+  "query_name": "PSP With Added Capabilities",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

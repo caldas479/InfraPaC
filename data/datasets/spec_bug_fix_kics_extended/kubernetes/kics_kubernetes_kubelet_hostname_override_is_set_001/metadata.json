@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_kubelet_hostname_override_is_set_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "kubelet_hostname_override_is_set",
+  "sub_provider": null,
+  "description": "Hostnames should not be overrided",
+  "severity": "LOW",
+  "query_id": "bf36b900-b5ef-4828-adb7-70eb543b7cfb",
+  "query_name": "Kubelet Hostname Override Is Set",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_permissive_access_to_create_pods_002",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "permissive_access_to_create_pods",
+  "sub_provider": null,
+  "description": "The permission to create pods in a cluster should be restricted because it allows privilege escalation.",
+  "severity": "MEDIUM",
+  "query_id": "592ad21d-ad9b-46c6-8d2d-fad09d62a942",
+  "query_name": "Permissive Access to Create Pods",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

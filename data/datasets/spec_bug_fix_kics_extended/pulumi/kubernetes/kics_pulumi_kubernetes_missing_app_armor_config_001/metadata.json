@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_pulumi_kubernetes_missing_app_armor_config_001",
+  "category": "pulumi/kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "pulumi",
+  "source": "kics",
+  "original_query": "missing_app_armor_config",
+  "sub_provider": "kubernetes",
+  "description": "Containers should be configured with AppArmor for any application to reduce its potential attack",
+  "severity": "MEDIUM",
+  "query_id": "95588189-1abd-4df1-9588-b0a5034f9e87",
+  "query_name": "Missing App Armor Config",
+  "platform": "Pulumi",
+  "cloud_provider": "common"
+}

@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_pod_or_container_without_security_context_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "pod_or_container_without_security_context",
+  "sub_provider": null,
+  "description": "A security context defines privilege and access control settings for a Pod or Container",
+  "severity": "LOW",
+  "query_id": "a97a340a-0063-418e-b3a1-3028941d0995",
+  "query_name": "Pod or Container Without Security Context",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

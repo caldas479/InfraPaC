@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_iam_policies_attached_to_user_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "iam_policies_attached_to_user",
+  "sub_provider": "aws",
+  "description": "IAM policies should be attached only to groups or roles",
+  "severity": "MEDIUM",
+  "query_id": "edc95c10-7366-4f30-9b4b-f995c84eceb5",
+  "query_name": "IAM Policies Attached To User",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

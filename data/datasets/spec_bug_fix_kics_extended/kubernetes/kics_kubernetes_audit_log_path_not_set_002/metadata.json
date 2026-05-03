@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_audit_log_path_not_set_002",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "audit_log_path_not_set",
+  "sub_provider": null,
+  "description": "When using kube-apiserver command, the 'audit-log-path' flag should be defined",
+  "severity": "MEDIUM",
+  "query_id": "73e251f0-363d-4e53-86e2-0a93592437eb",
+  "query_name": "Audit Log Path Not Set",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

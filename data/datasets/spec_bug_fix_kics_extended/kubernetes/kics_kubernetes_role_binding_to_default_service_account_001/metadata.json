@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_role_binding_to_default_service_account_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "role_binding_to_default_service_account",
+  "sub_provider": null,
+  "description": "No role nor cluster role should bind to a default service account",
+  "severity": "MEDIUM",
+  "query_id": "1e749bc9-fde8-471c-af0c-8254efd2dee5",
+  "query_name": "Role Binding To Default Service Account",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

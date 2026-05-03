@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_s3_bucket_with_unsecured_cors_rule_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "s3_bucket_with_unsecured_cors_rule",
+  "sub_provider": "aws",
+  "description": "If the CORS (Cross-Origin Resource Sharing) rule is defined in an S3 bucket, it should be secure",
+  "severity": "MEDIUM",
+  "query_id": "3609d27c-3698-483a-9402-13af6ae80583",
+  "query_name": "S3 Bucket With Unsecured CORS Rule",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

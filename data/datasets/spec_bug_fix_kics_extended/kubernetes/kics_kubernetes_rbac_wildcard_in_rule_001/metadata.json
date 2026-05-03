@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_rbac_wildcard_in_rule_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "rbac_wildcard_in_rule",
+  "sub_provider": null,
+  "description": "Roles and ClusterRoles with wildcard RBAC permissions provide excessive rights to the Kubernetes API and should be avoided. The principle of least privilege recommends to specify only the set of needed objects and actions",
+  "severity": "HIGH",
+  "query_id": "6b896afb-ca07-467a-b256-1a0077a1c08e",
+  "query_name": "RBAC Wildcard In Rule",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_terminated_pod_garbage_collector_threshold_not_properly_set_002",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "terminated_pod_garbage_collector_threshold_not_properly_set",
+  "sub_provider": null,
+  "description": "When using kube-controller-manager commands, the '--terminated-pod-gc-threshold' should be set between 0 and 12501",
+  "severity": "MEDIUM",
+  "query_id": "49113af4-29ca-458e-b8d4-724c01a4a24f",
+  "query_name": "Terminated Pod Garbage Collector Threshold Not Properly Set",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

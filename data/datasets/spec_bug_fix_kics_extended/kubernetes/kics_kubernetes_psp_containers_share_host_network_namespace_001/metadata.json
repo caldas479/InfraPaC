@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_psp_containers_share_host_network_namespace_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "psp_containers_share_host_network_namespace",
+  "sub_provider": null,
+  "description": "Check if Pod Security Policies allow containers to share the host network namespace.",
+  "severity": "HIGH",
+  "query_id": "a33e9173-b674-4dfb-9d82-cf3754816e4b",
+  "query_name": "PSP Allows Containers To Share The Host Network Namespace",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

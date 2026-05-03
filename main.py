@@ -41,7 +41,7 @@ def parse_arguments() -> argparse.Namespace:
     parser.add_argument(
         "--iac",
         type=str,
-        help="Path to IaC script (Terraform)",
+        help="Path to IaC script (Terraform, CloudFormation, Kubernetes, etc.)",
     )
     parser.add_argument(
         "--policy-engine",

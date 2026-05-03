@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_ecs_task_definition_invalid_cpu_or_memory_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "ecs_task_definition_invalid_cpu_or_memory",
+  "sub_provider": "aws",
+  "description": "In an ECS Task Definition with the FARGATE launch type, specifying an invalid CPU or Memory value will result in an error.",
+  "severity": "LOW",
+  "query_id": "f4c9b5f5-68b8-491f-9e48-4f96644a1d51",
+  "query_name": "ECS Task Definition Invalid CPU or Memory",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

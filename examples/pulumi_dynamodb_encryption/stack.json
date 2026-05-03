@@ -1,0 +1,14 @@
+{
+  "resources": {
+    "aws:dynamodb/table:Table": {
+      "my-table": {
+        "name": "my-table",
+        "billingMode": "PAY_PER_REQUEST",
+        "hashKey": "id",
+        "attributes": [
+          { "name": "id", "type": "S" }
+        ]
+      }
+    }
+  }
+}

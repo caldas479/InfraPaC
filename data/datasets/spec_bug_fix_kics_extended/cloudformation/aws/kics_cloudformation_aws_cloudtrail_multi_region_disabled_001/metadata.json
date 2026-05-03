@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_cloudtrail_multi_region_disabled_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "cloudtrail_multi_region_disabled",
+  "sub_provider": "aws",
+  "description": "CloudTrail multi region should be enabled, which means attribute 'IsMultiRegionTrail' should be set to true",
+  "severity": "LOW",
+  "query_id": "058ac855-989f-4378-ba4d-52d004020da7",
+  "query_name": "CloudTrail Multi Region Disabled",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

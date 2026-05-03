@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_root_account_has_active_access_keys_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "root_account_has_active_access_keys",
+  "sub_provider": "aws",
+  "description": "The AWS Root Account must not have active access keys associated, which means if there are access keys associated to the Root Account, they must be inactive.",
+  "severity": "HIGH",
+  "query_id": "4c137350-7307-4803-8c04-17c09a7a9fcf",
+  "query_name": "Root Account Has Active Access Keys",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

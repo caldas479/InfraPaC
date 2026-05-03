@@ -31,5 +31,5 @@ class RepairOutput(BaseModel):
 
     repaired_script: str = Field(
         ...,
-        description="The corrected Terraform script that fixes all policy violations",
+        description="The corrected IaC script that fixes all policy violations",
     )

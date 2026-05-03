@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_ecs_service_admin_role_is_present_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "ecs_service_admin_role_is_present",
+  "sub_provider": "aws",
+  "description": "ECS Services must not have Admin roles, which means the attribute 'role' must not be an admin role",
+  "severity": "HIGH",
+  "query_id": "01986452-bdd8-4aaa-b5df-d6bf61d616ff",
+  "query_name": "ECS Service Admin Role Is Present",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

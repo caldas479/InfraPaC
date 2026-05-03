@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_elb_using_insecure_protocols_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "elb_using_insecure_protocols",
+  "sub_provider": "aws",
+  "description": "ELB Predefined or Custom Security Policies must not use insecure protocols, to reduce the risk of the SSL connection between the client and the load balancer being exploited. That means the ELB Listeners must not have Policies that posses Protocols that coincide with any of a predefined list of insecure protocols.",
+  "severity": "MEDIUM",
+  "query_id": "61a94903-3cd3-4780-88ec-fc918819b9c8",
+  "query_name": "ELB Using Insecure Protocols",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

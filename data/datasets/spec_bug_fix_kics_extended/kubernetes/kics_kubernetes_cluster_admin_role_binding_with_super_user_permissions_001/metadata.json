@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_cluster_admin_role_binding_with_super_user_permissions_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "cluster_admin_role_binding_with_super_user_permissions",
+  "sub_provider": null,
+  "description": "Ensure that the cluster-admin role is only used where required (RBAC)",
+  "severity": "LOW",
+  "query_id": "249328b8-5f0f-409f-b1dd-029f07882e11",
+  "query_name": "Cluster Admin Rolebinding With Superuser Permissions",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

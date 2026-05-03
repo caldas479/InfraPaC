@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_s3_bucket_without_restriction_of_public_bucket_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "s3_bucket_without_restriction_of_public_bucket",
+  "sub_provider": "aws",
+  "description": "S3 bucket without restriction of public bucket",
+  "severity": "MEDIUM",
+  "query_id": "350cd468-0e2c-44ef-9d22-cfb73a62523c",
+  "query_name": "S3 Bucket Without Restriction Of Public Bucket",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_s3_bucket_without_server_side_encryption_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "s3_bucket_without_server_side_encryption",
+  "sub_provider": "aws",
+  "description": "S3 Buckets should have server-side encryption at rest enabled to protect sensitive data",
+  "severity": "HIGH",
+  "query_id": "b2e8752c-3497-4255-98d2-e4ae5b46bbf5",
+  "query_name": "S3 Bucket Without Server-side-encryption",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

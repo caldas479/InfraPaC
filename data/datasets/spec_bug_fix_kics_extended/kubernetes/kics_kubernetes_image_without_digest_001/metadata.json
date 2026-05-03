@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_image_without_digest_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "image_without_digest",
+  "sub_provider": null,
+  "description": "Images should be specified together with their digests to ensure integrity",
+  "severity": "LOW",
+  "query_id": "7c81d34c-8e5a-402b-9798-9f442630e678",
+  "query_name": "Image Without Digest",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

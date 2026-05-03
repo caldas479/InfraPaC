@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_user_iam_missing_password_reset_required_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "user_iam_missing_password_reset_required",
+  "sub_provider": "aws",
+  "description": "IAM User Login Profile should exist and have PasswordResetRequired property set to true",
+  "severity": "MEDIUM",
+  "query_id": "a964d6e3-8e1e-4d93-8120-61fa640dd55a",
+  "query_name": "IAM User Without Password Reset",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

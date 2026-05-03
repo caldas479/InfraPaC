@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_rds_with_backup_disabled_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "rds_with_backup_disabled",
+  "sub_provider": "aws",
+  "description": "Make sure the AWS RDS configuration has automatic backup configured. If the retention period is equal to 0 there is no backup",
+  "severity": "MEDIUM",
+  "query_id": "8c415f6f-7b90-4a27-a44a-51047e1506f9",
+  "query_name": "RDS With Backup Disabled",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

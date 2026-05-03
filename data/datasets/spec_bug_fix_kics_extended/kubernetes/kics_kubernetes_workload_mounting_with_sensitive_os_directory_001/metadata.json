@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_workload_mounting_with_sensitive_os_directory_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "workload_mounting_with_sensitive_os_directory",
+  "sub_provider": null,
+  "description": "Workload is mounting a volume with sensitive OS Directory",
+  "severity": "HIGH",
+  "query_id": "5308a7a8-06f8-45ac-bf10-791fe21de46e",
+  "query_name": "Workload Mounting With Sensitive OS Directory",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

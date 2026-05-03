@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_api_gateway_with_open_access_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "api_gateway_with_open_access",
+  "sub_provider": "aws",
+  "description": "API Gateway Method should restrict the authorization type, except for the HTTP OPTIONS method.",
+  "severity": "MEDIUM",
+  "query_id": "1056dfbb-5802-4762-bf2b-8b9b9684b1b0",
+  "query_name": "API Gateway With Open Access",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

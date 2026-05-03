@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_using_kubernetes_native_secret_management_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "using_kubernetes_native_secret_management",
+  "sub_provider": null,
+  "description": "Kubernetes External Secret Storage and Management System usage should be considered if you have more complex secret management needs, rather than using Kubernetes Secrets directly. Additionally, ensure that access to secrets is carefully limited",
+  "severity": "INFO",
+  "query_id": "b9c83569-459b-4110-8f79-6305aa33cb37",
+  "query_name": "Using Kubernetes Native Secret Management",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

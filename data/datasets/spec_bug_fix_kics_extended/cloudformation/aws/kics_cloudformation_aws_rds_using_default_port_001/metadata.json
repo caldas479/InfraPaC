@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_rds_using_default_port_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "rds_using_default_port",
+  "sub_provider": "aws",
+  "description": "RDS should not use the default port (an attacker can easily guess the port). For engines related to Aurora, MariaDB or MySQL, the default port is 3306. PostgreSQL default port is 5432, Oracle default port is 1521 and SQL Server default port is 1433",
+  "severity": "LOW",
+  "query_id": "1fe9d958-ddce-4228-a124-05265a959a8b",
+  "query_name": "RDS Using Default Port",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

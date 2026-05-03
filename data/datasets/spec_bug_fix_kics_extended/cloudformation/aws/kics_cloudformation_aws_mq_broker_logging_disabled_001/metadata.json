@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_mq_broker_logging_disabled_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "mq_broker_logging_disabled",
+  "sub_provider": "aws",
+  "description": "Check if MQ Brokers don't have logging enabled in any of the two options possible (audit and general).",
+  "severity": "MEDIUM",
+  "query_id": "e519ed6a-8328-4b69-8eb7-8fa549ac3050",
+  "query_name": "MQ Broker Logging Disabled",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

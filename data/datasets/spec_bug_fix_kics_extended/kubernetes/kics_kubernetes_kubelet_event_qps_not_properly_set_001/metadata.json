@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_kubelet_event_qps_not_properly_set_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "kubelet_event_qps_not_properly_set",
+  "sub_provider": null,
+  "description": "When using the kubelet command, the '--event-qps' should be set to 0",
+  "severity": "LOW",
+  "query_id": "1a07a446-8e61-4e4d-bc16-b0781fcb8211",
+  "query_name": "Kubelet Event QPS Not Properly Set",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

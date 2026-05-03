@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_iam_role_allows_all_principals_to_assume_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "iam_role_allows_all_principals_to_assume",
+  "sub_provider": "aws",
+  "description": "IAM role allows all services or principals to assume it",
+  "severity": "MEDIUM",
+  "query_id": "f80e3aa7-7b34-4185-954e-440a6894dde6",
+  "query_name": "IAM Role Allows All Principals To Assume",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

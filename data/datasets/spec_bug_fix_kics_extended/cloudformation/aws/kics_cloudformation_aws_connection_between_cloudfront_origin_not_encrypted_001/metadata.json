@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_connection_between_cloudfront_origin_not_encrypted_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "connection_between_cloudfront_origin_not_encrypted",
+  "sub_provider": "aws",
+  "description": "Checks if the connection between the CloudFront and the origin server is encrypted",
+  "severity": "MEDIUM",
+  "query_id": "a5366a50-932f-4085-896b-41402714a388",
+  "query_name": "Connection Between CloudFront Origin Not Encrypted",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

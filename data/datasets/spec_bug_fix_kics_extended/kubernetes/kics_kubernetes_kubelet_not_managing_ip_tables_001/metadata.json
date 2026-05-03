@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_kubelet_not_managing_ip_tables_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "kubelet_not_managing_ip_tables",
+  "sub_provider": null,
+  "description": "Kubelet argument --make-iptables-util-chains should be true",
+  "severity": "MEDIUM",
+  "query_id": "5f89001f-6dd9-49ff-9b15-d8cd71b617f4",
+  "query_name": "Kubelet Not Managing Ip Tables",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_statefulset_without_service_name_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "statefulset_without_service_name",
+  "sub_provider": null,
+  "description": "StatefulSets should have an existing headless 'serviceName'. The headless service labels should also be implemented on StatefulSets labels.",
+  "severity": "LOW",
+  "query_id": "bb241e61-77c3-4b97-9575-c0f8a1e008d0",
+  "query_name": "StatefulSet Without Service Name",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

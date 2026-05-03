@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_psp_allows_sharing_host_ipc_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "psp_allows_sharing_host_ipc",
+  "sub_provider": null,
+  "description": "Pod Security Policy allows containers to share the host IPC namespace",
+  "severity": "HIGH",
+  "query_id": "80f93444-b240-4ebb-a4c6-5c40b76c04ea",
+  "query_name": "PSP Allows Sharing Host IPC",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

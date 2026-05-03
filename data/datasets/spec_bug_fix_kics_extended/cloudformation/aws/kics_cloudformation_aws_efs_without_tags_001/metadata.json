@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_efs_without_tags_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "efs_without_tags",
+  "sub_provider": "aws",
+  "description": "Amazon Elastic Filesystem should have filesystem tags associated",
+  "severity": "LOW",
+  "query_id": "08e39832-5e42-4304-98a0-aa5b43393162",
+  "query_name": "EFS Without Tags",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

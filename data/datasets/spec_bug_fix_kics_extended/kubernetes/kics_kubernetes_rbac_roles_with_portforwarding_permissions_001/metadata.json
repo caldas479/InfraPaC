@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_rbac_roles_with_portforwarding_permissions_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "rbac_roles_with_portforwarding_permissions",
+  "sub_provider": null,
+  "description": "Roles or ClusterRoles with RBAC permissions to port-forward into pods can open socket-level communication channels to containers. In case of compromise, attackers may abuse this for direct communication that bypasses network security restrictions",
+  "severity": "MEDIUM",
+  "query_id": "38fa11ef-dbcc-4da8-9680-7e1fd855b6fb",
+  "query_name": "RBAC Roles with Port-Forwarding Permission",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

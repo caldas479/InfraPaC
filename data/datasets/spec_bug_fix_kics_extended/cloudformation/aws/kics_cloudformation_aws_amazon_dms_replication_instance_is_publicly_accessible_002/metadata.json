@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_amazon_dms_replication_instance_is_publicly_accessible_002",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "amazon_dms_replication_instance_is_publicly_accessible",
+  "sub_provider": "aws",
+  "description": "Amazon DMS is publicly accessible, therefore exposing possible sensitive information. To prevent such a scenario, update the attribute 'PubliclyAccessible' to false.",
+  "severity": "CRITICAL",
+  "query_id": "5864fb39-d719-4182-80e2-89dbe627be63",
+  "query_name": "Amazon DMS Replication Instance Is Publicly Accessible",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_vpc_flowlogs_disabled_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "vpc_flowlogs_disabled",
+  "sub_provider": "aws",
+  "description": "Every VPC resource should have an associated Flow Log",
+  "severity": "MEDIUM",
+  "query_id": "f6d299d2-21eb-41cc-b1e1-fe12d857500b",
+  "query_name": "VPC FlowLogs Disabled",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

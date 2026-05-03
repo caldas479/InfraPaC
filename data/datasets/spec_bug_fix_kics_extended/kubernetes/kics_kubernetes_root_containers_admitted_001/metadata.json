@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_root_containers_admitted_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "root_containers_admitted",
+  "sub_provider": null,
+  "description": "Containers must not be allowed to run with root privileges, which means the attributes 'privileged','allowPrivilegeEscalation' and 'readOnlyRootFilesystem' must be set to false, 'runAsUser.rule' must be set to 'MustRunAsNonRoot', and adding the root group must be forbidden",
+  "severity": "MEDIUM",
+  "query_id": "e3aa0612-4351-4a0d-983f-aefea25cf203",
+  "query_name": "Root Containers Admitted",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

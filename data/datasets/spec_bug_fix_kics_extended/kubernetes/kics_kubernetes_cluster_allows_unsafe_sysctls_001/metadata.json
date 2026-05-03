@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_kubernetes_cluster_allows_unsafe_sysctls_001",
+  "category": "kubernetes",
+  "policy_engine": "opa",
+  "iac_tool": "kubernetes",
+  "source": "kics",
+  "original_query": "cluster_allows_unsafe_sysctls",
+  "sub_provider": null,
+  "description": "A Kubernetes Cluster must not allow unsafe sysctls, to prevent a pod from having any influence on any other pod on the node, harming the node's health or gaining CPU or memory resources outside of the resource limits of a pod. This means 'spec.securityContext.sysctls' must not specify unsafe sysctls and the attribute 'allowedUnsafeSysctls' must be undefined.",
+  "severity": "HIGH",
+  "query_id": "9127f0d9-2310-42e7-866f-5fd9d20dcbad",
+  "query_name": "Cluster Allows Unsafe Sysctls",
+  "platform": "Kubernetes",
+  "cloud_provider": "common"
+}

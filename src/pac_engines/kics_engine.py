@@ -156,7 +156,7 @@ class KICSEngine(BasePaCEngine):
                     "descriptionText": metadata.get(
                         "description", "Custom policy evaluation"
                     ),
-                    "platform": "Terraform",
+                    "platform": metadata.get("platform", "Terraform"),
                     "descriptionID": metadata.get("query_id", "custom"),
                 }
             elif self._cached_metadata:
@@ -171,7 +171,7 @@ class KICSEngine(BasePaCEngine):
                     "descriptionText": self._cached_metadata.get(
                         "description", "Custom policy evaluation"
                     ),
-                    "platform": "Terraform",
+                    "platform": self._cached_metadata.get("platform", "Terraform"),
                     "descriptionID": self._cached_metadata.get("query_id", "custom"),
                 }
             else:
@@ -187,8 +187,18 @@ class KICSEngine(BasePaCEngine):
 
             metadata_file.write_text(json.dumps(kics_metadata, indent=2))
 
-            # Write IaC file
-            iac_file = iac_dir / "main.tf"
+            # Write IaC file — use the filename from metadata when available
+            # so KICS can infer the platform from the extension (e.g. .tf, .yaml, .json)
+            iac_filename = (
+                metadata.get("iac_filename")
+                if metadata
+                else (
+                    self._cached_metadata.get("iac_filename")
+                    if self._cached_metadata
+                    else None
+                )
+            ) or "main.tf"
+            iac_file = iac_dir / iac_filename
             iac_file.write_text(iac_script)
 
             # Prepare results file path

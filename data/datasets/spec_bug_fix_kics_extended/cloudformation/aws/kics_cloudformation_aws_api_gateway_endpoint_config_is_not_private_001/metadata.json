@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_api_gateway_endpoint_config_is_not_private_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "api_gateway_endpoint_config_is_not_private",
+  "sub_provider": "aws",
+  "description": "The API Endpoint type in API Gateway should be set to PRIVATE so it's not exposed to the public internet",
+  "severity": "MEDIUM",
+  "query_id": "4a8daf95-709d-4a36-9132-d3e19878fa34",
+  "query_name": "API Gateway Endpoint Config is Not Private",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

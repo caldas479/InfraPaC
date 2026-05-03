@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_pulumi_aws_dynamodb_table_not_encrypted_001",
+  "category": "pulumi/aws",
+  "policy_engine": "opa",
+  "iac_tool": "pulumi",
+  "source": "kics",
+  "original_query": "dynamodb_table_not_encrypted",
+  "sub_provider": "aws",
+  "description": "AWS DynamoDB Tables should have serverSideEncryption enabled",
+  "severity": "HIGH",
+  "query_id": "b6a7e0ae-aed8-4a19-a993-a95760bf8836",
+  "query_name": "DynamoDB Table Not Encrypted",
+  "platform": "Pulumi",
+  "cloud_provider": "aws"
+}

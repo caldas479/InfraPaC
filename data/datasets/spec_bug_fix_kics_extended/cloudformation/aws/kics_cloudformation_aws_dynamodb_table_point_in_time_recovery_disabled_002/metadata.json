@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_dynamodb_table_point_in_time_recovery_disabled_002",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "dynamodb_table_point_in_time_recovery_disabled",
+  "sub_provider": "aws",
+  "description": "It's considered a best practice to have point in time recovery enabled for DynamoDB Table",
+  "severity": "MEDIUM",
+  "query_id": "0f04217d-488f-4e7a-bec8-f16159686cd6",
+  "query_name": "DynamoDB Table Point In Time Recovery Disabled",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

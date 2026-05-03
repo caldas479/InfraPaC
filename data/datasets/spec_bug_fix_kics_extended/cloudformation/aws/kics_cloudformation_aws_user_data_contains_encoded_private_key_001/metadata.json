@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_user_data_contains_encoded_private_key_001",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "user_data_contains_encoded_private_key",
+  "sub_provider": "aws",
+  "description": "User Data should not contain a base64 encoded private key. If so, anyone can decode the private key easily",
+  "severity": "HIGH",
+  "query_id": "568cc372-ca64-420d-9015-ee347d00d288",
+  "query_name": "User Data Contains Encoded Private Key",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}

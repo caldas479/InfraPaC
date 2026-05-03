@@ -1,0 +1,15 @@
+{
+  "entry_id": "kics_cloudformation_aws_elb_access_log_disabled_002",
+  "category": "cloudformation/aws",
+  "policy_engine": "opa",
+  "iac_tool": "cloudformation",
+  "source": "kics",
+  "original_query": "elb_access_log_disabled",
+  "sub_provider": "aws",
+  "description": "ELB should have access log enabled",
+  "severity": "MEDIUM",
+  "query_id": "ee12ad32-2863-4c0f-b13f-28272d115028",
+  "query_name": "ELB Access Log Disabled",
+  "platform": "CloudFormation",
+  "cloud_provider": "aws"
+}
