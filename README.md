@@ -1,6 +1,6 @@
 # InfraPaC: Automated Infrastructure as Code Repair via Policy as Code
 
-InfraPaC is an automated Infrastructure as Code (IaC) repair framework that uses Large Language Models to fix policy violations across multiple IaC languages and cloud platforms. The system detects violations using Policy as Code engines (OPA and KICS), generates fixes via LLMs, and iteratively validates repairs until compliance is achieved.
+InfraPaC is an repair agent that uses Large Language Models to fix policy violations across multiple IaC languages and cloud platforms. The system detects violations using Policy as Code engines (OPA and KICS), generates fixes via LLMs, and iteratively validates repairs until compliance is achieved.
 
 <p align="center">
   <img width="615" height="906" alt="image" src="https://github.com/user-attachments/assets/2ff75cb4-d435-4c95-b92d-718cd0057f79" />
